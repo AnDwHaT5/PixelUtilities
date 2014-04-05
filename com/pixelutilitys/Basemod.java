@@ -66,6 +66,7 @@ public class Basemod {
 
 	public static ArmorMaterial RUBYA = EnumHelper.addArmorMaterial("RUBYA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial SAPHIREA = EnumHelper.addArmorMaterial("SAPHIREA", 200, new int[] {3, 7, 6, 3}, 10);
+	public static ArmorMaterial SILICONA = EnumHelper.addArmorMaterial("SILICONA", 200, new int[] {3, 7, 6, 3}, 10);
 
 	//In development biome //pokebiome
 	//Biomes
@@ -146,17 +147,6 @@ public class Basemod {
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.AmethystItem});
-
-		//Armor crafting
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyPlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphirePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
 
 		/*	GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.fireStone});

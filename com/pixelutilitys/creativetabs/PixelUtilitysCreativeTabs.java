@@ -14,7 +14,7 @@ public class PixelUtilitysCreativeTabs {
 
 		@Override
 		public Item getTabIconItem() {
-			return PixelUtilitysItems.BoxItem;
+			return PixelUtilitysItems.TreeItem;
 		}
 	};
 

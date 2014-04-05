@@ -57,6 +57,22 @@ public class PixelUtilitysRecipes {
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.LeafstoneHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelmonItems.leafStone, Character.valueOf('Y'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.LeafstoneSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelmonItems.leafStone, Character.valueOf('Y'), Items.stick });
 		
+		
+	//Armor
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyPlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
+
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphirePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
+		
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticPlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
 	}
 	
 }

@@ -5,6 +5,10 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
 import com.pixelutilitys.Basemod;
+import com.pixelutilitys.armor.GalacticBoots;
+import com.pixelutilitys.armor.GalacticHelmet;
+import com.pixelutilitys.armor.GalacticLegs;
+import com.pixelutilitys.armor.GalacticPlate;
 import com.pixelutilitys.armor.RubyBoots;
 import com.pixelutilitys.armor.RubyHelmet;
 import com.pixelutilitys.armor.RubyLegs;
@@ -15,7 +19,6 @@ import com.pixelutilitys.armor.SaphireLegs;
 import com.pixelutilitys.armor.SaphirePlate;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class PixelUtilitysArmor {
 	/*
@@ -53,6 +56,12 @@ public class PixelUtilitysArmor {
 	public static Item saphirePlate;
 	public static Item saphireLegs;
 	public static Item saphireBoots;
+	
+	public static Item galacticHelm;
+	public static Item galacticBoots;
+	public static Item galacticPlate;
+	public static Item galacticLegs;
+	
 	/*
 	public static Item firestoneHelm;
 	public static Item firestonePlate;
@@ -105,6 +114,11 @@ public class PixelUtilitysArmor {
 		saphirePlate = new SaphirePlate(Basemod.SAPHIREA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:SaphirePlate").setUnlocalizedName("Saphire ChestPlate");
 		saphireLegs = new SaphireLegs(Basemod.SAPHIREA, 0, 2).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:SaphireLegs").setUnlocalizedName("Saphire Leggings");
 		saphireBoots = new SaphireBoots(Basemod.SAPHIREA, 0, 3).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:SaphireBoots").setUnlocalizedName("Saphire Booties");
+		
+		galacticHelm = new GalacticHelmet(Basemod.SILICONA, 0, 0).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticHelmet").setUnlocalizedName("Galactic Helmet");
+		galacticPlate = new GalacticPlate(Basemod.SILICONA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticPlate").setUnlocalizedName("Galactic ChestPlate");
+		galacticLegs = new GalacticLegs(Basemod.SILICONA, 0, 2).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticLegs").setUnlocalizedName("Galactic Leggings");
+		galacticBoots = new GalacticBoots(Basemod.SILICONA, 0, 3).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticBoots").setUnlocalizedName("Galactic Boots");
 		/*
 		firestoneHelm = new FireStoneHelmet(firestoneHelmID, Basemod.FIRESTONEA, 0, 0).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStoneHelmet").setUnlocalizedName("Firestone Helmet");
 		firestonePlate = new FireStonePlate(firestonePlateID, Basemod.FIRESTONEA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStonePlate").setUnlocalizedName("Firestone Chestlate");
@@ -159,6 +173,11 @@ public class PixelUtilitysArmor {
 		GameRegistry.registerItem(saphirePlate, saphirePlate.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(saphireLegs, saphireLegs.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(saphireBoots, saphireBoots.getUnlocalizedName().substring(5));
+		
+		GameRegistry.registerItem(galacticHelm, galacticHelm.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(galacticPlate, galacticPlate.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(galacticLegs, galacticLegs.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(galacticBoots, galacticBoots.getUnlocalizedName().substring(5));
 		
 		/*GameRegistry.registerItem(firestoneHelm, "Firestone Helmet");
 		GameRegistry.registerItem(firestonePlate, "Firestone Chestplate");
