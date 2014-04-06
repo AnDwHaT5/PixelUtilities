@@ -28,6 +28,7 @@ import com.pixelutilitys.entitys.TrashcanEntity;
 import com.pixelutilitys.entitys.TreeEntity;
 import com.pixelutilitys.entitys.YellowCusionChairEntity;
 import com.pixelutilitys.worldgen.AmethystGenerator;
+import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
 import com.pixelutilitys.worldgen.SaphireGenerator;
 import com.pixelutilitys.worldgen.SiliconGenerator;
@@ -140,6 +141,7 @@ public class Basemod {
 		GameRegistry.registerWorldGenerator(new SaphireGenerator(), 0);
 		GameRegistry.registerWorldGenerator(new AmethystGenerator(), 0);
 		GameRegistry.registerWorldGenerator(new SiliconGenerator(), 0);
+		GameRegistry.registerWorldGenerator(new CrystalGenerator(), 0);
 
 		PixelUtilitysRecipes.addRecipes();
 
@@ -174,6 +176,7 @@ public class Basemod {
 		PixelUtilitysBlocks.SaphireOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.AmethystOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.SiliconOre.setHarvestLevel("pickaxe", 2);
+		PixelUtilitysBlocks.CrystalOre.setHarvestLevel("pickaxe", 2);
 
 		MinecraftForge.EVENT_BUS.register(new CustomDrops());
 	}
