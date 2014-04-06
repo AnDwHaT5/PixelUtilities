@@ -5,6 +5,10 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
 import com.pixelutilitys.Basemod;
+import com.pixelutilitys.armor.CrystalBoots;
+import com.pixelutilitys.armor.CrystalHelmet;
+import com.pixelutilitys.armor.CrystalLegs;
+import com.pixelutilitys.armor.CrystalPlate;
 import com.pixelutilitys.armor.GalacticBoots;
 import com.pixelutilitys.armor.GalacticHelmet;
 import com.pixelutilitys.armor.GalacticLegs;
@@ -61,6 +65,11 @@ public class PixelUtilitysArmor {
 	public static Item galacticBoots;
 	public static Item galacticPlate;
 	public static Item galacticLegs;
+	
+	public static Item crystalHelm;
+	public static Item crystalBoots;
+	public static Item crystalPlate;
+	public static Item crystalLegs;
 	
 	/*
 	public static Item firestoneHelm;
@@ -119,6 +128,12 @@ public class PixelUtilitysArmor {
 		galacticPlate = new GalacticPlate(Basemod.SILICONA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticPlate").setUnlocalizedName("Galactic ChestPlate");
 		galacticLegs = new GalacticLegs(Basemod.SILICONA, 0, 2).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticLegs").setUnlocalizedName("Galactic Leggings");
 		galacticBoots = new GalacticBoots(Basemod.SILICONA, 0, 3).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:GalacticBoots").setUnlocalizedName("Galactic Boots");
+		
+		crystalHelm = new CrystalHelmet(Basemod.CRYSTALA, 0, 0).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:CrystalHelmet").setUnlocalizedName("Crystal Helmet");
+		crystalPlate = new CrystalPlate(Basemod.CRYSTALA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:CrystalPlate").setUnlocalizedName("Crystal ChestPlate");
+		crystalLegs = new CrystalLegs(Basemod.CRYSTALA, 0, 2).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:CrystalLegs").setUnlocalizedName("Crystal Leggings");
+		crystalBoots = new CrystalBoots(Basemod.CRYSTALA, 0, 3).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:CrystalBoots").setUnlocalizedName("Crystal Boots");
+		
 		/*
 		firestoneHelm = new FireStoneHelmet(firestoneHelmID, Basemod.FIRESTONEA, 0, 0).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStoneHelmet").setUnlocalizedName("Firestone Helmet");
 		firestonePlate = new FireStonePlate(firestonePlateID, Basemod.FIRESTONEA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStonePlate").setUnlocalizedName("Firestone Chestlate");

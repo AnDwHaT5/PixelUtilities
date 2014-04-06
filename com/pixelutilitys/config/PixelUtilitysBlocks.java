@@ -48,9 +48,11 @@ public class PixelUtilitysBlocks {
 	public static int RubyOreID;
 	public static int SaphireOreID;
 	public static int AmethystOreID;
+	public static int CrystalOreID;
 	public static int RubyBlockID;
 	public static int SaphireBlockID;
 	public static int AmethystBlockID;
+	public static int CrystalBlockID;
 	public static int SiliconOreID;
 	public static int ClothedTableBlockID;
 	public static int PokeballBlockID;
@@ -98,9 +100,11 @@ public class PixelUtilitysBlocks {
 	public static Block RubyOre;
 	public static Block SaphireOre;
 	public static Block AmethystOre;
+	public static Block CrystalOre;
 	public static Block RubyBlock;
 	public static Block SaphireBlock;
 	public static Block AmethystBlock;
+	public static Block CrystalBlock;
 	public static Block SiliconOre;
 	public static Block ClothedTableBlock;
 	public static Block PokeballBlock;
@@ -111,6 +115,7 @@ public class PixelUtilitysBlocks {
 	public static Block TotodilePokedollBlock;
 	public static Block AronPokedollBlock;
 	public static Block BisharpPokedollBlock;
+
 
 
 	//public static Block PokeWaterStill;
@@ -166,6 +171,8 @@ public class PixelUtilitysBlocks {
 		//PokeWaterStillID = cfg.get("block", "pokewaterstill", 3096).getInt();
 		AronPokedollBlockID = cfg.get("block", "arondoll", 3097).getInt();
 		BisharpPokedollBlockID = cfg.get("block", "bisharpdoll", 3098).getInt();
+		CrystalOreID = cfg.get("block", "crystalore", 3099).getInt();
+		CrystalBlockID = cfg.get("block", "crystalblock", 3100).getInt();
 
 		NewGrassBlock = new PokeGrassBlock(NewGrassBlockID, Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeGrass").setBlockTextureName("PixelUtilitys" +":"+ "PokeGrass").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		PokeDirtBlock = new PokeDirtBlock(PokeDirtBlockID, Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeDirt").setBlockTextureName("PixelUtilitys" +":"+ "PokeDirt").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
@@ -200,9 +207,11 @@ public class PixelUtilitysBlocks {
 		RubyOre = new RubyOre(RubyOreID, Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("RubyOre").setBlockTextureName("pixelutilitys:RubyOre");;
 		SaphireOre = new SaphireOre(SaphireOreID, Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("SaphireOre").setBlockTextureName("pixelutilitys:SaphireOre");;
 		AmethystOre = new AmethystOre(AmethystOreID, Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("AmethystOre").setBlockTextureName("pixelutilitys:AmethystOre");;
+		CrystalOre = new CrystalOre(CrystalOreID, Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("CrystalOre").setBlockTextureName("pixelutilitys:CrystalOre");
 		RubyBlock = new RubyBlock(RubyBlockID, Material.rock).setHardness(8.5f).setStepSound(Block.soundTypeMetal).setBlockName("RubyBlock").setBlockTextureName("pixelutilitys:RubyBlock").setCreativeTab(CreativeTabs.tabBlock);;
 		SaphireBlock = new SaphireBlock(SaphireBlockID, Material.rock).setHardness(8.5f).setStepSound(Block.soundTypeMetal).setBlockName("SaphireBlock").setBlockTextureName("pixelutilitys:SaphireBlock").setCreativeTab(CreativeTabs.tabBlock);;
 		AmethystBlock = new AmethystBlock(AmethystBlockID, Material.rock).setHardness(8.5f).setStepSound(Block.soundTypeMetal).setBlockName("AmethystBlock").setBlockTextureName("pixelutilitys:AmethystBlock").setCreativeTab(CreativeTabs.tabBlock);;
+		CrystalBlock = new CrystalBlock(CrystalBlockID, Material.rock).setHardness(8.5f).setStepSound(Block.soundTypeMetal).setBlockName("CrystalBlock").setBlockTextureName("pixelutilitys:CrystalBlock").setCreativeTab(CreativeTabs.tabBlock);
 		SiliconOre = new SiliconOre(SiliconOreID, Material.rock).setHardness(1.2f).setStepSound(Block.soundTypeMetal).setBlockName("SiliconOre").setBlockTextureName("pixelutilitys:SiliconOre").setCreativeTab(CreativeTabs.tabBlock);;
 		ClothedTableBlock = new ClothedTableBlock(ClothedTableBlockID, Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("ClothedTable");;
 		PokeballBlock = new PokeballBlock(PokeballBlockID, Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Pokeball");;
@@ -277,6 +286,7 @@ public class PixelUtilitysBlocks {
 		//LanguageRegistry.addName(SaphireBlock, "Saphire Block");
 		GameRegistry.registerBlock(AmethystBlock, "AmethystBlock");
 		//LanguageRegistry.addName(AmethystBlock, "Amethyst Block");
+		GameRegistry.registerBlock(CrystalBlock, "CrystalBlock");
 		GameRegistry.registerBlock(TreeBlock, "Tree");
 		//LanguageRegistry.addName(TreeBlock, "Tree");
 		GameRegistry.registerBlock(BolderBlock, "Bolder");
@@ -298,6 +308,7 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(RubyOre, "RubyOre");
 		GameRegistry.registerBlock(SaphireOre, "SaphireOre");
 		GameRegistry.registerBlock(AmethystOre, "AmethystOre");
+		GameRegistry.registerBlock(CrystalOre, "CrystalOre");
 		//LanguageRegistry.addName(RubyOre, "Ruby Ore");
 		//LanguageRegistry.addName(SaphireOre, "Saphire Ore");
 		//LanguageRegistry.addName(AmethystOre, "Amethyst Ore");
