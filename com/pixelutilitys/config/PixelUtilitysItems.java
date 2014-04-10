@@ -170,7 +170,7 @@ public class PixelUtilitysItems {
 		TotodilePokedollItem = new TotodilePokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:TotodileDoll");
 		AronPokedollItem = new AronPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:AronDoll");
 		BisharpPokedollItem = new BisharpPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:BisharpDoll");
-		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:CrystalItem");
+		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 	}
 
 	public static void addNames() {
