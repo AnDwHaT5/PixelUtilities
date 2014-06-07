@@ -10,15 +10,19 @@ import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
 import com.net.trigore.radioblock.player.VLCPlayer;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -27,6 +31,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -41,6 +47,9 @@ public class ModRadioBlock {
 	
 	public static FMLEventChannel channel;
 	
+	public static boolean vlcLoaded = false;
+	public static boolean is64bit = false;
+	
 	
 	@SidedProxy(clientSide = "com.net.trigore.radioblock.ClientProxy", serverSide="com.net.trigore.radioblock.CommonProxy")
 	public static CommonProxy proxy;
@@ -51,12 +60,11 @@ public class ModRadioBlock {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		AddMeta(event, "0.1");
+		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
 	}
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent evt){
-		System.out.println("radio init");
-		
 		PacketHandler.init();
 		
 		GameRegistry.registerBlock(blockRadio, "Radio");
@@ -64,11 +72,25 @@ public class ModRadioBlock {
 		GameRegistry.addRecipe(new ItemStack(blockRadio), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));
 		proxy.initTileEntities();
 		
-        NativeLibrary.addSearchPath(
+		is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
+		
+		if(is64bit)
+        {
+			NativeLibrary.addSearchPath(
                 RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
             );
+        }
+		else
+		{
+			NativeLibrary.addSearchPath(
+				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC2"
+			);
+		}
+		
+        
         try{
         	Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+        	vlcLoaded = true;
         }catch(UnsatisfiedLinkError error)
         {
         	System.out.println("You need to install VLC for this mod");

@@ -29,6 +29,7 @@ public class VLCPlayer {
                 frame.setVisible(true);
 
                 mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);//needed for some streams (youtube)
+                mediaPlayerComponent.getMediaPlayer().setRepeat(true);//enable loop ;D
                 
                 mediaPlayerComponent.getMediaPlayer().playMedia(streamURL.toString());
                 
