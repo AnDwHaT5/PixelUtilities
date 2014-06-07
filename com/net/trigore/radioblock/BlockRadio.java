@@ -1,4 +1,4 @@
-/*package com.net.trigore.radioblock;
+package com.net.trigore.radioblock;
 
 import java.util.Random;
 
@@ -31,6 +31,7 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 		setStepSound(Block.soundTypeStone);
 		setBlockName("Radio");
 		setCreativeTab(CreativeTabs.tabDecorations);
+		setBlockTextureName("pixelutilitys:radio");
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister) {
-		blockIcon = par1IconRegister.registerIcon("radioblock:radio");
+		//blockIcon = par1IconRegister.registerIcon("pixelutilitys:radio");
 	}
 
 	@Override
@@ -121,7 +122,7 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 
 	/**
 	 * Called when the block is placed in the world.
-	 *//*
+	 */
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4,
 			EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
 		int l = MathHelper
@@ -154,14 +155,16 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 	@SideOnly(Side.CLIENT)
 	/**
 	 * A randomly called display update to be able to add particles or other items for display
-	 *//*
-	public void randomDisplayTick(World par1World, int par2, int par3,
-			int par4, Random par5Random) {
+	 */
+	public void randomDisplayTick(World par1World, int x, int y,
+			int z, Random par5Random) {
 
+		TileEntityRadio radio = (TileEntityRadio) Minecraft.getMinecraft().theWorld.getTileEntity(x, y, z);
+		if(radio.isPlaying())
 		for (int l = 0; l < 4; ++l) {
-			double d0 = (double) ((float) par2 + par5Random.nextFloat());
-			double d1 = (double) ((float) par3 + par5Random.nextFloat());
-			double d2 = (double) ((float) par4 + par5Random.nextFloat());
+			double d0 = (double) ((float) x + par5Random.nextFloat());
+			double d1 = (double) ((float) y + par5Random.nextFloat());
+			double d2 = (double) ((float) z + par5Random.nextFloat());
 			double d3 = 0.0D;
 			double d4 = 0.0D;
 			double d5 = 0.0D;
@@ -170,12 +173,12 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 			d4 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
 			d5 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
 
-			if (par1World.getBlock(par2 - 1, par3, par4) != this
-					&& par1World.getBlock(par2 + 1, par3, par4) != this) {
-				d0 = (double) par2 + 0.5D + 0.25D * (double) i1;
+			if (par1World.getBlock(x - 1, y, z) != this
+					&& par1World.getBlock(x + 1, y, z) != this) {
+				d0 = (double) x + 0.5D + 0.25D * (double) i1;
 				d3 = (double) (par5Random.nextFloat() * 2.0F * (float) i1);
 			} else {
-				d2 = (double) par4 + 0.5D + 0.25D * (double) i1;
+				d2 = (double) z + 0.5D + 0.25D * (double) i1;
 				d5 = (double) (par5Random.nextFloat() * 2.0F * (float) i1);
 			}
 
@@ -189,4 +192,3 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 		return new TileEntityRadio();
 	}
 }
-*/
