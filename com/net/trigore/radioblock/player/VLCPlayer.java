@@ -28,7 +28,7 @@ public class VLCPlayer {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setVisible(true);
 
-                mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);
+                mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);//needed for some streams (youtube)
                 
                 mediaPlayerComponent.getMediaPlayer().playMedia(streamURL.toString());
                 
@@ -43,7 +43,7 @@ public class VLCPlayer {
         
 	}
 
-	public void setVolume(float v2) {
+	public void setVolume(float v2) {//TODO fix volume level generation
 		v2 *=200;
 		if(isPlaying())
 		mediaPlayerComponent.getMediaPlayer().setVolume((int) v2);

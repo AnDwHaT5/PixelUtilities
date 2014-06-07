@@ -15,17 +15,19 @@ import cpw.mods.fml.common.FMLCommonHandler;
 public class MessageTileEntityRadio implements IMessage, IMessageHandler<MessageTileEntityRadio, IMessage> {
 
 	public int x,y,z;
+	public boolean playing = false;
 	public String url = "http://haxyshideout.co.uk/songs/desu.mp3";
 	
 	public MessageTileEntityRadio()
 	{
 	}
 	
-	public MessageTileEntityRadio(int x, int y, int z, String url)
+	public MessageTileEntityRadio(int x, int y, int z, boolean playing, String url)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.playing = playing;
 		this.url = url;
 	}
 	
@@ -40,10 +42,10 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 	@Override
 	public void fromBytes(ByteBuf buf)
 	{
-		System.out.println("fromBytes");
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
+		this.playing = buf.readBoolean();
 		int streamLength = buf.readInt();
 		if(streamLength > 0)
 			this.url = new String(buf.readBytes(streamLength).array());
@@ -53,31 +55,24 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 	@Override
 	public void toBytes(ByteBuf buf)
 	{
-		System.out.println("toBytes");
 		buf.writeInt(this.x);
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
+		buf.writeBoolean(playing);
 		
 		int urlLength = this.url.length();
 		buf.writeInt(urlLength);
 		if(urlLength > 0)
 			buf.writeBytes(this.url.getBytes());
 		
-		//System.out.println("wrote "+this.x+" "+this.y+" "+this.z+" "+urlLength+" "+this.url);
 	}
 	
 	@Override
 	public IMessage onMessage(MessageTileEntityRadio message, MessageContext context)
 	{
-		
-		System.out.println("onMessage packet side "+context.side.toString());
-		System.out.println("onMessage "+message.x+" "+message.y+" "+message.z);
-		
 		if (context.side == Side.SERVER){
-			System.out.println("Resending to everyone");
-			PacketHandlerNew.INSTANCE.sendToAll(message);
+			PacketHandler.INSTANCE.sendToAll(message);
 		}
-		System.out.println("sent to everyone");
 		
 			TileEntity te = null;
 			if(context.side == Side.SERVER){
@@ -97,12 +92,11 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 			
 			
 			if(te instanceof TileEntityRadio){
-				System.out.println("we got a radio :O");
 				TileEntityRadio r = (TileEntityRadio)te;
 				r.streamURL = message.url;
 				
 				if(context.side == Side.CLIENT)
-				if(!r.isPlaying()){
+				if(message.playing && !r.isPlaying()){
 					r.startStream();
 				}else{
 					r.stopStream();
@@ -116,7 +110,7 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 	@Override
 	public String toString()
 	{
-		return String.format("MessageTileEntityRadio - x:%s, y:%s, z:%s, url:%s", this.x, this.y, this.z, this.url);
+		return String.format("MessageTileEntityRadio - x:%s, y:%s, z:%s, playing:%s, url:%s", this.x, this.y, this.z,this.playing, this.url);
 	}
 
 	

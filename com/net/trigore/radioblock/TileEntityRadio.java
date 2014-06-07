@@ -67,8 +67,7 @@ public class TileEntityRadio extends TileEntity{
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void invalidate(){
-		//TODO: RAdio packets
-		//Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(ModRadioBlock.setPacket(xCoord, yCoord, zCoord, streamURL, !isPlaying()));
+		PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(xCoord, yCoord, zCoord, !isPlaying(), streamURL));
 		super.invalidate();
 	}
 	
@@ -113,8 +112,7 @@ public class TileEntityRadio extends TileEntity{
 	
 	@Override
 	public Packet getDescriptionPacket(){
-		//TODO: RAdio packets
-		//return ModRadioBlock.setPacket(xCoord, yCoord, zCoord, streamURL, isPlaying);
+		PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(xCoord, yCoord, zCoord, isPlaying(), streamURL));
 		return null;
 	}
 }

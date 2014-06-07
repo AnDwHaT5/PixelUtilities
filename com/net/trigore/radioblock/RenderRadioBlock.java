@@ -43,11 +43,8 @@ public class RenderRadioBlock extends TileEntitySpecialRenderer{
 					break;
 			}
 			
-			
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(field_110422_t);
 			
-			
-			//bindTextureByName("/mods/radioblock/textures/blocks/radioentity.png");
 			model.render(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.1f);
         GL11.glPopMatrix();
 	}

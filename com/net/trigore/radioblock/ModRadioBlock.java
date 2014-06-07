@@ -57,7 +57,7 @@ public class ModRadioBlock {
 	public void init(FMLInitializationEvent evt){
 		System.out.println("radio init");
 		
-		PacketHandlerNew.init();
+		PacketHandler.init();
 		
 		GameRegistry.registerBlock(blockRadio, "Radio");
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");

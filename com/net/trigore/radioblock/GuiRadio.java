@@ -106,13 +106,11 @@ public class GuiRadio extends GuiScreen{
 				}else{
 					radio.streamURL = streamTextBox.getText();
 				}
-				//TODO: RAdio packets
-				//Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(ModRadioBlock.setPacket(radio.xCoord, radio.yCoord, radio.zCoord, radio.streamURL, radio.isPlaying()));
 				
-				PacketHandlerNew.INSTANCE.sendToServer(new MessageTileEntityRadio(radio));
+				PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(radio.xCoord, radio.yCoord, radio.zCoord, radio.isPlaying(), radio.streamURL));
 				
-				//TODO: RAdio packets
-				//Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(ModRadioBlock.setPacket(radio.xCoord, radio.yCoord, radio.zCoord, radio.streamURL, !radio.isPlaying()));
+				PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(radio.xCoord, radio.yCoord, radio.zCoord, !radio.isPlaying(), radio.streamURL));
+				
 			}
 			
 			
