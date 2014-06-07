@@ -6,61 +6,104 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
-import com.net.trigore.radioblock.player.MP3Player;
+import com.net.trigore.radioblock.player.VLCPlayer;
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "TriRadio", name = "Triradio ", version = "0.1", dependencies = "required-after:pixelutilitys")
+@Mod(modid = "TriRadio", name = "Triradio ", version = "0.1")
 //@Network(channels = {"RadioBlock"}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class)
 public class ModRadioBlock {
-	/*
+	
 	@Instance
 	public static ModRadioBlock instance;
-	*/
-	/*
-	@SidedProxy(clientSide = "net.trigore.radioblock.ClientProxy", serverSide="net.trigore.radioblock.CommonProxy")
+	
+	public static FMLEventChannel channel;
+	
+	public static boolean vlcLoaded = false;
+	public static boolean is64bit = false;
+	
+	
+	@SidedProxy(clientSide = "com.net.trigore.radioblock.ClientProxy", serverSide="com.net.trigore.radioblock.CommonProxy")
 	public static CommonProxy proxy;
 	
 	public final static BlockRadio blockRadio = new BlockRadio(189, Material.wood);
 	
-	public static List<MP3Player> playerList = new ArrayList<MP3Player>();
+	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		AddMeta(event, "0.1");
+		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
 	}
 	
+	@Mod.EventHandler
 	public void init(FMLInitializationEvent evt){
+		PacketHandler.init();
 		
 		GameRegistry.registerBlock(blockRadio, "Radio");
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
 		GameRegistry.addRecipe(new ItemStack(blockRadio), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));
-		//LanguageRegistry.addName(blockRadio, "Radio");
 		proxy.initTileEntities();
+		
+		is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
+		
+		if(is64bit)
+        {
+			NativeLibrary.addSearchPath(
+                RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
+            );
+        }
+		else
+		{
+			NativeLibrary.addSearchPath(
+				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC2"
+			);
+		}
+		
+        
+        try{
+        	Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+        	vlcLoaded = true;
+        }catch(UnsatisfiedLinkError error)
+        {
+        	System.out.println("You need to install VLC for this mod");
+        }
 		
 	}
 	
 	public void serverStop(FMLServerStoppedEvent event) {
-		//System.out.println("Stopped!");
 		killAllStreams();
 	}
 	
 	public static void killAllStreams(){
-		for(MP3Player p : playerList){
+		for(VLCPlayer p : playerList){
 			p.stop();
 		}
 	}
@@ -68,33 +111,14 @@ public class ModRadioBlock {
 	 @Mod.EventHandler
 	  public void load(FMLInitializationEvent event)
 	  {
-//		 proxy.registerRenderers();
+		 LanguageRegistry.addName(blockRadio, "Radio");
 	  }
-	
-	
-	public static Packet250CustomPayload setPacket(int x, int y, int z, String streamURL, boolean playing){
-		Packet250CustomPayload p = new Packet250CustomPayload();
-		p.channel = "RadioBlock";
-		ByteArrayOutputStream baos = new ByteArrayOutputStream(8);
-		DataOutputStream dos = new DataOutputStream(baos);
-		try {
-			dos.writeInt(0x01);//0x01 will identify this as setting the stream
-			dos.writeInt(x);
-			dos.writeInt(y);
-			dos.writeInt(z);
-			dos.writeUTF(streamURL);
-			dos.writeBoolean(playing);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		p.length = baos.toByteArray().length;
-		p.data = baos.toByteArray();
-		return p;
-	}
+
+	 
 	/**
 	 * Add Pack Meta Data
 	 */
-	/*
+	
 	private void AddMeta(FMLPreInitializationEvent event, String version) {
 
 		ModMetadata m = event.getModMetadata(); // This is required or it will not work
@@ -107,6 +131,6 @@ public class ModRadioBlock {
 		m.description = "PixelUtilitys radio";
 		m.authorList.add("Trigore");
 
-	}*/
+	}
 	
 }

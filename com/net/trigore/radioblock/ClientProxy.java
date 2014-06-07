@@ -1,4 +1,4 @@
-/*package com.net.trigore.radioblock;
+package com.net.trigore.radioblock;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 
@@ -15,4 +15,4 @@ public class ClientProxy extends CommonProxy{
 		//System.out.println("registering renderer");
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRadio.class, new RenderRadioBlock());
 	}
-}*/
+}

@@ -13,7 +13,7 @@ public class RenderRadioBlock extends TileEntitySpecialRenderer{
 
 	ModelRadio model = new ModelRadio();
 	
-	private static final ResourceLocation field_110422_t = new ResourceLocation("radioblock","textures/blocks/radioentity.png");
+	private static final ResourceLocation field_110422_t = new ResourceLocation("pixelutilitys","textures/specialmodels/radioentity.png");
 	
 	
 	@Override
@@ -43,11 +43,8 @@ public class RenderRadioBlock extends TileEntitySpecialRenderer{
 					break;
 			}
 			
-			
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(field_110422_t);
 			
-			
-		//	bindTextureByName("/mods/radioblock/textures/blocks/radioentity.png");
 			model.render(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.1f);
         GL11.glPopMatrix();
 	}

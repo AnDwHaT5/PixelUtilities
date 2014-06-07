@@ -1,4 +1,4 @@
-/*package com.net.trigore.radioblock;
+package com.net.trigore.radioblock;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -14,12 +14,11 @@ import net.minecraftforge.client.IItemRenderer;
 public class ItemRenderHandRadio implements IItemRenderer {
 
 	protected ModelRadioHand ModelRadioHand;
-	private static final ResourceLocation field_110422_t = new ResourceLocation("radioblock","textures/blocks/radioentity.png");
+	private static final ResourceLocation field_110422_t = new ResourceLocation("pixelutilitys","textures/specialmodels/radioentity.png");
 	
 	
 	public ItemRenderHandRadio()
 	{
-		ModelRadioHand = ModelRadioHand;
 	}
 	
 	@Override
@@ -34,7 +33,6 @@ public class ItemRenderHandRadio implements IItemRenderer {
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
 			ItemRendererHelper helper) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -75,4 +73,3 @@ public class ItemRenderHandRadio implements IItemRenderer {
 	}
 
 }
-*/

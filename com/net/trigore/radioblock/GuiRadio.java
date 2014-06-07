@@ -1,4 +1,4 @@
-/*package com.net.trigore.radioblock;
+package com.net.trigore.radioblock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,16 +17,17 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
 
 public class GuiRadio extends GuiScreen{
-	/*private int posX;
+	private int posX;
 	private int posY;
-	private int posZ;*//*
+	private int posZ;
+	
 	public TileEntityRadio radio;
 	private GuiTextField streamTextBox;
 	
 	public GuiRadio(TileEntityRadio r){
-		/*posX = x;
-		posY = y;
-		posZ = z;*//*
+		posX = r.xCoord;
+		posY = r.yCoord;
+		posZ = r.zCoord;
 		radio = r;
 	}
 	
@@ -105,11 +106,11 @@ public class GuiRadio extends GuiScreen{
 				}else{
 					radio.streamURL = streamTextBox.getText();
 				}
-				Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(ModRadioBlock.setPacket(radio.xCoord, radio.yCoord, radio.zCoord, radio.streamURL, radio.isPlaying()));
-				//TODO: asx format http://en.wikipedia.org/wiki/Advanced_Stream_Redirector
-				//TODO: XSPF format(or not, doesnt seem too popular): http://en.wikipedia.org/wiki/XSPF
 				
-				Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(ModRadioBlock.setPacket(radio.xCoord, radio.yCoord, radio.zCoord, radio.streamURL, !radio.isPlaying()));
+				PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(radio.xCoord, radio.yCoord, radio.zCoord, radio.isPlaying(), radio.streamURL));
+				
+				PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(radio.xCoord, radio.yCoord, radio.zCoord, !radio.isPlaying(), radio.streamURL));
+				
 			}
 			
 			
@@ -162,4 +163,3 @@ public class GuiRadio extends GuiScreen{
 		return out;
 	}
 }
-*/
