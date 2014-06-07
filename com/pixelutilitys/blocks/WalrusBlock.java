@@ -1,4 +1,4 @@
-package com.pixelutilitys.blocks;
+/*package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
@@ -102,4 +102,4 @@ public class WalrusBlock extends MultiBlock {
 		return null;
 	}
 
-}
+}*/

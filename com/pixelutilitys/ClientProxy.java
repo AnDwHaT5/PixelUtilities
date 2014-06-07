@@ -10,6 +10,7 @@ import com.pixelutilitys.entitys.BoxEntity;
 import com.pixelutilitys.entitys.ClothedTableEntity;
 import com.pixelutilitys.entitys.PokeballEntity;
 import com.pixelutilitys.entitys.RedCusionChairEntity;
+import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.entitys.TotodilePokedollEntity;
 import com.pixelutilitys.entitys.TrashcanEntity;
 import com.pixelutilitys.entitys.TreeEntity;
@@ -22,6 +23,7 @@ import com.pixelutilitys.renderers.BoxRenderer;
 import com.pixelutilitys.renderers.ClothedTableRenderer;
 import com.pixelutilitys.renderers.PokeballRenderer;
 import com.pixelutilitys.renderers.RedCusionChairRenderer;
+import com.pixelutilitys.renderers.RenderRadioBlock;
 import com.pixelutilitys.renderers.TotodilePokedollRenderer;
 import com.pixelutilitys.renderers.TrashcanRenderer;
 import com.pixelutilitys.renderers.TreeRenderer;
@@ -56,6 +58,7 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(AronPokedollEntity.class, new AronPokedollRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(BisharpPokedollEntity.class, new BisharpPokedollRenderer());
 		//ClientRegistry.bindTileEntitySpecialRenderer(WalrusTileEntity.class, new WalrusTileEntityRenderer());		
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRadio.class, new RenderRadioBlock());
 }
     
     @Override
