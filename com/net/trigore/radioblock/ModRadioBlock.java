@@ -38,8 +38,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "TriRadio", name = "Triradio ", version = "0.1")
-//@Network(channels = {"RadioBlock"}, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class)
+@Mod(modid = "TriRadio", name = "Triradio ", version = "0.2")
 public class ModRadioBlock {
 	
 	@Instance
@@ -83,7 +82,7 @@ public class ModRadioBlock {
 		else
 		{
 			NativeLibrary.addSearchPath(
-				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC2"
+				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC"
 			);
 		}
 		
@@ -130,6 +129,7 @@ public class ModRadioBlock {
 		m.updateUrl = "";
 		m.description = "PixelUtilitys radio";
 		m.authorList.add("Trigore");
+		m.authorList.add("Clienthax");
 
 	}
 	
