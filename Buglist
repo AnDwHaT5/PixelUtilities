@@ -2,8 +2,13 @@ PixelUtilities 3.0 Dev for 1.7.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 General issues
 ~~~~~~~~~~~~~
-Radio needs complete re-write
 All techne models need meta data rotation
+
+~~~~~~~~
+Radio issues
+~~~~~~~~
+Volume generation needs to be redone (seems to drop off rarther quickly after 30blocks?)
+need to make sure a stream being stopped before it is playing is terminated properly (currently bugs)
 
 
 Seems to be all for now if you find a bug put it here!
