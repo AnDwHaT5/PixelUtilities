@@ -1,4 +1,4 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.gui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,6 +7,10 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.lwjgl.input.Keyboard;
+
+import com.pixelutilitys.PacketHandler;
+import com.pixelutilitys.entitys.TileEntityRadio;
+import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

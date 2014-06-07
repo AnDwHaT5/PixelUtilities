@@ -1,4 +1,4 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

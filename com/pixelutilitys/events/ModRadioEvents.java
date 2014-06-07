@@ -1,4 +1,6 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.events;
+
+import com.pixelutilitys.Basemod;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -16,13 +18,13 @@ public class ModRadioEvents {
 	public void onPlayerLogin(PlayerLoggedInEvent event)
 	{
 		System.out.println("world join ");
-		if(!ModRadioBlock.vlcLoaded)//Display message in chat with link to vlc for arch
+		if(!Basemod.vlcLoaded)//Display message in chat with link to vlc for arch
 		{
 			ChatStyle style = new ChatStyle().setUnderlined(true).setColor(EnumChatFormatting.GOLD);
 			IChatComponent text = new ChatComponentText("You need to download VLC here to hear the radio ").setChatStyle(style);
 			event.player.addChatComponentMessage(text);
 			
-			if(ModRadioBlock.is64bit)
+			if(Basemod.is64bit)
 			{
 				text = new ChatComponentText("http://download.videolan.org/pub/videolan/vlc/last/win64/vlc-2.1.3-win64.exe").setChatStyle(style);
 			}

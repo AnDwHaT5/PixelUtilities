@@ -1,4 +1,7 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.networkMessages;
+
+import com.pixelutilitys.PacketHandler;
+import com.pixelutilitys.entitys.TileEntityRadio;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;

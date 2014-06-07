@@ -1,5 +1,6 @@
 package com.pixelutilitys.config;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -73,6 +74,10 @@ public class PixelUtilitysRecipes {
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticPlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelUtilitysItems.SiliconItem});
+
+	//Radio
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RadioBlock), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));
+
 	}
 	
 }

@@ -1,4 +1,6 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys;
+
+import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;

@@ -1,4 +1,4 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.entitys;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -6,7 +6,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 
-import com.net.trigore.radioblock.player.VLCPlayer;
+import com.pixelutilitys.Basemod;
+import com.pixelutilitys.PacketHandler;
+import com.pixelutilitys.config.PixelUtilitysBlocks;
+import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
+import com.pixelutilitys.radioplayer.VLCPlayer;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -19,7 +23,7 @@ public class TileEntityRadio extends TileEntity{
 	public String streamURL = "";
 	
 	public Block getBlockType(){
-		return ModRadioBlock.blockRadio;
+		return PixelUtilitysBlocks.RadioBlock;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -37,7 +41,7 @@ public class TileEntityRadio extends TileEntity{
 				System.out.println("making new player");
 				player = new VLCPlayer(streamURL);
 				System.out.println("player working? "+player.isPlaying());
-				ModRadioBlock.playerList.add(player);
+				Basemod.playerList.add(player);
 			}
 		}else{
 			System.err.println("Tried to play a stream twice out of one radio!");
@@ -52,7 +56,7 @@ public class TileEntityRadio extends TileEntity{
 			if(side == Side.CLIENT){
 				System.out.println("is stoped player playing "+player.isPlaying());
 				player.stop();
-				ModRadioBlock.playerList.remove(player);
+				Basemod.playerList.remove(player);
 			}
 			isPlaying = false;//player.isPlaying();
 		}else{

@@ -1,4 +1,4 @@
-package com.net.trigore.radioblock.player;
+package com.pixelutilitys.radioplayer;
 
 import java.net.URL;
 

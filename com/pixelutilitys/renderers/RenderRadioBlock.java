@@ -1,6 +1,8 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.renderers;
 
 import org.lwjgl.opengl.GL11;
+
+import com.pixelutilitys.models.ModelRadio;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.renderer.entity.Render;

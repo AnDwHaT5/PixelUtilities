@@ -65,6 +65,7 @@ public class PixelUtilitysBlocks {
 	//public static Fluid PokeWaterFlowingID;
 	public static int AronPokedollBlockID;
 	public static int BisharpPokedollBlockID;
+	public static int BlockRadioID;
 	//Blocks
 
 	public static Block NewGrassBlock;
@@ -115,6 +116,7 @@ public class PixelUtilitysBlocks {
 	public static Block TotodilePokedollBlock;
 	public static Block AronPokedollBlock;
 	public static Block BisharpPokedollBlock;
+	public static Block RadioBlock;
 
 
 
@@ -173,6 +175,7 @@ public class PixelUtilitysBlocks {
 		BisharpPokedollBlockID = cfg.get("block", "bisharpdoll", 3098).getInt();
 		CrystalOreID = cfg.get("block", "crystalore", 3099).getInt();
 		CrystalBlockID = cfg.get("block", "crystalblock", 3100).getInt();
+		BlockRadioID = cfg.get("block", "radio", 3101).getInt();
 
 		NewGrassBlock = new PokeGrassBlock(NewGrassBlockID, Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeGrass").setBlockTextureName("PixelUtilitys" +":"+ "PokeGrass").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		PokeDirtBlock = new PokeDirtBlock(PokeDirtBlockID, Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeDirt").setBlockTextureName("PixelUtilitys" +":"+ "PokeDirt").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
@@ -223,6 +226,7 @@ public class PixelUtilitysBlocks {
 		//PokeWaterFlowing = new PokeWaterFlowing(PokeWaterFlowingID, Material.water).setBlockName("PokeWaterFlowing").setBlockTextureName("pixelutilitys:PokeWater").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);
 		AronPokedollBlock = new AronPokedollBlock(AronPokedollBlockID, Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("AronDoll");;
 		BisharpPokedollBlock = new BisharpPokedollBlock(BisharpPokedollBlockID, Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BisharpDoll");;
+		RadioBlock = new BlockRadio(BlockRadioID, Material.wood);
 	}
 	public static void addNames() {
 
@@ -318,7 +322,7 @@ public class PixelUtilitysBlocks {
 		//LanguageRegistry.addName(AronPokedollBlock, "Aron Pokedoll");
 		GameRegistry.registerBlock(BisharpPokedollBlock, "BisharpDoll");
 		//LanguageRegistry.addName(BisharpPokedollBlock, "Bisharp Pokedoll");
-
+		GameRegistry.registerBlock(RadioBlock, "Radio");
 
 		//GameRegistry.registerBlock(PokeWaterStill, "PokeWaterStill");
 		//LanguageRegistry.addName(PokeWaterStill, "PokeWater Still");

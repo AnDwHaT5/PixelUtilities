@@ -1,6 +1,9 @@
-package com.net.trigore.radioblock;
+package com.pixelutilitys.blocks;
 
 import java.util.Random;
+
+import com.pixelutilitys.entitys.TileEntityRadio;
+import com.pixelutilitys.gui.GuiRadio;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
