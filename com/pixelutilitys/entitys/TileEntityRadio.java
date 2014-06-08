@@ -20,6 +20,7 @@ public class TileEntityRadio extends TileEntity{
 	
 	private VLCPlayer player = null;
 	private boolean isPlaying = false;
+	private boolean isLooping = false;
 	public String streamURL = "";
 	
 	public Block getBlockType(){
@@ -68,6 +69,16 @@ public class TileEntityRadio extends TileEntity{
 		return isPlaying;
 	}
 	
+	public boolean isLooping()
+	{
+		return isLooping;
+	}
+	
+	public void setIsLooping(boolean loop)
+	{
+		isLooping = loop;
+		
+	}
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void invalidate(){

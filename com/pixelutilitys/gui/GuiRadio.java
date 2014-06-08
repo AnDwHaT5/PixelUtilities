@@ -24,8 +24,8 @@ public class GuiRadio extends GuiScreen{
 	private int posX;
 	private int posY;
 	private int posZ;
-	
-	public TileEntityRadio radio;
+	public String status;
+	public static TileEntityRadio radio;
 	private GuiTextField streamTextBox;
 	
 	public GuiRadio(TileEntityRadio r){
@@ -37,11 +37,13 @@ public class GuiRadio extends GuiScreen{
 	
 	@Override
 	public void initGui(){
+		
 		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, height / 2 + 10, 200, 20, "Play/Pause"));
+		this.buttonList.add(new GuiButton(2, this.width / 2 + 17, height /2+60, 50, 20, "Loop On"));
+		this.buttonList.add(new GuiButton(3, this.width / 2 - 60, height /2+60, 50, 20, "Loop Off"));
 		streamTextBox = new GuiTextField(fontRendererObj, width / 2 - 100, height / 2 + 35 , 200, 20);
 		streamTextBox.setMaxStringLength(1000);
 		streamTextBox.setText(radio.streamURL);
-		
 		
 	}
 	
@@ -65,11 +67,18 @@ public class GuiRadio extends GuiScreen{
 			this.drawCenteredString(this.fontRendererObj, "Not Playing", this.width / 2, 60, 16777215);
 		}
 		
+		if(this.radio.isLooping()){
+			this.drawCenteredString(this.fontRendererObj, "Looping", this.width / 2, 70, 16777215);
+		}else{
+			this.drawCenteredString(this.fontRendererObj, "Not Looping", this.width / 2, 70, 16777215);
+		}
+		
 		
 	}
 	
 	@Override
 	public void updateScreen(){
+		
 		streamTextBox.updateCursorCounter();
 		if(radio.isInvalid()){//close GUI if radio is dead
 			this.mc.displayGuiScreen((GuiScreen)null);
@@ -120,6 +129,16 @@ public class GuiRadio extends GuiScreen{
 			
 			
 			}
+		
+		if(par1GuiButton.id == 2){	
+				radio.setIsLooping(true);
+			
+		}
+		if(par1GuiButton.id == 3)
+		{
+			
+			radio.setIsLooping(false);
+		}
 			
 	}
 	
@@ -160,6 +179,11 @@ public class GuiRadio extends GuiScreen{
 					out = f.substring(f.indexOf("http://"));
 					break;
 				}
+				else
+					if(f.contains("https://")){//yes I am cheating here, go home
+						out = f.substring(f.indexOf("https://"));
+						break;
+					}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

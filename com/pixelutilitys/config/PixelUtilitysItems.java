@@ -92,6 +92,7 @@ public class PixelUtilitysItems {
 	public static Item AronPokedollItem;
 	public static Item BisharpPokedollItem;
 	public static Item CrystalItem;
+	public static Item CDItem;
 	
 	public static void load(Configuration cfg) {
 		/*
@@ -171,7 +172,8 @@ public class PixelUtilitysItems {
 		AronPokedollItem = new AronPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:AronDoll");
 		BisharpPokedollItem = new BisharpPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:BisharpDoll");
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
-	}
+		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
+}
 
 	public static void addNames() {
 		/*
@@ -209,18 +211,18 @@ public class PixelUtilitysItems {
 		LanguageRegistry.addName(SiliconItem, "Silicon");*/
 		
 		//Items
-		GameRegistry.registerItem(PokeCoin1Item, PokeCoin1Item.getUnlocalizedName().substring(5));
+		/*GameRegistry.registerItem(PokeCoin1Item, PokeCoin1Item.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(PokeCoin5Item, PokeCoin5Item.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(PokeCoin10Item, PokeCoin10Item.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(PokeCoin50Item, PokeCoin50Item.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(PokeCoin100Item, PokeCoin100Item.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(BolderItem, BolderItem.getUnlocalizedName().substring(5));
+		//GameRegistry.registerItem(BolderItem, BolderItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(TreeItem, TreeItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(SaphireItem, SaphireItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(RubyItem, RubyItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(BoxItem, BoxItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(AmethystItem, AmethystItem.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(TotodilePokedollItem, TotodilePokedollItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(TotodilePokedollItem, TotodilePokedollItem.getUnlocalizedName().substring(5));*/
 		
 		//Badges
 		GameRegistry.registerItem(BugBadgeItem, BugBadgeItem.getUnlocalizedName().substring(5));
@@ -241,6 +243,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(IceBadgeItem, IceBadgeItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(DragonBadgeItem, DragonBadgeItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(SiliconItem, SiliconItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(CDItem, CDItem.getUnlocalizedName().substring(5));
 		/*
 		LanguageRegistry.addName(TotodilePokedollItem, "Totodile Doll");
 		LanguageRegistry.addName(BisharpPokedollItem, "Bisharp Doll");
@@ -250,7 +253,7 @@ public class PixelUtilitysItems {
 		LanguageRegistry.addName(TrashcanItem, "Trashcan");
 		LanguageRegistry.addName(YellowCusionChairItem, "Yellow Cushion Chair");
 		LanguageRegistry.addName(PokeballItem, "Placable Pokeball");*/
-		GameRegistry.registerItem(ClothedTableItem, ClothedTableItem.getUnlocalizedName().substring(5));
+		/*GameRegistry.registerItem(ClothedTableItem, ClothedTableItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(RedCusionChairItem, RedCusionChairItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(TrashcanItem, TrashcanItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(YellowCusionChairItem, YellowCusionChairItem.getUnlocalizedName().substring(5));
@@ -258,7 +261,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(TotodilePokedollItem, TotodilePokedollItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(AronPokedollItem, AronPokedollItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(BisharpPokedollItem, BisharpPokedollItem.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(CrystalItem, CrystalItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(CrystalItem, CrystalItem.getUnlocalizedName().substring(5));*/
 		
 	}
 }

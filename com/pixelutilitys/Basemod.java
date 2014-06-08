@@ -3,8 +3,6 @@ package com.pixelutilitys;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -14,11 +12,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
 import com.pixelutilitys.commands.PokeRanCommand;
 import com.pixelutilitys.commands.PokecheckmeCommand;
-import com.pixelutilitys.config.PixelUtilitysArmor;
+import com.pixelutilitys.commands.Rickroll;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
@@ -34,6 +34,7 @@ import com.pixelutilitys.entitys.TrashcanEntity;
 import com.pixelutilitys.entitys.TreeEntity;
 import com.pixelutilitys.entitys.YellowCusionChairEntity;
 import com.pixelutilitys.events.ModRadioEvents;
+import com.pixelutilitys.radioplayer.BattleMusicPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.worldgen.AmethystGenerator;
 import com.pixelutilitys.worldgen.CrystalGenerator;
@@ -43,10 +44,10 @@ import com.pixelutilitys.worldgen.SiliconGenerator;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -63,6 +64,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class Basemod {
+	
+	
+	
 
 	public static ToolMaterial FIRESTONE = EnumHelper.addToolMaterial("FIRESTONE", 3, 1561, 8.0F, 3.0F, 10);
 	public static ToolMaterial WATERSTONE = EnumHelper.addToolMaterial("WATERSTONE", 3, 1561, 8.0F, 3.0F, 10);
@@ -88,6 +92,7 @@ public class Basemod {
 	public static boolean is64bit = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
+	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
 
 	//In development biome //pokebiome
 	//Biomes
@@ -120,6 +125,7 @@ public class Basemod {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		FMLCommonHandler.instance().bus().register(new PUTickHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
 		PacketHandler.init();
@@ -245,7 +251,9 @@ public class Basemod {
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeRanCommand());
-			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
+
+			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new Rickroll());
+//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}

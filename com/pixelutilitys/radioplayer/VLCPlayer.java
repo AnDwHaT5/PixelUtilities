@@ -1,14 +1,15 @@
 package com.pixelutilitys.radioplayer;
 
-import java.net.URL;
-
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
+import com.pixelutilitys.entitys.TileEntityRadio;
+import com.pixelutilitys.gui.GuiRadio;
 
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 public class VLCPlayer {
-
+	
 	EmbeddedMediaPlayerComponent mediaPlayerComponent;
 
 	
@@ -29,8 +30,15 @@ public class VLCPlayer {
                 frame.setVisible(true);
 
                 mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);//needed for some streams (youtube)
-                mediaPlayerComponent.getMediaPlayer().setRepeat(true);//enable loop ;D
                 
+                if(GuiRadio.radio.isLooping())
+                {
+                mediaPlayerComponent.getMediaPlayer().setRepeat(true);//enable loop ;D
+                }
+                else
+                {
+                	mediaPlayerComponent.getMediaPlayer().setRepeat(false);
+                }
                 mediaPlayerComponent.getMediaPlayer().playMedia(streamURL.toString());
                 
                 frame.setVisible(false);
