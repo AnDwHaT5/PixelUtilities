@@ -91,6 +91,7 @@ public class PixelUtilitysItems {
 	public static Item TotodilePokedollItem;
 	public static Item AronPokedollItem;
 	public static Item BisharpPokedollItem;
+	public static Item CrystalItem;
 	
 	public static void load(Configuration cfg) {
 		/*
@@ -169,6 +170,7 @@ public class PixelUtilitysItems {
 		TotodilePokedollItem = new TotodilePokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:TotodileDoll");
 		AronPokedollItem = new AronPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:AronDoll");
 		BisharpPokedollItem = new BisharpPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:BisharpDoll");
+		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 	}
 
 	public static void addNames() {
@@ -256,6 +258,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(TotodilePokedollItem, TotodilePokedollItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(AronPokedollItem, AronPokedollItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(BisharpPokedollItem, BisharpPokedollItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(CrystalItem, CrystalItem.getUnlocalizedName().substring(5));
 		
 	}
 }

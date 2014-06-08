@@ -1,5 +1,10 @@
 package com.pixelutilitys;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -23,24 +28,33 @@ import com.pixelutilitys.entitys.BoxEntity;
 import com.pixelutilitys.entitys.ClothedTableEntity;
 import com.pixelutilitys.entitys.PokeballEntity;
 import com.pixelutilitys.entitys.RedCusionChairEntity;
+import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.entitys.TotodilePokedollEntity;
 import com.pixelutilitys.entitys.TrashcanEntity;
 import com.pixelutilitys.entitys.TreeEntity;
 import com.pixelutilitys.entitys.YellowCusionChairEntity;
+import com.pixelutilitys.events.ModRadioEvents;
+import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.worldgen.AmethystGenerator;
+import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
 import com.pixelutilitys.worldgen.SaphireGenerator;
 import com.pixelutilitys.worldgen.SiliconGenerator;
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.event.FMLServerStoppedEvent;
+import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
@@ -57,6 +71,7 @@ public class Basemod {
 	public static ToolMaterial RUBY = EnumHelper.addToolMaterial("RUBY", 2, 300, 6.5F, 2, 14);
 	public static ToolMaterial SAPHIRE = EnumHelper.addToolMaterial("SAPHIRE", 2, 300, 6.5F, 2, 14);
 	public static ToolMaterial AMETHYST = EnumHelper.addToolMaterial("AMETHYST", 2, 300, 6.5F, 2, 14);
+	public static ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("CRYSTAL", 2, 300, 6.5F, 2, 14);
 
 	//	public static final Block Walrus = new WalrusBlock(3099, Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setUnlocalizedName("WalrusStatue");
 	public static ArmorMaterial FIRESTONEA = EnumHelper.addArmorMaterial("FIRESTONEA", 40, new int[]{4, 8, 6, 4}, 10);
@@ -66,7 +81,13 @@ public class Basemod {
 
 	public static ArmorMaterial RUBYA = EnumHelper.addArmorMaterial("RUBYA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial SAPHIREA = EnumHelper.addArmorMaterial("SAPHIREA", 200, new int[] {3, 7, 6, 3}, 10);
+	public static ArmorMaterial CRYSTALA = EnumHelper.addArmorMaterial("CRYSTALA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial SILICONA = EnumHelper.addArmorMaterial("SILICONA", 200, new int[] {3, 7, 6, 3}, 10);
+	
+	public static boolean vlcLoaded = false;
+	public static boolean is64bit = false;
+	public static FMLEventChannel channel;
+	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
 
 	//In development biome //pokebiome
 	//Biomes
@@ -93,6 +114,7 @@ public class Basemod {
 		PixelUtilitysAchievements.setupAchievements();
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
+		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
 		preInit = true;
 	}
 	
@@ -100,7 +122,36 @@ public class Basemod {
 	public void init(FMLInitializationEvent event){
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
+		PacketHandler.init();
+		initVLC();
 		init = true;
+	}
+
+	private void initVLC() {
+		
+		is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
+		
+		if(is64bit)
+        {
+			NativeLibrary.addSearchPath(
+                RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
+            );
+        }
+		else
+		{
+			NativeLibrary.addSearchPath(
+				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC"
+			);
+		}
+		
+        try{
+        	Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+        	vlcLoaded = true;
+        }catch(UnsatisfiedLinkError error)
+        {
+        	System.out.println("You need to install VLC for this mod");
+        }
+		
 	}
 
 	@EventHandler
@@ -125,7 +176,9 @@ public class Basemod {
 		GameRegistry.registerTileEntity(YellowCusionChairEntity.class, "YellowCusionChair");
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TotodilePokedollEntity.class, "TotodileDoll");
-
+		
+		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
+		
 		//Creative Tabs
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBlocks", "en_US", "PixelmonBlocks");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBadges", "en_US", "Extra Badges");
@@ -138,6 +191,7 @@ public class Basemod {
 		GameRegistry.registerWorldGenerator(new SaphireGenerator(), 0);
 		GameRegistry.registerWorldGenerator(new AmethystGenerator(), 0);
 		GameRegistry.registerWorldGenerator(new SiliconGenerator(), 0);
+		GameRegistry.registerWorldGenerator(new CrystalGenerator(), 0);
 
 		PixelUtilitysRecipes.addRecipes();
 
@@ -172,6 +226,7 @@ public class Basemod {
 		PixelUtilitysBlocks.SaphireOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.AmethystOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.SiliconOre.setHarvestLevel("pickaxe", 2);
+		PixelUtilitysBlocks.CrystalOre.setHarvestLevel("pickaxe", 2);
 
 		MinecraftForge.EVENT_BUS.register(new CustomDrops());
 	}
@@ -193,6 +248,17 @@ public class Basemod {
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
+		}
+	}
+	
+	@Mod.EventHandler
+	public void serverStop(FMLServerStoppedEvent event) {
+		killAllStreams();
+	}
+	
+	public static void killAllStreams(){
+		for(VLCPlayer p : playerList){
+			p.stop();
 		}
 	}
 

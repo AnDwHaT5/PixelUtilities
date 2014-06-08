@@ -102,6 +102,14 @@ public class PixelUtilitysTools {
 	public static Item LeafstoneShovel;// new com.PixelUtilitys.tools.LeafstoneShovel(6098, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneShovel").setTextureName("PixelUtilitys:LeafstoneShovel");
 	public static Item LeafstoneHoe;// new com.PixelUtilitys.tools.LeafstoneHoe(6099, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneHoe").setTextureName("pixelutilitys:LeafstoneHoe");
 	public static Item LeafstoneSword;// new com.PixelUtilitys.tools.LeafstoneSword(6100, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneSword").setTextureName("PixelUtilitys:LeafstoneSword");
+	
+	//Ruby Tools
+	public static Item CrystalPickaxe;
+	public static Item CrystalHammer;
+	public static Item CrystalAxe;
+	public static Item CrystalShovel;
+	public static Item CrystalHoe; 
+	public static Item CrystalSword;
 
 	public static void load(Configuration cfg) {
 /*
@@ -195,6 +203,13 @@ public class PixelUtilitysTools {
 		LeafstoneShovel = new LeafstoneShovel(Basemod.LEAFSTONE, "pixelutilitys:LeafstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneShovel").setTextureName("PixelUtilitys:LeafstoneShovel");
 		LeafstoneHoe = new LeafstoneHoe(Basemod.LEAFSTONE, "pixelutilitys:LeafstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneHoe").setTextureName("pixelutilitys:LeafstoneHoe");
 		LeafstoneSword = new LeafstoneSword(Basemod.LEAFSTONE, "pixelutilitys:LeafstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneSword").setTextureName("PixelUtilitys:LeafstoneSword");
+		
+		CrystalPickaxe = new CrystalPickaxeTool(6.5F, Basemod.CRYSTAL, "pixelutilitys:CrystalPickaxe").setTextureName("PixelUtilitys:RubyPickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("CrystalPickaxe");
+		CrystalHammer = new CrystalHammerTool(Basemod.CRYSTAL, "CrystalHammer", "Crystal Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:CrystalHammer").setUnlocalizedName("CrystalHammer");
+		CrystalAxe = new CrystalAxeTool(Basemod.CRYSTAL, "pixelutilitys:CrystalAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("CrystalAxe").setTextureName("PixelUtilitys:CrystalAxe");
+		CrystalShovel = new CrystalShovelTool(Basemod.CRYSTAL, "pixelutilitys:CrystalShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("CrystalShovel").setTextureName("PixelUtilitys:CrystalShovel");
+		CrystalHoe = new CrystalHoeTool(Basemod.CRYSTAL, "pixelutilitys:CrystalHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("CrystalHoe").setTextureName("pixelutilitys:CrystalHoe");
+		CrystalSword = new CrystalSwordTool(Basemod.CRYSTAL, "pixelutilities:CrystalSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("CrystalSword").setTextureName("PixelUtilitys:CrystalSword");
 
 	}
 
@@ -283,6 +298,13 @@ public class PixelUtilitysTools {
 		GameRegistry.registerItem(LeafstoneSword, "Leafstone Sword");
 		GameRegistry.registerItem(LeafstoneShovel, "Leafstone Shovel");
 		GameRegistry.registerItem(LeafstoneHammer, "Leafstone Hammer");
+		
+		GameRegistry.registerItem(CrystalPickaxe, "Crystal Pickaxe");
+		GameRegistry.registerItem(CrystalAxe, "Crystal Axe");
+		GameRegistry.registerItem(CrystalHoe, "Crystal Hoe");
+		GameRegistry.registerItem(CrystalSword, "Crystal Sword");
+		GameRegistry.registerItem(CrystalShovel, "Crystal Shovel");
+		GameRegistry.registerItem(CrystalHammer, "Crystal Hammer");
 
 	}
 }
