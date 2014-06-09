@@ -93,6 +93,7 @@ public class PixelUtilitysItems {
 	public static Item BisharpPokedollItem;
 	public static Item CrystalItem;
 	public static Item CDItem;
+	public static Item HandHeldRadio;
 	
 	public static void load(Configuration cfg) {
 		/*
@@ -173,6 +174,7 @@ public class PixelUtilitysItems {
 		BisharpPokedollItem = new BisharpPokedollItem().setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setTextureName("PixelUtilitys:BisharpDoll");
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
+		HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
 }
 
 	public static void addNames() {
@@ -244,6 +246,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(DragonBadgeItem, DragonBadgeItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(SiliconItem, SiliconItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(CDItem, CDItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(HandHeldRadio, HandHeldRadio.getUnlocalizedName().substring(5));
 		/*
 		LanguageRegistry.addName(TotodilePokedollItem, "Totodile Doll");
 		LanguageRegistry.addName(BisharpPokedollItem, "Bisharp Doll");

@@ -8,12 +8,13 @@ import com.pixelutilitys.gui.GuiRadio;
 
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
-public class BattleMusicPlayer {
+public class HandHeldRadioPlayer {
 
-EmbeddedMediaPlayerComponent mediaPlayerComponent;
+private EmbeddedMediaPlayerComponent mediaPlayerComponent;
 private String url = "";
+private String URL = "";
 
-public BattleMusicPlayer(final String streamURL, boolean playNow)
+public HandHeldRadioPlayer(final String streamURL, boolean playNow)
 {
 this.url = streamURL;
 if(playNow)
@@ -24,7 +25,7 @@ setVolume(50);
 
 }
 
-public BattleMusicPlayer(final String streamURL) {
+public HandHeldRadioPlayer(final String streamURL) {
         this.url = streamURL;
 start();
 }
@@ -79,7 +80,7 @@ mediaPlayerComponent.getMediaPlayer().setVolume((int) v2);
 
 public boolean isPlaying() {
 if(mediaPlayerComponent != null)
-return mediaPlayerComponent.getMediaPlayer().isPlaying();
+return true;
 else
 return false;
 }
@@ -88,5 +89,12 @@ public void stop() {
 if(isPlaying())
 mediaPlayerComponent.getMediaPlayer().stop();
 }
-
+public String getURL()
+{
+	return URL;
+}
+public void setURL(String url)
+{
+	URL = url;
+}
 }
