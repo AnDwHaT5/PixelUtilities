@@ -59,9 +59,9 @@ item.pokecoin10.name=$10 PokeCoin
 item.pokecoin50.name=$50 PokeCoin
 item.pokecoin100.name=$100 PokeCoin
 
-item.Bolder.name=Boulder
+item.BolderItem.name=Boulder
 item.TreeItem.name=Tree
-item.Box.name=Box
+item.BoxItem.name=Box
 item.RubyItem.name=Ruby
 item.SaphireItem.name=Saphire
 item.AmethystItem.name=Amethyst
@@ -85,14 +85,14 @@ item.darkbadge.name=Kurai Badge
 item.icebadge.name=Aisu Badge
 item.dragonbadge.name=Doragon Badge
 
-item.TotodileDoll.name=Totodile PokeDoll
-item.BisharpDoll.name=Bisharp PokeDoll
-item.AronDoll.name=Aron PokeDoll
-item.ClothedTable.name=Clothed Table
-item.RedCusionChair.name=Red Cushion Chair
-item.YellowCusionChair.name=Yellow Cushion Chair
-item.Trashcan.name=Trashcan
-item.Pokeball.name=Placable PokeBall
+item.TotodileDollItem.name=Totodile PokeDoll
+item.BisharpDollItem.name=Bisharp PokeDoll
+item.AronDollItem.name=Aron PokeDoll
+item.ClothedTableItem.name=Clothed Table
+item.RedCusionChairItem.name=Red Cushion Chair
+item.YellowCusionChairItem.name=Yellow Cushion Chair
+item.TrashcanItem.name=Trashcan
+item.PokeballItem.name=Placable PokeBall
 
 item.rubyPickaxe.name=Ruby Pickaxe
 item.rubyHammer.name=Ruby Hammer

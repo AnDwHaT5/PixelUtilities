@@ -21,34 +21,33 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class TrashcanBlock extends BlockContainer {
 
   
-	public TrashcanBlock(int id, Material iron) {
+	public TrashcanBlock(Material iron) {
         super(Material.iron);
-
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
-        
 	}
-
-	
-	
-	    
+  
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
+	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		this.setBlockBounds(par1World.getBlockMetadata(par2, par3, par4));
 		return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
 	}
 
-	@SideOnly(Side.CLIENT)
 	/**
 	 * Returns the bounding box of the wired rectangular prism to render.
 	 */
+	@SideOnly(Side.CLIENT)
+	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		this.setBlockBounds(par1World.getBlockMetadata(par2, par3, par4));
 		return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
 	}
-	public void func_82541_d(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
 
@@ -62,10 +61,10 @@ public class TrashcanBlock extends BlockContainer {
         }
     }
 	
-	
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister) {
-		blockIcon = par1IconRegister.registerIcon("Box");
+	@Override
+	public void registerBlockIcons(IIconRegister par1IconRegister) {
+		blockIcon = par1IconRegister.registerIcon("pixelutilitys:Trashcan");
 	}
 
 	/**
@@ -77,19 +76,6 @@ public class TrashcanBlock extends BlockContainer {
 	public void setBlockBounds(int stage) {
 		this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
 	}
-/*
-	@Deprecated
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return PixelUtilitysItems.TrashcanItemID;
-	}
-
-	@SideOnly(Side.CLIENT)
-	// only called by clickMiddleMouseButton , and passed to
-	// inventory.setCurrentItem (along with isCreative)
-	public int idPicked(World par1World, int par2, int par3, int par4) {
-		return PixelUtilitysItems.TrashcanItemID;
-	}*/
-
 
 	@Override
 	public int quantityDropped(Random random) {
@@ -111,19 +97,18 @@ public class TrashcanBlock extends BlockContainer {
 		return -1;
 	}
 
-
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TrashcanEntity();
 	}
 
-	
-	
+	@Override
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
         super.onBlockAdded(par1World, par2, par3, par4);
         this.setDefaultDirection(par1World, par2, par3, par4);
     }
+	
     /**
      * set a blocks direction
      */

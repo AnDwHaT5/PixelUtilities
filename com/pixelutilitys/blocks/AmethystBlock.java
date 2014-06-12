@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 public class AmethystBlock extends Block 
 {
 	
-    public AmethystBlock (int id, Material material) 
+    public AmethystBlock (Material material) 
     {
         super(material);
         setHardness(4.0F); // 33% harder than diamond

@@ -8,6 +8,6 @@ public class CDItem extends Item{
         
         // Constructor Configuration
         maxStackSize = 64;
-        setUnlocalizedName("CD");
+        setUnlocalizedName("CDItem");
 }
 }

@@ -23,11 +23,11 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockRadio extends Block implements ITileEntityProvider {
+public class RadioBlock extends Block implements ITileEntityProvider {
 
 	public TileEntityRadio radio;
 
-	public BlockRadio(int par1, Material par2Material) {
+	public RadioBlock(Material par2Material) {
 		super(par2Material);
 		setHardness(2.0F);
 		setResistance(10.0F);
@@ -66,8 +66,6 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 		Minecraft.getMinecraft().displayGuiScreen(new GuiRadio(ter));
 	}
 
-	
-
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -76,7 +74,6 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 	@Override
 	public boolean isOpaqueCube() {
 		return false;
-
 	}
 
 	@Override
@@ -113,14 +110,10 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 
 	}
 
-	public void breakBlock(World par1World, int par2, int par3, int par4,
-			int par5, int par6) {
-		// ModRadioBlock.killAllStreams();
-	}
-
 	/**
 	 * Called when the block is placed in the world.
 	 */
+	@Override
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4,
 			EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
 		int l = MathHelper
@@ -129,22 +122,22 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 		++l;
 		l %= 4;
 
-		if (l == 0) {
+		if (l == 3) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 2 | i1 << 2,
 					2);
 		}
 
-		if (l == 1) {
+		if (l == 0) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 3 | i1 << 2,
 					2);
 		}
 
-		if (l == 2) {
+		if (l == 1) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
 					2);
 		}
 
-		if (l == 3) {
+		if (l == 2) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 1 | i1 << 2,
 					2);
 		}
@@ -154,6 +147,7 @@ public class BlockRadio extends Block implements ITileEntityProvider {
 	/**
 	 * A randomly called display update to be able to add particles or other items for display
 	 */
+	@Override
 	public void randomDisplayTick(World par1World, int x, int y,
 			int z, Random par5Random) {
 

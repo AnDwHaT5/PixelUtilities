@@ -7,17 +7,13 @@ import net.minecraft.creativetab.CreativeTabs;
 public class PokeGrassBlock extends Block 
 {
 
-        public PokeGrassBlock (int id, Material material) 
-        {
-                super(material);
-                setHardness(4.0F); // 33% harder than diamond
-                setStepSound(Block.soundTypeGrass);
-                setBlockName("PokeGrass");
-                setCreativeTab(CreativeTabs.tabBlock);
-                
-                setBlockTextureName("pixelmonblocks" +":"+ "PokeGrass");
-        }
-                
-              
-    
+	public PokeGrassBlock (Material material) 
+	{
+		super(material);
+		setHardness(4.0F); // 33% harder than diamond
+		setStepSound(Block.soundTypeGrass);
+		setBlockName("PokeGrass");
+		setCreativeTab(CreativeTabs.tabBlock);
+	}
+
 }

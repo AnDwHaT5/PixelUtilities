@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class InsideMoldingBlock extends Block 
 {
 
-    public InsideMoldingBlock (int id, Material material) 
+    public InsideMoldingBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

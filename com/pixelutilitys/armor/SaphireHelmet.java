@@ -1,6 +1,7 @@
 package com.pixelutilitys.armor;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -12,9 +13,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SaphireHelmet extends ItemArmor {
 
-	public SaphireHelmet(ArmorMaterial par2EnumArmorMaterial,
-			int par3, int par4) {
+	public SaphireHelmet(ArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par2EnumArmorMaterial, par3, par4);
+		setCreativeTab(CreativeTabs.tabCombat);
+		setTextureName("pixelUtilities:SaphireHelmet");
+		setUnlocalizedName("Saphire Helmet");
 	}
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {

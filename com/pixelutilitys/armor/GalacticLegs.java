@@ -1,6 +1,7 @@
 package com.pixelutilitys.armor;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -15,6 +16,9 @@ public class GalacticLegs extends ItemArmor{
 	public GalacticLegs(ArmorMaterial par2EnumArmorMaterial,
 			int par3, int par4) {
 		super(par2EnumArmorMaterial, par3, par4);
+		setCreativeTab(CreativeTabs.tabCombat);
+		setTextureName("pixelUtilities:GalacticLegs");
+		setUnlocalizedName("Galactic Leggings");
 	}
 	
 	@Override

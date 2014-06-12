@@ -15,7 +15,7 @@ public class HandHeldRadioItem extends Item{
 	//HandHeldRadioPlayer radio = new HandHeldRadioPlayer(url, false);
 	
 	public  HandHeldRadioItem(){
-		setUnlocalizedName("handheldradio");
+		setUnlocalizedName("HandHeldRadioItem");
 		
 	}
 	@Override

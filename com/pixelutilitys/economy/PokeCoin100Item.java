@@ -11,6 +11,7 @@ public class PokeCoin100Item extends Item {
                 // Constructor Configuration
                 maxStackSize = 64;
                 setCreativeTab(CreativeTabs.tabMisc);
+                setTextureName("PixelUtilitys:coin100");
                 setUnlocalizedName("pokecoin100");
         }
 }

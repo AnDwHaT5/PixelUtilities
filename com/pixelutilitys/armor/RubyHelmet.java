@@ -1,6 +1,7 @@
 package com.pixelutilitys.armor;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,8 @@ public class RubyHelmet extends ItemArmor{
 
 	public RubyHelmet(ArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par2EnumArmorMaterial, par3, par4);
+		setCreativeTab(CreativeTabs.tabCombat);
+		setUnlocalizedName("Ruby Helmet");
 	}
 	
 	@Override

@@ -29,12 +29,12 @@ public class PixelUtilitysRecipes {
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
 		
 		//Amethyst Tools
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
 		
 		//Evo Tools
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.FirestonePickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelmonItems.fireStone, Character.valueOf('Y'), Items.stick });

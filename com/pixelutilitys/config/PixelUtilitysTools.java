@@ -11,49 +11,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class PixelUtilitysTools {
-/*
-	public static int rubyPickaxeID;
-	public static int rubyHammerID;
-	public static int rubyAxeID;
-	public static int rubyShovelID;
-	public static int rubyHoeID;
-	public static int rubySwordID;
 
-	public static int saphirePickaxeID;
-	public static int saphireHammerID;
-	public static int saphireAxeID;
-	public static int saphireShovelID;
-	public static int saphireHoeID;
-	public static int saphireSwordID;
-
-	public static int amethystPickaxeID;
-	public static int amethystHammerID;
-	public static int amethystAxeID;
-	public static int amethystShovelID;
-	public static int amethystHoeID;
-	public static int amethystSwordID;
-
-	public static int firestonePickaxeID;
-	public static int firestoneHammerID;
-	public static int firestoneAxeID;
-	public static int firestoneShovelID;
-	public static int firestoneHoeID;
-	public static int firestoneSwordID;
-
-	public static int waterstonePickaxeID;
-	public static int waterstoneHammerID;
-	public static int waterstoneAxeID;
-	public static int waterstoneShovelID;
-	public static int waterstoneHoeID;
-	public static int waterstoneSwordID;
-
-	public static int leafstonePickaxeID;
-	public static int leafstoneHammerID;
-	public static int leafstoneAxeID;
-	public static int leafstoneShovelID;
-	public static int leafstoneHoeID;
-	public static int leafstoneSwordID;
-*/
 	//Ruby Tools
 	public static Item rubyPickaxe;
 	public static Item rubyHammer;

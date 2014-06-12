@@ -16,7 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class AmethystOre extends Block 
 {
 
-	public AmethystOre (int id, Material material) 
+	public AmethystOre (Material material) 
 	{
 		super(material);
 		setHardness(4.0F); // 33% harder than diamond

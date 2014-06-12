@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 public class RubyBlock extends Block 
 {
 
-    public RubyBlock (int id, Material material) 
+    public RubyBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond
