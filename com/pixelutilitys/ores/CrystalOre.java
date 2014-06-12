@@ -9,7 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class CrystalOre extends Block 
 {
 
-	public CrystalOre (int id, Material material) 
+	public CrystalOre (Material material) 
 	{
 		super(material);
 		setHardness(4.0F); // 33% harder than diamond

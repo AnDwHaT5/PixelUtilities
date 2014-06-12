@@ -60,7 +60,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "2.5", dependencies = "required-after:pixelmon")
+@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "2.5")//, dependencies = "required-after:pixelmon")
 //@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class Basemod {
@@ -206,7 +206,7 @@ public class Basemod {
 		//Block crafting
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.AmethystItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
 
 		/*	GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.fireStone});

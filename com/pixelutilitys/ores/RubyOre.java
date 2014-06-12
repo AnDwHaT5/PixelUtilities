@@ -16,7 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class RubyOre extends Block 
 {
 
-        public RubyOre (int id, Material material) 
+        public RubyOre (Material material) 
         {
                 super(material);
                 setHardness(4.0F); // 33% harder than diamond

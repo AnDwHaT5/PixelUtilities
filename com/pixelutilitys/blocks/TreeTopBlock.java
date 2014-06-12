@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class TreeTopBlock extends Block 
 {
 
-    public TreeTopBlock (int id, Material material) 
+    public TreeTopBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

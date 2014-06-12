@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class WoodenFlooringBlock extends Block 
 {
 
-    public WoodenFlooringBlock (int id, Material material) 
+    public WoodenFlooringBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond
@@ -17,7 +17,5 @@ public class WoodenFlooringBlock extends Block
             
             setBlockTextureName("pixelmonblocks" +":"+ "WoodenFlooring");
     }
-                
-              
     
 }

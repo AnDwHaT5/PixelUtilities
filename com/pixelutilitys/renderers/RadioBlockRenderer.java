@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderRadioBlock extends TileEntitySpecialRenderer{
+public class RadioBlockRenderer extends TileEntitySpecialRenderer{
 
 	ModelRadio model = new ModelRadio();
 	

@@ -6,7 +6,7 @@ import net.minecraft.block.material.Material;
 public class SaphireBlock extends Block 
 {
 
-    public SaphireBlock (int id, Material material) 
+    public SaphireBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

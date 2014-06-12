@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class PokeSandC3Block extends Block 
 {
 
-    public PokeSandC3Block (int id, Material material) 
+    public PokeSandC3Block (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

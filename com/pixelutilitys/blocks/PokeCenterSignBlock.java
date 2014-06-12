@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class PokeCenterSignBlock extends Block 
 {
 
-    public PokeCenterSignBlock (int id, Material material) 
+    public PokeCenterSignBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

@@ -14,7 +14,7 @@ public class PixelUtilitysCreativeTabs {
 
 		@Override
 		public Item getTabIconItem() {
-			return PixelUtilitysItems.TreeItem;
+			return new ItemStack(PixelUtilitysBlocks.TreeBlock).getItem();
 		}
 	};
 
@@ -22,7 +22,7 @@ public class PixelUtilitysCreativeTabs {
 
 		@Override
 		public Item getTabIconItem() {
-			return PixelUtilitysItems.TrashcanItem;
+			return new ItemStack(PixelUtilitysBlocks.TrashcanBlock).getItem();
 		}
 	};
 

@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class RockBlock extends Block 
 {
 
-    public RockBlock (int id, Material material) 
+    public RockBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond
