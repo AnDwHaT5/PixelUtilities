@@ -8,8 +8,10 @@ import com.pixelutilitys.entitys.BlockEntity;
 import com.pixelutilitys.entitys.BolderEntity;
 import com.pixelutilitys.entitys.BoxEntity;
 import com.pixelutilitys.entitys.ClothedTableEntity;
+import com.pixelutilitys.entitys.GymSignEntity;
 import com.pixelutilitys.entitys.PokeballEntity;
 import com.pixelutilitys.entitys.RedCusionChairEntity;
+import com.pixelutilitys.entitys.TVEntity;
 import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.entitys.TotodilePokedollEntity;
 import com.pixelutilitys.entitys.TrashcanEntity;
@@ -21,9 +23,11 @@ import com.pixelutilitys.renderers.BlockRenderer;
 import com.pixelutilitys.renderers.BolderRenderer;
 import com.pixelutilitys.renderers.BoxRenderer;
 import com.pixelutilitys.renderers.ClothedTableRenderer;
+import com.pixelutilitys.renderers.GymSignRenderer;
 import com.pixelutilitys.renderers.PokeballRenderer;
-import com.pixelutilitys.renderers.RedCusionChairRenderer;
 import com.pixelutilitys.renderers.RadioBlockRenderer;
+import com.pixelutilitys.renderers.RedCusionChairRenderer;
+import com.pixelutilitys.renderers.TVRenderer;
 import com.pixelutilitys.renderers.TotodilePokedollRenderer;
 import com.pixelutilitys.renderers.TrashcanRenderer;
 import com.pixelutilitys.renderers.TreeRenderer;
@@ -59,6 +63,8 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(BisharpPokedollEntity.class, new BisharpPokedollRenderer());
 		//ClientRegistry.bindTileEntitySpecialRenderer(WalrusTileEntity.class, new WalrusTileEntityRenderer());		
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRadio.class, new RadioBlockRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(GymSignEntity.class, new GymSignRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TVEntity.class, new TVRenderer());
 }
     
     @Override

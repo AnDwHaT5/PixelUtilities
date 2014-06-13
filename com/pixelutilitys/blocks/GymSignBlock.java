@@ -2,8 +2,7 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
-import com.pixelutilitys.entitys.TotodilePokedollEntity;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,14 +13,19 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import com.pixelutilitys.config.PixelUtilitysItems;
+import com.pixelutilitys.entitys.GymSignEntity;
+import com.pixelutilitys.entitys.PokeballEntity;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class TotodilePokedollBlock extends BlockContainer {
+public class GymSignBlock extends BlockContainer {
 
   
-	public TotodilePokedollBlock(Material iron) {
+	public GymSignBlock(Material iron) {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.3F, 3.0F, 0.3F); //0.4 0.0 1.0 
 	}
@@ -64,7 +68,7 @@ public class TotodilePokedollBlock extends BlockContainer {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		blockIcon = par1IconRegister.registerIcon("pixelutilitys:TotodileDoll");
+		blockIcon = par1IconRegister.registerIcon("pixelutilitys:GymSign");
 	}
 
 	/**
@@ -99,7 +103,7 @@ public class TotodilePokedollBlock extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new TotodilePokedollEntity();
+		return new GymSignEntity();
 	}
 	
 	@Override

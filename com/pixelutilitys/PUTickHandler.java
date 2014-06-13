@@ -19,7 +19,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class PUTickHandler{
-	public static BattleMusicPlayer playerRadio = new BattleMusicPlayer("http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM", false);
+	public static BattleMusicPlayer playerRadio = new BattleMusicPlayer("http://download1696.mediafire.com/8c0zd9upqaeg/n2cl170q0732i49/PixelMon+Theme+A.mp3", false);
 
 	//http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
 	//https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3

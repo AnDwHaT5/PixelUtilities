@@ -11,17 +11,18 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.pixelutilitys.models.Pokedolls.AronPokedollModel;
-import com.pixelutilitys.models.Pokedolls.TotodilePokedollModel;
+import com.pixelutilitys.models.ModelGymSign;
+import com.pixelutilitys.models.ModelTV;
+import com.pixelutilitys.models.PokeballModel;
 
-public class TotodilePokedollRenderer extends TileEntitySpecialRenderer {
-	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/TotodileDoll.png"); 
+public class TVRenderer extends TileEntitySpecialRenderer {
+	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/TV.png"); 
 	
 	//The model of your block
-private final TotodilePokedollModel model;
+    private final ModelTV model;
     
-    public TotodilePokedollRenderer() {
-            this.model = new TotodilePokedollModel();
+    public TVRenderer() {
+            this.model = new ModelTV();
     }
     
     private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
@@ -88,4 +89,3 @@ private final TotodilePokedollModel model;
             this.bindTexture( texture );
     }
 }
-
