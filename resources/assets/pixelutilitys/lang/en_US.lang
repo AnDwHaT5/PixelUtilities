@@ -37,7 +37,7 @@ tile.PokeMartSign.name=PokeMart Sign
 tile.SandyGrass.name=Sandy Grass
 tile.Rock.name=Rock
 tile.CabeRock.name=Cave Rock
-tile.BolderBlock.name=Boulder
+tile.Bolder.name=Boulder
 tile.RubyBlock.name=Ruby Block
 tile.SaphireBlock.name=Saphire Block
 tile.AmethystBlock.name=Amethyst Block
@@ -45,7 +45,19 @@ tile.RubyOre.name= Ruby Ore
 tile.SaphireOre.name= Saphire Ore
 tile.AmethystOre.name= Amethyst Ore
 tile.SiliconOre.name= Silicon Ore
-
+tile.radio.name=Radio
+tile.Trashcan.name=Trash Can
+tile.Box.name=Box
+tile.ClothedTable.name=Clothed Table
+tile.Pokeball.name=Placable Pokeball
+tile.RedCusionChair.name=Red Cusion Chair
+tile.YellowCusionChair.name=Yellow Cusion Chair
+tile.CrystalOre.name=Crystal Ore
+tile.BisharpDoll.name=Bisharp Doll
+tile.AronDoll.name=Aron Doll
+tile.TotodileDoll.name=Totodile Doll
+tile.CrystalBlock.name=Crystal Block
+tile.Tree.name=Tree
 
 itemGroup.tabPixelmonBlocks=Pixelmon Blocks
 itemGroup.tabPokefurniture=PokeFurniture
@@ -59,12 +71,8 @@ item.pokecoin10.name=$10 PokeCoin
 item.pokecoin50.name=$50 PokeCoin
 item.pokecoin100.name=$100 PokeCoin
 
-item.BolderItem.name=Boulder
-item.TreeItem.name=Tree
-item.BoxItem.name=Box
 item.RubyItem.name=Ruby
 item.SaphireItem.name=Saphire
-item.AmethystItem.name=Amethyst
 item.SiliconItem.name=Silicon
 
 item.bugbadge.name=Bagu Badge
@@ -85,15 +93,9 @@ item.darkbadge.name=Kurai Badge
 item.icebadge.name=Aisu Badge
 item.dragonbadge.name=Doragon Badge
 
-item.TotodileDollItem.name=Totodile PokeDoll
-item.BisharpDollItem.name=Bisharp PokeDoll
-item.AronDollItem.name=Aron PokeDoll
-item.ClothedTableItem.name=Clothed Table
-item.RedCusionChairItem.name=Red Cushion Chair
-item.YellowCusionChairItem.name=Yellow Cushion Chair
-item.TrashcanItem.name=Trashcan
-item.PokeballItem.name=Placable PokeBall
-
+item.HandHeldRadioItem.name=Handheld Radio
+item.CDItem.name=CD
+item.CrystalItem.name=Crystal
 item.rubyPickaxe.name=Ruby Pickaxe
 item.rubyHammer.name=Ruby Hammer
 item.rubyAxe.name=Ruby Axe
@@ -130,6 +132,12 @@ item.LeafstoneAxe.name=Leafstone Axe
 item.LeafstoneShovel.name=Leafstone Shovel
 item.LeafstoneHoe.name=Leafstone Hoe
 item.LeafstoneSword.name=Leafstone Sword
+item.CrystalPickaxe.name=Crystal Pickaxe
+item.CrystalHammer.name=Crystal Hammer
+item.CrystalAxe.name=Crystal Axe
+item.CrystalShovel.name=Crystal Shovel
+item.CrystalHoe.name=Crystal Hoe
+item.CrystalSword.name=Crystal Sword
 
 item.Ruby Helmet.name=Magma Helmet
 item.Ruby Boots.name=Magma Boots
