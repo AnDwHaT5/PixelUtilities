@@ -1,4 +1,4 @@
-package com.pixelutilitys.entitys;
+package com.pixelutilitys.tileentitys;
 
 import net.minecraft.tileentity.TileEntity;
 
