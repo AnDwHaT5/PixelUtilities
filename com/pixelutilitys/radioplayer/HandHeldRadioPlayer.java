@@ -3,8 +3,8 @@ package com.pixelutilitys.radioplayer;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.gui.GuiRadio;
-import com.pixelutilitys.tileentitys.TileEntityRadio;
 
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 

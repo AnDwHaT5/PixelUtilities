@@ -2,42 +2,44 @@ package com.pixelutilitys;
 
 //import com.net.trigore.radioblock.RenderRadioBlock;
 //import com.net.trigore.radioblock.TileEntityRadio;
-import com.pixelutilitys.entitys.SeatEntity;
+import com.pixelutilitys.entitys.AronPokedollEntity;
+import com.pixelutilitys.entitys.BisharpPokedollEntity;
+import com.pixelutilitys.entitys.BlockEntity;
+import com.pixelutilitys.entitys.BlueRugEntity;
+import com.pixelutilitys.entitys.BolderEntity;
+import com.pixelutilitys.entitys.BoxEntity;
+import com.pixelutilitys.entitys.ClothedTableEntity;
+import com.pixelutilitys.entitys.GreenRugEntity;
+import com.pixelutilitys.entitys.GymSignEntity;
+import com.pixelutilitys.entitys.PokeballEntity;
+import com.pixelutilitys.entitys.RedCusionChairEntity;
+import com.pixelutilitys.entitys.RedRugEntity;
+import com.pixelutilitys.entitys.TVEntity;
+import com.pixelutilitys.entitys.TileEntityRadio;
+import com.pixelutilitys.entitys.TotodilePokedollEntity;
+import com.pixelutilitys.entitys.TrashcanEntity;
+import com.pixelutilitys.entitys.TreeEntity;
+import com.pixelutilitys.entitys.YellowCusionChairEntity;
 import com.pixelutilitys.renderers.AronPokedollRenderer;
 import com.pixelutilitys.renderers.BisharpPokedollRenderer;
 import com.pixelutilitys.renderers.BlockRenderer;
+import com.pixelutilitys.renderers.BlueRugRenderer;
 import com.pixelutilitys.renderers.BolderRenderer;
 import com.pixelutilitys.renderers.BoxRenderer;
 import com.pixelutilitys.renderers.ClothedTableRenderer;
-import com.pixelutilitys.renderers.ConveyorRenderer;
+import com.pixelutilitys.renderers.GreenRugRenderer;
 import com.pixelutilitys.renderers.GymSignRenderer;
 import com.pixelutilitys.renderers.PokeballRenderer;
 import com.pixelutilitys.renderers.RadioBlockRenderer;
 import com.pixelutilitys.renderers.RedCusionChairRenderer;
-import com.pixelutilitys.renderers.InvisibleRenderer;
+import com.pixelutilitys.renderers.RedRugRenderer;
 import com.pixelutilitys.renderers.TVRenderer;
 import com.pixelutilitys.renderers.TotodilePokedollRenderer;
 import com.pixelutilitys.renderers.TrashcanRenderer;
 import com.pixelutilitys.renderers.TreeRenderer;
 import com.pixelutilitys.renderers.YellowCusionChairRenderer;
-import com.pixelutilitys.tileentitys.AronPokedollEntity;
-import com.pixelutilitys.tileentitys.BisharpPokedollEntity;
-import com.pixelutilitys.tileentitys.BlockEntity;
-import com.pixelutilitys.tileentitys.BolderEntity;
-import com.pixelutilitys.tileentitys.BoxEntity;
-import com.pixelutilitys.tileentitys.ClothedTableEntity;
-import com.pixelutilitys.tileentitys.GymSignEntity;
-import com.pixelutilitys.tileentitys.PokeballEntity;
-import com.pixelutilitys.tileentitys.RedCusionChairEntity;
-import com.pixelutilitys.tileentitys.TVEntity;
-import com.pixelutilitys.tileentitys.TileEntityRadio;
-import com.pixelutilitys.tileentitys.TotodilePokedollEntity;
-import com.pixelutilitys.tileentitys.TrashcanEntity;
-import com.pixelutilitys.tileentitys.TreeEntity;
-import com.pixelutilitys.tileentitys.YellowCusionChairEntity;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 //import PixelUtilitys.entitys.BasicDeskEntity;
 //import PixelUtilitys.renderers.BasicDeskRenderer;
 
@@ -69,8 +71,10 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRadio.class, new RadioBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(GymSignEntity.class, new GymSignRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TVEntity.class, new TVRenderer());
-        RenderingRegistry.registerEntityRenderingHandler(SeatEntity.class, new InvisibleRenderer());
-        RenderingRegistry.registerBlockHandler(500, new ConveyorRenderer());
+
+        ClientRegistry.bindTileEntitySpecialRenderer(BlueRugEntity.class, new BlueRugRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(RedRugEntity.class, new RedRugRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(GreenRugEntity.class, new GreenRugRenderer());
 }
     
     @Override

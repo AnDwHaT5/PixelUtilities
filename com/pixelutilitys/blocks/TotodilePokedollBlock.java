@@ -2,7 +2,7 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
-import com.pixelutilitys.tileentitys.TotodilePokedollEntity;
+import com.pixelutilitys.entitys.TotodilePokedollEntity;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
