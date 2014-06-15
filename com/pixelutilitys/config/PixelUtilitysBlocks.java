@@ -48,6 +48,7 @@ import com.pixelutilitys.blocks.Window1Block;
 import com.pixelutilitys.blocks.Window2Block;
 import com.pixelutilitys.blocks.WoodenFlooringBlock;
 import com.pixelutilitys.blocks.YellowCusionChairBlock;
+import com.pixelutilitys.blocks.BlockConveyor;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.ores.AmethystOre;
 import com.pixelutilitys.ores.CrystalOre;
@@ -111,9 +112,7 @@ public class PixelUtilitysBlocks {
 	public static Block RadioBlock;
 	public static Block GymSignBlock;
 	public static Block TVBlock;
-	public static Block BlueRugBlock;
-	public static Block RedRugBlock;
-	public static Block GreenRugBlock;
+	public static Block BlockConveyor;
 
 
 	public static void load(Configuration cfg){
@@ -167,11 +166,7 @@ public class PixelUtilitysBlocks {
 		RadioBlock = new RadioBlock(Material.wood);
 		GymSignBlock = new com.pixelutilitys.blocks.GymSignBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GymSign").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		TVBlock = new com.pixelutilitys.blocks.TVBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("TV").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-
-		BlueRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "blue").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BlueRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		RedRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "red").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("RedRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		GreenRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "green").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GreenRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-
+		BlockConveyor = new BlockConveyor();
 	}
 	public static void addNames() {
 
@@ -225,9 +220,7 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(RadioBlock, "Radio");
 		GameRegistry.registerBlock(GymSignBlock, "GymSign");
 		GameRegistry.registerBlock(TVBlock, "TV");
-		GameRegistry.registerBlock(BlueRugBlock, "BlueRug");
-		GameRegistry.registerBlock(RedRugBlock, "RedRug");
-		GameRegistry.registerBlock(GreenRugBlock, "GreenRug");
+		GameRegistry.registerBlock(BlockConveyor, "Conveyor");
 
 	}
 

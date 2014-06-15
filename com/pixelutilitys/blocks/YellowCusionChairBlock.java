@@ -6,13 +6,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.config.PixelUtilitysItems;
-import com.pixelutilitys.entitys.YellowCusionChairEntity;
+import com.pixelutilitys.entitys.SeatEntity;
+import com.pixelutilitys.tileentitys.YellowCusionChairEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -109,6 +112,16 @@ public class YellowCusionChairBlock extends BlockContainer {
         super.onBlockAdded(par1World, par2, par3, par4);
         this.setDefaultDirection(par1World, par2, par3, par4);
     }
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float f1, float f2, float f3)
+	{
+		Entity seatEntity = new SeatEntity(world,x+0.5,y,z+0.5);
+		world.spawnEntityInWorld(seatEntity);
+		player.mountEntity(seatEntity);
+		
+		return false;
+	}
 	
     /**
      * set a blocks direction

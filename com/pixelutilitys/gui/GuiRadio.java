@@ -9,8 +9,8 @@ import java.net.URLConnection;
 import org.lwjgl.input.Keyboard;
 
 import com.pixelutilitys.PacketHandler;
-import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
+import com.pixelutilitys.tileentitys.TileEntityRadio;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

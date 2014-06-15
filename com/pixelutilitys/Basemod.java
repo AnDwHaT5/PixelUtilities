@@ -15,8 +15,6 @@ import net.minecraftforge.common.util.EnumHelper;
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
-import com.pixelmonmod.pixelmon.enums.EnumApricorns;
-import com.pixelmonmod.pixelmon.enums.EnumPokeballs;
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
 import com.pixelutilitys.commands.PokeRanCommand;
 import com.pixelutilitys.commands.PokecheckmeCommand;
@@ -25,20 +23,21 @@ import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.config.PixelUtilitysRecipes;
-import com.pixelutilitys.entitys.BolderEntity;
-import com.pixelutilitys.entitys.BoxEntity;
-import com.pixelutilitys.entitys.ClothedTableEntity;
-import com.pixelutilitys.entitys.PokeballEntity;
-import com.pixelutilitys.entitys.RedCusionChairEntity;
-import com.pixelutilitys.entitys.TileEntityRadio;
-import com.pixelutilitys.entitys.TotodilePokedollEntity;
-import com.pixelutilitys.entitys.TrashcanEntity;
-import com.pixelutilitys.entitys.TreeEntity;
-import com.pixelutilitys.entitys.YellowCusionChairEntity;
+import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.events.ModRadioEvents;
-import com.pixelutilitys.pokeballs.ShinyBall;
 import com.pixelutilitys.radioplayer.BattleMusicPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
+import com.pixelutilitys.tileentitys.BolderEntity;
+import com.pixelutilitys.tileentitys.BoxEntity;
+import com.pixelutilitys.tileentitys.ClothedTableEntity;
+import com.pixelutilitys.tileentitys.PokeballEntity;
+import com.pixelutilitys.tileentitys.RedCusionChairEntity;
+import com.pixelutilitys.tileentitys.TileEntityConveyor;
+import com.pixelutilitys.tileentitys.TileEntityRadio;
+import com.pixelutilitys.tileentitys.TotodilePokedollEntity;
+import com.pixelutilitys.tileentitys.TrashcanEntity;
+import com.pixelutilitys.tileentitys.TreeEntity;
+import com.pixelutilitys.tileentitys.YellowCusionChairEntity;
 import com.pixelutilitys.worldgen.AmethystGenerator;
 import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
@@ -59,6 +58,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
@@ -123,6 +123,8 @@ public class Basemod {
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
 		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
+		
+		EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
 		preInit = true;
 	}
 	
@@ -166,8 +168,7 @@ public class Basemod {
 	@EventHandler
 	public void load(FMLInitializationEvent event) 
 	{		
-		EnumApricorns apricorns[] = {EnumApricorns.Yellow,  EnumApricorns.Yellow, EnumApricorns.Yellow};
-		ShinyBall.registerPokeball("ShinyBall", 20, 2, "pixelutilitys:shinyball", "shinyball", apricorns, 1, 2);
+
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TreeEntity.class, "Tree");
 		proxy.registerRenderThings();
@@ -188,6 +189,7 @@ public class Basemod {
 		GameRegistry.registerTileEntity(TotodilePokedollEntity.class, "TotodileDoll");
 		
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
+		GameRegistry.registerTileEntity(TileEntityConveyor.class, "Conveyor");
 		
 		//Creative Tabs
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBlocks", "en_US", "PixelmonBlocks");

@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.config.PixelUtilitysItems;
-import com.pixelutilitys.entitys.PokeballEntity;
+import com.pixelutilitys.tileentitys.PokeballEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

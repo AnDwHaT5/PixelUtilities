@@ -13,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.config.PixelUtilitysItems;
-import com.pixelutilitys.entitys.BoxEntity;
+import com.pixelutilitys.tileentitys.BoxEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
