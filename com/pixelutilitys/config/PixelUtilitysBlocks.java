@@ -5,56 +5,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
-import com.pixelutilitys.blocks.AmethystBlock;
-import com.pixelutilitys.blocks.AronPokedollBlock;
-import com.pixelutilitys.blocks.BisharpPokedollBlock;
-import com.pixelutilitys.blocks.BolderBlock;
-import com.pixelutilitys.blocks.BoxBlock;
-import com.pixelutilitys.blocks.BridgeBlockBlock;
-import com.pixelutilitys.blocks.CaveRockBlock;
-import com.pixelutilitys.blocks.ClothedTableBlock;
-import com.pixelutilitys.blocks.CrystalBlock;
-import com.pixelutilitys.blocks.InsideMoldingBlock;
-import com.pixelutilitys.blocks.PixelmonGrassBlock;
-import com.pixelutilitys.blocks.PokeCenterSignBlock;
-import com.pixelutilitys.blocks.PokeDirtBlock;
-import com.pixelutilitys.blocks.PokeGrassBlock;
-import com.pixelutilitys.blocks.PokeMartSignBlock;
-import com.pixelutilitys.blocks.PokeSandBlock;
-import com.pixelutilitys.blocks.PokeSandC1Block;
-import com.pixelutilitys.blocks.PokeSandC2Block;
-import com.pixelutilitys.blocks.PokeSandC3Block;
-import com.pixelutilitys.blocks.PokeSandC4Block;
-import com.pixelutilitys.blocks.PokeSandSide1Block;
-import com.pixelutilitys.blocks.PokeSandSide2Block;
-import com.pixelutilitys.blocks.PokeSandSide3Block;
-import com.pixelutilitys.blocks.PokeSandSide4Block;
-import com.pixelutilitys.blocks.PokeballBlock;
-import com.pixelutilitys.blocks.RadioBlock;
-import com.pixelutilitys.blocks.RedCusionChairBlock;
-import com.pixelutilitys.blocks.RockBlock;
-import com.pixelutilitys.blocks.RubyBlock;
-import com.pixelutilitys.blocks.SandyGrassBlock;
-import com.pixelutilitys.blocks.SaphireBlock;
-import com.pixelutilitys.blocks.ShinglesBlock;
-import com.pixelutilitys.blocks.ShinglesCorner1Block;
-import com.pixelutilitys.blocks.ShinglesCorner2Block;
-import com.pixelutilitys.blocks.TotodilePokedollBlock;
-import com.pixelutilitys.blocks.TrashcanBlock;
-import com.pixelutilitys.blocks.TreeBlock;
-import com.pixelutilitys.blocks.TreeBottomBlock;
-import com.pixelutilitys.blocks.TreeTopBlock;
-import com.pixelutilitys.blocks.Window1Block;
-import com.pixelutilitys.blocks.Window2Block;
-import com.pixelutilitys.blocks.WoodenFlooringBlock;
-import com.pixelutilitys.blocks.YellowCusionChairBlock;
-import com.pixelutilitys.blocks.BlockConveyor;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
-import com.pixelutilitys.ores.AmethystOre;
-import com.pixelutilitys.ores.CrystalOre;
-import com.pixelutilitys.ores.RubyOre;
-import com.pixelutilitys.ores.SaphireOre;
-import com.pixelutilitys.ores.SiliconOre;
+import com.pixelutilitys.blocks.*;
+import com.pixelutilitys.ores.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -113,6 +66,10 @@ public class PixelUtilitysBlocks {
 	public static Block GymSignBlock;
 	public static Block TVBlock;
 	public static Block BlockConveyor;
+	public static Block BlueRugBlock;
+	public static Block RedRugBlock;
+	public static Block GreenRugBlock;
+	
 
 
 	public static void load(Configuration cfg){
@@ -167,6 +124,9 @@ public class PixelUtilitysBlocks {
 		GymSignBlock = new com.pixelutilitys.blocks.GymSignBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GymSign").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		TVBlock = new com.pixelutilitys.blocks.TVBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("TV").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		BlockConveyor = new BlockConveyor();
+		BlueRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "blue").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BlueRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		RedRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "red").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("RedRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		GreenRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "green").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GreenRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 	}
 	public static void addNames() {
 
@@ -221,6 +181,9 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(GymSignBlock, "GymSign");
 		GameRegistry.registerBlock(TVBlock, "TV");
 		GameRegistry.registerBlock(BlockConveyor, "Conveyor");
+		GameRegistry.registerBlock(BlueRugBlock, "BlueRug");
+		GameRegistry.registerBlock(RedRugBlock, "RedRug");
+		GameRegistry.registerBlock(GreenRugBlock, "GreenRug");
 
 	}
 

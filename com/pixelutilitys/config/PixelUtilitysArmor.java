@@ -5,22 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.armor.CrystalBoots;
-import com.pixelutilitys.armor.CrystalHelmet;
-import com.pixelutilitys.armor.CrystalLegs;
-import com.pixelutilitys.armor.CrystalPlate;
-import com.pixelutilitys.armor.GalacticBoots;
-import com.pixelutilitys.armor.GalacticHelmet;
-import com.pixelutilitys.armor.GalacticLegs;
-import com.pixelutilitys.armor.GalacticPlate;
-import com.pixelutilitys.armor.RubyBoots;
-import com.pixelutilitys.armor.RubyHelmet;
-import com.pixelutilitys.armor.RubyLegs;
-import com.pixelutilitys.armor.RubyPlate;
-import com.pixelutilitys.armor.SaphireBoots;
-import com.pixelutilitys.armor.SaphireHelmet;
-import com.pixelutilitys.armor.SaphireLegs;
-import com.pixelutilitys.armor.SaphirePlate;
+import com.pixelutilitys.armor.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -45,6 +30,11 @@ public class PixelUtilitysArmor {
 	public static Item crystalBoots;
 	public static Item crystalPlate;
 	public static Item crystalLegs;
+	
+	public static Item rocketHelm;
+	public static Item rocketBoots;
+	public static Item rocketPlate;
+	public static Item rocketLegs;
 	
 	/*
 	public static Item firestoneHelm;
@@ -84,6 +74,13 @@ public class PixelUtilitysArmor {
 		crystalLegs = new CrystalLegs(Basemod.CRYSTALA, 0, 2);
 		crystalBoots = new CrystalBoots(Basemod.CRYSTALA, 0, 3);
 		
+		rocketHelm = new RocketHelmet(Basemod.CRYSTALA, 0, 0);
+		rocketPlate = new RocketPlate(Basemod.CRYSTALA, 0, 1);
+		rocketLegs = new RocketLegs(Basemod.CRYSTALA, 0, 2);
+		rocketBoots = new RocketBoots(Basemod.CRYSTALA, 0, 3);
+		
+		
+		
 		/*
 		firestoneHelm = new FireStoneHelmet(firestoneHelmID, Basemod.FIRESTONEA, 0, 0).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStoneHelmet").setUnlocalizedName("Firestone Helmet");
 		firestonePlate = new FireStonePlate(firestonePlateID, Basemod.FIRESTONEA, 0, 1).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:FireStonePlate").setUnlocalizedName("Firestone Chestlate");
@@ -118,6 +115,11 @@ public class PixelUtilitysArmor {
 		GameRegistry.registerItem(galacticPlate, galacticPlate.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(galacticLegs, galacticLegs.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(galacticBoots, galacticBoots.getUnlocalizedName().substring(5));
+
+		GameRegistry.registerItem(rocketHelm, rocketHelm.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(rocketPlate, rocketPlate.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(rocketLegs, rocketLegs.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(rocketBoots, rocketBoots.getUnlocalizedName().substring(5));
 		
 		/*GameRegistry.registerItem(firestoneHelm, "Firestone Helmet");
 		GameRegistry.registerItem(firestonePlate, "Firestone Chestplate");

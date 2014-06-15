@@ -43,6 +43,10 @@ import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
 import com.pixelutilitys.worldgen.SaphireGenerator;
 import com.pixelutilitys.worldgen.SiliconGenerator;
+import com.pixelutilitys.pokeballs.ShinyBall;
+import com.pixelmonmod.pixelmon.enums.EnumApricorns;
+import com.pixelmonmod.pixelmon.enums.EnumPokeballs;
+
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
@@ -64,7 +68,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
 @Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "2.5")//, dependencies = "required-after:pixelmon")
-//@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class Basemod {
 	
@@ -167,8 +170,7 @@ public class Basemod {
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) 
-	{		
-
+	{				
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TreeEntity.class, "Tree");
 		proxy.registerRenderThings();
