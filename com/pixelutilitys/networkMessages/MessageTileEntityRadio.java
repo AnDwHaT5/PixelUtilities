@@ -1,7 +1,7 @@
 package com.pixelutilitys.networkMessages;
 
 import com.pixelutilitys.PacketHandler;
-import com.pixelutilitys.tileentitys.TileEntityRadio;
+import com.pixelutilitys.entitys.TileEntityRadio;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;

@@ -4,13 +4,12 @@ import java.util.Random;
 
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
-
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
 
 public class CustomDrops {
-	
+		
 	public static Random random;
 	public static int dropped;
 	public static int doDrop;

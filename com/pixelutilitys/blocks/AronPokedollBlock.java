@@ -2,7 +2,7 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
-import com.pixelutilitys.tileentitys.AronPokedollEntity;
+import com.pixelutilitys.entitys.AronPokedollEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
