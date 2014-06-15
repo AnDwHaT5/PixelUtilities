@@ -12,8 +12,8 @@ import net.minecraft.server.MinecraftServer;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 import com.pixelmonmod.pixelmon.battles.BattleRegistry;
-import com.pixelutilitys.entitys.TileEntityRadio;
 import com.pixelutilitys.radioplayer.BattleMusicPlayer;
+import com.pixelutilitys.tileentitys.TileEntityRadio;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
