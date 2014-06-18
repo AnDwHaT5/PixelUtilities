@@ -5,9 +5,56 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
+import com.pixelutilitys.blocks.AmethystBlock;
+import com.pixelutilitys.blocks.AronPokedollBlock;
+import com.pixelutilitys.blocks.BisharpPokedollBlock;
+import com.pixelutilitys.blocks.BlockConveyor;
+import com.pixelutilitys.blocks.BolderBlock;
+import com.pixelutilitys.blocks.BoxBlock;
+import com.pixelutilitys.blocks.BridgeBlockBlock;
+import com.pixelutilitys.blocks.CaveRockBlock;
+import com.pixelutilitys.blocks.ClothedTableBlock;
+import com.pixelutilitys.blocks.CrystalBlock;
+import com.pixelutilitys.blocks.InsideMoldingBlock;
+import com.pixelutilitys.blocks.PUBlock;
+import com.pixelutilitys.blocks.PixelmonGrassBlock;
+import com.pixelutilitys.blocks.PokeCenterSignBlock;
+import com.pixelutilitys.blocks.PokeDirtBlock;
+import com.pixelutilitys.blocks.PokeMartSignBlock;
+import com.pixelutilitys.blocks.PokeSandBlock;
+import com.pixelutilitys.blocks.PokeSandC1Block;
+import com.pixelutilitys.blocks.PokeSandC2Block;
+import com.pixelutilitys.blocks.PokeSandC3Block;
+import com.pixelutilitys.blocks.PokeSandC4Block;
+import com.pixelutilitys.blocks.PokeSandSide1Block;
+import com.pixelutilitys.blocks.PokeSandSide2Block;
+import com.pixelutilitys.blocks.PokeSandSide3Block;
+import com.pixelutilitys.blocks.PokeSandSide4Block;
+import com.pixelutilitys.blocks.PokeballBlock;
+import com.pixelutilitys.blocks.RadioBlock;
+import com.pixelutilitys.blocks.RedCusionChairBlock;
+import com.pixelutilitys.blocks.RockBlock;
+import com.pixelutilitys.blocks.RubyBlock;
+import com.pixelutilitys.blocks.SandyGrassBlock;
+import com.pixelutilitys.blocks.SaphireBlock;
+import com.pixelutilitys.blocks.ShinglesBlock;
+import com.pixelutilitys.blocks.ShinglesCorner1Block;
+import com.pixelutilitys.blocks.ShinglesCorner2Block;
+import com.pixelutilitys.blocks.TotodilePokedollBlock;
+import com.pixelutilitys.blocks.TrashcanBlock;
+import com.pixelutilitys.blocks.TreeBlock;
+import com.pixelutilitys.blocks.TreeBottomBlock;
+import com.pixelutilitys.blocks.TreeTopBlock;
+import com.pixelutilitys.blocks.Window1Block;
+import com.pixelutilitys.blocks.Window2Block;
+import com.pixelutilitys.blocks.WoodenFlooringBlock;
+import com.pixelutilitys.blocks.YellowCusionChairBlock;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
-import com.pixelutilitys.blocks.*;
-import com.pixelutilitys.ores.*;
+import com.pixelutilitys.ores.AmethystOre;
+import com.pixelutilitys.ores.CrystalOre;
+import com.pixelutilitys.ores.RubyOre;
+import com.pixelutilitys.ores.SaphireOre;
+import com.pixelutilitys.ores.SiliconOre;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -73,7 +120,7 @@ public class PixelUtilitysBlocks {
 
 
 	public static void load(Configuration cfg){
-		NewGrassBlock = new PokeGrassBlock(Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeGrass").setBlockTextureName("PixelUtilitys" +":"+ "PokeGrass").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
+		NewGrassBlock = new PUBlock(Material.grass, "PokeGrass", 4.0F,PixelUtilitysCreativeTabs.tabPixelmonBlocks , Block.soundTypeGrass);
 		PokeDirtBlock = new PokeDirtBlock(Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeDirt").setBlockTextureName("PixelUtilitys" +":"+ "PokeDirt").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		PokeSandBlock = new PokeSandBlock(Material.sand).setHardness(0.5f).setStepSound(Block.soundTypeSand).setBlockName("PokeSand").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" +":"+ "pokesand");;
 		PokeSandC1Block = new PokeSandC1Block(Material.sand).setHardness(0.5f).setStepSound(Block.soundTypeSand).setBlockName("PokeSandCorner1").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" +":"+ "PokeSandC1");;

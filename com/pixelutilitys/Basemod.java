@@ -16,9 +16,7 @@ import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
-import com.pixelutilitys.commands.PokeRanCommand;
 import com.pixelutilitys.commands.PokecheckmeCommand;
-import com.pixelutilitys.commands.Rickroll;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
@@ -43,10 +41,6 @@ import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
 import com.pixelutilitys.worldgen.SaphireGenerator;
 import com.pixelutilitys.worldgen.SiliconGenerator;
-import com.pixelutilitys.pokeballs.ShinyBall;
-import com.pixelmonmod.pixelmon.enums.EnumApricorns;
-import com.pixelmonmod.pixelmon.enums.EnumPokeballs;
-
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
@@ -67,7 +61,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "2.5")//, dependencies = "required-after:pixelmon")
+@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0")//, dependencies = "required-after:pixelmon")
 
 public class Basemod {
 	
@@ -258,9 +252,6 @@ public class Basemod {
 		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
-			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeRanCommand());
-
-			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new Rickroll());
 //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
