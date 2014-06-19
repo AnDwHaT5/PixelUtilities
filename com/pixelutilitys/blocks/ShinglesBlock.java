@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class ShinglesBlock extends Block 
 {
 
-    public ShinglesBlock (int id, Material material) 
+    public ShinglesBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond

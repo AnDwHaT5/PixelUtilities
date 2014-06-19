@@ -45,6 +45,14 @@ tile.RubyOre.name= Ruby Ore
 tile.SaphireOre.name= Saphire Ore
 tile.AmethystOre.name= Amethyst Ore
 tile.SiliconOre.name= Silicon Ore
+tile.Radio.name=Radio
+tile.ClothedTable.name=Clothed Table
+tile.Pokeball.name=Pokeball
+tile.GymSign.name=Gym Sign
+tile.TV.name=TV
+tile.TotodileDoll.name=Totodile PokeDoll
+tile.BisharpDoll.name=Bisharp PokeDoll
+tile.AronDoll.name=Aron PokeDoll
 
 
 itemGroup.tabPixelmonBlocks=Pixelmon Blocks
@@ -66,6 +74,8 @@ item.RubyItem.name=Ruby
 item.SaphireItem.name=Saphire
 item.AmethystItem.name=Amethyst
 item.SiliconItem.name=Silicon
+item.CrystalItem.name=Crystal
+item.CDItem.name=CD
 
 item.bugbadge.name=Bagu Badge
 item.fightingbadge.name=Sento Badge
@@ -84,15 +94,6 @@ item.psychicbadge.name=Seishin Badge
 item.darkbadge.name=Kurai Badge
 item.icebadge.name=Aisu Badge
 item.dragonbadge.name=Doragon Badge
-
-item.TotodileDoll.name=Totodile PokeDoll
-item.BisharpDoll.name=Bisharp PokeDoll
-item.AronDoll.name=Aron PokeDoll
-item.ClothedTable.name=Clothed Table
-item.RedCusionChair.name=Red Cushion Chair
-item.YellowCusionChair.name=Yellow Cushion Chair
-item.Trashcan.name=Trashcan
-item.Pokeball.name=Placable PokeBall
 
 item.rubyPickaxe.name=Ruby Pickaxe
 item.rubyHammer.name=Ruby Hammer
@@ -130,6 +131,15 @@ item.LeafstoneAxe.name=Leafstone Axe
 item.LeafstoneShovel.name=Leafstone Shovel
 item.LeafstoneHoe.name=Leafstone Hoe
 item.LeafstoneSword.name=Leafstone Sword
+item.CrystalPickaxe.name=Crystal Pickaxe
+item.CrystalAxe.name=Crystal Axe
+item.CrystalHoe.name=Crystal Hoe
+item.CrystalSword.name=Crystal Sword
+item.CrystalShovel.name=Crystal Shovel
+item.CrystalHammer.name=Crystal Hammer
+
+
+
 
 item.Ruby Helmet.name=Magma Helmet
 item.Ruby Boots.name=Magma Boots

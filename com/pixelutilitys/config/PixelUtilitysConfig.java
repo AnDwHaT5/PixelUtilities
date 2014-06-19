@@ -209,10 +209,7 @@ public class PixelUtilitysConfig {
 
 		// Set Called
 		called = true;
-
-		//PixelUtilitysTools.addNames();
-		PixelUtilitysItems.addNames();
-		PixelUtilitysArmor.addNames();
+//TODO wtfing ell is going on in this method.
 
 		forestEncounterList = new EnumPokemon[forestWildEncounters.length];
 		for(int i=0; i<forestWildEncounters.length; i++) {

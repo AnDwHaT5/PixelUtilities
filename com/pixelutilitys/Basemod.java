@@ -3,8 +3,6 @@ package com.pixelutilitys;
 import java.util.ArrayList;
 import java.util.List;
 
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -14,27 +12,30 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
-import com.pixelutilitys.commands.PokeRanCommand;
 import com.pixelutilitys.commands.PokecheckmeCommand;
-import com.pixelutilitys.config.PixelUtilitysArmor;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.config.PixelUtilitysRecipes;
-import com.pixelutilitys.entitys.BolderEntity;
-import com.pixelutilitys.entitys.BoxEntity;
-import com.pixelutilitys.entitys.ClothedTableEntity;
-import com.pixelutilitys.entitys.PokeballEntity;
-import com.pixelutilitys.entitys.RedCusionChairEntity;
-import com.pixelutilitys.entitys.TileEntityRadio;
-import com.pixelutilitys.entitys.TotodilePokedollEntity;
-import com.pixelutilitys.entitys.TrashcanEntity;
-import com.pixelutilitys.entitys.TreeEntity;
-import com.pixelutilitys.entitys.YellowCusionChairEntity;
+import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.events.ModRadioEvents;
+import com.pixelutilitys.radioplayer.BattleMusicPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
+import com.pixelutilitys.tileentitys.BolderEntity;
+import com.pixelutilitys.tileentitys.BoxEntity;
+import com.pixelutilitys.tileentitys.ClothedTableEntity;
+import com.pixelutilitys.tileentitys.PokeballEntity;
+import com.pixelutilitys.tileentitys.RedCusionChairEntity;
+import com.pixelutilitys.tileentitys.TileEntityConveyor;
+import com.pixelutilitys.tileentitys.TileEntityRadio;
+import com.pixelutilitys.tileentitys.TotodilePokedollEntity;
+import com.pixelutilitys.tileentitys.TrashcanEntity;
+import com.pixelutilitys.tileentitys.TreeEntity;
+import com.pixelutilitys.tileentitys.YellowCusionChairEntity;
 import com.pixelutilitys.worldgen.AmethystGenerator;
 import com.pixelutilitys.worldgen.CrystalGenerator;
 import com.pixelutilitys.worldgen.RubyGenerator;
@@ -43,10 +44,10 @@ import com.pixelutilitys.worldgen.SiliconGenerator;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -55,14 +56,17 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.FMLEventChannel;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "2.5", dependencies = "required-after:pixelmon")
-//@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0")//, dependencies = "required-after:pixelmon")
 
 public class Basemod {
+	
+	
+	
 
 	public static ToolMaterial FIRESTONE = EnumHelper.addToolMaterial("FIRESTONE", 3, 1561, 8.0F, 3.0F, 10);
 	public static ToolMaterial WATERSTONE = EnumHelper.addToolMaterial("WATERSTONE", 3, 1561, 8.0F, 3.0F, 10);
@@ -88,6 +92,7 @@ public class Basemod {
 	public static boolean is64bit = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
+	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
 
 	//In development biome //pokebiome
 	//Biomes
@@ -115,11 +120,14 @@ public class Basemod {
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
 		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
+		
+		EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
 		preInit = true;
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		FMLCommonHandler.instance().bus().register(new PUTickHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
 		PacketHandler.init();
@@ -156,8 +164,7 @@ public class Basemod {
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) 
-	{		
-
+	{				
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TreeEntity.class, "Tree");
 		proxy.registerRenderThings();
@@ -178,6 +185,7 @@ public class Basemod {
 		GameRegistry.registerTileEntity(TotodilePokedollEntity.class, "TotodileDoll");
 		
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
+		GameRegistry.registerTileEntity(TileEntityConveyor.class, "Conveyor");
 		
 		//Creative Tabs
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBlocks", "en_US", "PixelmonBlocks");
@@ -200,7 +208,7 @@ public class Basemod {
 		//Block crafting
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.AmethystItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
 
 		/*	GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.fireStone});
@@ -244,8 +252,7 @@ public class Basemod {
 		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
-			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeRanCommand());
-			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
+//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}

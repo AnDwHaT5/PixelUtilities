@@ -2,18 +2,18 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
+import com.pixelutilitys.tileentitys.TotodilePokedollEntity;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import com.pixelutilitys.config.PixelUtilitysItems;
-import com.pixelutilitys.entitys.TotodilePokedollEntity;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,34 +21,33 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class TotodilePokedollBlock extends BlockContainer {
 
   
-	public TotodilePokedollBlock(int id, Material iron) {
+	public TotodilePokedollBlock(Material iron) {
         super(Material.iron);
-
-        this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
-        
+        this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.3F, 3.0F, 0.3F); //0.4 0.0 1.0 
 	}
-
-	
-	
 	    
 	/**
 	 * Returns a bounding box from the pool of bounding boxes (this means this
 	 * box can change after the pool has been cleared to be reused)
 	 */
+	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		this.setBlockBounds(par1World.getBlockMetadata(par2, par3, par4));
 		return super.getCollisionBoundingBoxFromPool(par1World, par2, par3, par4);
 	}
 
-	@SideOnly(Side.CLIENT)
 	/**
 	 * Returns the bounding box of the wired rectangular prism to render.
 	 */
+	@SideOnly(Side.CLIENT)
+	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		this.setBlockBounds(par1World.getBlockMetadata(par2, par3, par4));
 		return super.getSelectedBoundingBoxFromPool(par1World, par2, par3, par4);
 	}
-	public void func_82541_d(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         int l = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
 
@@ -64,8 +63,8 @@ public class TotodilePokedollBlock extends BlockContainer {
 	
 	
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister par1IconRegister) {
-		blockIcon = par1IconRegister.registerIcon("TotodileDoll");
+	public void registerBlockIcons(IIconRegister par1IconRegister) {
+		blockIcon = par1IconRegister.registerIcon("pixelutilitys:TotodileDoll");
 	}
 
 	/**
@@ -75,21 +74,8 @@ public class TotodilePokedollBlock extends BlockContainer {
 	 * @param world
 	 */
 	public void setBlockBounds(int stage) {
-		this.setBlockBounds(0.15f, 0, 0f, 0.8f, 0.6f, 0.6f);
+		this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
 	}
-/*
-	@Deprecated
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return PixelUtilitysItems.TotodilePokedollItemID;
-	}
-
-	@SideOnly(Side.CLIENT)
-	// only called by clickMiddleMouseButton , and passed to
-	// inventory.setCurrentItem (along with isCreative)
-	public int idPicked(World par1World, int par2, int par3, int par4) {
-		return PixelUtilitysItems.TotodilePokedollItemID;
-	}*/
-
 
 	@Override
 	public int quantityDropped(Random random) {
@@ -111,54 +97,39 @@ public class TotodilePokedollBlock extends BlockContainer {
 		return -1;
 	}
 
-
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TotodilePokedollEntity();
 	}
-
 	
-	
-	public void onBlockAdded(World par1World, int par2, int par3, int par4)
-    {
-        super.onBlockAdded(par1World, par2, par3, par4);
-        this.setDefaultDirection(par1World, par2, par3, par4);
-    }
-    /**
-     * set a blocks direction
-     */
-    private void setDefaultDirection(World par1World, int par2, int par3, int par4)
-    {
-        if (!par1World.isRemote)
-        {
-        	Block l = par1World.getBlock(par2, par3, par4 - 1);
-            Block i1 = par1World.getBlock(par2, par3, par4 + 1);
-            Block j1 = par1World.getBlock(par2 - 1, par3, par4);
-            Block k1 = par1World.getBlock(par2 + 1, par3, par4);
-            byte b0 = 3;
+	@Override
+	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4,
+			EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
+		int l = MathHelper
+				.floor_double((double) (par5EntityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		int i1 = par1World.getBlockMetadata(par2, par3, par4) >> 2;
+		++l;
+		l %= 4;
 
-            if (l.func_149730_j() && !i1.func_149730_j())
-            {
-                b0 = 3;
-            }
+		if (l == 3) {
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, 2 | i1 << 2,
+					2);
+		}
 
-            if (i1.func_149730_j() && !l.func_149730_j())
-            {
-                b0 = 2;
-            }
+		if (l == 0) {
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, 3 | i1 << 2,
+					2);
+		}
 
-            if (j1.func_149730_j() && !k1.func_149730_j())
-            {
-                b0 = 5;
-            }
+		if (l == 1) {
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
+					2);
+		}
 
-            if (k1.func_149730_j() && !j1.func_149730_j())
-            {
-                b0 = 4;
-            }
-
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
-        }
-    }
+		if (l == 2) {
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, 1 | i1 << 2,
+					2);
+		}
+	}
 	
 }

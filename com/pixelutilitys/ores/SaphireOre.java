@@ -16,7 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SaphireOre extends Block 
 {
 
-        public SaphireOre (int id, Material material) 
+        public SaphireOre (Material material) 
         {
                 super(material);
                 setHardness(4.0F); // 33% harder than diamond

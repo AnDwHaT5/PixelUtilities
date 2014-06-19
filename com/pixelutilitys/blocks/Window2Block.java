@@ -10,59 +10,58 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Window2Block extends Block 
 {
-	
-	 public int quantityDropped(Random par1Random)
-	    {
-	        return 0;
-	    }
+	public Window2Block (Material material) 
+	{
+		super(material);
+		setHardness(2.0F); // 33% harder than diamond
+		setStepSound(Block.soundTypeGlass);
+		setBlockName("Window2");
+		setCreativeTab(CreativeTabs.tabBlock);
 
-	    @SideOnly(Side.CLIENT)
+		setBlockTextureName("pixelmonblocks" +":"+ "Window2");
+	}
 
-	    /**
-	     * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
-	     */
-	    public int getRenderBlockPass()
-	    {
-	        return 0;
-	    }
+	@Override
+	public int quantityDropped(Random par1Random)
+	{
+		return 0;
+	}
 
-	    /**
-	     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-	     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-	     */
-	    public boolean isOpaqueCube()
-	    {
-	        return false;
-	    }
+	/**
+	 * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
+	 */
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getRenderBlockPass()
+	{
+		return 0;
+	}
 
-	    /**
-	     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-	     */
-	    public boolean renderAsNormalBlock()
-	    {
-	        return false;
-	    }
+	/**
+	 * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
+	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
+	 */
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
 
-	    /**
-	     * Return true if a player with Silk Touch can harvest this block directly, and not its normal drops.
-	     */
-	    protected boolean canSilkHarvest()
-	    {
-	        return true;
-	    }
-	    
-	    
+	/**
+	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
+	 */
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
+	}
 
-        public Window2Block (int id, Material material) 
-        {
-                super(material);
-                setHardness(2.0F); // 33% harder than diamond
-                setStepSound(Block.soundTypeGlass);
-                setBlockName("Window2");
-                setCreativeTab(CreativeTabs.tabBlock);
-                
-                setBlockTextureName("pixelmonblocks" +":"+ "Window2");
-        }
-                
-    
+	/**
+	 * Return true if a player with Silk Touch can harvest this block directly, and not its normal drops.
+	 */
+	@Override
+	protected boolean canSilkHarvest()
+	{
+		return true;
+	}               
 }

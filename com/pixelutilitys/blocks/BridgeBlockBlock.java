@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BridgeBlockBlock extends Block 
 {
 
-    public BridgeBlockBlock (int id, Material material) 
+    public BridgeBlockBlock (Material material) 
     {
         super(material);
         setHardness(4.0F); // 33% harder than diamond

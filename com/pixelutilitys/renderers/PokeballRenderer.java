@@ -13,6 +13,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.pixelutilitys.models.PokeballModel;
 
+import cpw.mods.fml.client.FMLClientHandler;
+
 public class PokeballRenderer extends TileEntitySpecialRenderer {
 	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/Pokeball.png"); 
 	
@@ -29,6 +31,9 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
             GL11.glRotatef(meta * (-90), 0.0F, 0.0F, 1.0F);
             GL11.glPopMatrix();
     }
+    
+    
+    
     
     @Override
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
@@ -48,6 +53,24 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
             GL11.glPushMatrix();
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
     //A reference to your Model file. Again, very important.
+            
+            
+			switch(te.getBlockMetadata()){
+			default:
+				GL11.glRotatef(360f, 0f, 1f, 0f);
+				break;
+			case 1:
+				GL11.glRotatef(90f, 0f, 1f, 0f);
+				break;
+			case 2:
+				GL11.glRotatef(180f, 0f, 1f, 0f);
+				break;
+			case 3:
+				GL11.glRotatef(270f, 0f, 1f, 0f);
+				break;
+		}
+            
+            
             this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0700F);
     //Tell it to stop rendering for both the PushMatrix's
             GL11.glPopMatrix();

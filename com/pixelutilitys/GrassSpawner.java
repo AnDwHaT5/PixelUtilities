@@ -22,16 +22,16 @@ import com.pixelutilitys.config.PixelUtilitysConfig;
 
 public class GrassSpawner {
 
-	public static EnumPokemon[] encounterListP = {EnumPokemon.Pikachu, EnumPokemon.Pidgey, EnumPokemon.Rattata, EnumPokemon.Ponyta, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListJ = {EnumPokemon.Oddish, EnumPokemon.Paras, EnumPokemon.Bellsprout, EnumPokemon.Scyther, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListF = {EnumPokemon.Pikachu, EnumPokemon.Rattata, EnumPokemon.Caterpie, EnumPokemon.Weedle, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListEH = {EnumPokemon.Pidgey, EnumPokemon.Pidgeotto, EnumPokemon.Nidorino, EnumPokemon.Geodude, EnumPokemon.Machop, null, null, null, null, null};
-	public static EnumPokemon[] encounterListT = {EnumPokemon.Swinub, EnumPokemon.Slowpoke, EnumPokemon.Magnemite, EnumPokemon.Jynx, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListIP = {EnumPokemon.Swinub, EnumPokemon.Slowpoke, EnumPokemon.Magnemite, EnumPokemon.Jynx, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListB = {EnumPokemon.Slowpoke, EnumPokemon.Staryu, EnumPokemon.Shellder, EnumPokemon.Psyduck, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListD = {EnumPokemon.Trapinch, EnumPokemon.Sandshrew, EnumPokemon.Sandile, EnumPokemon.Geodude, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListIM = {EnumPokemon.Swinub, EnumPokemon.Slowpoke, EnumPokemon.Magnemite, EnumPokemon.Jynx, null, null, null, null, null, null};
-	public static EnumPokemon[] encounterListW = {EnumPokemon.Magikarp, EnumPokemon.Staryu, EnumPokemon.Goldeen, EnumPokemon.Shellder, null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListP = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Pidgey"), EnumPokemon.get("Rattata"), EnumPokemon.get("Ponyta"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListJ = {EnumPokemon.get("Oddish"), EnumPokemon.get("Paras"), EnumPokemon.get("Bellsprout"), EnumPokemon.get("Scyther"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListF = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Rattata"), EnumPokemon.get("Caterpie"), EnumPokemon.get("Weedle"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListEH = {EnumPokemon.get("Pidgey"), EnumPokemon.get("Pidgeotto"), EnumPokemon.get("Nidorino"), EnumPokemon.get("Geodude"), EnumPokemon.get("Machop"), null, null, null, null, null};
+	public static EnumPokemon[] encounterListT = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListIP = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListB = {EnumPokemon.get("Slowpoke"), EnumPokemon.get("Staryu"), EnumPokemon.get("Shellder"), EnumPokemon.get("Psyduck"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListD = {EnumPokemon.get("Trapinch"), EnumPokemon.get("Sandshrew"), EnumPokemon.get("Sandile"), EnumPokemon.get("Geodude"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListIM = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx"), null, null, null, null, null, null};
+	public static EnumPokemon[] encounterListW = {EnumPokemon.get("Magikarp"), EnumPokemon.get("Staryu"), EnumPokemon.get("Goldeen"), EnumPokemon.get("Shellder"), null, null, null, null, null, null};
 
 	private static double xCoOrd;
 	private static double lastXCoOrd = 0;

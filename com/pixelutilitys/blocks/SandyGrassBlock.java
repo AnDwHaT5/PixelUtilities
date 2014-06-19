@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 public class SandyGrassBlock extends Block 
 {
 
-    public SandyGrassBlock (int id, Material material) 
+    public SandyGrassBlock (Material material) 
     {
             super(material);
             setHardness(4.0F); // 33% harder than diamond
