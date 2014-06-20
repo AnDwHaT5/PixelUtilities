@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import org.lwjgl.input.Keyboard;
 
+import com.pixelutilitys.Basemod;
 import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +23,7 @@ public class GuiHandHeldRadio extends GuiScreen{
 	public static EntityPlayer player;
 	private GuiTextField streamTextBox;
 	String url = "http://www.youtube.com/watch?v=ktBGLpAYnCY";
-	HandHeldRadioPlayer radio;
+	
 	public GuiHandHeldRadio(EntityPlayer r){
 		posX = r.posX;
 		posY = r.posY;
@@ -84,15 +85,17 @@ public class GuiHandHeldRadio extends GuiScreen{
 	 protected void actionPerformed(GuiButton par1GuiButton){
 			if(par1GuiButton.id == 1)
 			{
-				HandHeldRadioPlayer rad = new HandHeldRadioPlayer(streamTextBox.getText(), false);
-				radio = rad;
-				if(radio.isPlaying())
+				if(Basemod.localMusicPlayer == null || !Basemod.localMusicPlayer.isPlaying())
+					Basemod.localMusicPlayer = new HandHeldRadioPlayer(streamTextBox.getText(), false);
+				
+				if(Basemod.localMusicPlayer.isPlaying())
 				{
-					radio.stop();
+					Basemod.localMusicPlayer.stop();
 				}
 				else
 				{
-					radio.start();
+					Basemod.localMusicPlayer = new HandHeldRadioPlayer(streamTextBox.getText(), false);
+					Basemod.localMusicPlayer.start();
 				}
 				
 				 

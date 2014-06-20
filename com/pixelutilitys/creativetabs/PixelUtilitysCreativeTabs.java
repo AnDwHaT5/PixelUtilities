@@ -41,4 +41,11 @@ public class PixelUtilitysCreativeTabs {
 			return PixelUtilitysTools.rubyHammer;
 		}
 	};
+	
+	public static CreativeTabs tabPixelUtilitysLights = new CreativeTabs("tabPixelUtilitysLights") {
+		@Override
+		public Item getTabIconItem() {
+			return new ItemStack(PixelUtilitysBlocks.blueLightBlock).getItem();
+		}
+	};
 }

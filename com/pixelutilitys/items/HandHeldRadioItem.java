@@ -10,22 +10,22 @@ import com.pixelutilitys.gui.GuiHandHeldRadio;
 import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class HandHeldRadioItem extends Item{
 	private String URL;
-	//HandHeldRadioPlayer radio = new HandHeldRadioPlayer(url, false);
 	
 	public  HandHeldRadioItem(){
 		setUnlocalizedName("HandHeldRadioItem");
 		
 	}
+	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
-		
-		
-		
-			Minecraft.getMinecraft().displayGuiScreen(new GuiHandHeldRadio(player));
-		
+		Minecraft.getMinecraft().displayGuiScreen(new GuiHandHeldRadio(player));
 		return itemStack;
 		
 	}

@@ -1,9 +1,13 @@
 package com.pixelutilitys.config;
 
+import java.awt.Color;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.config.Configuration;
+import coloredlightscore.src.api.CLApi;
 
 import com.pixelutilitys.blocks.AmethystBlock;
 import com.pixelutilitys.blocks.AronPokedollBlock;
@@ -16,6 +20,7 @@ import com.pixelutilitys.blocks.CaveRockBlock;
 import com.pixelutilitys.blocks.ClothedTableBlock;
 import com.pixelutilitys.blocks.CrystalBlock;
 import com.pixelutilitys.blocks.InsideMoldingBlock;
+import com.pixelutilitys.blocks.LightBlock;
 import com.pixelutilitys.blocks.PUBlock;
 import com.pixelutilitys.blocks.PixelmonGrassBlock;
 import com.pixelutilitys.blocks.PokeCenterSignBlock;
@@ -117,6 +122,16 @@ public class PixelUtilitysBlocks {
 	public static Block RedRugBlock;
 	public static Block GreenRugBlock;
 	
+	//lights
+	public static Block blueLightBlock;
+	public static Block redLightBlock;
+	public static Block purpleLightBlock;
+	public static Block yellowLightBlock;
+	public static Block orangeLightBlock;
+	public static Block whiteLightBlock;
+	public static Block greenLightBlock;
+	
+	
 
 
 	public static void load(Configuration cfg){
@@ -174,6 +189,15 @@ public class PixelUtilitysBlocks {
 		BlueRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "blue").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BlueRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		RedRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "red").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("RedRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		GreenRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "green").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GreenRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+
+		//lights
+		blueLightBlock = new LightBlock("Blue", Color.BLUE);
+		redLightBlock = new LightBlock("Red", Color.RED);
+		purpleLightBlock = new LightBlock("Purple", Color.MAGENTA);
+		yellowLightBlock = new LightBlock("Yellow", Color.YELLOW);
+		orangeLightBlock = new LightBlock("Orange", Color.ORANGE);
+		greenLightBlock = new LightBlock("Green", Color.GREEN);
+		whiteLightBlock = new LightBlock("White", Color.WHITE);
 	}
 	public static void addNames() {
 
@@ -231,6 +255,15 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(BlueRugBlock, "BlueRug");
 		GameRegistry.registerBlock(RedRugBlock, "RedRug");
 		GameRegistry.registerBlock(GreenRugBlock, "GreenRug");
+		
+		//lights
+		GameRegistry.registerBlock(blueLightBlock, "BlueLight");
+		GameRegistry.registerBlock(redLightBlock, "RedLight");
+		GameRegistry.registerBlock(purpleLightBlock, "PurpleLight");
+		GameRegistry.registerBlock(yellowLightBlock, "YellowLight");
+		GameRegistry.registerBlock(orangeLightBlock, "OrangeLight");
+		GameRegistry.registerBlock(whiteLightBlock, "WhiteLight");
+		GameRegistry.registerBlock(greenLightBlock, "GreenLight");
 
 	}
 

@@ -24,6 +24,7 @@ import com.pixelutilitys.config.PixelUtilitysRecipes;
 import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.events.ModRadioEvents;
 import com.pixelutilitys.radioplayer.BattleMusicPlayer;
+import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.tileentitys.BolderEntity;
 import com.pixelutilitys.tileentitys.BoxEntity;
@@ -93,7 +94,8 @@ public class Basemod {
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
 	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
-
+    public static HandHeldRadioPlayer localMusicPlayer = null;
+    
 	//In development biome //pokebiome
 	//Biomes
 	public static BiomeGenBase PokeBiome;
