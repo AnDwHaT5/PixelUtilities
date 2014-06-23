@@ -42,7 +42,14 @@ processResources {
     from (sourceSets.main.resources.srcDirs)
 }
 
+dependencies {
+    compile files('libs/compile/Pixelmon-fakeapi-1.7.2.jar')
+}
+
 jar {
+  from("$projectDir") {
+      include 'libs/runtime/**'
+  }
   manifest {
     attributes('FMLCorePlugin': 'coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin')
   }
