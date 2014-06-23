@@ -5,11 +5,11 @@ import java.util.Arrays;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import coloredlightscore.fmlevents.ChunkDataEventHandler;
-import coloredlightscore.network.ChannelHandler;
 import coloredlightscore.src.api.CLApi;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
+import coloredlightscore.network.PacketHandler;
 
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.FMLLog;
@@ -58,7 +58,7 @@ public class ColoredLightsCoreDummyContainer extends DummyModContainer
     	CLLog.info("Starting up ColoredLightsCore");
     	
     	// Spin up network handler
-    	ChannelHandler.INSTANCE = new ChannelHandler();
+    	PacketHandler.init();
     	
     	// Hook into chunk events
     	MinecraftForge.EVENT_BUS.register(chunkDataEventHandler);
