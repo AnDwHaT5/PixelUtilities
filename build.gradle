@@ -50,6 +50,7 @@ jar {
   from("$projectDir") {
       include 'libs/runtime/**'
   }
+
   manifest {
     attributes('FMLCorePluginContainsFMLMod': 'true')
     attributes('FMLCorePlugin': 'coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin')

@@ -26,7 +26,9 @@ public class VLCPlayer {
                 frame.setContentPane(mediaPlayerComponent);
                 frame.setLocation(10000, 10000);
                 frame.setSize(0, 0);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+				//Forge security manager is litterally hitler, get rid of this
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setVisible(true);
 
                 mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);//needed for some streams (youtube)
