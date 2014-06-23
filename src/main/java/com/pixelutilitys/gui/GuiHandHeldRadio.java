@@ -4,18 +4,23 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
-import com.pixelutilitys.Basemod;
 import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class GuiHandHeldRadio extends GuiScreen{
+	ResourceLocation background = new ResourceLocation("pixelutilitys:textures/guis/pokegear/Background2.png");
+	
 	private double posX;
 	private double posY;
 	private double posZ;
@@ -23,7 +28,7 @@ public class GuiHandHeldRadio extends GuiScreen{
 	public static EntityPlayer player;
 	private GuiTextField streamTextBox;
 	String url = "http://www.youtube.com/watch?v=ktBGLpAYnCY";
-	
+	HandHeldRadioPlayer radio;
 	public GuiHandHeldRadio(EntityPlayer r){
 		posX = r.posX;
 		posY = r.posY;
@@ -33,7 +38,7 @@ public class GuiHandHeldRadio extends GuiScreen{
 	
 	@Override
 	public void initGui(){
-		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, height / 2 + 10, 200, 20, "Play/Stop"));
+		this.buttonList.add(new PokegearExit(1, this.width / 2 - 40 , height / 2 - 60, 30, 30, ""));
 		streamTextBox = new GuiTextField(fontRendererObj, width / 2 - 100, height / 2 + 35 , 200, 20);
 		streamTextBox.setMaxStringLength(1000);
 		streamTextBox.setText(" Insert URL Here");
@@ -50,7 +55,21 @@ public class GuiHandHeldRadio extends GuiScreen{
 	
 	@Override
 	public void drawScreen(int par1, int par2, float par3){
-		this.drawDefaultBackground();
+			//drawDefaultBackground();
+			
+			GL11.glColor4f(1f, 1f, 1f, 1f);;
+			int posX = (this.width/ 2)  - 70;
+			int posY = (this.height / 2) - 100;
+			this.mc.renderEngine.bindTexture(background); 
+			//                         x                  y          width    height               DONT TOUCH TEH 1           
+			GuiHelper.drawImageQuad(width / 2 - posX / 2, height /2-130, posX, height/2+110, 0, 0, 1, 146f / 470f, zLevel);//(posX, posY, 0, 0, 150, 200);
+			
+			
+	
+			
+			
+			
+		//this.drawDefaultBackground();
 		this.drawCenteredString(this.fontRendererObj, "Song URL", this.width / 2, 40, 16777215);
 		streamTextBox.drawTextBox();
 		super.drawScreen(par1, par2, par3);
@@ -85,19 +104,19 @@ public class GuiHandHeldRadio extends GuiScreen{
 	 protected void actionPerformed(GuiButton par1GuiButton){
 			if(par1GuiButton.id == 1)
 			{
-				if(Basemod.localMusicPlayer == null || !Basemod.localMusicPlayer.isPlaying())
-					Basemod.localMusicPlayer = new HandHeldRadioPlayer(streamTextBox.getText(), false);
-				
-				if(Basemod.localMusicPlayer.isPlaying())
+				/*HandHeldRadioPlayer rad = new HandHeldRadioPlayer(streamTextBox.getText(), false);
+				radio = rad;
+				if(radio.isPlaying())
 				{
-					Basemod.localMusicPlayer.stop();
+					radio.stop();
 				}
 				else
 				{
-					Basemod.localMusicPlayer = new HandHeldRadioPlayer(streamTextBox.getText(), false);
-					Basemod.localMusicPlayer.start();
+					radio.start();
 				}
+				*/
 				
+				this.mc.thePlayer.closeScreen();
 				 
 				
 			}
