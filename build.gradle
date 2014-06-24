@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge'
+
+version = "3.0"
+group= "pixelutils"
+archivesBaseName = "PixelUtils"
+
+minecraft {
+    version = "1.7.2-10.12.2.1133"
+    assetDir = "eclipse/assets"
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    appendix = 'deobf'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    appendix = 'src'
+}
+
+tasks.build.dependsOn('sourceJar', 'deobfJar')
+
+processResources {
+    from (sourceSets.main.resources.srcDirs)
+}
+
+dependencies {
+    compile files('libs/compile/Pixelmon-fakeapi-1.7.2.jar')
+}
+
+jar {
+  from("$projectDir") {
+      include 'libs/runtime/**'
+  }
+
+  manifest {
+    attributes('FMLCorePluginContainsFMLMod': 'true')
+    attributes('FMLCorePlugin': 'coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin')
+  }
+}
