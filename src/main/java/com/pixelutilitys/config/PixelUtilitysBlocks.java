@@ -1,11 +1,16 @@
 package com.pixelutilitys.config;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import coloredlightscore.src.api.CLApi;
 
@@ -61,6 +66,7 @@ import com.pixelutilitys.ores.RubyOre;
 import com.pixelutilitys.ores.SaphireOre;
 import com.pixelutilitys.ores.SiliconOre;
 
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PixelUtilitysBlocks {
@@ -131,6 +137,8 @@ public class PixelUtilitysBlocks {
 	public static Block whiteLightBlock;
 	public static Block greenLightBlock;
 	
+	public static List<Block> LightBlockList = new ArrayList<Block>();
+	
 	
 
 
@@ -198,6 +206,7 @@ public class PixelUtilitysBlocks {
 		orangeLightBlock = new LightBlock("Orange", Color.ORANGE);
 		greenLightBlock = new LightBlock("Green", Color.GREEN);
 		whiteLightBlock = new LightBlock("White", Color.WHITE);
+
 	}
 	public static void addNames() {
 
@@ -264,7 +273,7 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(orangeLightBlock, "OrangeLight");
 		GameRegistry.registerBlock(whiteLightBlock, "WhiteLight");
 		GameRegistry.registerBlock(greenLightBlock, "GreenLight");
-
+		
 	}
 
 }

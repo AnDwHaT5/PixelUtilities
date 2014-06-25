@@ -2,6 +2,7 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tileentitys.AronPokedollEntity;
 
 import net.minecraft.block.Block;
@@ -22,6 +23,7 @@ public class AronPokedollBlock extends BlockContainer {
 	public AronPokedollBlock(Material iron) {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.4F, 0.0F, 1.0F); //0.4 0.0 1.0 
+        setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 	}
 	    
 	/**

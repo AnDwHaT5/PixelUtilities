@@ -2,31 +2,43 @@ package com.pixelutilitys.tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.pixelutilitys.Basemod;
+import com.pixelutilitys.config.PixelUtilitysTools;
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
 import com.pixelmonmod.pixelmon.items.ItemHammer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WaterstoneHammer extends ItemHammer{
+public class PixelHammerTool extends ItemHammer {
 
-	String iconString;
-
-
-	public WaterstoneHammer(ToolMaterial par3EnumToolMaterial, String iconString,
-			String itemName) {
-		super(par3EnumToolMaterial, iconString, itemName);
-		// TODO Auto-generated constructor stub
+	public PixelHammerTool(ToolMaterial par3EnumToolMaterial, String textureName, String itemName) {
+		super(par3EnumToolMaterial, textureName, itemName);
+		
+		setTextureName(textureName);
+		setUnlocalizedName(itemName);
+		setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools);
 	}
 	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister) {
-		this.itemIcon = par1IconRegister.registerIcon("pixelutilitys:" + "WaterstoneHammer");
+		this.itemIcon = par1IconRegister.registerIcon(this.iconString);
+	}
+	
+	@Override
+	public Item setCreativeTab(CreativeTabs tabs)
+	{
+		super.setCreativeTab(tabs);
+		PixelUtilitysTools.toolList.add(this);
+		return null;
 	}
 	
 	@Override

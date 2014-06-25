@@ -2,10 +2,12 @@ package com.pixelutilitys;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+
 import net.minecraft.command.ServerCommandManager;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -62,6 +64,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
@@ -262,6 +265,81 @@ public class Basemod {
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}
+		
+		//Here be dragons.
+		Set blocks = GameData.getBlockRegistry().getKeys();
+		Object[] debugblocks = blocks.toArray();
+		System.out.println("blocklength "+debugblocks.length);
+		
+		
+		for(int i = 0; i < debugblocks.length; i++)
+		{
+			try{
+			String blockreg = (String)debugblocks[i];
+			
+			if(blockreg.startsWith("minecraft:"))
+				continue;
+			
+			Block block = GameData.getBlockRegistry().getObject(blockreg);
+			String localName = block.getLocalizedName();
+			
+			if(localName.contains("tile"))
+			{
+				System.out.println("Block "+blockreg+" Doesn't seem to have a name set!");
+				System.out.println(block.getLocalizedName());
+				System.out.println();
+			}
+			
+			if(block.getCreativeTabToDisplayOn() == null)
+			{
+				System.out.println("Block "+blockreg+" Doesn't seem to have a creative tab set!");
+				System.out.println();
+			}
+			
+			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		/*
+		Set items = GameData.getItemRegistry().getKeys();
+		Object[] debugitems = blocks.toArray();
+		System.out.println("itemlength "+debugitems.length);
+		
+		
+		for(int i = 0; i < debugitems.length; i++)
+		{
+			try{
+			String itemreg = (String)debugitems[i];
+			
+			if(itemreg.startsWith("minecraft:"))
+				continue;
+			
+			Item item = GameData.getItemRegistry().getObject(itemreg);
+			String localName = item.getUnlocalizedName();
+			
+			if(localName.contains("tile"))
+			{
+				System.out.println("Item "+itemreg+" Doesn't seem to have a name set!");
+				System.out.println(item.getUnlocalizedName());
+				System.out.println();
+			}
+			
+			if(item.getCreativeTabToDisplayOn() == null)
+			{
+				System.out.println("Item "+itemreg+" Doesn't seem to have a creative tab set!");
+				System.out.println();
+			}
+			
+			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}*/
+		//////////////////////////////////////////////////////
+		
+		
 	}
 	
 	@Mod.EventHandler

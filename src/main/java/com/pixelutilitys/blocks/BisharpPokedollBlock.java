@@ -12,6 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.config.PixelUtilitysItems;
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tileentitys.BisharpPokedollEntity;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,6 +25,7 @@ public class BisharpPokedollBlock extends BlockContainer {
 	public BisharpPokedollBlock(Material iron) {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
+        setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 	}
 
 	/**
