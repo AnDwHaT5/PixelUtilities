@@ -9,7 +9,6 @@ achievement.teamaqua1.desc=Become a Team Magma Executive
 achievement.getSilicon=Get Silicon!
 achievement.getSilicon.desc=Smelt some Silicon
 
-
 tile.PokeGrass.name=PokeGrass
 tile.PokeDirt.name=PokeDirt
 tile.PokeSand.name=PokeSand
@@ -41,10 +40,12 @@ tile.BolderBlock.name=Boulder
 tile.RubyBlock.name=Ruby Block
 tile.SaphireBlock.name=Saphire Block
 tile.AmethystBlock.name=Amethyst Block
-tile.RubyOre.name= Ruby Ore
-tile.SaphireOre.name= Saphire Ore
-tile.AmethystOre.name= Amethyst Ore
-tile.SiliconOre.name= Silicon Ore
+tile.CrystalBlock.name=Crystal Block
+tile.RubyOre.name=Ruby Ore
+tile.SaphireOre.name=Saphire Ore
+tile.AmethystOre.name=Amethyst Ore
+tile.SiliconOre.name=Silicon Ore
+tile.CrystalOre.name=Crystal Ore
 tile.Radio.name=Radio
 tile.ClothedTable.name=Clothed Table
 tile.Pokeball.name=Pokeball
@@ -53,13 +54,32 @@ tile.TV.name=TV
 tile.TotodileDoll.name=Totodile PokeDoll
 tile.BisharpDoll.name=Bisharp PokeDoll
 tile.AronDoll.name=Aron PokeDoll
+tile.RedCusionChair.name=Red Cusion Chair
+tile.YellowCusionChair.name=Yellow Cusion Chair
+tile.Trashcan.name=Trashcan
+tile.Tree.name=Tree
+tile.Box.name=Box
+tile.Bolder.name=Boulder
 
+tile.GreenRug.name=Green Rug
+tile.BlueRug.name=Blue Rug
+tile.RedRug.name=Red Rug
+
+tile.conveyor.name=Conveyor
+
+tile.WhiteLight.name=White Lamp
+tile.BlueLight.name=Blue Lamp
+tile.GreenLight.name=Green Lamp
+tile.PurpleLight.name=Purple Lamp
+tile.YellowLight.name=Yellow Lamp
+tile.OrangeLight.name=Orange Lamp
+tile.RedLight.name=Red Lamp
 
 itemGroup.tabPixelmonBlocks=Pixelmon Blocks
 itemGroup.tabPokefurniture=PokeFurniture
 itemGroup.tabPixelmonBadges=Pixelmon Badges
 itemGroup.tabPixelUtilitysTools=Pixel Utilities Tools
-
+itemGroup.tabPixelUtilitysLights=Pixel Utilities Lamps
 
 item.pokecoin1.name=$1 PokeCoin
 item.pokecoin5.name=$5 PokeCoin
@@ -67,9 +87,6 @@ item.pokecoin10.name=$10 PokeCoin
 item.pokecoin50.name=$50 PokeCoin
 item.pokecoin100.name=$100 PokeCoin
 
-item.Bolder.name=Boulder
-item.TreeItem.name=Tree
-item.Box.name=Box
 item.RubyItem.name=Ruby
 item.SaphireItem.name=Saphire
 item.AmethystItem.name=Amethyst
@@ -137,9 +154,6 @@ item.CrystalHoe.name=Crystal Hoe
 item.CrystalSword.name=Crystal Sword
 item.CrystalShovel.name=Crystal Shovel
 item.CrystalHammer.name=Crystal Hammer
-
-
-
 
 item.Ruby Helmet.name=Magma Helmet
 item.Ruby Boots.name=Magma Boots
