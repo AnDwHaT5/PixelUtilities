@@ -3,6 +3,8 @@ package com.pixelutilitys;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -16,11 +18,13 @@ import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
+import com.pixelutilitys.blocks.PokeballStatueBlock;
 import com.pixelutilitys.commands.PokecheckmeCommand;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.config.PixelUtilitysRecipes;
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.events.ModRadioEvents;
 import com.pixelutilitys.radioplayer.BattleMusicPlayer;
@@ -78,7 +82,7 @@ public class Basemod {
 	public static ToolMaterial AMETHYST = EnumHelper.addToolMaterial("AMETHYST", 2, 300, 6.5F, 2, 14);
 	public static ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("CRYSTAL", 2, 300, 6.5F, 2, 14);
 
-	//	public static final Block Walrus = new WalrusBlock(3099, Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setUnlocalizedName("WalrusStatue");
+	public static final Block PokeballStatue = new PokeballStatueBlock(Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setBlockName("PokeballStatue");
 	public static ArmorMaterial FIRESTONEA = EnumHelper.addArmorMaterial("FIRESTONEA", 40, new int[]{4, 8, 6, 4}, 10);
 	public static ArmorMaterial WATERSTONEA = EnumHelper.addArmorMaterial("WATERSTONEA", 40, new int[]{4, 8, 6, 4}, 10);
 	public static ArmorMaterial LEAFSTONEA = EnumHelper.addArmorMaterial("LEAFSTONEA", 15, new int[]{2, 6, 5, 2}, 9);
@@ -205,7 +209,7 @@ public class Basemod {
 
 		PixelUtilitysRecipes.addRecipes();
 
-		//	GameRegistry.registerBlock(Walrus, "WalrusStatue");
+		GameRegistry.registerBlock(PokeballStatue, "PokeballStatue");
 		//LanguageRegistry.addName(Walrus, "Walrus Statue");
 		//Block crafting
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});

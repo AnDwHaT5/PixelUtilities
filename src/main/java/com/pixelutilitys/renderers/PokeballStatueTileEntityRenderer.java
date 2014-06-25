@@ -11,14 +11,14 @@ import org.lwjgl.opengl.GL11;
 
 import com.pixelutilitys.BlockRotation;
 
-public class WalrusTileEntityRenderer extends TileEntitySpecialRenderer {
+public class PokeballStatueTileEntityRenderer extends TileEntitySpecialRenderer {
 
 
-	public WalrusTileEntityRenderer() {
+	public PokeballStatueTileEntityRenderer() {
 		
 	}
-	public static ResourceLocation Walrus = new ResourceLocation("pixelutilitys:textures/blocks/Walrus.png");
-	public static ResourceLocation Walrus2 = new ResourceLocation("/assets/pixelutilitys/models/WalrusStatue.obj");
+	public static ResourceLocation Walrus = new ResourceLocation("pixelutilitys:textures/specialmodels/PokeballStatue.png");
+	public static ResourceLocation Walrus2 = new ResourceLocation("pixelutilitys:textures/models/PokeballStatue.obj");
 	IModelCustom WalrusMod = AdvancedModelLoader.loadModel(Walrus2);
 
 	@Override
@@ -28,23 +28,31 @@ public class WalrusTileEntityRenderer extends TileEntitySpecialRenderer {
 //			return;
 		BlockRotation rot = BlockRotation.getRotationFromMetadata(meta);
 
-		if (rot == BlockRotation.Normal) {
-			d++;
-			d2++;
-		} else if (rot == BlockRotation.CW) {
-			d++;
-			d2--;
-		} else if (rot == BlockRotation.Rotate180) {
-			d--;
-			d2--;
-		} else {
-			d--;
-			d2++;
+		int i = tile.getBlockMetadata(); // this is for rotation
+		int j = 0;
+
+		if (i == 0) {
+			j = 0;
 		}
+
+		if (i == 1) {
+			j = 90;
+		}
+
+		if (i == 2) {
+			j = 180;
+		}
+
+		if (i == 3) {
+			j = 270;
+		}
+
+		if (i <0)
+			return;    
 		
 		GL11.glPushMatrix(); // start
 		GL11.glTranslatef((float) d + 0.5F, (float) d1 + 0.04f, (float) d2 + 0.9F); // size
-		GL11.glRotatef(180, 1, 0, 0);
+		GL11.glRotatef(j, 0.0F, 1.0F, 0.0F);
 		GL11.glScalef(1.0F, -1F, -1F); // if you read this comment out this line
 		bindTexture(Walrus);
 	  	WalrusMod.renderAll();

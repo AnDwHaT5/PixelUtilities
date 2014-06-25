@@ -11,18 +11,19 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import com.pixelmonmod.pixelmon.client.models.pokeballs.ModelPokeball;
 import com.pixelutilitys.models.PokeballModel;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class PokeballRenderer extends TileEntitySpecialRenderer {
-	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/Pokeball.png"); 
+	ResourceLocation texture = new ResourceLocation("pixelmon:textures/pokeballs/Pokeball.png"); 
 	
 	//The model of your block
-    private final PokeballModel model;
+    private final ModelPokeball model;
     
     public PokeballRenderer() {
-            this.model = new PokeballModel();
+            this.model = new com.pixelmonmod.pixelmon.client.models.pokeballs.ModelPokeball();
     }
     
     private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
@@ -40,7 +41,7 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
     //The PushMatrix tells the renderer to "start" doing something.
             GL11.glPushMatrix();
     //This is setting the initial location.
-            GL11.glTranslatef((float) x + 0.5F, (float) y + 1.9F, (float) z + 0.5F); //1.7 edited here
+            GL11.glTranslatef((float) x + 0.5F, (float) (y + 0.1), (float) z + 0.5F); //1.7 edited here
     //This is the texture of your block. It's pathed to be the same place as your other blocks here.
             //Outdated bindTextureByName("/mods/roads/textures/blocks/TrafficLightPoleRed.png");
    //Use in 1.6.2  this
@@ -51,9 +52,11 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
 
     //This rotation part is very important! Without it, your model will render upside-down! And for some reason you DO need PushMatrix again!                       
             GL11.glPushMatrix();
-            GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
-    //A reference to your Model file. Again, very important.
+           
+            	GL11.glRotatef(0, 90.0F, 0.0F, 1.0F);
             
+            
+    //A reference to your Model file. Again, very important.
             
 			switch(te.getBlockMetadata()){
 			default:
@@ -68,10 +71,8 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
 			case 3:
 				GL11.glRotatef(270f, 0f, 1f, 0f);
 				break;
-		}
-            
-            
-            this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0700F);
+		}            
+            this.model.render((Entity)null, (float) (1.0 / 200.0));
     //Tell it to stop rendering for both the PushMatrix's
             GL11.glPopMatrix();
             GL11.glPopMatrix();

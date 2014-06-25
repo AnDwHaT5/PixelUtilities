@@ -162,8 +162,8 @@ public class PixelUtilitysBlocks {
 		RockBlock = new RockBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("Rock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "Rock");;
 		CaveRockBlock = new CaveRockBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("CabeRock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "CaveRock");;
 		BridgeBlockBlock = new BridgeBlockBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("BridgeBlock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "BridgeBlock");;
-		TreeBlock = new TreeBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Tree").setBlockTextureName("pixelutilitys:Tree");;
-		BolderBlock = new BolderBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Bolder").setBlockTextureName("pixelutilitys:Bolder");;
+		TreeBlock = new TreeBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Tree").setBlockTextureName("pixelutilitys:Tree").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
+		BolderBlock = new BolderBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Bolder").setBlockTextureName("pixelutilitys:Bolder").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		BoxBlock = new BoxBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Box");;
 		RubyOre = new RubyOre(Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("RubyOre").setBlockTextureName("pixelutilitys:RubyOre");;
 		SaphireOre = new SaphireOre(Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("SaphireOre").setBlockTextureName("pixelutilitys:SaphireOre");;
@@ -176,11 +176,11 @@ public class PixelUtilitysBlocks {
 		SiliconOre = new SiliconOre(Material.rock).setHardness(1.2f).setStepSound(Block.soundTypeMetal).setBlockName("SiliconOre").setBlockTextureName("pixelutilitys:SiliconOre").setCreativeTab(CreativeTabs.tabBlock);;
 		ClothedTableBlock = new ClothedTableBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("ClothedTable").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		PokeballBlock = new PokeballBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Pokeball").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		RedCusionChairBlock = new RedCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("RedCusionChair");;
-		TrashcanBlock = new TrashcanBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Trashcan");;
-		YellowCusionChairBlock = new YellowCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("YellowCusionChair");
+		RedCusionChairBlock = new RedCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("RedCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		TrashcanBlock = new TrashcanBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Trashcan").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		YellowCusionChairBlock = new YellowCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("YellowCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 		TotodilePokedollBlock = new TotodilePokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("TotodileDoll").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		AronPokedollBlock = new AronPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("AronDoll");;
+		AronPokedollBlock = new AronPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("AronDoll").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 		BisharpPokedollBlock = new BisharpPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BisharpDoll");;
 		RadioBlock = new RadioBlock(Material.wood);
 		GymSignBlock = new com.pixelutilitys.blocks.GymSignBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GymSign").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
