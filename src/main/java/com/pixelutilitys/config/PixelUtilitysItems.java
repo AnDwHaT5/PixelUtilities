@@ -45,7 +45,6 @@ public class PixelUtilitysItems {
 	public static Item CrystalItem;
 	public static Item CDItem;
 	public static Item HandHeldRadio;
-	public static Item ClothedTable;
 	
 	public static void load(Configuration cfg) {
 	    PokeCoin1Item = new PokeCoin1Item();

@@ -41,6 +41,7 @@ import com.pixelutilitys.blocks.PokeSandSide2Block;
 import com.pixelutilitys.blocks.PokeSandSide3Block;
 import com.pixelutilitys.blocks.PokeSandSide4Block;
 import com.pixelutilitys.blocks.PokeballBlock;
+import com.pixelutilitys.blocks.PokeballStatueBlock;
 import com.pixelutilitys.blocks.RadioBlock;
 import com.pixelutilitys.blocks.RedCusionChairBlock;
 import com.pixelutilitys.blocks.RockBlock;
@@ -127,6 +128,8 @@ public class PixelUtilitysBlocks {
 	public static Block BlueRugBlock;
 	public static Block RedRugBlock;
 	public static Block GreenRugBlock;
+	public static Block PokeballStatue;
+
 	
 	//lights
 	public static Block blueLightBlock;
@@ -197,6 +200,7 @@ public class PixelUtilitysBlocks {
 		BlueRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "blue").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BlueRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		RedRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "red").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("RedRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		GreenRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "green").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GreenRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		PokeballStatue = new PokeballStatueBlock(Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setBlockName("PokeballStatue");
 
 		//lights
 		blueLightBlock = new LightBlock("Blue", Color.BLUE);
@@ -264,6 +268,8 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(BlueRugBlock, "BlueRug");
 		GameRegistry.registerBlock(RedRugBlock, "RedRug");
 		GameRegistry.registerBlock(GreenRugBlock, "GreenRug");
+		GameRegistry.registerBlock(PokeballStatue, "PokeballStatue");
+
 		
 		//lights
 		GameRegistry.registerBlock(blueLightBlock, "BlueLight");

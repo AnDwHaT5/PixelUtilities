@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import net.minecraft.block.Block;
-
+import net.minecraft.block.material.Material;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -85,7 +85,6 @@ public class Basemod {
 	public static ToolMaterial AMETHYST = EnumHelper.addToolMaterial("AMETHYST", 2, 300, 6.5F, 2, 14);
 	public static ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("CRYSTAL", 2, 300, 6.5F, 2, 14);
 
-	public static final Block PokeballStatue = new PokeballStatueBlock(Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setBlockName("PokeballStatue");
 	public static ArmorMaterial FIRESTONEA = EnumHelper.addArmorMaterial("FIRESTONEA", 40, new int[]{4, 8, 6, 4}, 10);
 	public static ArmorMaterial WATERSTONEA = EnumHelper.addArmorMaterial("WATERSTONEA", 40, new int[]{4, 8, 6, 4}, 10);
 	public static ArmorMaterial LEAFSTONEA = EnumHelper.addArmorMaterial("LEAFSTONEA", 15, new int[]{2, 6, 5, 2}, 9);
@@ -195,12 +194,6 @@ public class Basemod {
 		
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
 		GameRegistry.registerTileEntity(TileEntityConveyor.class, "Conveyor");
-		
-		//Creative Tabs
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBlocks", "en_US", "PixelmonBlocks");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelmonBadges", "en_US", "Extra Badges");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPixelUtilitysTools", "en_US", "PixelUtilitys Tools");
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabPokefurniture", "en_US", "PokeFurniture");
 
 		//Ore generation
 
@@ -212,7 +205,6 @@ public class Basemod {
 
 		PixelUtilitysRecipes.addRecipes();
 
-		GameRegistry.registerBlock(PokeballStatue, "PokeballStatue");
 		//LanguageRegistry.addName(Walrus, "Walrus Statue");
 		//Block crafting
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
