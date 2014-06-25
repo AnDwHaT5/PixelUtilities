@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 import com.pixelutilitys.models.TreeModel;
 
 public class TreeRenderer extends TileEntitySpecialRenderer {
-	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/Tree.png"); 
+	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/Tree.png");
 	
 	//The model of your block
     private final TreeModel model;
