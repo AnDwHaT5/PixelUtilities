@@ -1,11 +1,16 @@
 package com.pixelutilitys.config;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import coloredlightscore.src.api.CLApi;
 
@@ -36,6 +41,7 @@ import com.pixelutilitys.blocks.PokeSandSide2Block;
 import com.pixelutilitys.blocks.PokeSandSide3Block;
 import com.pixelutilitys.blocks.PokeSandSide4Block;
 import com.pixelutilitys.blocks.PokeballBlock;
+import com.pixelutilitys.blocks.PokeballStatueBlock;
 import com.pixelutilitys.blocks.RadioBlock;
 import com.pixelutilitys.blocks.RedCusionChairBlock;
 import com.pixelutilitys.blocks.RockBlock;
@@ -61,6 +67,7 @@ import com.pixelutilitys.ores.RubyOre;
 import com.pixelutilitys.ores.SaphireOre;
 import com.pixelutilitys.ores.SiliconOre;
 
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PixelUtilitysBlocks {
@@ -121,6 +128,8 @@ public class PixelUtilitysBlocks {
 	public static Block BlueRugBlock;
 	public static Block RedRugBlock;
 	public static Block GreenRugBlock;
+	public static Block PokeballStatue;
+
 	
 	//lights
 	public static Block blueLightBlock;
@@ -130,6 +139,8 @@ public class PixelUtilitysBlocks {
 	public static Block orangeLightBlock;
 	public static Block whiteLightBlock;
 	public static Block greenLightBlock;
+	
+	public static List<Block> LightBlockList = new ArrayList<Block>();
 	
 	
 
@@ -162,8 +173,8 @@ public class PixelUtilitysBlocks {
 		RockBlock = new RockBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("Rock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "Rock");;
 		CaveRockBlock = new CaveRockBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("CabeRock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "CaveRock");;
 		BridgeBlockBlock = new BridgeBlockBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("BridgeBlock").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" + ":" + "BridgeBlock");;
-		TreeBlock = new TreeBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Tree").setBlockTextureName("pixelutilitys:Tree");;
-		BolderBlock = new BolderBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Bolder").setBlockTextureName("pixelutilitys:Bolder");;
+		TreeBlock = new TreeBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Tree").setBlockTextureName("pixelutilitys:Tree").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
+		BolderBlock = new BolderBlock(Material.rock).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Bolder").setBlockTextureName("pixelutilitys:Bolder").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		BoxBlock = new BoxBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("Box");;
 		RubyOre = new RubyOre(Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("RubyOre").setBlockTextureName("pixelutilitys:RubyOre");;
 		SaphireOre = new SaphireOre(Material.rock).setHardness(1.5f).setStepSound(Block.soundTypeStone).setBlockName("SaphireOre").setBlockTextureName("pixelutilitys:SaphireOre");;
@@ -176,11 +187,11 @@ public class PixelUtilitysBlocks {
 		SiliconOre = new SiliconOre(Material.rock).setHardness(1.2f).setStepSound(Block.soundTypeMetal).setBlockName("SiliconOre").setBlockTextureName("pixelutilitys:SiliconOre").setCreativeTab(CreativeTabs.tabBlock);;
 		ClothedTableBlock = new ClothedTableBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("ClothedTable").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		PokeballBlock = new PokeballBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Pokeball").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		RedCusionChairBlock = new RedCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("RedCusionChair");;
-		TrashcanBlock = new TrashcanBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Trashcan");;
-		YellowCusionChairBlock = new YellowCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("YellowCusionChair");
+		RedCusionChairBlock = new RedCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("RedCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		TrashcanBlock = new TrashcanBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Trashcan").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		YellowCusionChairBlock = new YellowCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("YellowCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 		TotodilePokedollBlock = new TotodilePokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("TotodileDoll").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
-		AronPokedollBlock = new AronPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("AronDoll");;
+		AronPokedollBlock = new AronPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("AronDoll").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 		BisharpPokedollBlock = new BisharpPokedollBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BisharpDoll");;
 		RadioBlock = new RadioBlock(Material.wood);
 		GymSignBlock = new com.pixelutilitys.blocks.GymSignBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GymSign").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
@@ -189,6 +200,7 @@ public class PixelUtilitysBlocks {
 		BlueRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "blue").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("BlueRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		RedRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "red").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("RedRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
 		GreenRugBlock = new com.pixelutilitys.blocks.RugBlock(Material.iron, "green").setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("GreenRug").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);;
+		PokeballStatue = new PokeballStatueBlock(Material.iron).setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture).setBlockName("PokeballStatue");
 
 		//lights
 		blueLightBlock = new LightBlock("Blue", Color.BLUE);
@@ -198,6 +210,7 @@ public class PixelUtilitysBlocks {
 		orangeLightBlock = new LightBlock("Orange", Color.ORANGE);
 		greenLightBlock = new LightBlock("Green", Color.GREEN);
 		whiteLightBlock = new LightBlock("White", Color.WHITE);
+
 	}
 	public static void addNames() {
 
@@ -255,6 +268,8 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(BlueRugBlock, "BlueRug");
 		GameRegistry.registerBlock(RedRugBlock, "RedRug");
 		GameRegistry.registerBlock(GreenRugBlock, "GreenRug");
+		GameRegistry.registerBlock(PokeballStatue, "PokeballStatue");
+
 		
 		//lights
 		GameRegistry.registerBlock(blueLightBlock, "BlueLight");
@@ -264,7 +279,7 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(orangeLightBlock, "OrangeLight");
 		GameRegistry.registerBlock(whiteLightBlock, "WhiteLight");
 		GameRegistry.registerBlock(greenLightBlock, "GreenLight");
-
+		
 	}
 
 }
