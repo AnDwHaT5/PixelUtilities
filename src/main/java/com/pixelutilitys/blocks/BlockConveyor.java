@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tileentitys.TileEntityConveyor;
 
 import net.minecraft.block.Block;
@@ -47,6 +48,7 @@ public class BlockConveyor extends BlockContainer
 		setHardness(0.5F);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 0.1F, 0.01F, 0.1F);
 		setBlockName("conveyor");
+        setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);
 	}
 
 	@Override

@@ -4,6 +4,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
+import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
+import com.pixelmonmod.pixelmon.items.ItemBlock;
 import com.pixelutilitys.badges.*;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.economy.*;
@@ -73,7 +75,7 @@ public class PixelUtilitysItems {
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
 		HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
-}
+	}
 
 	public static void addNames() {
 		

@@ -14,6 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.config.PixelUtilitysItems;
+import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.tileentitys.YellowCusionChairEntity;
 
@@ -27,6 +28,7 @@ public class YellowCusionChairBlock extends BlockContainer {
 	public YellowCusionChairBlock(Material iron) {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
+        setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
 	}
   
 	/**
