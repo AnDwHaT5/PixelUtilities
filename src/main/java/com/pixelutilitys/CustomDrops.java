@@ -5,9 +5,12 @@ import java.util.Random;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 
+
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CustomDrops {
 	

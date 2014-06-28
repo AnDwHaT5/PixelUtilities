@@ -1,8 +1,11 @@
 package com.pixelutilitys;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+
+import javax.swing.JOptionPane;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -230,6 +233,8 @@ public class Basemod {
 		//Furnace Smelting
 
 		//GameRegistry.addSmelting(3086, new ItemStack(PixelUtilitysItems.SiliconItem), 5);
+		
+		
 
 		PixelUtilitysBlocks.RubyOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.SaphireOre.setHarvestLevel("pickaxe", 2);
@@ -259,39 +264,30 @@ public class Basemod {
 		}
 		
 		//Here be dragons.
-		Set blocks = GameData.getBlockRegistry().getKeys();
-		Object[] debugblocks = blocks.toArray();
-		System.out.println("blocklength "+debugblocks.length);
-		
-		
-		for(int i = 0; i < debugblocks.length; i++)
+		Iterator<Block> blockIterator = GameData.getBlockRegistry().iterator();
+		while(blockIterator.hasNext())
 		{
-			try{
-			String blockreg = (String)debugblocks[i];
+			Block block = blockIterator.next();
 			
-			if(blockreg.startsWith("minecraft:"))
+			if(GameRegistry.findUniqueIdentifierFor(block).modId.equals("minecraft"))
 				continue;
 			
-			Block block = GameData.getBlockRegistry().getObject(blockreg);
 			String localName = block.getLocalizedName();
 			
 			if(localName.contains("tile"))
 			{
-				System.out.println("Block "+blockreg+" Doesn't seem to have a name set!");
-				System.out.println(block.getLocalizedName());
+				System.out.println("Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
+				JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
 				System.out.println();
 			}
 			
 			if(block.getCreativeTabToDisplayOn() == null)
 			{
-				System.out.println("Block "+blockreg+" Doesn't seem to have a creative tab set!");
+				System.out.println("Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
+				JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
 				System.out.println();
 			}
 			
-			
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		}
 		
 		/*
