@@ -14,6 +14,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
@@ -72,7 +74,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0")//, dependencies = "required-after:pixelmon")
+@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0", dependencies = "required-after:pixelmon")
 
 public class Basemod {
 	
@@ -100,6 +102,7 @@ public class Basemod {
 	
 	public static boolean vlcLoaded = false;
 	public static boolean is64bit = false;
+	public static boolean DEBUGMODE = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
 	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
@@ -263,6 +266,8 @@ public class Basemod {
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}
 		
+		if(this.DEBUGMODE)
+		{
 		//Here be dragons.
 		Iterator<Block> blockIterator = GameData.getBlockRegistry().iterator();
 		while(blockIterator.hasNext())
@@ -288,6 +293,16 @@ public class Basemod {
 				System.out.println();
 			}
 			
+		}
+		
+		Iterator<IRecipe> craftingRecipies = CraftingManager.getInstance().getRecipeList().iterator();
+		while(craftingRecipies.hasNext())
+		{
+			IRecipe recipe = craftingRecipies.next();
+			System.out.println(recipe.getClass().getName());
+		}
+		
+		
 		}
 		
 		/*
