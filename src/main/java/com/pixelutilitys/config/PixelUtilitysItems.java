@@ -74,7 +74,7 @@ public class PixelUtilitysItems {
 		SiliconItem  = new Siliconitem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Silicon");
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
-		HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
+		//HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
 	}
 
 	public static void addNames() {
@@ -89,7 +89,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(RubyItem, RubyItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(SiliconItem, SiliconItem.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(CDItem, CDItem.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(HandHeldRadio, HandHeldRadio.getUnlocalizedName().substring(5));
+		//GameRegistry.registerItem(HandHeldRadio, HandHeldRadio.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(CrystalItem, CrystalItem.getUnlocalizedName().substring(5));
 		
 		//Badges
