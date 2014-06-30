@@ -130,7 +130,6 @@ public class PixelUtilitysBlocks {
 	public static Block GreenRugBlock;
 	public static Block PokeballStatue;
 
-	
 	//lights
 	public static Block blueLightBlock;
 	public static Block redLightBlock;
@@ -141,11 +140,9 @@ public class PixelUtilitysBlocks {
 	public static Block greenLightBlock;
 	
 	public static List<Block> LightBlockList = new ArrayList<Block>();
-	
-	
 
-
-	public static void load(Configuration cfg){
+	public static void load(Configuration cfg)
+	{
 		NewGrassBlock = new PUBlock(Material.grass, "PokeGrass", 4.0F,PixelUtilitysCreativeTabs.tabPixelmonBlocks , Block.soundTypeGrass);
 		PokeDirtBlock = new PokeDirtBlock(Material.grass).setHardness(0.5f).setStepSound(Block.soundTypeGrass).setBlockName("PokeDirt").setBlockTextureName("PixelUtilitys" +":"+ "PokeDirt").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);;
 		PokeSandBlock = new PokeSandBlock(Material.sand).setHardness(0.5f).setStepSound(Block.soundTypeSand).setBlockName("PokeSand").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks).setBlockTextureName("PixelUtilitys" +":"+ "pokesand");;

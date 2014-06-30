@@ -11,7 +11,7 @@ import com.pixelutilitys.GrassSpawner;
 
 public class PixelmonGrassBlock extends Block {
 	
-	public static Boolean isActive=false;
+	public static Boolean isActive = false;
 	
     public PixelmonGrassBlock (Material material) 
     {
@@ -46,7 +46,8 @@ public class PixelmonGrassBlock extends Block {
 	}
     
     @Override
-    public void onEntityCollidedWithBlock( World world, int x, int y, int z, Entity entity ) {
+    public void onEntityCollidedWithBlock( World world, int x, int y, int z, Entity entity ) 
+    {
     	isActive = true;
     	PokeWaterFlowing.isActive = false;
     	PokeWaterStill.isActive = false;
