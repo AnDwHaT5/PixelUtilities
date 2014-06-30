@@ -15,6 +15,9 @@ public class CustomDrops {
 	public static int dropped;
 	public static int doDrop;
 	
+	/**
+	*needs updating
+	*/
 	@Deprecated
 	public void pixelmonDrop(LivingDropsEvent e){
 		if(!PixelUtilitysConfig.coinDrops){
@@ -36,4 +39,6 @@ public class CustomDrops {
 			}
 		}
 	}
+	
+	
 }

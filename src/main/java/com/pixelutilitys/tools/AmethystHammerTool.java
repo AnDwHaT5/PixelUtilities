@@ -2,43 +2,31 @@ package com.pixelutilitys.tools;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.config.PixelUtilitysTools;
-import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
 import com.pixelmonmod.pixelmon.items.ItemHammer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PixelHammerTool extends ItemHammer {
+public class AmethystHammerTool extends ItemHammer{
 
-	public PixelHammerTool(ToolMaterial par3EnumToolMaterial, String textureName, String itemName) {
-		super(par3EnumToolMaterial, textureName, itemName);
-		
-		setTextureName(textureName);
-		setUnlocalizedName(itemName);
-		setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools);
+	String iconString;
+
+
+	public AmethystHammerTool(ToolMaterial par3EnumToolMaterial, String iconString,
+			String itemName) {
+		super(par3EnumToolMaterial, iconString, itemName);
+		// TODO Auto-generated constructor stub
 	}
 	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister) {
-		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
-	}
-	
-	@Override
-	public Item setCreativeTab(CreativeTabs tabs)
-	{
-		super.setCreativeTab(tabs);
-		PixelUtilitysTools.toolList.add(this);
-		return null;
+		this.itemIcon = par1IconRegister.registerIcon("pixelutilitys:" + "AmethystHammer");
 	}
 	
 	@Override

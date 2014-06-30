@@ -69,12 +69,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0")//, dependencies = "required-after:pixelmon")
+@Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION)//, dependencies = "required-after:pixelmon")
 
-public class Basemod {
-	
-	
-	
+public class Basemod 
+{
+	public final static String MODID = "pixelutilities";
+	public final static String NAME = "PixelUtilities";
+	public final static String VERSION = "3.0";
 
 	public static ToolMaterial FIRESTONE = EnumHelper.addToolMaterial("FIRESTONE", 3, 1561, 8.0F, 3.0F, 10);
 	public static ToolMaterial WATERSTONE = EnumHelper.addToolMaterial("WATERSTONE", 3, 1561, 8.0F, 3.0F, 10);
@@ -89,29 +90,27 @@ public class Basemod {
 	public static ArmorMaterial WATERSTONEA = EnumHelper.addArmorMaterial("WATERSTONEA", 40, new int[]{4, 8, 6, 4}, 10);
 	public static ArmorMaterial LEAFSTONEA = EnumHelper.addArmorMaterial("LEAFSTONEA", 15, new int[]{2, 6, 5, 2}, 9);
 
-
 	public static ArmorMaterial RUBYA = EnumHelper.addArmorMaterial("RUBYA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial SAPHIREA = EnumHelper.addArmorMaterial("SAPHIREA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial CRYSTALA = EnumHelper.addArmorMaterial("CRYSTALA", 200, new int[] {3, 7, 6, 3}, 10);
 	public static ArmorMaterial SILICONA = EnumHelper.addArmorMaterial("SILICONA", 200, new int[] {3, 7, 6, 3}, 10);
-	
+
 	public static boolean vlcLoaded = false;
 	public static boolean is64bit = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
 	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
-    public static HandHeldRadioPlayer localMusicPlayer = null;
-    
+	public static HandHeldRadioPlayer localMusicPlayer = null;
+
 	//In development biome //pokebiome
 	//Biomes
 	public static BiomeGenBase PokeBiome;
 
 	private static boolean preInit = false, init = false, postInit = false;
 
-	@Instance("pixelutilitys")
+	@Instance(MODID)
 	public static Basemod instance;
-	@SidedProxy(clientSide="com.pixelutilitys.ClientProxy",
-			serverSide="com.pixelutilitys.CommonProxy")
+	@SidedProxy(clientSide="com.pixelutilitys.ClientProxy",	serverSide="com.pixelutilitys.CommonProxy")
 	public static CommonProxy proxy;
 
 	Configuration config;
@@ -119,7 +118,7 @@ public class Basemod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) 
 	{
-		AddMeta(event, "3.0");
+		AddMeta(event, VERSION);
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		PixelUtilitysConfig.loadConfig(config);
@@ -127,12 +126,12 @@ public class Basemod {
 		PixelUtilitysAchievements.setupAchievements();
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
-		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
-		
+		//FMLCommonHandler.instance().bus().register(new ModRadioEvents());
+
 		EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
 		preInit = true;
 	}
-	
+
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		FMLCommonHandler.instance().bus().register(new PUTickHandler());
@@ -144,30 +143,30 @@ public class Basemod {
 	}
 
 	private void initVLC() {
-		
+
 		is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
-		
+
 		if(is64bit)
-        {
+		{
 			NativeLibrary.addSearchPath(
-                RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
-            );
-        }
+					RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
+					);
+		}
 		else
 		{
 			NativeLibrary.addSearchPath(
-				RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC"
-			);
+					RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC"
+					);
 		}
-		
-        try{
-        	Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
-        	vlcLoaded = true;
-        }catch(UnsatisfiedLinkError error)
-        {
-        	System.out.println("You need to install VLC for this mod");
-        }
-		
+
+		try{
+			Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+			vlcLoaded = true;
+		}catch(UnsatisfiedLinkError error)
+		{
+			System.out.println("You need to install VLC for this mod");
+		}
+
 	}
 
 	@EventHandler
@@ -175,23 +174,15 @@ public class Basemod {
 	{				
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TreeEntity.class, "Tree");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(BolderEntity.class, "Bolder");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(BoxEntity.class, "Box");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(ClothedTableEntity.class, "ClothedTable");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(PokeballEntity.class, "Pokeball");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(RedCusionChairEntity.class, "RedCusionChair");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TrashcanEntity.class, "Trashcan");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(YellowCusionChairEntity.class, "YellowCusionChair");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TotodilePokedollEntity.class, "TotodileDoll");
-		
+
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
 		GameRegistry.registerTileEntity(TileEntityConveyor.class, "Conveyor");
 
@@ -203,29 +194,7 @@ public class Basemod {
 		GameRegistry.registerWorldGenerator(new SiliconGenerator(), 0);
 		GameRegistry.registerWorldGenerator(new CrystalGenerator(), 0);
 
-		PixelUtilitysRecipes.addRecipes();
-
-		//LanguageRegistry.addName(Walrus, "Walrus Statue");
-		//Block crafting
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
-
-		/*	GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneBoots, 1), new Object[] { "X X", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
-
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelmonItems.waterStone});
-
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelmonItems.leafStone});
-		 */
+		PixelUtilitysRecipes.addRecipes();		
 
 		//Furnace Smelting
 
@@ -243,7 +212,6 @@ public class Basemod {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) 
 	{
-
 		postInit = true;
 	}
 
@@ -253,92 +221,92 @@ public class Basemod {
 		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
-//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
+			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}
-		
+
 		//Here be dragons.
 		Set blocks = GameData.getBlockRegistry().getKeys();
 		Object[] debugblocks = blocks.toArray();
-		System.out.println("blocklength "+debugblocks.length);
-		
-		
+		System.out.println("blocklength " + debugblocks.length);
+
+
 		for(int i = 0; i < debugblocks.length; i++)
 		{
 			try{
-			String blockreg = (String)debugblocks[i];
-			
-			if(blockreg.startsWith("minecraft:"))
-				continue;
-			
-			Block block = GameData.getBlockRegistry().getObject(blockreg);
-			String localName = block.getLocalizedName();
-			
-			if(localName.contains("tile"))
-			{
-				System.out.println("Block "+blockreg+" Doesn't seem to have a name set!");
-				System.out.println(block.getLocalizedName());
-				System.out.println();
-			}
-			
-			if(block.getCreativeTabToDisplayOn() == null)
-			{
-				System.out.println("Block "+blockreg+" Doesn't seem to have a creative tab set!");
-				System.out.println();
-			}
-			
-			
+				String blockreg = (String)debugblocks[i];
+
+				if(blockreg.startsWith("minecraft:"))
+					continue;
+
+				Block block = GameData.getBlockRegistry().getObject(blockreg);
+				String localName = block.getLocalizedName();
+
+				if(localName.contains("tile"))
+				{
+					System.out.println("Block "+blockreg+" Doesn't seem to have a name set!");
+					System.out.println(block.getLocalizedName());
+					System.out.println();
+				}
+
+				if(block.getCreativeTabToDisplayOn() == null)
+				{
+					System.out.println("Block "+blockreg+" Doesn't seem to have a creative tab set!");
+					System.out.println();
+				}
+
+
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		/*
 		Set items = GameData.getItemRegistry().getKeys();
 		Object[] debugitems = blocks.toArray();
 		System.out.println("itemlength "+debugitems.length);
-		
-		
+
+
 		for(int i = 0; i < debugitems.length; i++)
 		{
 			try{
 			String itemreg = (String)debugitems[i];
-			
+
 			if(itemreg.startsWith("minecraft:"))
 				continue;
-			
+
 			Item item = GameData.getItemRegistry().getObject(itemreg);
 			String localName = item.getUnlocalizedName();
-			
+
 			if(localName.contains("tile"))
 			{
 				System.out.println("Item "+itemreg+" Doesn't seem to have a name set!");
 				System.out.println(item.getUnlocalizedName());
 				System.out.println();
 			}
-			
+
 			if(item.getCreativeTabToDisplayOn() == null)
 			{
 				System.out.println("Item "+itemreg+" Doesn't seem to have a creative tab set!");
 				System.out.println();
 			}
-			
-			
+
+
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}*/
 		//////////////////////////////////////////////////////
-		
-		
+
+
 	}
-	
+
 	@Mod.EventHandler
 	public void serverStop(FMLServerStoppedEvent event) {
-		killAllStreams();
+		//killAllStreams();
 	}
-	
+
 	public static void killAllStreams(){
 		for(VLCPlayer p : playerList){
 			p.stop();
@@ -367,12 +335,13 @@ public class Basemod {
 
 		ModMetadata m = event.getModMetadata(); // This is required or it will not work
 		m.autogenerated = false; // This is required otherwise it will not work
-		m.modId = "pixelutilitys";
+		m.modId = MODID;
 		m.version = version;
-		m.name = "PixelUtilitys";
+		m.name = NAME;
 		m.url = "http://www.pixelmonmod.com";
 		m.updateUrl = "http://www.pixelmonmod.com";
 		m.description = "A mod that adds Pokemon blocks and items into Pixelmon";
 		m.authorList.add("AnDwHaT5");
+		m.credits = "The PixelUtilities Team";
 	}
 }
