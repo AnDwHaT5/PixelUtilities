@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 import com.pixelmonmod.pixelmon.battles.BattleRegistry;
+import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.radioplayer.BattleMusicPlayer;
 import com.pixelutilitys.tileentitys.TileEntityRadio;
 
@@ -19,7 +20,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class PUTickHandler{
-	public static BattleMusicPlayer playerRadio = new BattleMusicPlayer("http://www.youtube.com/watch?v=rWw6d56J-GE&index=12&list=PL9793A30C55CED7F6", false);
+	public static BattleMusicPlayer playerRadio = new BattleMusicPlayer(PixelUtilitysConfig.BattleMusicURL, false);
 
 	//http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
 	//https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3

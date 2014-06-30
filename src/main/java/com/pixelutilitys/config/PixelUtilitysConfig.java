@@ -54,6 +54,8 @@ public class PixelUtilitysConfig {
 
 	public static int oceanSpecialRate;
 
+	public static String BattleMusicURL;
+	public static boolean battleMusicEnabled;
 	public static void loadConfig(Configuration configuration) {
 
 		config = configuration;
@@ -86,7 +88,8 @@ public class PixelUtilitysConfig {
 		icePlainsSpecialRate = config.get("Biome Encounters", "Ice Plains Special Rate", 10).getInt();
 		beachSpecialRate = config.get("Biome Encounters", "Beach Special Rate", 10).getInt();
 		desertSpecialRate = config.get("Biome Encounters", "Desert Special Rate", 10).getInt();
-
+		BattleMusicURL = config.get("General", "BattleMusic Music Song URL (If youtube make sure http not https)", "http://www.youtube.com/watch?v=WnkhVPmapc8").getString();
+		battleMusicEnabled = config.get("General", "Battle Music Enabled", true).getBoolean(true);
 		config.save();
 		fillEncounterLists();
 	}

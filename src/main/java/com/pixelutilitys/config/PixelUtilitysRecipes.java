@@ -1,21 +1,42 @@
 package com.pixelutilitys.config;
 
+import net.minecraft.block.BlockStainedGlass;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
+import com.jcraft.jorbis.Block;
 import com.pixelmonmod.pixelmon.config.PixelmonItems;
+import com.pixelutilitys.Basemod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PixelUtilitysRecipes {
 	
 	public static void addRecipes() {
+		
+		//Ore Smelting
+		GameRegistry.addSmelting(PixelUtilitysBlocks.AmethystOre, new ItemStack(PixelUtilitysItems.AmethystItem), 10);
+		GameRegistry.addSmelting(PixelUtilitysBlocks.CrystalOre, new ItemStack(PixelUtilitysItems.CrystalItem), 10);
+		GameRegistry.addSmelting(PixelUtilitysBlocks.RubyOre, new ItemStack(PixelUtilitysItems.RubyItem), 10);
+		GameRegistry.addSmelting(PixelUtilitysBlocks.SaphireOre, new ItemStack(PixelUtilitysItems.SaphireItem), 10);
+		GameRegistry.addSmelting(PixelUtilitysBlocks.SiliconOre, new ItemStack(PixelUtilitysItems.SiliconItem), 10);
+		//We need to add a stupid af smelting method here for a easter egg. What? Not sure.
+		
 		//Block
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
-
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.AmethystItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.CrystalBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.CrystalItem});
+		
+		
+		
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.RubyItem, 9), new Object[] { "   ", " X ", "   ", Character.valueOf('X'), PixelUtilitysBlocks.RubyBlock});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.SaphireItem, 9), new Object[] { "   ", " X ", "   ", Character.valueOf('X'), PixelUtilitysBlocks.SaphireBlock});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.AmethystItem, 9), new Object[] { "   ", " X ", "   ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.CrystalItem, 9), new Object[] { "   ", " X ", "   ", Character.valueOf('X'), PixelUtilitysBlocks.CrystalBlock});
+		
+		
 		//Ruby Tools
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.rubyPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.RubyItem, Character.valueOf('Y'),  Items.stick});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.rubyHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.RubyItem, Character.valueOf('Y'), Items.stick });
@@ -27,18 +48,18 @@ public class PixelUtilitysRecipes {
 		//Saphire Tools
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphirePickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireAxe, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireShovel, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireHoe, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.saphireSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysItems.SaphireItem, Character.valueOf('Y'), Items.stick });
 		
 		//Amethyst Tools
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.amethystSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysItems.AmethystItem, Character.valueOf('Y'), Items.stick });
 		
 		//Evo Tools
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.FirestonePickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelmonItems.fireStone, Character.valueOf('Y'), Items.stick });
@@ -62,6 +83,13 @@ public class PixelUtilitysRecipes {
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.LeafstoneHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelmonItems.leafStone, Character.valueOf('Y'), Items.stick });
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.LeafstoneSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelmonItems.leafStone, Character.valueOf('Y'), Items.stick });
 		
+	//Crystal Tools
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'),  Items.stick});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalAxe, 1), new Object[] { "XX ", "XY ", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalShovel, 1), new Object[] { " X ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalHoe, 1), new Object[] { "XX ", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'), Items.stick });
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.CrystalSword, 1), new Object[] { " X ", " X ", " Y ", Character.valueOf('X'), PixelUtilitysItems.CrystalItem, Character.valueOf('Y'), Items.stick });
 		
 	//Armor
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
@@ -82,6 +110,10 @@ public class PixelUtilitysRecipes {
 	//Radio
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RadioBlock), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));
 
+		
+	//Lights
+		
+		//GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.blueLightBlock), new Object[] {"X X", "X X", Character.valueOf('X'), BlockStainedGlass});
 	}
 	
 }

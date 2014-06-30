@@ -260,7 +260,7 @@ public class PixelUtilitysBlocks {
 		GameRegistry.registerBlock(CrystalOre, "CrystalOre");
 		GameRegistry.registerBlock(TotodilePokedollBlock, "TotodileDoll");
 		GameRegistry.registerBlock(AronPokedollBlock, "AronDoll");
-		GameRegistry.registerBlock(BisharpPokedollBlock, "BisharpDoll");
+		//GameRegistry.registerBlock(BisharpPokedollBlock, "BisharpDoll");
 		GameRegistry.registerBlock(RadioBlock, "Radio");
 		GameRegistry.registerBlock(GymSignBlock, "GymSign");
 		GameRegistry.registerBlock(TVBlock, "TV");

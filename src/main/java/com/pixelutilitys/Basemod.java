@@ -142,6 +142,8 @@ public class Basemod {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		
+		if(PixelUtilitysConfig.battleMusicEnabled == true)
 		FMLCommonHandler.instance().bus().register(new PUTickHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());

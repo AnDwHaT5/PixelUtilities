@@ -45,6 +45,7 @@ public class PixelUtilitysItems {
 	public static Item CrystalItem;
 	public static Item CDItem;
 	public static Item HandHeldRadio;
+	public static Item AmethystItem;
 	
 	public static void load(Configuration cfg) {
 	    PokeCoin1Item = new PokeCoin1Item();
@@ -75,6 +76,7 @@ public class PixelUtilitysItems {
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
 		//HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
+		AmethystItem = new AmthystItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Amethyst");;
 	}
 
 	public static void addNames() {
@@ -91,6 +93,7 @@ public class PixelUtilitysItems {
 		GameRegistry.registerItem(CDItem, CDItem.getUnlocalizedName().substring(5));
 		//GameRegistry.registerItem(HandHeldRadio, HandHeldRadio.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(CrystalItem, CrystalItem.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(AmethystItem, AmethystItem.getUnlocalizedName().substring(5));
 		
 		//Badges
 		GameRegistry.registerItem(BugBadgeItem, BugBadgeItem.getUnlocalizedName().substring(5));

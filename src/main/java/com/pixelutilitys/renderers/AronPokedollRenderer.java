@@ -38,7 +38,7 @@ private final AronPokedollModel model;
     //The PushMatrix tells the renderer to "start" doing something.
             GL11.glPushMatrix();
     //This is setting the initial location.
-            GL11.glTranslatef((float) x + 0.5F, (float) y + 1.9F, (float) z + 0.5F); //1.7 edited here
+            GL11.glTranslatef((float) x + 0.5F, (float) y + 1.7F, (float) z + 0.3F); //1.7 edited here
     //This is the texture of your block. It's pathed to be the same place as your other blocks here.
             //Outdated bindTextureByName("/mods/roads/textures/blocks/TrafficLightPoleRed.png");
    //Use in 1.6.2  this
@@ -87,4 +87,3 @@ private final AronPokedollModel model;
             this.bindTexture( texture );
     }
 }
-
