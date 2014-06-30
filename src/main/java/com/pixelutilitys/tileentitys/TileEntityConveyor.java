@@ -365,6 +365,7 @@ public class TileEntityConveyor extends TileEntity implements ISidedInventory
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private void reverseConveyor()
 	{
 		setReversed(_rednetReversed | (_gateReversed = !_isReversed));

@@ -30,7 +30,7 @@ public class PixelHammerTool extends ItemHammer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister) {
-		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
+		this.itemIcon = par1IconRegister.registerIcon(this.iconString);
 	}
 	
 	@Override

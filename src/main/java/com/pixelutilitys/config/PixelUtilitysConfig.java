@@ -20,7 +20,6 @@ public class PixelUtilitysConfig {
 	public static boolean waterBattles = false;
 	public static int coinDropRate;
 
-	//messy, need cleaning up
 	private static String[] forestWildEncounters = new String[10];
 	public static EnumPokemon[] forestEncounterList;
 	private static String[] extremeHillsWildEncounters = new String[10];
@@ -56,9 +55,12 @@ public class PixelUtilitysConfig {
 	public static int oceanSpecialRate;
 
 	public static void loadConfig(Configuration configuration) {
-		
+
+		if(called) {
+			return;
+		}
+
 		config = configuration;
-		
 		PixelUtilitysTools.load(config);
 		PixelUtilitysItems.load(config);
 		PixelUtilitysBlocks.load(config);
@@ -76,30 +78,6 @@ public class PixelUtilitysConfig {
 		coinDropRate = config.get("general", "Pixelmon coin drop rate", 4).getInt();
 		waterSpawnRate = config.get("general", "Pixelmon in water spawn rate", 400).getInt();
 
-		writeEncounterListsToConfig();
-
-		//encounter rates for extra pokes
-		forestSpecialRate = config.get("Biome Encounters", "Forest Special Rate", 10).getInt();
-		extremeHillsSpecialRate = config.get("Biome Encounters", "Extreme Hills Special Rate", 10).getInt();
-		taigaSpecialRate = config.get("Biome Encounters", "Taiga Special Rate", 10).getInt();
-		plainsSpecialRate = config.get("Biome Encounters", "Plains Special Rate", 10).getInt();
-		jungleSpecialRate = config.get("Biome Encounters", "Jungle Special Rate", 10).getInt();
-		iceMountainsSpecialRate = config.get("Biome Encounters", "Ice Mountains Special Rate", 10).getInt();
-		icePlainsSpecialRate = config.get("Biome Encounters", "Ice Plains Special Rate", 10).getInt();
-		beachSpecialRate = config.get("Biome Encounters", "Beach Special Rate", 10).getInt();
-		desertSpecialRate = config.get("Biome Encounters", "Desert Special Rate", 10).getInt();
-
-		config.save();
-
-		fillEncounterLists();
-	}
-	
-	/**
-	 * @author MoeBoy76
-	 * 
-	 * @return writes each encounter pokemon into the config
-	 */
-	private static void writeEncounterListsToConfig() {
 		for(int i = 0; i < forestWildEncounters.length; i++){
 			if(i >= 8){
 				forestWildEncounters[i] = config.get("Biome Encounters", "Special Forest Pokemon " + (i - 7), "null").getString();
@@ -200,6 +178,9 @@ public class PixelUtilitysConfig {
 			}
 
 		}
+
+
+
 		for(int i = 0; i < oceanWildEncounters.length; i++){
 			if(i >= 8){
 				oceanWildEncounters[i] = config.get("Biome Encounters", "Special Ocean Pokemon " + (i - 7), "null").getString();
@@ -213,15 +194,23 @@ public class PixelUtilitysConfig {
 			}
 
 		}
-	}
-	
-	/**
-	 * @author MoeBoy76
-	 * 
-	 * @return fills the encounter lists with nulls for unspecified pokemon, needs changing to an ArrayList
-	 * 
-	 */
-	private static void fillEncounterLists() {
+
+		forestSpecialRate = config.get("Biome Encounters", "Forest Special Rate", 10).getInt();
+		extremeHillsSpecialRate = config.get("Biome Encounters", "Extreme Hills Special Rate", 10).getInt();
+		taigaSpecialRate = config.get("Biome Encounters", "Taiga Special Rate", 10).getInt();
+		plainsSpecialRate = config.get("Biome Encounters", "Plains Special Rate", 10).getInt();
+		jungleSpecialRate = config.get("Biome Encounters", "Jungle Special Rate", 10).getInt();
+		iceMountainsSpecialRate = config.get("Biome Encounters", "Ice Mountains Special Rate", 10).getInt();
+		icePlainsSpecialRate = config.get("Biome Encounters", "Ice Plains Special Rate", 10).getInt();
+		beachSpecialRate = config.get("Biome Encounters", "Beach Special Rate", 10).getInt();
+		desertSpecialRate = config.get("Biome Encounters", "Desert Special Rate", 10).getInt();
+
+		config.save();
+
+		// Set Called
+		called = true;
+//TODO wtfing ell is going on in this method.
+
 		forestEncounterList = new EnumPokemon[forestWildEncounters.length];
 		for(int i=0; i<forestWildEncounters.length; i++) {
 			if(!forestWildEncounters[i].equalsIgnoreCase("NULL")) {
@@ -303,13 +292,9 @@ public class PixelUtilitysConfig {
 				oceanEncounterList[i] = null;
 			}
 		}
+
+
 	}
-	
-	/**
-	 * @author MoeBoy76
-	 * 
-	 * loads the encounters into the spawner class
-	 */
 	public static void reloadEncounters() {
 		GrassSpawner.setEncounterList(forestEncounterList, extremeHillsEncounterList, plainsEncounterList, taigaEncounterList, jungleEncounterList, 
 				icePlainsEncounterList, iceMountainsEncounterList, beachEncounterList, desertEncounterList, oceanEncounterList);

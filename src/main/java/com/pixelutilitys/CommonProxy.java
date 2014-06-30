@@ -1,20 +1,23 @@
 package com.pixelutilitys;
 
-public class CommonProxy 
-{
-	public void initSounds() {};
+public class CommonProxy {
+	    public void initSounds() {};
 
-	public void initRenderers() {};
+	    public void initRenderers() {};
+	  public void registerRenderThings() {
+		  
 	
-	public void registerRenderThings() {
+		  
+	  }
+	  
+	  public void registerRenderers(){
+			
+		}
+		
+		public void initTileEntities(){
+			
+		}
+		
+
 
 	}
-
-	public void registerRenderers(){
-
-	}
-
-	public void initTileEntities(){
-
-	}
-}
