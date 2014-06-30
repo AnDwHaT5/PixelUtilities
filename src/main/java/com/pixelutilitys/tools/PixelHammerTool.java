@@ -32,21 +32,11 @@ public class PixelHammerTool extends ItemHammer {
 	}
 	
 	
-	//Because pixelmon devs are idiots we can't use this normally.
-	String localTex = "";
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IconRegister) {
-		this.itemIcon = par1IconRegister.registerIcon(localTex);
+		this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
 	}
-	
-	@Override
-	public Item setTextureName(String tex)
-	{
-		localTex = tex;
-		return this;
-	}
-	//////
 	
 	@Override
 	public Item setCreativeTab(CreativeTabs tabs)

@@ -41,24 +41,39 @@ public class GrassSpawner {
 	static BattleControllerBase bc;
 
 	public static void spawnInGrass(World world, int x, int y, int z, Entity entity){
-		if(!PixelUtilitysConfig.grassBattles){
+		if(!PixelUtilitysConfig.grassBattles)
 			return;
-		}
+		
 
-		if(entity instanceof EntityPlayerMP){
+		if(entity instanceof EntityPlayerMP)
+		{
 
 			EntityPlayerMP player = (EntityPlayerMP) entity;
-			if (BattleRegistry.getBattle(player) != null) {
-				return;
+			
+			int ablePokes = 0;
+			try
+			{
+				ablePokes = PixelmonStorage.PokeballManager.getPlayerStorage(player).countAblePokemon();
 			}
+			catch(PlayerNotLoadedException e)
+			{
+				e.printStackTrace();
+			}
+			
+			if(BattleRegistry.getBattle(player) != null)
+				return;
+			
+			if(ablePokes == 0)
+				return;
+			
 			int isBattle = (int) (Math.random()*PixelUtilitysConfig.grassSpawnRate);
 			int waterBattle = (int) (Math.random()*PixelUtilitysConfig.waterSpawnRate);
 
 			xCoOrd = x;
 			zCoOrd = z;
-			if(xCoOrd == lastXCoOrd && zCoOrd == lastZCoOrd){
+			
+			if(xCoOrd == lastXCoOrd && zCoOrd == lastZCoOrd)
 				return;
-			}
 
 			if(isBattle == 25)
 			{
@@ -72,25 +87,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListT.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListT[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListT[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -108,25 +109,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListJ.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListJ[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListJ[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -144,25 +131,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListF.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListF[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListF[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -180,25 +153,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListP.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListP[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListP[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -216,25 +175,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListEH.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListEH[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListEH[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -252,25 +197,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListIP.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListIP[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListIP[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -288,25 +219,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListIM.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListIM[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListIM[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -324,25 +241,11 @@ public class GrassSpawner {
 							try{
 								if(ranPoke >= (encounterListB.length - 2) && specRate == 1){
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListB[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else{
 									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListB[ranPoke].name, world);
-									pokemon.setPosition(x + 1, y + 1, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pokemon);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -359,26 +262,12 @@ public class GrassSpawner {
 						if(encounterListD[ranPoke]!=null){
 							try{
 								if(ranPoke >= (encounterListD.length - 2) && specRate == 1){
-									EntityPixelmon pixelmonEntity = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListD[ranPoke].name, world);
-									pixelmonEntity.setPosition(x, y + 2, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pixelmonEntity);
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pixelmonEntity);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListD[ranPoke].name, world);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 								else {
-									EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-									EntityPixelmon pixelmonEntity = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListD[ranPoke].name, world);
-									pixelmonEntity.setPosition(x, y + 2, z);
-									if(!world.isRemote)
-										world.spawnEntityInWorld(pixelmonEntity);
-									if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-										return;
-									WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pixelmonEntity);
-									bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+									EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListD[ranPoke].name, world);
+									spawnAndInitiate(world, x, y, z, player, pokemon);
 								}
 							}
 							catch(PlayerNotLoadedException e){
@@ -405,25 +294,11 @@ public class GrassSpawner {
 						try{
 							if(ranPoke >= (encounterListW.length - 2) && specRate == 1){
 								EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListW[ranPoke].name, world);
-								pokemon.setPosition(x + 1, y + 1, z);
-								if(!world.isRemote)
-									world.spawnEntityInWorld(pokemon);
-								EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-								if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-									return;
-								WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-								bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+								spawnAndInitiate(world, x, y, z, player, pokemon);
 							}
 							else{
 								EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterListW[ranPoke].name, world);
-								pokemon.setPosition(x + 1, y + 1, z);
-								if(!world.isRemote)
-									world.spawnEntityInWorld(pokemon);
-								EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage((EntityPlayerMP) entity).getFirstAblePokemon(world);
-								if (player1firstPokemon == null || player1firstPokemon.isFainted || player1firstPokemon.equals(null))
-									return;
-								WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
-								bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
+								spawnAndInitiate(world, x, y, z, player, pokemon);
 							}
 						}
 						catch(PlayerNotLoadedException e){
@@ -438,6 +313,31 @@ public class GrassSpawner {
 		}
 		lastXCoOrd = xCoOrd;
 		lastZCoOrd = zCoOrd;
+	}
+	
+	/**
+	 * @author MoeBoy76
+	 * 
+	 * @param world
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param player
+	 * @param pokemon - the pokemon to spawn
+	 * 
+	 * @throws PlayerNotLoadedException
+	 * @throws Exception
+	 * 
+	 * @return spawns and initiates battle between player and pokemon
+	 */
+	private static void spawnAndInitiate(World world, int x, int y, int z, EntityPlayerMP player, EntityPixelmon pokemon) throws PlayerNotLoadedException, Exception 
+	{
+		pokemon.setPosition(x, y + 1, z);
+		if(!world.isRemote)
+			world.spawnEntityInWorld(pokemon);
+		EntityPixelmon player1firstPokemon = PixelmonStorage.PokeballManager.getPlayerStorage(player).getFirstAblePokemon(world);
+		WildPixelmonParticipant wildPixelmon = new WildPixelmonParticipant(pokemon);
+		bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
 	}
 	
 	public static void setEncounterList(EnumPokemon[] forest, EnumPokemon[] extremeHillsEncounterList, EnumPokemon[] plainsEncounterList, EnumPokemon[] taigaEncounterList, EnumPokemon[] jungleEncounterList, EnumPokemon[] icePlainsEncounterList, EnumPokemon[] iceMountainsEncounterList, EnumPokemon[] beachEncounterList, EnumPokemon[] desertEncounterList, EnumPokemon[] oceanEncounterList){

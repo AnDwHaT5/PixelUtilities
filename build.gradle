@@ -43,7 +43,7 @@ processResources {
 }
 
 dependencies {
-    compile files('libs/compile/Pixelmon-fakeapi-1.7.2.jar')
+    compile files('libs/compile/Pixelmon-1.7.2-3.1-universal-deob.jar')
 }
 
 jar {

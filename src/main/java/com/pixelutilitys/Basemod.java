@@ -74,12 +74,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 //import PixelUtilitys.commands.FrontierBattleCommand;
 
-@Mod(modid = "pixelutilitys", name = "PixelUtilitys", version = "3.0", dependencies = "required-after:pixelmon")
+@Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION, dependencies = "required-after:pixelmon")
 
 public class Basemod {
 	
-	
-	
+	public static final String MODID = "pixelutilities";
+	public static final String NAME = "PixelUtilities";
+	public static final String VERSION = "3.0";
 
 	public static ToolMaterial FIRESTONE = EnumHelper.addToolMaterial("FIRESTONE", 3, 1561, 8.0F, 3.0F, 10);
 	public static ToolMaterial WATERSTONE = EnumHelper.addToolMaterial("WATERSTONE", 3, 1561, 8.0F, 3.0F, 10);
@@ -114,7 +115,7 @@ public class Basemod {
 
 	private static boolean preInit = false, init = false, postInit = false;
 
-	@Instance("pixelutilitys")
+	@Instance(Basemod.MODID)
 	public static Basemod instance;
 	@SidedProxy(clientSide="com.pixelutilitys.ClientProxy",
 			serverSide="com.pixelutilitys.CommonProxy")
@@ -125,7 +126,7 @@ public class Basemod {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) 
 	{
-		AddMeta(event, "3.0");
+		AddMeta(event, Basemod.VERSION);
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		config.load();
 		PixelUtilitysConfig.loadConfig(config);
@@ -181,21 +182,13 @@ public class Basemod {
 	{				
 		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TreeEntity.class, "Tree");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(BolderEntity.class, "Bolder");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(BoxEntity.class, "Box");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(ClothedTableEntity.class, "ClothedTable");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(PokeballEntity.class, "Pokeball");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(RedCusionChairEntity.class, "RedCusionChair");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TrashcanEntity.class, "Trashcan");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(YellowCusionChairEntity.class, "YellowCusionChair");
-		proxy.registerRenderThings();
 		GameRegistry.registerTileEntity(TotodilePokedollEntity.class, "TotodileDoll");
 		
 		GameRegistry.registerTileEntity(TileEntityRadio.class, "Radio");
@@ -210,34 +203,6 @@ public class Basemod {
 		GameRegistry.registerWorldGenerator(new CrystalGenerator(), 0);
 
 		PixelUtilitysRecipes.addRecipes();
-
-		//LanguageRegistry.addName(Walrus, "Walrus Statue");
-		//Block crafting
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
-
-		/*	GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.fireStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.firestoneBoots, 1), new Object[] { "X X", "X X", "   ", Character.valueOf('X'), PixelmonItems.fireStone});
-
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.waterStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.waterstoneBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelmonItems.waterStone});
-
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneHelm, 1), new Object[] { "XXX", "X X", "   ", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstonePlate, 1), new Object[] { "X X", "XXX", "XXX", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneLegs, 1), new Object[] { "XXX", "X X", "X X", Character.valueOf('X'), PixelmonItems.leafStone});
-		GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.leafstoneBoots, 1), new Object[] { "X X", "X X", Character.valueOf('X'), PixelmonItems.leafStone});
-		 */
-
-		//Furnace Smelting
-
-		//GameRegistry.addSmelting(3086, new ItemStack(PixelUtilitysItems.SiliconItem), 5);
-		
-		
 
 		PixelUtilitysBlocks.RubyOre.setHarvestLevel("pickaxe", 2);
 		PixelUtilitysBlocks.SaphireOre.setHarvestLevel("pickaxe", 2);
@@ -261,7 +226,7 @@ public class Basemod {
 		if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
 			((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
-//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
+			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
 			//((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
 		}
@@ -378,12 +343,13 @@ public class Basemod {
 
 		ModMetadata m = event.getModMetadata(); // This is required or it will not work
 		m.autogenerated = false; // This is required otherwise it will not work
-		m.modId = "pixelutilitys";
+		m.modId = Basemod.MODID;
 		m.version = version;
-		m.name = "PixelUtilitys";
+		m.name = Basemod.NAME;
 		m.url = "http://www.pixelmonmod.com";
 		m.updateUrl = "http://www.pixelmonmod.com";
 		m.description = "A mod that adds Pokemon blocks and items into Pixelmon";
 		m.authorList.add("AnDwHaT5");
+		m.credits = "The PixelUtilities Team";
 	}
 }

@@ -11,7 +11,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class PixelUtilitysRecipes {
 	
 	public static void addRecipes() {
-		
+		//Block
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.RubyItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysItems.SaphireItem});
+		GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), new Object[] { "XXX", "XXX", "XXX", Character.valueOf('X'), PixelUtilitysBlocks.AmethystBlock});
+
 		//Ruby Tools
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.rubyPickaxe, 1), new Object[] { "XXX", " Y ", " Y ", Character.valueOf('X'), PixelUtilitysItems.RubyItem, Character.valueOf('Y'),  Items.stick});
 		GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.rubyHammer, 1), new Object[] { "XXX", "XYX", " Y ", Character.valueOf('X'), PixelUtilitysItems.RubyItem, Character.valueOf('Y'), Items.stick });
