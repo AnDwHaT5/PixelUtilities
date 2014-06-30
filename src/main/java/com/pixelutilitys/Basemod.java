@@ -126,7 +126,7 @@ public class Basemod
 		PixelUtilitysAchievements.setupAchievements();
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
-		//FMLCommonHandler.instance().bus().register(new ModRadioEvents());
+		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
 
 		EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
 		preInit = true;
@@ -304,7 +304,7 @@ public class Basemod
 
 	@Mod.EventHandler
 	public void serverStop(FMLServerStoppedEvent event) {
-		//killAllStreams();
+		killAllStreams();
 	}
 
 	public static void killAllStreams(){
