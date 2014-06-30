@@ -42,14 +42,18 @@ processResources {
     from (sourceSets.main.resources.srcDirs)
 }
 
+configurations {
+    runtimeOnly
+}
+
 dependencies {
     compile files('libs/compile/Pixelmon-1.7.2-3.1-universal-deob.jar')
+	runtimeOnly files('libs/runtime/jna-3.5.2.jar')
+	runtimeOnly files('libs/runtime/platform-3.5.2.jar')
 }
 
 jar {
-  from("$projectDir") {
-      include 'libs/runtime/**'
-  }
+  from configurations.runtimeOnly.collect { it.isDirectory() ? it : zipTree(it) }
 
   manifest {
     attributes('FMLCorePluginContainsFMLMod': 'true')
