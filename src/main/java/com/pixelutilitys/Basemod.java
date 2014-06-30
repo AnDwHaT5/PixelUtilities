@@ -247,64 +247,40 @@ public class Basemod {
 			if(localName.contains("tile"))
 			{
 				System.out.println("Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
-				JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
+				//JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
 				System.out.println();
 			}
 			
 			if(block.getCreativeTabToDisplayOn() == null)
 			{
 				System.out.println("Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
-				JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
+				//JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
 				System.out.println();
 			}
 			
 		}
 		
-		Iterator<IRecipe> craftingRecipies = CraftingManager.getInstance().getRecipeList().iterator();
-		while(craftingRecipies.hasNext())
+		Iterator<Item> items = GameData.getItemRegistry().iterator();
+		
+		while(items.hasNext())
 		{
-			IRecipe recipe = craftingRecipies.next();
-			System.out.println(recipe.getClass().getName());
+			Item item = items.next();
+			ItemStack itemStack = new ItemStack(item,0,1);
+			
+			String itemName = item.getItemStackDisplayName(itemStack);
+			
+			if(!itemName.getClass().getName().contains("pixelutilitys"))
+				return;
+			
+			if(itemName.contains("item."))
+			{
+				System.out.println("Item "+itemName+" doesn't seem to have a name set");
+			}
+			
 		}
 		
-		
 		}
 		
-		/*
-		Set items = GameData.getItemRegistry().getKeys();
-		Object[] debugitems = blocks.toArray();
-		System.out.println("itemlength "+debugitems.length);
-		
-		
-		for(int i = 0; i < debugitems.length; i++)
-		{
-			try{
-			String itemreg = (String)debugitems[i];
-			
-			if(itemreg.startsWith("minecraft:"))
-				continue;
-			
-			Item item = GameData.getItemRegistry().getObject(itemreg);
-			String localName = item.getUnlocalizedName();
-			
-			if(localName.contains("tile"))
-			{
-				System.out.println("Item "+itemreg+" Doesn't seem to have a name set!");
-				System.out.println(item.getUnlocalizedName());
-				System.out.println();
-			}
-			
-			if(item.getCreativeTabToDisplayOn() == null)
-			{
-				System.out.println("Item "+itemreg+" Doesn't seem to have a creative tab set!");
-				System.out.println();
-			}
-			
-			
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}*/
 		//////////////////////////////////////////////////////
 		
 		
