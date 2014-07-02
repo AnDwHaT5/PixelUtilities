@@ -297,6 +297,10 @@ public class Basemod {
 		for(VLCPlayer p : playerList){
 			p.stop();
 		}
+		
+		for(BattleMusicPlayer p : battleMusicList){
+			p.stop();
+		}
 	}
 
 	/**

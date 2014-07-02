@@ -17,7 +17,7 @@ import com.pixelutilitys.models.PokeballModel;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class PokeballRenderer extends TileEntitySpecialRenderer {
-	ResourceLocation texture = new ResourceLocation("pixelmon:textures/pokeballs/Pokeball.png"); 
+	ResourceLocation texture = new ResourceLocation("pixelmon:textures/pokeballs/pokeball.png"); 
 	
 	//The model of your block
     private final ModelPokeball model;

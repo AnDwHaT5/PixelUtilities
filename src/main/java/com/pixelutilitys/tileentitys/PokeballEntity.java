@@ -6,5 +6,11 @@ public class PokeballEntity extends TileEntity {
 
 	public PokeballEntity() {
 	}
+	
+	@Override
+	public boolean canUpdate()
+	{
+		return false;
+	}
 
 }

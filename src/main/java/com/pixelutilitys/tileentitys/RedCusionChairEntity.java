@@ -6,5 +6,11 @@ public class RedCusionChairEntity extends TileEntity {
 
 	public RedCusionChairEntity() {
 	}
+	
+	@Override
+	public boolean canUpdate()
+	{
+		return false;
+	}
 
 }
