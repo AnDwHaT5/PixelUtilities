@@ -85,10 +85,9 @@ else
 return false;
 }
 
-public void stop() {
-if(isPlaying())
-mediaPlayerComponent.getMediaPlayer().stop();
-}
+    public void stop() {
+        mediaPlayerComponent.release();
+    }
 public String getURL()
 {
 	return URL;
