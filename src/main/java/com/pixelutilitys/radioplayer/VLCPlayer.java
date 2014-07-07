@@ -1,10 +1,8 @@
 package com.pixelutilitys.radioplayer;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 import com.pixelutilitys.gui.GuiRadio;
-import com.pixelutilitys.tileentitys.TileEntityRadio;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundCategory;
@@ -16,18 +14,33 @@ public class VLCPlayer implements Runnable {
 
     String streamURL;
     boolean killed = false;
+    int baseVolume = 150;
 
-	public VLCPlayer(final String streamURL) {
+	public VLCPlayer(final String streamURL, Integer... newBaseVolume) {
         this.streamURL = streamURL;
-        this.run();
+
+        if(newBaseVolume.length > 0) {
+            this.baseVolume = newBaseVolume[0];
+            setVolume(50);
+        }
+        else {
+            this.run();
+        }
 	}
 
-	public void setVolume(float v2) {//TODO fix volume level generation
+    public void start()
+    {
+        this.run();
+    }
+
+	public void setVolume(float v2) {
         float musicLevel = Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MUSIC);
-        float volume = (v2*musicLevel)*150;
+        float volume = (v2*musicLevel)*baseVolume;
 
 		if(isPlaying())
 		mediaPlayerComponent.getMediaPlayer().setVolume((int)volume);
+
+        System.out.println(volume);
 		
 	}
 

@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.pixelutilitys.gui.GuiHandHeldRadio;
-import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 
 import cpw.mods.fml.relauncher.Side;

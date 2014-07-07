@@ -34,8 +34,6 @@ import com.pixelutilitys.config.PixelUtilitysRecipes;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.events.ModRadioEvents;
-import com.pixelutilitys.radioplayer.BattleMusicPlayer;
-import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.tileentitys.BolderEntity;
 import com.pixelutilitys.tileentitys.BoxEntity;
@@ -71,8 +69,6 @@ import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-//import PixelUtilitys.commands.FrontierBattleCommand;
 
 @Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION, dependencies = "required-after:pixelmon")
 
@@ -106,8 +102,8 @@ public class Basemod {
 	public static boolean DEBUGMODE = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
-	public static List<BattleMusicPlayer> battleMusicList = new ArrayList<BattleMusicPlayer>();
-    public static HandHeldRadioPlayer localMusicPlayer = null;
+	public static List<VLCPlayer> battleMusicList = new ArrayList<VLCPlayer>();
+    public static VLCPlayer localMusicPlayer = null;
     
 	//In development biome //pokebiome
 	//Biomes
@@ -298,7 +294,7 @@ public class Basemod {
 			p.stop();
 		}
 		
-		for(BattleMusicPlayer p : battleMusicList){
+		for(VLCPlayer p : battleMusicList){
 			p.stop();
 		}
 	}

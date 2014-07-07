@@ -1,26 +1,16 @@
 package com.pixelutilitys;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-
-import net.minecraft.client.Minecraft;
+import com.pixelutilitys.radioplayer.VLCPlayer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.server.MinecraftServer;
-import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 import com.pixelmonmod.pixelmon.battles.BattleRegistry;
 import com.pixelutilitys.config.PixelUtilitysConfig;
-import com.pixelutilitys.radioplayer.BattleMusicPlayer;
-import com.pixelutilitys.tileentitys.TileEntityRadio;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class PUTickHandler{
-	public static BattleMusicPlayer playerRadio = new BattleMusicPlayer(PixelUtilitysConfig.BattleMusicURL, false);
+	public static VLCPlayer playerRadio = new VLCPlayer(PixelUtilitysConfig.BattleMusicURL, 50);
 
 	//http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
 	//https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3

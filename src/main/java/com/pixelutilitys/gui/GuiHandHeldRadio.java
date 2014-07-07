@@ -1,19 +1,16 @@
 package com.pixelutilitys.gui;
 
+import com.pixelutilitys.radioplayer.VLCPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 
-import com.pixelutilitys.radioplayer.HandHeldRadioPlayer;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,7 +25,7 @@ public class GuiHandHeldRadio extends GuiScreen{
 	public static EntityPlayer player;
 	private GuiTextField streamTextBox;
 	String url = "http://www.youtube.com/watch?v=ktBGLpAYnCY";
-	HandHeldRadioPlayer radio;
+    VLCPlayer radio;
 	public GuiHandHeldRadio(EntityPlayer r){
 		posX = r.posX;
 		posY = r.posY;
