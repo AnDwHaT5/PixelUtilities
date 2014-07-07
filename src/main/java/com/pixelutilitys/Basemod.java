@@ -138,9 +138,12 @@ public class Basemod {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
-		
+
+        PUTickHandler tickHandler = new PUTickHandler();
 		if(PixelUtilitysConfig.battleMusicEnabled == true)
-		FMLCommonHandler.instance().bus().register(new PUTickHandler());
+		FMLCommonHandler.instance().bus().register(tickHandler);
+        MinecraftForge.EVENT_BUS.register(tickHandler);
+
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
 		PacketHandler.init();
@@ -297,6 +300,8 @@ public class Basemod {
 		for(VLCPlayer p : battleMusicList){
 			p.stop();
 		}
+
+        PUTickHandler.playerRadio.stop();
 	}
 
 	/**
@@ -310,7 +315,7 @@ public class Basemod {
 	public static boolean initialized(){return init;}
 
 	/**
-	 * whether or not PixelUtilitys has finished the {@link #modsLoaded(FMLPostInitializationEvent) modsLoaded} phase.
+	 * whether or not PixelUtilitys has finished the {@link (FMLPostInitializationEvent) modsLoaded} phase.
 	 */
 	public static boolean postInitialized(){return postInit;}
 
