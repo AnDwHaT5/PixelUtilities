@@ -83,6 +83,7 @@ public class TileEntityRadio extends TileEntity{
 	@Override
 	public void invalidate(){
 		PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(xCoord, yCoord, zCoord, !isPlaying(), streamURL));
+        stopStream();
 		super.invalidate();
 	}
 	
