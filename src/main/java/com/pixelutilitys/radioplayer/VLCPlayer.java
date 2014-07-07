@@ -70,7 +70,8 @@ public class VLCPlayer implements Runnable {
 
         mediaPlayerComponent.getMediaPlayer().setPlaySubItems(true);//needed for some streams (youtube)
 
-        if(GuiRadio.radio.isLooping())
+
+        if(GuiRadio.radio == null || GuiRadio.radio.isLooping())
         {
             mediaPlayerComponent.getMediaPlayer().setRepeat(true);//enable loop ;D
         }
@@ -79,7 +80,6 @@ public class VLCPlayer implements Runnable {
             mediaPlayerComponent.getMediaPlayer().setRepeat(false);
         }
         mediaPlayerComponent.getMediaPlayer().playMedia(this.streamURL.toString());
-
         frame.setVisible(false);
 
     }
