@@ -1,6 +1,8 @@
 package com.pixelutilitys;
 
 import com.pixelutilitys.radioplayer.VLCPlayer;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelChicken;
@@ -20,6 +22,7 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
+@SideOnly(Side.CLIENT)
 public class PUTickHandler{
 	public static VLCPlayer playerRadio = new VLCPlayer(PixelUtilitysConfig.BattleMusicURL, 50);
 

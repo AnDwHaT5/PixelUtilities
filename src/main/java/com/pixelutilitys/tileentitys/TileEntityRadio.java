@@ -128,6 +128,7 @@ public class TileEntityRadio extends TileEntity{
 	
 	@Override
 	public Packet getDescriptionPacket(){
+        if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
 		PacketHandler.INSTANCE.sendToServer(new MessageTileEntityRadio(xCoord, yCoord, zCoord, isPlaying(), streamURL));
 		return null;
 	}

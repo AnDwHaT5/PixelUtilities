@@ -7,8 +7,10 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -139,15 +141,19 @@ public class Basemod {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 
-        PUTickHandler tickHandler = new PUTickHandler();
-		if(PixelUtilitysConfig.battleMusicEnabled == true)
-		FMLCommonHandler.instance().bus().register(tickHandler);
-        MinecraftForge.EVENT_BUS.register(tickHandler);
+            PUTickHandler tickHandler = new PUTickHandler();
+
+            if (PixelUtilitysConfig.battleMusicEnabled == true) {
+                System.out.println("music tick enabled");
+                FMLCommonHandler.instance().bus().register(tickHandler);
+            }
+            MinecraftForge.EVENT_BUS.register(tickHandler);
+            initVLC();
+
 
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
 		PacketHandler.init();
-		initVLC();
 		init = true;
 	}
 

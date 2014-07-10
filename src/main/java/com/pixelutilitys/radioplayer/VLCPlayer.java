@@ -2,6 +2,7 @@ package com.pixelutilitys.radioplayer;
 
 import javax.swing.JFrame;
 
+import com.pixelutilitys.Basemod;
 import com.pixelutilitys.gui.GuiRadio;
 
 import net.minecraft.client.Minecraft;
@@ -18,6 +19,9 @@ public class VLCPlayer implements Runnable {
 
 	public VLCPlayer(final String streamURL, Integer... newBaseVolume) {
         this.streamURL = streamURL;
+
+        if(!Basemod.vlcLoaded)
+            return;
 
         if(newBaseVolume.length > 0) {
             this.baseVolume = newBaseVolume[0];
