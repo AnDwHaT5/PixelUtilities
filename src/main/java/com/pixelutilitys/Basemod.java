@@ -141,6 +141,7 @@ public class Basemod {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 
+        if(event.getSide().equals(Side.CLIENT)) {
             PUTickHandler tickHandler = new PUTickHandler();
 
             if (PixelUtilitysConfig.battleMusicEnabled == true) {
@@ -149,7 +150,7 @@ public class Basemod {
             }
             MinecraftForge.EVENT_BUS.register(tickHandler);
             initVLC();
-
+        }
 
 		//NetworkRegistry.instance().registerConnectionHandler(new PixelUtilitysConnectionHandler());
 		//NetworkRegistry.instance().registerConnectionHandler(new OnEntityJoin());
