@@ -1,14 +1,11 @@
 package com.pixelutilitys.tools;
 
-import java.lang.reflect.Field;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 
 import com.pixelutilitys.Basemod;
 import com.pixelutilitys.config.PixelUtilitysTools;
@@ -16,8 +13,6 @@ import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
 import com.pixelmonmod.pixelmon.items.ItemHammer;
 
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

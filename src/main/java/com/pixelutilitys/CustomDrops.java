@@ -10,8 +10,6 @@ import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
 public class CustomDrops {
 	
 	public static Random random;
@@ -23,7 +21,8 @@ public class CustomDrops {
 		if(!PixelUtilitysConfig.coinDrops){
 			return;
 		}
-		else if(e.entityLiving instanceof EntityPixelmon) {
+
+		if(e.entityLiving instanceof EntityPixelmon) {
 			EntityPixelmon p = (EntityPixelmon) e.entityLiving;
 			if(p.hasOwner()){
 				return;

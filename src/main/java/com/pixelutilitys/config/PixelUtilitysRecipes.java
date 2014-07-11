@@ -1,15 +1,10 @@
 package com.pixelutilitys.config;
 
-import net.minecraft.block.BlockStainedGlass;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 
-import com.jcraft.jorbis.Block;
 import com.pixelmonmod.pixelmon.config.PixelmonItems;
-import com.pixelutilitys.Basemod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

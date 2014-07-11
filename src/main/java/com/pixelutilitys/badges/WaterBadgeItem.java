@@ -1,6 +1,5 @@
 package com.pixelutilitys.badges;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class WaterBadgeItem extends Item {

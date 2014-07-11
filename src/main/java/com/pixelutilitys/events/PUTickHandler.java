@@ -31,7 +31,7 @@ public class PUTickHandler{
 
 	@SubscribeEvent
 	public void playerTickStart(TickEvent.PlayerTickEvent event) {
-        if (PixelUtilitysConfig.battleMusicEnabled != true)
+        if (!PixelUtilitysConfig.battleMusicEnabled)
             return;
 
             EntityPlayer player = event.player;

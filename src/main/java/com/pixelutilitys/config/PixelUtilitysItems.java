@@ -4,15 +4,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
-import com.pixelmonmod.pixelmon.config.PixelmonBlocks;
-import com.pixelmonmod.pixelmon.items.ItemBlock;
 import com.pixelutilitys.badges.*;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.economy.*;
 import com.pixelutilitys.items.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class PixelUtilitysItems {
 	

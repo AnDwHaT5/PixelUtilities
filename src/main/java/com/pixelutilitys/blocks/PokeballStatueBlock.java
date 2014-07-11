@@ -15,7 +15,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.pixelmonmod.pixelmon.blocks.MultiBlock;
-import com.pixelmonmod.pixelmon.blocks.TileEntityPokeChest;
 import com.pixelutilitys.BlockRotation;
 import com.pixelutilitys.tileentitys.PokeballStatueTileEntity;
 

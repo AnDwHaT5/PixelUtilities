@@ -11,7 +11,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tileentitys.BolderEntity;
 

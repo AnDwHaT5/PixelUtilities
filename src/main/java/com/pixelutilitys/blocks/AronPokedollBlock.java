@@ -5,7 +5,6 @@ import java.util.Random;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tileentitys.AronPokedollEntity;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -137,7 +136,7 @@ public class AronPokedollBlock extends BlockContainer {
 		}
 
 		if (l == 1) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, i1 << 2,
 					2);
 		}
 

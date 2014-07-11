@@ -1,16 +1,9 @@
 package com.pixelutilitys.tools;
 
-import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysTools;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 
 
-
-
-
-
-
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.pixelutilitys.models.Pokedolls.AronPokedollModel;
 import com.pixelutilitys.models.Pokedolls.TotodilePokedollModel;
 
 public class TotodilePokedollRenderer extends TileEntitySpecialRenderer {

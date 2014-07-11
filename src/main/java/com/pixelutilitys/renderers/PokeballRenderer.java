@@ -12,9 +12,6 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import com.pixelmonmod.pixelmon.client.models.pokeballs.ModelPokeball;
-import com.pixelutilitys.models.PokeballModel;
-
-import cpw.mods.fml.client.FMLClientHandler;
 
 public class PokeballRenderer extends TileEntitySpecialRenderer {
 	ResourceLocation texture = new ResourceLocation("pixelmon:textures/pokeballs/pokeball.png"); 

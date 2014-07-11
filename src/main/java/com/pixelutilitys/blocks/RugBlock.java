@@ -137,7 +137,7 @@ public class RugBlock extends BlockContainer {
 		}
 
 		if (l == 1) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, i1 << 2,
 					2);
 		}
 

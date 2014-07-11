@@ -11,9 +11,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.pixelutilitys.models.ModelGymSign;
 import com.pixelutilitys.models.ModelTV;
-import com.pixelutilitys.models.PokeballModel;
 
 public class TVRenderer extends TileEntitySpecialRenderer {
 	ResourceLocation texture = new ResourceLocation("pixelutilitys:textures/specialmodels/TV.png"); 

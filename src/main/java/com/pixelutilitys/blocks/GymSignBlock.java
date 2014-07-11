@@ -2,7 +2,6 @@ package com.pixelutilitys.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,9 +13,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.tileentitys.GymSignEntity;
-import com.pixelutilitys.tileentitys.PokeballEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -126,7 +123,7 @@ public class GymSignBlock extends BlockContainer {
 		}
 
 		if (l == 1) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, i1 << 2,
 					2);
 		}
 

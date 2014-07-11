@@ -3,16 +3,11 @@ package com.pixelutilitys.config;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
-import coloredlightscore.src.api.CLApi;
 
 import com.pixelutilitys.blocks.AmethystBlock;
 import com.pixelutilitys.blocks.AronPokedollBlock;
@@ -67,7 +62,6 @@ import com.pixelutilitys.ores.RubyOre;
 import com.pixelutilitys.ores.SaphireOre;
 import com.pixelutilitys.ores.SiliconOre;
 
-import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class PixelUtilitysBlocks {

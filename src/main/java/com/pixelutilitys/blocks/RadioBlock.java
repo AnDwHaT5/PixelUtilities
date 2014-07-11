@@ -9,7 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -133,7 +132,7 @@ public class RadioBlock extends Block implements ITileEntityProvider {
 		}
 
 		if (l == 1) {
-			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0 | i1 << 2,
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, i1 << 2,
 					2);
 		}
 

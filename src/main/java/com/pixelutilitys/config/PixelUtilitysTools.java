@@ -7,11 +7,9 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.tools.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class PixelUtilitysTools {
 

@@ -1,6 +1,5 @@
 package com.pixelutilitys.config;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 

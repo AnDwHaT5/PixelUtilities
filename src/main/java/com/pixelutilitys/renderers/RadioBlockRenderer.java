@@ -5,9 +5,7 @@ import org.lwjgl.opengl.GL11;
 import com.pixelutilitys.models.ModelRadio;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 
