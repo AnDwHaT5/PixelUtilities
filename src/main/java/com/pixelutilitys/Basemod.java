@@ -3,21 +3,15 @@ package com.pixelutilitys;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-import javax.swing.JOptionPane;
-
+import com.pixelutilitys.events.PUTickHandler;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,15 +21,11 @@ import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
-import com.pixelutilitys.blocks.PokeballStatueBlock;
 import com.pixelutilitys.commands.PokecheckmeCommand;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
-import com.pixelutilitys.config.PixelUtilitysItems;
 import com.pixelutilitys.config.PixelUtilitysRecipes;
-import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import com.pixelutilitys.entitys.SeatEntity;
-import com.pixelutilitys.events.ModRadioEvents;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.tileentitys.BolderEntity;
 import com.pixelutilitys.tileentitys.BoxEntity;
@@ -100,7 +90,7 @@ public class Basemod {
 	public static ArmorMaterial SILICONA = EnumHelper.addArmorMaterial("SILICONA", 200, new int[] {3, 7, 6, 3}, 10);
 	
 	public static boolean vlcLoaded = false;
-	public static boolean is64bit = false;
+	public static boolean is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
 	public static boolean DEBUGMODE = false;
 	public static FMLEventChannel channel;
 	public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
@@ -132,7 +122,6 @@ public class Basemod {
 		PixelUtilitysAchievements.setupAchievements();
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());
-		FMLCommonHandler.instance().bus().register(new ModRadioEvents());
 		
 		EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
 		preInit = true;
@@ -144,10 +133,7 @@ public class Basemod {
         if(event.getSide().equals(Side.CLIENT)) {
             PUTickHandler tickHandler = new PUTickHandler();
 
-            if (PixelUtilitysConfig.battleMusicEnabled == true) {
-                System.out.println("music tick enabled");
-                FMLCommonHandler.instance().bus().register(tickHandler);
-            }
+            FMLCommonHandler.instance().bus().register(tickHandler);
             MinecraftForge.EVENT_BUS.register(tickHandler);
             initVLC();
         }
@@ -159,8 +145,6 @@ public class Basemod {
 	}
 
 	private void initVLC() {
-		
-		is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
 		
 		if(is64bit)
         {

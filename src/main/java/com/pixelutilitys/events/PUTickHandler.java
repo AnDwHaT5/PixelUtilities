@@ -1,8 +1,10 @@
-package com.pixelutilitys;
+package com.pixelutilitys.events;
 
 import com.pixelmonmod.pixelmon.client.ClientProxy;
+import com.pixelutilitys.Basemod;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,6 +15,10 @@ import com.pixelutilitys.config.PixelUtilitysConfig;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatStyle;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 @SideOnly(Side.CLIENT)
@@ -25,8 +31,8 @@ public class PUTickHandler{
 
 	@SubscribeEvent
 	public void playerTickStart(TickEvent.PlayerTickEvent event) {
-        try {
-
+        if (PixelUtilitysConfig.battleMusicEnabled != true)
+            return;
 
             EntityPlayer player = event.player;
             boolean inBattle = !ClientProxy.battleManager.battleEnded;
@@ -39,14 +45,30 @@ public class PUTickHandler{
                 playerRadio.stop();
                 player.getEntityData().setInteger("Battle", 0);
             }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-
 	}
 
+
+    @SubscribeEvent
+    public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
+    {
+        System.out.println("world join ");
+        if(!Basemod.vlcLoaded)//Display message in chat with link to vlc for arch
+        {
+            ChatStyle style = new ChatStyle().setUnderlined(true).setColor(EnumChatFormatting.GOLD);
+            IChatComponent text = new ChatComponentText("You need to download VLC here to hear the radio ").setChatStyle(style);
+            event.player.addChatComponentMessage(text);
+
+            if(Basemod.is64bit)
+            {
+                text = new ChatComponentText("http://download.videolan.org/pub/videolan/vlc/last/win64/vlc-2.1.3-win64.exe").setChatStyle(style);
+            }
+            else
+            {
+                text = new ChatComponentText("http://download.videolan.org/pub/videolan/vlc/last/win32/vlc-2.1.3-win32.exe").setChatStyle(style);
+            }
+            event.player.addChatComponentMessage(text);
+        }
+    }
 
     EntityChicken chicken = null;
 
