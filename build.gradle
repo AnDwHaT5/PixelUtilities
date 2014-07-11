@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "3.0"
+version = "3.1"
 group= "pixelutils"
 archivesBaseName = "PixelUtils"
 
 minecraft {
-    version = "1.7.2-10.12.2.1133"
+    version = "1.7.2-10.12.2.1147"
     assetDir = "eclipse/assets"
 }
 
