@@ -1,25 +1,18 @@
 package com.pixelutilitys;
 
+import com.pixelmonmod.pixelmon.client.ClientProxy;
 import com.pixelutilitys.radioplayer.VLCPlayer;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelChicken;
-import net.minecraft.client.renderer.entity.RenderChicken;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.renderer.entity.RenderPlayer;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 
-import com.pixelmonmod.pixelmon.battles.BattleRegistry;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 @SideOnly(Side.CLIENT)
@@ -29,19 +22,29 @@ public class PUTickHandler{
 	//http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
 	//https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3
 	//https://www.youtube.com/watch?v=JuPx-3_8ssQ&index=4&list=RDLqqjTHqYmiM
+
 	@SubscribeEvent
 	public void playerTickStart(TickEvent.PlayerTickEvent event) {
-		EntityPlayer player = event.player;
-		boolean inBattle = (BattleRegistry.getBattle(player) != null ? true:false);
-		if(inBattle && player.getEntityData().getInteger("Battle") != 1)
-		{
-			playerRadio.start();
-			player.getEntityData().setInteger("Battle", 1);
-		}
-		else if(!inBattle && player.getEntityData().getInteger("Battle") == 1){
-			playerRadio.stop();
-			player.getEntityData().setInteger("Battle", 0);
-		}
+        try {
+
+
+            EntityPlayer player = event.player;
+            boolean inBattle = !ClientProxy.battleManager.battleEnded;
+
+            FMLLog.fine("" + inBattle);
+            if (inBattle && player.getEntityData().getInteger("Battle") != 1) {
+                playerRadio.start();
+                player.getEntityData().setInteger("Battle", 1);
+            } else if (!inBattle && player.getEntityData().getInteger("Battle") == 1) {
+                playerRadio.stop();
+                player.getEntityData().setInteger("Battle", 0);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
 	}
 
 
