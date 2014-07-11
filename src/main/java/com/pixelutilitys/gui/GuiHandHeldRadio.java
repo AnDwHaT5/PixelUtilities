@@ -53,7 +53,7 @@ public class GuiHandHeldRadio extends GuiScreen{
 	public void drawScreen(int par1, int par2, float par3){
 			//drawDefaultBackground();
 			
-			GL11.glColor4f(1f, 1f, 1f, 1f);;
+			GL11.glColor4f(1f, 1f, 1f, 1f);
 			int posX = (this.width/ 2)  - 70;
 			int posY = (this.height / 2) - 100;
 			this.mc.renderEngine.bindTexture(background); 

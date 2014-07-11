@@ -22,11 +22,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class RugBlock extends BlockContainer {
 
-  String type2;
-	public RugBlock(Material iron, String type) {
+  String color;
+
+	public RugBlock(Material material, String color) {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.3F, 3.0F, 0.3F); //0.4 0.0 1.0 
-        type2 = type;
+        this.color = color;
 	}
 	    
 	/**
@@ -67,11 +68,11 @@ public class RugBlock extends BlockContainer {
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IconRegister) {
-		if(type2.equals("blue"))
+		if(color.equals("blue"))
 		blockIcon = par1IconRegister.registerIcon("pixelutilitys:BluePokeballRug");
-		if(type2.equals("red"))
+		if(color.equals("red"))
 			blockIcon = par1IconRegister.registerIcon("pixelutilitys:RedPokeballRug");
-		if(type2.equals("green"))
+		if(color.equals("green"))
 			blockIcon = par1IconRegister.registerIcon("pixelutilitys:GreenPokeballRug");
 	}
 
@@ -107,11 +108,14 @@ public class RugBlock extends BlockContainer {
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		if(type2 == "blue")
+        //noinspection StringEquality
+        if(color == "blue")
 			return new BlueRugEntity();
-		if(type2 == "red")
+        //noinspection StringEquality
+        if(color == "red")
 			return new RedRugEntity();
-		if(type2 == "green")
+        //noinspection StringEquality
+        if(color == "green")
 			return new GreenRugEntity();
 	 	
 		return new BlueRugEntity();

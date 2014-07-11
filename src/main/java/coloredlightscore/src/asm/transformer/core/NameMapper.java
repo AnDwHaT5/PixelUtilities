@@ -11,7 +11,7 @@ public class NameMapper {
 	
 	private HashMap<String, SeargeData> m_NameList;
 	private static NameMapper INSTANCE = null;
-	private boolean MCP_ENVIRONMENT = false;;
+	private boolean MCP_ENVIRONMENT = false;
 	
 	public static NameMapper getInstance()
 	{

@@ -154,9 +154,9 @@ public class ConveyorRenderer implements ISimpleBlockRenderingHandler
 		float renderHeight = 0.00625F;
 		
 		vert1x = vert2x = blockX + 1;
-		vert3x = vert4x = blockX + 0;
+		vert3x = vert4x = blockX;
 		
-		vert1z = vert4z = blockZ + 0;
+		vert1z = vert4z = blockZ;
 		vert2z = vert3z = blockZ + 1;
 		
 		vert1y = blockY + renderHeight;
@@ -166,9 +166,9 @@ public class ConveyorRenderer implements ISimpleBlockRenderingHandler
 		
 		if(conveyorMetadata == 0 || conveyorMetadata == 4 || conveyorMetadata == 8)
 		{
-			vert1x = vert4x = blockX + 0;
+			vert1x = vert4x = blockX;
 			vert2x = vert3x = blockX + 1;
-			vert1z = vert2z = blockZ + 0;
+			vert1z = vert2z = blockZ;
 			vert3z = vert4z = blockZ + 1;
 			if(conveyorMetadata == 4)
 			{
@@ -184,8 +184,8 @@ public class ConveyorRenderer implements ISimpleBlockRenderingHandler
 		else if(conveyorMetadata == 1 || conveyorMetadata == 5 || conveyorMetadata == 9)
 		{
 			vert1x = vert2x = blockX + 1;
-			vert3x = vert4x = blockX + 0;
-			vert1z = vert4z = blockZ + 0;
+			vert3x = vert4x = blockX;
+			vert1z = vert4z = blockZ;
 			vert2z = vert3z = blockZ + 1;
 			if(conveyorMetadata == 5)
 			{
@@ -201,9 +201,9 @@ public class ConveyorRenderer implements ISimpleBlockRenderingHandler
 		else if(conveyorMetadata == 2 || conveyorMetadata == 6 || conveyorMetadata == 10)
 		{
 			vert1x = vert4x = blockX + 1;
-			vert2x = vert3x = blockX + 0;
+			vert2x = vert3x = blockX;
 			vert1z = vert2z = blockZ + 1;
-			vert3z = vert4z = blockZ + 0;
+			vert3z = vert4z = blockZ;
 			if(conveyorMetadata == 6)
 			{
 				vert2y++;
@@ -217,10 +217,10 @@ public class ConveyorRenderer implements ISimpleBlockRenderingHandler
 		}
 		else if(conveyorMetadata == 3 || conveyorMetadata == 7 || conveyorMetadata == 11)
 		{
-			vert1x = vert2x = blockX + 0;
+			vert1x = vert2x = blockX;
 			vert3x = vert4x = blockX + 1;
 			vert1z = vert4z = blockZ + 1;
-			vert2z = vert3z = blockZ + 0;
+			vert2z = vert3z = blockZ;
 			if(conveyorMetadata == 7)
 			{
 				vert2y++;

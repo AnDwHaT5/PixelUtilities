@@ -10,6 +10,7 @@ buildscript {
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
+    //noinspection GroovyAssignabilityCheck
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.3-SNAPSHOT'
     }
@@ -38,14 +39,17 @@ task sourceJar(type: Jar) {
 
 tasks.build.dependsOn('sourceJar', 'deobfJar')
 
+//noinspection GroovyAssignabilityCheck
 processResources {
     from (sourceSets.main.resources.srcDirs)
 }
 
+//noinspection GroovyAssignabilityCheck
 configurations {
     runtimeOnly
 }
 
+//noinspection GroovyAssignabilityCheck
 dependencies {
     compile files('libs/compile/Pixelmon-1.7.2-3.1-universal-deob.jar')
 	compile files('libs/runtime/vlcj-3.0.1.jar')
@@ -54,7 +58,7 @@ dependencies {
 	runtimeOnly files('libs/runtime/vlcj-3.0.1.jar')
 }
 
-
+//noinspection GroovyAssignabilityCheck
 jar {
   from configurations.runtimeOnly.collect { it.isDirectory() ? it : zipTree(it) }
 

@@ -83,7 +83,7 @@ public class VLCPlayer implements Runnable {
         {
             mediaPlayerComponent.getMediaPlayer().setRepeat(false);
         }
-        mediaPlayerComponent.getMediaPlayer().playMedia(this.streamURL.toString());
+        mediaPlayerComponent.getMediaPlayer().playMedia(this.streamURL);
         frame.setVisible(false);
 
     }

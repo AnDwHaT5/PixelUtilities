@@ -8,10 +8,10 @@ public class GuiHelper {
 		float var8 = 0.00390625F;
 		Tessellator var9 = Tessellator.instance;
 		var9.startDrawingQuads();
-		var9.addVertexWithUV((double) (x + 0), (double) (y + h), (double) zLevel, (double) ((float) us), (double) ((float) ve));
+		var9.addVertexWithUV((double) (x), (double) (y + h), (double) zLevel, (double) ((float) us), (double) ((float) ve));
 		var9.addVertexWithUV((double) (x + w), (double) (y + h), (double) zLevel, (double) ((float) ue), (double) ((float) ve));
-		var9.addVertexWithUV((double) (x + w), (double) (y + 0), (double) zLevel, (double) ((float) ue), (double) ((float) vs));
-		var9.addVertexWithUV((double) (x + 0), (double) (y + 0), (double) zLevel, (double) ((float) us), (double) ((float) vs));
+		var9.addVertexWithUV((double) (x + w), (double) (y), (double) zLevel, (double) ((float) ue), (double) ((float) vs));
+		var9.addVertexWithUV((double) (x), (double) (y), (double) zLevel, (double) ((float) us), (double) ((float) vs));
 		var9.draw();
 	}
 }

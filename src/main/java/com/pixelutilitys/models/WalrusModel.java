@@ -14,6 +14,6 @@ public class WalrusModel extends ModelBase
  public WalrusModel()
  {
 	 ResourceLocation model = new ResourceLocation("/assets/pixelutilitys/models/WalrusStatue.obj");
-  model = (ResourceLocation) AdvancedModelLoader.loadModel(model);
+     model = (ResourceLocation) AdvancedModelLoader.loadModel(model);
  }
 }

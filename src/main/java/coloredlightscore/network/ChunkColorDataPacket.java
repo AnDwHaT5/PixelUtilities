@@ -59,9 +59,8 @@ public class ChunkColorDataPacket implements IMessage, IMessageHandler<ChunkColo
 	private void processColorDataPacket(ChunkColorDataPacket packet)
 	{
 		ChunkColorDataPacket ccdPacket = (ChunkColorDataPacket)packet;
-		Chunk targetChunk = null;
-		
-		targetChunk = Minecraft.getMinecraft().theWorld.getChunkFromChunkCoords(ccdPacket.chunkXPosition, ccdPacket.chunkZPosition);
+
+		Chunk targetChunk = Minecraft.getMinecraft().theWorld.getChunkFromChunkCoords(ccdPacket.chunkXPosition, ccdPacket.chunkZPosition);
 				
 		if (targetChunk != null)
 		{

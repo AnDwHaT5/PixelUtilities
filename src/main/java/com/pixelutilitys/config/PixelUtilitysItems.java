@@ -73,7 +73,7 @@ public class PixelUtilitysItems {
 		CrystalItem = new CrystalItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Crystal");
 		CDItem = new CDItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:CD");
 		//HandHeldRadio = new HandHeldRadioItem().setCreativeTab(CreativeTabs.tabMisc).setTextureName("PixelUtilitys:handheldradio");
-		AmethystItem = new AmthystItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Amethyst");;
+		AmethystItem = new AmthystItem().setCreativeTab(CreativeTabs.tabMaterials).setTextureName("PixelUtilitys:Amethyst");
 	}
 
 	public static void addNames() {

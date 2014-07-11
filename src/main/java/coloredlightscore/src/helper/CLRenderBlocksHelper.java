@@ -1051,7 +1051,7 @@ public class CLRenderBlocksHelper {
 				var20 = CLBlockHelper.getMixedBrightnessForBlockWithColor(renderBlocks.blockAccess, par2 + 1, par3, par4);
 			}
 
-			var21 = renderBlocks.blockAccess.getBlock(par2 + 1, par3, par4).getAmbientOcclusionLightValue();;
+			var21 = renderBlocks.blockAccess.getBlock(par2 + 1, par3, par4).getAmbientOcclusionLightValue();
 			var9 = (renderBlocks.aoLightValueScratchXYPN + renderBlocks.aoLightValueScratchXYZPNP + var21 + renderBlocks.aoLightValueScratchXZPP) / 4.0F;
 			var10 = (renderBlocks.aoLightValueScratchXYZPNN + renderBlocks.aoLightValueScratchXYPN + renderBlocks.aoLightValueScratchXZPN + var21) / 4.0F;
 			var11 = (renderBlocks.aoLightValueScratchXZPN + var21 + renderBlocks.aoLightValueScratchXYZPPN + renderBlocks.aoLightValueScratchXYPP) / 4.0F;

@@ -48,8 +48,7 @@ public class TileEntityConveyor extends TileEntity implements ISidedInventory
 		data.setInteger("dye", _dye);
 		data.setBoolean("conveyorActive", _conveyorActive);
 		data.setBoolean("isFast", _isFast);
-		S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, data);
-		return packet;
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, data);
 	}
 	
 	@Override
