@@ -109,16 +109,14 @@ public class Basemod {
 			serverSide="com.pixelutilitys.CommonProxy")
 	public static CommonProxy proxy;
 
-	Configuration config;
+	PixelUtilitysConfig config;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) 
 	{
 		AddMeta(event);
-		config = new Configuration(event.getSuggestedConfigurationFile());
-		config.load();
-		PixelUtilitysConfig.loadConfig(config);
-		config.save();
+        config = PixelUtilitysConfig.getInstance();
+        config.setEvent(event);
 		PixelUtilitysAchievements.setupAchievements();
 		//GameRegistry.registerCraftingHandler(new PixelUtilitysAchievements());
 		//GameRegistry.registerPickupHandler(new PixelUtilitysPickupHandler());

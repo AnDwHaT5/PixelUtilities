@@ -23,7 +23,7 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 
 @SideOnly(Side.CLIENT)
 public class PUTickHandler{
-	public static VLCPlayer playerRadio = new VLCPlayer(PixelUtilitysConfig.BattleMusicURL, 50);
+	public static VLCPlayer playerRadio = new VLCPlayer(PixelUtilitysConfig.getInstance().BattleMusicURL, 50);
 
 	//http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
 	//https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3
@@ -31,7 +31,7 @@ public class PUTickHandler{
 
 	@SubscribeEvent
 	public void playerTickStart(TickEvent.PlayerTickEvent event) {
-        if (!PixelUtilitysConfig.battleMusicEnabled)
+        if (!PixelUtilitysConfig.getInstance().battleMusicEnabled)
             return;
 
             EntityPlayer player = event.player;

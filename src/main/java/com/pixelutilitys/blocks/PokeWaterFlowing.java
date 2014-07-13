@@ -35,7 +35,7 @@ public class PokeWaterFlowing extends BlockFluidClassic {
         PokeWaterStill.isActive = false;
         PixelmonGrassBlock.isActive = false;
     	
-    	GrassSpawner.spawnInGrass(world, x, y, z, entity);
+    	GrassSpawner.getInstance().spawnInGrass(world, x, y, z, entity);
     	
     }
     

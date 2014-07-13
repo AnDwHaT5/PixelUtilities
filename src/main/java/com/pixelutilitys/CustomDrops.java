@@ -15,10 +15,10 @@ public class CustomDrops {
 	public static Random random;
 	public static int dropped;
 	public static int doDrop;
-	
+	private PixelUtilitysConfig pixelConfig = PixelUtilitysConfig.getInstance();
 	@Deprecated
 	public void pixelmonDrop(LivingDropsEvent e){
-		if(!PixelUtilitysConfig.coinDrops){
+		if(!pixelConfig.coinDrops){
 			return;
 		}
 
@@ -28,7 +28,7 @@ public class CustomDrops {
 				return;
 			}
 			random = new Random();
-			doDrop = (int) (Math.random()*(PixelUtilitysConfig.coinDropRate * 25));
+			doDrop = (int) (Math.random()*(pixelConfig.coinDropRate * 25));
 			if(doDrop < 25 && doDrop != 10) {
 				dropped = random.nextInt(2) + 1;
 				p.dropItem(PixelUtilitysItems.PokeCoin1Item, dropped);

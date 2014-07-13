@@ -10,7 +10,8 @@ import net.minecraft.world.World;
 import com.pixelutilitys.GrassSpawner;
 
 public class PixelmonGrassBlock extends Block {
-	
+
+    private GrassSpawner grassSpawner = GrassSpawner.getInstance();
 	public static Boolean isActive=false;
 	
     public PixelmonGrassBlock (Material material) 
@@ -50,7 +51,7 @@ public class PixelmonGrassBlock extends Block {
     	isActive = true;
     	PokeWaterFlowing.isActive = false;
     	PokeWaterStill.isActive = false;
-    	GrassSpawner.spawnInGrass(world, x, y, z, entity);
+    	grassSpawner.spawnInGrass(world, x, y, z, entity);
     }
     
 }

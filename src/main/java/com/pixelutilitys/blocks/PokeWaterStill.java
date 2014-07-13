@@ -30,7 +30,7 @@ public class PokeWaterStill extends BlockStaticLiquid{
 		isActive = true;
 		PokeWaterFlowing.isActive = false;
 		PixelmonGrassBlock.isActive = false;
-		GrassSpawner.spawnInGrass(world, x, y, z, entity);
+		GrassSpawner.getInstance().spawnInGrass(world, x, y, z, entity);
 	}
 
 
