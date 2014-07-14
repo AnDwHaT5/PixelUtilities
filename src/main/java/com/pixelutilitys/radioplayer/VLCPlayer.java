@@ -38,6 +38,9 @@ public class VLCPlayer implements Runnable {
     }
 
 	public void setVolume(float v2) {
+        if(!Basemod.vlcLoaded)
+            return;
+
         float musicLevel = Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MUSIC);
         float volume = (v2*musicLevel)*baseVolume;
 
@@ -49,6 +52,9 @@ public class VLCPlayer implements Runnable {
 	}
 
 	public boolean isPlaying() {
+        if(!Basemod.vlcLoaded)
+            return false;
+
 		if(!killed && mediaPlayerComponent != null)
 			return mediaPlayerComponent.getMediaPlayer().isPlaying();
 		else
@@ -56,6 +62,9 @@ public class VLCPlayer implements Runnable {
 	}
 
 	public void stop() {
+        if(!Basemod.vlcLoaded)
+            return;
+
         if(mediaPlayerComponent != null)
         mediaPlayerComponent.release();
         killed = true;
@@ -63,6 +72,9 @@ public class VLCPlayer implements Runnable {
 
     @Override
     public void run() {
+        if(!Basemod.vlcLoaded)
+            return;
+
         JFrame frame = new JFrame("vlcj Tutorial");
 
         mediaPlayerComponent = new EmbeddedMediaPlayerComponent();
