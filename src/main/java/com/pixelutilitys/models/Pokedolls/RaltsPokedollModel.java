@@ -5,19 +5,14 @@
 // - ZeuX
 
 
-
-
-
-
 package com.pixelutilitys.models.Pokedolls;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class RaltsPokedollModel extends ModelBase
-{
-  //fields
+public class RaltsPokedollModel extends ModelBase {
+    //fields
     ModelRenderer Leg_Left;
     ModelRenderer Leg_Right;
     ModelRenderer Leg_Back;
@@ -37,163 +32,159 @@ public class RaltsPokedollModel extends ModelBase
     ModelRenderer Helmet_Spike_Back;
     ModelRenderer Arm_Left;
     ModelRenderer Arm_Right;
-  
-  public RaltsPokedollModel()
-  {
-    textureWidth = 64;
-    textureHeight = 32;
-    
-      Leg_Left = new ModelRenderer(this, 0, 0);
-      Leg_Left.addBox(0F, 0F, -2.5F, 3, 4, 5);
-      Leg_Left.setRotationPoint(0.5F, 20F, -1F);
-      Leg_Left.setTextureSize(64, 32);
-      Leg_Left.mirror = true;
-      setRotation(Leg_Left, 0F, 0F, 0F);
-      Leg_Right = new ModelRenderer(this, 0, 0);
-      Leg_Right.addBox(-3F, 0F, -2.5F, 3, 4, 5);
-      Leg_Right.setRotationPoint(-0.5F, 20F, -1F);
-      Leg_Right.setTextureSize(64, 32);
-      Leg_Right.mirror = true;
-      setRotation(Leg_Right, 0F, 0F, 0F);
-      Leg_Back = new ModelRenderer(this, 0, 9);
-      Leg_Back.addBox(-3F, 0F, -2F, 6, 4, 4);
-      Leg_Back.setRotationPoint(0F, 20F, 1F);
-      Leg_Back.setTextureSize(64, 32);
-      Leg_Back.mirror = true;
-      setRotation(Leg_Back, 0F, 0F, 0F);
-      Tail_Middle = new ModelRenderer(this, 0, 17);
-      Tail_Middle.addBox(-1.5F, 2F, 2F, 3, 2, 3);
-      Tail_Middle.setRotationPoint(0F, 20F, 1F);
-      Tail_Middle.setTextureSize(64, 32);
-      Tail_Middle.mirror = true;
-      setRotation(Tail_Middle, 0F, 0F, 0F);
-      Tail_Tip = new ModelRenderer(this, 0, 22);
-      Tail_Tip.addBox(-1F, 3F, 5F, 2, 1, 3);
-      Tail_Tip.setRotationPoint(0F, 20F, 1F);
-      Tail_Tip.setTextureSize(64, 32);
-      Tail_Tip.mirror = true;
-      setRotation(Tail_Tip, 0F, 0F, 0F);
-      Body_Bottom = new ModelRenderer(this, 16, 0);
-      Body_Bottom.addBox(-2.5F, -1.5F, -2.5F, 5, 2, 5);
-      Body_Bottom.setRotationPoint(0F, 20F, -0.5F);
-      Body_Bottom.setTextureSize(64, 32);
-      Body_Bottom.mirror = true;
-      setRotation(Body_Bottom, 0F, 0F, 0F);
-      Body_Middle = new ModelRenderer(this, 20, 7);
-      Body_Middle.addBox(-2F, -2F, -2F, 4, 2, 4);
-      Body_Middle.setRotationPoint(0F, 19F, -0.5F);
-      Body_Middle.setTextureSize(64, 32);
-      Body_Middle.mirror = true;
-      setRotation(Body_Middle, 0F, 0F, 0F);
-      Body_Top = new ModelRenderer(this, 20, 13);
-      Body_Top.addBox(-1.5F, -2F, -1.5F, 3, 2, 3);
-      Body_Top.setRotationPoint(0F, 17.5F, -0.5F);
-      Body_Top.setTextureSize(64, 32);
-      Body_Top.mirror = true;
-      setRotation(Body_Top, 0F, 0F, 0F);
-      Neck = new ModelRenderer(this, 12, 17);
-      Neck.addBox(-1F, -2F, -1F, 2, 2, 2);
-      Neck.setRotationPoint(0F, 15.5F, -0.5F);
-      Neck.setTextureSize(64, 32);
-      Neck.mirror = true;
-      setRotation(Neck, 0F, 0F, 0F);
-      Head = new ModelRenderer(this, 36, 0);
-      Head.addBox(-2.5F, -2.5F, -2.5F, 5, 5, 5);
-      Head.setRotationPoint(0F, 12F, -0.5F);
-      Head.setTextureSize(64, 32);
-      Head.mirror = true;
-      setRotation(Head, 0F, 0F, 0F);
-      Helmet_Left = new ModelRenderer(this, 36, 19);
-      Helmet_Left.addBox(0.5F, -3F, -3.5F, 2, 4, 7);
-      Helmet_Left.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Left.setTextureSize(64, 32);
-      Helmet_Left.mirror = true;
-      setRotation(Helmet_Left, 0F, 0F, 0F);
-      Helmet_Right = new ModelRenderer(this, 36, 19);
-      Helmet_Right.addBox(-2.5F, -3F, -3.5F, 2, 4, 7);
-      Helmet_Right.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Right.setTextureSize(64, 32);
-      Helmet_Right.mirror = true;
-      setRotation(Helmet_Right, 0F, 0F, 0F);
-      Helmet_Top = new ModelRenderer(this, 36, 10);
-      Helmet_Top.addBox(-3F, -3.5F, -3F, 6, 3, 6);
-      Helmet_Top.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Top.setTextureSize(64, 32);
-      Helmet_Top.mirror = true;
-      setRotation(Helmet_Top, 0F, 0F, 0F);
-      Helmet_Left_Tip = new ModelRenderer(this, 20, 18);
-      Helmet_Left_Tip.addBox(2.5F, -3F, -3F, 1, 4, 6);
-      Helmet_Left_Tip.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Left_Tip.setTextureSize(64, 32);
-      Helmet_Left_Tip.mirror = true;
-      setRotation(Helmet_Left_Tip, 0F, 0F, 0F);
-      Helmet_Right_Tip = new ModelRenderer(this, 20, 18);
-      Helmet_Right_Tip.addBox(-3.5F, -3F, -3F, 1, 4, 6);
-      Helmet_Right_Tip.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Right_Tip.setTextureSize(64, 32);
-      Helmet_Right_Tip.mirror = true;
-      setRotation(Helmet_Right_Tip, 0F, 0F, 0F);
-      Helmet_Spike_Front = new ModelRenderer(this, 10, 22);
-      Helmet_Spike_Front.addBox(-0.5F, -7F, -2F, 1, 6, 4);
-      Helmet_Spike_Front.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Spike_Front.setTextureSize(64, 32);
-      Helmet_Spike_Front.mirror = true;
-      setRotation(Helmet_Spike_Front, 0.7853982F, 0F, 0F);
-      Helmet_Spike_Back = new ModelRenderer(this, 10, 22);
-      Helmet_Spike_Back.addBox(-0.5F, -7F, -2F, 1, 6, 4);
-      Helmet_Spike_Back.setRotationPoint(0F, 12F, -0.5F);
-      Helmet_Spike_Back.setTextureSize(64, 32);
-      Helmet_Spike_Back.mirror = true;
-      setRotation(Helmet_Spike_Back, -0.7853982F, 0F, 0F);
-      Arm_Left = new ModelRenderer(this, 54, 19);
-      Arm_Left.addBox(1.5F, -1.3F, -1F, 1, 6, 2);
-      Arm_Left.setRotationPoint(0F, 18F, -0.5F);
-      Arm_Left.setTextureSize(64, 32);
-      Arm_Left.mirror = true;
-      setRotation(Arm_Left, 0F, 0F, -0.5235988F);
-      Arm_Right = new ModelRenderer(this, 54, 19);
-      Arm_Right.addBox(-2.5F, -1.3F, -1F, 1, 6, 2);
-      Arm_Right.setRotationPoint(0F, 18F, -0.5F);
-      Arm_Right.setTextureSize(64, 32);
-      Arm_Right.mirror = true;
-      setRotation(Arm_Right, 0F, 0F, 0.5235988F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    Leg_Left.render(f5);
-    Leg_Right.render(f5);
-    Leg_Back.render(f5);
-    Tail_Middle.render(f5);
-    Tail_Tip.render(f5);
-    Body_Bottom.render(f5);
-    Body_Middle.render(f5);
-    Body_Top.render(f5);
-    Neck.render(f5);
-    Head.render(f5);
-    Helmet_Left.render(f5);
-    Helmet_Right.render(f5);
-    Helmet_Top.render(f5);
-    Helmet_Left_Tip.render(f5);
-    Helmet_Right_Tip.render(f5);
-    Helmet_Spike_Front.render(f5);
-    Helmet_Spike_Back.render(f5);
-    Arm_Left.render(f5);
-    Arm_Right.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public RaltsPokedollModel() {
+        textureWidth = 64;
+        textureHeight = 32;
+
+        Leg_Left = new ModelRenderer(this, 0, 0);
+        Leg_Left.addBox(0F, 0F, -2.5F, 3, 4, 5);
+        Leg_Left.setRotationPoint(0.5F, 20F, -1F);
+        Leg_Left.setTextureSize(64, 32);
+        Leg_Left.mirror = true;
+        setRotation(Leg_Left, 0F, 0F, 0F);
+        Leg_Right = new ModelRenderer(this, 0, 0);
+        Leg_Right.addBox(-3F, 0F, -2.5F, 3, 4, 5);
+        Leg_Right.setRotationPoint(-0.5F, 20F, -1F);
+        Leg_Right.setTextureSize(64, 32);
+        Leg_Right.mirror = true;
+        setRotation(Leg_Right, 0F, 0F, 0F);
+        Leg_Back = new ModelRenderer(this, 0, 9);
+        Leg_Back.addBox(-3F, 0F, -2F, 6, 4, 4);
+        Leg_Back.setRotationPoint(0F, 20F, 1F);
+        Leg_Back.setTextureSize(64, 32);
+        Leg_Back.mirror = true;
+        setRotation(Leg_Back, 0F, 0F, 0F);
+        Tail_Middle = new ModelRenderer(this, 0, 17);
+        Tail_Middle.addBox(-1.5F, 2F, 2F, 3, 2, 3);
+        Tail_Middle.setRotationPoint(0F, 20F, 1F);
+        Tail_Middle.setTextureSize(64, 32);
+        Tail_Middle.mirror = true;
+        setRotation(Tail_Middle, 0F, 0F, 0F);
+        Tail_Tip = new ModelRenderer(this, 0, 22);
+        Tail_Tip.addBox(-1F, 3F, 5F, 2, 1, 3);
+        Tail_Tip.setRotationPoint(0F, 20F, 1F);
+        Tail_Tip.setTextureSize(64, 32);
+        Tail_Tip.mirror = true;
+        setRotation(Tail_Tip, 0F, 0F, 0F);
+        Body_Bottom = new ModelRenderer(this, 16, 0);
+        Body_Bottom.addBox(-2.5F, -1.5F, -2.5F, 5, 2, 5);
+        Body_Bottom.setRotationPoint(0F, 20F, -0.5F);
+        Body_Bottom.setTextureSize(64, 32);
+        Body_Bottom.mirror = true;
+        setRotation(Body_Bottom, 0F, 0F, 0F);
+        Body_Middle = new ModelRenderer(this, 20, 7);
+        Body_Middle.addBox(-2F, -2F, -2F, 4, 2, 4);
+        Body_Middle.setRotationPoint(0F, 19F, -0.5F);
+        Body_Middle.setTextureSize(64, 32);
+        Body_Middle.mirror = true;
+        setRotation(Body_Middle, 0F, 0F, 0F);
+        Body_Top = new ModelRenderer(this, 20, 13);
+        Body_Top.addBox(-1.5F, -2F, -1.5F, 3, 2, 3);
+        Body_Top.setRotationPoint(0F, 17.5F, -0.5F);
+        Body_Top.setTextureSize(64, 32);
+        Body_Top.mirror = true;
+        setRotation(Body_Top, 0F, 0F, 0F);
+        Neck = new ModelRenderer(this, 12, 17);
+        Neck.addBox(-1F, -2F, -1F, 2, 2, 2);
+        Neck.setRotationPoint(0F, 15.5F, -0.5F);
+        Neck.setTextureSize(64, 32);
+        Neck.mirror = true;
+        setRotation(Neck, 0F, 0F, 0F);
+        Head = new ModelRenderer(this, 36, 0);
+        Head.addBox(-2.5F, -2.5F, -2.5F, 5, 5, 5);
+        Head.setRotationPoint(0F, 12F, -0.5F);
+        Head.setTextureSize(64, 32);
+        Head.mirror = true;
+        setRotation(Head, 0F, 0F, 0F);
+        Helmet_Left = new ModelRenderer(this, 36, 19);
+        Helmet_Left.addBox(0.5F, -3F, -3.5F, 2, 4, 7);
+        Helmet_Left.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Left.setTextureSize(64, 32);
+        Helmet_Left.mirror = true;
+        setRotation(Helmet_Left, 0F, 0F, 0F);
+        Helmet_Right = new ModelRenderer(this, 36, 19);
+        Helmet_Right.addBox(-2.5F, -3F, -3.5F, 2, 4, 7);
+        Helmet_Right.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Right.setTextureSize(64, 32);
+        Helmet_Right.mirror = true;
+        setRotation(Helmet_Right, 0F, 0F, 0F);
+        Helmet_Top = new ModelRenderer(this, 36, 10);
+        Helmet_Top.addBox(-3F, -3.5F, -3F, 6, 3, 6);
+        Helmet_Top.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Top.setTextureSize(64, 32);
+        Helmet_Top.mirror = true;
+        setRotation(Helmet_Top, 0F, 0F, 0F);
+        Helmet_Left_Tip = new ModelRenderer(this, 20, 18);
+        Helmet_Left_Tip.addBox(2.5F, -3F, -3F, 1, 4, 6);
+        Helmet_Left_Tip.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Left_Tip.setTextureSize(64, 32);
+        Helmet_Left_Tip.mirror = true;
+        setRotation(Helmet_Left_Tip, 0F, 0F, 0F);
+        Helmet_Right_Tip = new ModelRenderer(this, 20, 18);
+        Helmet_Right_Tip.addBox(-3.5F, -3F, -3F, 1, 4, 6);
+        Helmet_Right_Tip.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Right_Tip.setTextureSize(64, 32);
+        Helmet_Right_Tip.mirror = true;
+        setRotation(Helmet_Right_Tip, 0F, 0F, 0F);
+        Helmet_Spike_Front = new ModelRenderer(this, 10, 22);
+        Helmet_Spike_Front.addBox(-0.5F, -7F, -2F, 1, 6, 4);
+        Helmet_Spike_Front.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Spike_Front.setTextureSize(64, 32);
+        Helmet_Spike_Front.mirror = true;
+        setRotation(Helmet_Spike_Front, 0.7853982F, 0F, 0F);
+        Helmet_Spike_Back = new ModelRenderer(this, 10, 22);
+        Helmet_Spike_Back.addBox(-0.5F, -7F, -2F, 1, 6, 4);
+        Helmet_Spike_Back.setRotationPoint(0F, 12F, -0.5F);
+        Helmet_Spike_Back.setTextureSize(64, 32);
+        Helmet_Spike_Back.mirror = true;
+        setRotation(Helmet_Spike_Back, -0.7853982F, 0F, 0F);
+        Arm_Left = new ModelRenderer(this, 54, 19);
+        Arm_Left.addBox(1.5F, -1.3F, -1F, 1, 6, 2);
+        Arm_Left.setRotationPoint(0F, 18F, -0.5F);
+        Arm_Left.setTextureSize(64, 32);
+        Arm_Left.mirror = true;
+        setRotation(Arm_Left, 0F, 0F, -0.5235988F);
+        Arm_Right = new ModelRenderer(this, 54, 19);
+        Arm_Right.addBox(-2.5F, -1.3F, -1F, 1, 6, 2);
+        Arm_Right.setRotationPoint(0F, 18F, -0.5F);
+        Arm_Right.setTextureSize(64, 32);
+        Arm_Right.mirror = true;
+        setRotation(Arm_Right, 0F, 0F, 0.5235988F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        Leg_Left.render(f5);
+        Leg_Right.render(f5);
+        Leg_Back.render(f5);
+        Tail_Middle.render(f5);
+        Tail_Tip.render(f5);
+        Body_Bottom.render(f5);
+        Body_Middle.render(f5);
+        Body_Top.render(f5);
+        Neck.render(f5);
+        Head.render(f5);
+        Helmet_Left.render(f5);
+        Helmet_Right.render(f5);
+        Helmet_Top.render(f5);
+        Helmet_Left_Tip.render(f5);
+        Helmet_Right_Tip.render(f5);
+        Helmet_Spike_Front.render(f5);
+        Helmet_Spike_Back.render(f5);
+        Arm_Left.render(f5);
+        Arm_Right.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

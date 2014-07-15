@@ -4,7 +4,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class BisharpPokedollEntity extends TileEntity {
 
-	public BisharpPokedollEntity() {
-	}
+    public BisharpPokedollEntity() {
+    }
 
 }

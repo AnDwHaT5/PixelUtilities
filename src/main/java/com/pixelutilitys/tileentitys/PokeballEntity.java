@@ -4,13 +4,12 @@ import net.minecraft.tileentity.TileEntity;
 
 public class PokeballEntity extends TileEntity {
 
-	public PokeballEntity() {
-	}
-	
-	@Override
-	public boolean canUpdate()
-	{
-		return false;
-	}
+    public PokeballEntity() {
+    }
+
+    @Override
+    public boolean canUpdate() {
+        return false;
+    }
 
 }

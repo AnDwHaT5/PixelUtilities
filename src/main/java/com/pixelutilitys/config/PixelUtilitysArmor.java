@@ -1,83 +1,81 @@
 package com.pixelutilitys.config;
 
+import com.pixelutilitys.Basemod;
+import com.pixelutilitys.armor.*;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 
-import com.pixelutilitys.Basemod;
-import com.pixelutilitys.armor.*;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-
 public class PixelUtilitysArmor {
 
-	public static Item rubyHelm;
-	public static Item rubyPlate;
-	public static Item rubyLegs;
-	public static Item rubyBoots;
-	
-	public static Item saphireHelm;
-	public static Item saphirePlate;
-	public static Item saphireLegs;
-	public static Item saphireBoots;
-	
-	public static Item galacticHelm;
-	public static Item galacticBoots;
-	public static Item galacticPlate;
-	public static Item galacticLegs;
-	
-	public static Item crystalHelm;
-	public static Item crystalBoots;
-	public static Item crystalPlate;
-	public static Item crystalLegs;
-	
-	public static Item rocketHelm;
-	public static Item rocketBoots;
-	public static Item rocketPlate;
-	public static Item rocketLegs;
-	
-	/*
-	public static Item firestoneHelm;
-	public static Item firestonePlate;
-	public static Item firestoneLegs;
-	public static Item firestoneBoots;
-	
-	public static Item waterstoneHelm;
-	public static Item waterstonePlate;
-	public static Item waterstoneLegs;
-	public static Item waterstoneBoots;
-	
-	public static Item leafstoneHelm;
-	public static Item leafstonePlate;
-	public static Item leafstoneLegs;
-	public static Item leafstoneBoots;
-	*/
-	public static void load(Configuration cfg) {
+    public static Item rubyHelm;
+    public static Item rubyPlate;
+    public static Item rubyLegs;
+    public static Item rubyBoots;
+
+    public static Item saphireHelm;
+    public static Item saphirePlate;
+    public static Item saphireLegs;
+    public static Item saphireBoots;
+
+    public static Item galacticHelm;
+    public static Item galacticBoots;
+    public static Item galacticPlate;
+    public static Item galacticLegs;
+
+    public static Item crystalHelm;
+    public static Item crystalBoots;
+    public static Item crystalPlate;
+    public static Item crystalLegs;
+
+    public static Item rocketHelm;
+    public static Item rocketBoots;
+    public static Item rocketPlate;
+    public static Item rocketLegs;
+
+    /*
+    public static Item firestoneHelm;
+    public static Item firestonePlate;
+    public static Item firestoneLegs;
+    public static Item firestoneBoots;
+
+    public static Item waterstoneHelm;
+    public static Item waterstonePlate;
+    public static Item waterstoneLegs;
+    public static Item waterstoneBoots;
+
+    public static Item leafstoneHelm;
+    public static Item leafstonePlate;
+    public static Item leafstoneLegs;
+    public static Item leafstoneBoots;
+    */
+    public static void load(Configuration cfg) {
 //TODO, textures for armour are referenced but not present?
-		rubyHelm = new RubyHelmet(Basemod.RUBYA, 0, 0);
-		rubyPlate = new RubyPlate(Basemod.RUBYA, 0, 1);
-		rubyLegs = new RubyLegs(Basemod.RUBYA, 0, 2);
-		rubyBoots = new RubyBoots(Basemod.RUBYA, 0, 3);
-		
-		saphireHelm = new SaphireHelmet(Basemod.SAPHIREA, 0, 0);
-		saphirePlate = new SaphirePlate(Basemod.SAPHIREA, 0, 1);
-		saphireLegs = new SaphireLegs(Basemod.SAPHIREA, 0, 2);
-		saphireBoots = new SaphireBoots(Basemod.SAPHIREA, 0, 3);
-		
-		galacticHelm = new GalacticHelmet(Basemod.SILICONA, 0, 0);
-		galacticPlate = new GalacticPlate(Basemod.SILICONA, 0, 1);
-		galacticLegs = new GalacticLegs(Basemod.SILICONA, 0, 2);
-		galacticBoots = new GalacticBoots(Basemod.SILICONA, 0, 3);
-		
-		crystalHelm = new CrystalHelmet(Basemod.CRYSTALA, 0, 0);
-		crystalPlate = new CrystalPlate(Basemod.CRYSTALA, 0, 1);
-		crystalLegs = new CrystalLegs(Basemod.CRYSTALA, 0, 2);
-		crystalBoots = new CrystalBoots(Basemod.CRYSTALA, 0, 3);
-		
-		rocketHelm = new RocketHelmet(Basemod.CRYSTALA, 0, 0);
-		rocketPlate = new RocketPlate(Basemod.CRYSTALA, 0, 1);
-		rocketLegs = new RocketLegs(Basemod.CRYSTALA, 0, 2);
-		rocketBoots = new RocketBoots(Basemod.CRYSTALA, 0, 3);
-		
+        rubyHelm = new RubyHelmet(Basemod.RUBYA, 0, 0);
+        rubyPlate = new RubyPlate(Basemod.RUBYA, 0, 1);
+        rubyLegs = new RubyLegs(Basemod.RUBYA, 0, 2);
+        rubyBoots = new RubyBoots(Basemod.RUBYA, 0, 3);
+
+        saphireHelm = new SaphireHelmet(Basemod.SAPHIREA, 0, 0);
+        saphirePlate = new SaphirePlate(Basemod.SAPHIREA, 0, 1);
+        saphireLegs = new SaphireLegs(Basemod.SAPHIREA, 0, 2);
+        saphireBoots = new SaphireBoots(Basemod.SAPHIREA, 0, 3);
+
+        galacticHelm = new GalacticHelmet(Basemod.SILICONA, 0, 0);
+        galacticPlate = new GalacticPlate(Basemod.SILICONA, 0, 1);
+        galacticLegs = new GalacticLegs(Basemod.SILICONA, 0, 2);
+        galacticBoots = new GalacticBoots(Basemod.SILICONA, 0, 3);
+
+        crystalHelm = new CrystalHelmet(Basemod.CRYSTALA, 0, 0);
+        crystalPlate = new CrystalPlate(Basemod.CRYSTALA, 0, 1);
+        crystalLegs = new CrystalLegs(Basemod.CRYSTALA, 0, 2);
+        crystalBoots = new CrystalBoots(Basemod.CRYSTALA, 0, 3);
+
+        rocketHelm = new RocketHelmet(Basemod.CRYSTALA, 0, 0);
+        rocketPlate = new RocketPlate(Basemod.CRYSTALA, 0, 1);
+        rocketLegs = new RocketLegs(Basemod.CRYSTALA, 0, 2);
+        rocketBoots = new RocketBoots(Basemod.CRYSTALA, 0, 3);
+
 		
 		
 		/*
@@ -96,29 +94,29 @@ public class PixelUtilitysArmor {
 		leafstoneLegs = new LeafStoneLegs(leafstoneLegsID, Basemod.LEAFSTONEA, 0, 2).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:LeafStoneLegs").setUnlocalizedName("Leafstone Leggings");
 		leafstoneBoots = new LeafStoneBoots(leafstoneBootsID, Basemod.LEAFSTONEA, 0, 3).setCreativeTab(CreativeTabs.tabCombat).setTextureName("pixelUtilities:LeafStoneBoots").setUnlocalizedName("Leafstone Boots");
 		*/
-	}
+    }
 
-	public static void addNames() {
-		
-		GameRegistry.registerItem(rubyHelm, rubyHelm.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rubyPlate, rubyPlate.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rubyLegs, rubyLegs.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rubyBoots, rubyBoots.getUnlocalizedName().substring(5));
-		
-		GameRegistry.registerItem(saphireHelm, saphireHelm.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(saphirePlate, saphirePlate.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(saphireLegs, saphireLegs.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(saphireBoots, saphireBoots.getUnlocalizedName().substring(5));
-		
-		GameRegistry.registerItem(galacticHelm, galacticHelm.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(galacticPlate, galacticPlate.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(galacticLegs, galacticLegs.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(galacticBoots, galacticBoots.getUnlocalizedName().substring(5));
+    public static void addNames() {
 
-		GameRegistry.registerItem(rocketHelm, rocketHelm.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rocketPlate, rocketPlate.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rocketLegs, rocketLegs.getUnlocalizedName().substring(5));
-		GameRegistry.registerItem(rocketBoots, rocketBoots.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rubyHelm, rubyHelm.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rubyPlate, rubyPlate.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rubyLegs, rubyLegs.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rubyBoots, rubyBoots.getUnlocalizedName().substring(5));
+
+        GameRegistry.registerItem(saphireHelm, saphireHelm.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(saphirePlate, saphirePlate.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(saphireLegs, saphireLegs.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(saphireBoots, saphireBoots.getUnlocalizedName().substring(5));
+
+        GameRegistry.registerItem(galacticHelm, galacticHelm.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(galacticPlate, galacticPlate.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(galacticLegs, galacticLegs.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(galacticBoots, galacticBoots.getUnlocalizedName().substring(5));
+
+        GameRegistry.registerItem(rocketHelm, rocketHelm.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rocketPlate, rocketPlate.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rocketLegs, rocketLegs.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(rocketBoots, rocketBoots.getUnlocalizedName().substring(5));
 		
 		/*GameRegistry.registerItem(firestoneHelm, "Firestone Helmet");
 		GameRegistry.registerItem(firestonePlate, "Firestone Chestplate");
@@ -134,5 +132,5 @@ public class PixelUtilitysArmor {
 		GameRegistry.registerItem(leafstonePlate, "Leafstone Chestplate");
 		GameRegistry.registerItem(leafstoneLegs, "Leafstone Leggings");
 		GameRegistry.registerItem(leafstoneBoots, "Leafstone Boots");*/
-	}
+    }
 }

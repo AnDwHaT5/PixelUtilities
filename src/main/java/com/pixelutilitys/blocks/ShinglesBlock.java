@@ -4,20 +4,17 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class ShinglesBlock extends Block 
-{
+public class ShinglesBlock extends Block {
 
-    public ShinglesBlock (Material material) 
-    {
-            super(material);
-            setHardness(4.0F); // 33% harder than diamond
-            setStepSound(Block.soundTypeWood);
-            setBlockName("Shingles");
-            setCreativeTab(CreativeTabs.tabBlock);
-            
-            setBlockTextureName("pixelmonblocks" +":"+ "Shingles");
+    public ShinglesBlock(Material material) {
+        super(material);
+        setHardness(4.0F); // 33% harder than diamond
+        setStepSound(Block.soundTypeWood);
+        setBlockName("Shingles");
+        setCreativeTab(CreativeTabs.tabBlock);
+
+        setBlockTextureName("pixelmonblocks" + ":" + "Shingles");
     }
-            
-          
-    
+
+
 }

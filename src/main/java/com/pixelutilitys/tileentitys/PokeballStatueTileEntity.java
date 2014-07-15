@@ -3,16 +3,16 @@ package com.pixelutilitys.tileentitys;
 import net.minecraft.tileentity.TileEntity;
 
 public class PokeballStatueTileEntity extends TileEntity {
-	public PokeballStatueTileEntity() {
-	}
+    public PokeballStatueTileEntity() {
+    }
 
-	@Override
-	public boolean canUpdate() {
-		return false;
-	}
+    @Override
+    public boolean canUpdate() {
+        return false;
+    }
 
-	public void setOwner(String playerID) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void setOwner(String playerID) {
+        // TODO Auto-generated method stub
+
+    }
 }

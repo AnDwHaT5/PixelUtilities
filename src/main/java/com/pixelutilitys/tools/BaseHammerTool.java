@@ -1,6 +1,5 @@
 package com.pixelutilitys.tools;
 
-
 import com.pixelutilitys.config.PixelUtilitysTools;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
 import cpw.mods.fml.relauncher.Side;
@@ -8,22 +7,22 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSpade;
 
-public class PixelShovelTool extends ItemSpade {
+public class BaseHammerTool extends Item {
+    //lolhax.
+    public BaseHammerTool(ToolMaterial par3EnumToolMaterial, String itemString, String itemName) {
+        super();
 
-    public PixelShovelTool(ToolMaterial par3EnumToolMaterial, String textureName, String unLocName) {
-        super(par3EnumToolMaterial);
-
-        setUnlocalizedName(unLocName);
-        setTextureName(textureName);
+        setTextureName(itemString);
+        setUnlocalizedName(itemName);
         setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools);
     }
+
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister) {
-        this.itemIcon = par1IconRegister.registerIcon(this.iconString);
+        this.itemIcon = par1IconRegister.registerIcon(this.getIconString());
     }
 
     @Override
@@ -33,4 +32,6 @@ public class PixelShovelTool extends ItemSpade {
             PixelUtilitysTools.toolList.add(this);
         return null;
     }
+
+
 }

@@ -1,10 +1,5 @@
 package com.pixelutilitys;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-
 import com.pixelmonmod.pixelmon.battles.BattleRegistry;
 import com.pixelmonmod.pixelmon.battles.controller.BattleController2Participant;
 import com.pixelmonmod.pixelmon.battles.controller.BattleControllerBase;
@@ -19,6 +14,10 @@ import com.pixelutilitys.blocks.PixelmonGrassBlock;
 import com.pixelutilitys.blocks.PokeWaterFlowing;
 import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.Random;
 
@@ -27,42 +26,39 @@ public class GrassSpawner {
     private static GrassSpawner instance;
 
     static {
-        if(instance==null)
-        {
+        if (instance == null) {
             instance = new GrassSpawner();
         }
     }
 
 
-    private GrassSpawner()
-    {
+    private GrassSpawner() {
 
     }
 
 
-    public static GrassSpawner getInstance()
-    {
+    public static GrassSpawner getInstance() {
         return instance;
     }
 
-    public  EnumPokemon[] encounterListP = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Pidgey"), EnumPokemon.get("Rattata"), EnumPokemon.get("Ponyta")};
-    public  EnumPokemon[] encounterListJ = {EnumPokemon.get("Oddish"), EnumPokemon.get("Paras"), EnumPokemon.get("Bellsprout"), EnumPokemon.get("Scyther")};
-    public  EnumPokemon[] encounterListF = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Rattata"), EnumPokemon.get("Caterpie"), EnumPokemon.get("Weedle")};
-    public  EnumPokemon[] encounterListEH = {EnumPokemon.get("Pidgey"), EnumPokemon.get("Pidgeotto"), EnumPokemon.get("Nidorino"), EnumPokemon.get("Geodude"), EnumPokemon.get("Machop")};
-    public  EnumPokemon[] encounterListT = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public  EnumPokemon[] encounterListIP = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public  EnumPokemon[] encounterListB = {EnumPokemon.get("Slowpoke"), EnumPokemon.get("Staryu"), EnumPokemon.get("Shellder"), EnumPokemon.get("Psyduck")};
-    public  EnumPokemon[] encounterListD = {EnumPokemon.get("Trapinch"), EnumPokemon.get("Sandshrew"), EnumPokemon.get("Sandile"), EnumPokemon.get("Geodude")};
-    public  EnumPokemon[] encounterListIM = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public  EnumPokemon[] encounterListW = {EnumPokemon.get("Magikarp"), EnumPokemon.get("Staryu"), EnumPokemon.get("Goldeen"), EnumPokemon.get("Shellder")};
-    private  double xCoOrd;
-    private  double lastXCoOrd = 0;
-    private  double zCoOrd;
-    private  double lastZCoOrd = 0;
+    public EnumPokemon[] encounterListP = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Pidgey"), EnumPokemon.get("Rattata"), EnumPokemon.get("Ponyta")};
+    public EnumPokemon[] encounterListJ = {EnumPokemon.get("Oddish"), EnumPokemon.get("Paras"), EnumPokemon.get("Bellsprout"), EnumPokemon.get("Scyther")};
+    public EnumPokemon[] encounterListF = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Rattata"), EnumPokemon.get("Caterpie"), EnumPokemon.get("Weedle")};
+    public EnumPokemon[] encounterListEH = {EnumPokemon.get("Pidgey"), EnumPokemon.get("Pidgeotto"), EnumPokemon.get("Nidorino"), EnumPokemon.get("Geodude"), EnumPokemon.get("Machop")};
+    public EnumPokemon[] encounterListT = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
+    public EnumPokemon[] encounterListIP = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
+    public EnumPokemon[] encounterListB = {EnumPokemon.get("Slowpoke"), EnumPokemon.get("Staryu"), EnumPokemon.get("Shellder"), EnumPokemon.get("Psyduck")};
+    public EnumPokemon[] encounterListD = {EnumPokemon.get("Trapinch"), EnumPokemon.get("Sandshrew"), EnumPokemon.get("Sandile"), EnumPokemon.get("Geodude")};
+    public EnumPokemon[] encounterListIM = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
+    public EnumPokemon[] encounterListW = {EnumPokemon.get("Magikarp"), EnumPokemon.get("Staryu"), EnumPokemon.get("Goldeen"), EnumPokemon.get("Shellder")};
+    private double xCoOrd;
+    private double lastXCoOrd = 0;
+    private double zCoOrd;
+    private double lastZCoOrd = 0;
     private PixelUtilitysConfig pixelConfig;
-     BattleControllerBase bc;
+    BattleControllerBase bc;
 
-    public  void spawnInGrass(World world, int x, int y, int z, Entity entity) {
+    public void spawnInGrass(World world, int x, int y, int z, Entity entity) {
         pixelConfig = pixelConfig.getInstance();
         if (!pixelConfig.grassBattles)
             return;
@@ -87,8 +83,7 @@ public class GrassSpawner {
                 return;
 
             if (isGrassBattle <= pixelConfig.grassSpawnRate) {
-                if (PixelmonGrassBlock.isActive)
-                {
+                if (PixelmonGrassBlock.isActive) {
                     processGrassBattle(world, x, y, z, player);
                 }
             }
@@ -104,12 +99,12 @@ public class GrassSpawner {
         lastZCoOrd = zCoOrd;
     }
 
-    private  void processWaterBattle(World world, int x, int y, int z, EntityPlayerMP player) {
+    private void processWaterBattle(World world, int x, int y, int z, EntityPlayerMP player) {
 
         spawnBattle(world, x, y, z, player, pixelConfig.oceanSpecialRate, encounterListW);
     }
 
-    private  void processGrassBattle(World world, int x, int y, int z, EntityPlayerMP player) {
+    private void processGrassBattle(World world, int x, int y, int z, EntityPlayerMP player) {
         BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
 
 
@@ -134,7 +129,7 @@ public class GrassSpawner {
         }
     }
 
-    private  void spawnBattle(World world, int x, int y, int z, EntityPlayerMP player, int spawnRate, EnumPokemon[] encounterList) {
+    private void spawnBattle(World world, int x, int y, int z, EntityPlayerMP player, int spawnRate, EnumPokemon[] encounterList) {
         int ranPoke = (int) (Math.random() * 10);
         int specRate = (int) (Math.random() * spawnRate);
         if (encounterList[ranPoke] != null) {
@@ -149,7 +144,7 @@ public class GrassSpawner {
         }
     }
 
-    private  int getPlayerAvailablePokemonCount(EntityPlayerMP player) {
+    private int getPlayerAvailablePokemonCount(EntityPlayerMP player) {
         int availablePokemon = 0;
         try {
             availablePokemon = PixelmonStorage.PokeballManager.getPlayerStorage(player).countAblePokemon();
@@ -170,7 +165,7 @@ public class GrassSpawner {
      * @param pokemon - the pokemon to spawn
      * @throws Exception Bad Move should not throw generic Exception
      */
-    private  void spawnAndInitiate(final World world, final int x, final int y, final int z, final EntityPlayerMP player, final EntityPixelmon pokemon) throws Exception {
+    private void spawnAndInitiate(final World world, final int x, final int y, final int z, final EntityPlayerMP player, final EntityPixelmon pokemon) throws Exception {
         pokemon.setPosition(x, y + 1, z);
         if (!world.isRemote)
             world.spawnEntityInWorld(pokemon);
@@ -179,7 +174,7 @@ public class GrassSpawner {
         bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
     }
 
-    public  void setEncounterList(EnumPokemon[] forest, EnumPokemon[] extremeHillsEncounterList, EnumPokemon[] plainsEncounterList, EnumPokemon[] taigaEncounterList, EnumPokemon[] jungleEncounterList, EnumPokemon[] icePlainsEncounterList, EnumPokemon[] iceMountainsEncounterList, EnumPokemon[] beachEncounterList, EnumPokemon[] desertEncounterList, EnumPokemon[] oceanEncounterList) {
+    public void setEncounterList(EnumPokemon[] forest, EnumPokemon[] extremeHillsEncounterList, EnumPokemon[] plainsEncounterList, EnumPokemon[] taigaEncounterList, EnumPokemon[] jungleEncounterList, EnumPokemon[] icePlainsEncounterList, EnumPokemon[] iceMountainsEncounterList, EnumPokemon[] beachEncounterList, EnumPokemon[] desertEncounterList, EnumPokemon[] oceanEncounterList) {
         encounterListF = forest;
         encounterListB = beachEncounterList;
         encounterListEH = extremeHillsEncounterList;
@@ -192,5 +187,5 @@ public class GrassSpawner {
         encounterListW = oceanEncounterList;
     }
 
-  
+
 }

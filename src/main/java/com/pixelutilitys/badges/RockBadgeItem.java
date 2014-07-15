@@ -4,12 +4,12 @@ import net.minecraft.item.Item;
 
 public class RockBadgeItem extends Item {
 
-	public RockBadgeItem() {
-		super();
+    public RockBadgeItem() {
+        super();
 
-		// Constructor Configuration
-		maxStackSize = 64;
+        // Constructor Configuration
+        maxStackSize = 64;
 
-		setUnlocalizedName("rockbadge");
-	}
+        setUnlocalizedName("rockbadge");
+    }
 }

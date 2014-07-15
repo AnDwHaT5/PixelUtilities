@@ -5,19 +5,14 @@
 // - ZeuX
 
 
-
-
-
-
 package com.pixelutilitys.models.Pokedolls;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class MudkipPokedollModel extends ModelBase
-{
-  //fields
+public class MudkipPokedollModel extends ModelBase {
+    //fields
     ModelRenderer Body;
     ModelRenderer Head;
     ModelRenderer Rear_Leg_Right;
@@ -28,100 +23,96 @@ public class MudkipPokedollModel extends ModelBase
     ModelRenderer Right_Fin;
     ModelRenderer Left_Fin;
     ModelRenderer Tail;
-  
-  public MudkipPokedollModel()
-  {
-    textureWidth = 64;
-    textureHeight = 32;
-    
-      Body = new ModelRenderer(this, 0, 0);
-      Body.addBox(-2.5F, -2F, -3.5F, 5, 4, 7);
-      Body.setRotationPoint(0F, 19F, 0F);
-      Body.setTextureSize(64, 32);
-      Body.mirror = true;
-      setRotation(Body, 0F, 0F, 0F);
-      Head = new ModelRenderer(this, 0, 11);
-      Head.addBox(-3F, -5.5F, -7F, 6, 6, 6);
-      Head.setRotationPoint(0F, 19F, 0F);
-      Head.setTextureSize(64, 32);
-      Head.mirror = true;
-      setRotation(Head, 0F, 0F, 0F);
-      Rear_Leg_Right = new ModelRenderer(this, 24, 0);
-      Rear_Leg_Right.addBox(-2.5F, 2F, 1.5F, 2, 3, 2);
-      Rear_Leg_Right.setRotationPoint(0F, 19F, 0F);
-      Rear_Leg_Right.setTextureSize(64, 32);
-      Rear_Leg_Right.mirror = true;
-      setRotation(Rear_Leg_Right, 0F, 0F, 0F);
-      Front_Leg_Right = new ModelRenderer(this, 32, 0);
-      Front_Leg_Right.addBox(-2.5F, 2F, -3.5F, 2, 3, 2);
-      Front_Leg_Right.setRotationPoint(0F, 19F, 0F);
-      Front_Leg_Right.setTextureSize(64, 32);
-      Front_Leg_Right.mirror = true;
-      setRotation(Front_Leg_Right, 0F, 0F, 0F);
-      Rear_Leg_Left = new ModelRenderer(this, 24, 5);
-      Rear_Leg_Left.addBox(0.5F, 2F, 1.5F, 2, 3, 2);
-      Rear_Leg_Left.setRotationPoint(0F, 19F, 0F);
-      Rear_Leg_Left.setTextureSize(64, 32);
-      Rear_Leg_Left.mirror = true;
-      setRotation(Rear_Leg_Left, 0F, 0F, 0F);
-      Front_Leg_Left = new ModelRenderer(this, 32, 5);
-      Front_Leg_Left.addBox(0.5F, 2F, -3.5F, 2, 3, 2);
-      Front_Leg_Left.setRotationPoint(0F, 19F, 0F);
-      Front_Leg_Left.setTextureSize(64, 32);
-      Front_Leg_Left.mirror = true;
-      setRotation(Front_Leg_Left, 0F, 0F, 0F);
-      Top_Fin = new ModelRenderer(this, 24, 10);
-      Top_Fin.addBox(0F, -10.5F, -8F, 1, 7, 6);
-      Top_Fin.setRotationPoint(0F, 19F, 0F);
-      Top_Fin.setTextureSize(64, 32);
-      Top_Fin.mirror = true;
-      setRotation(Top_Fin, -0.2617994F, 0F, 0F);
-      Right_Fin = new ModelRenderer(this, 0, 23);
-      Right_Fin.addBox(-6F, -5F, -5F, 4, 5, 1);
-      Right_Fin.setRotationPoint(0F, 19F, 0F);
-      Right_Fin.setTextureSize(64, 32);
-      Right_Fin.mirror = true;
-      setRotation(Right_Fin, 0F, 0.1745329F, 0F);
-      Left_Fin = new ModelRenderer(this, 10, 23);
-      Left_Fin.addBox(2F, -5F, -5F, 4, 5, 1);
-      Left_Fin.setRotationPoint(0F, 19F, 0F);
-      Left_Fin.setTextureSize(64, 32);
-      Left_Fin.mirror = true;
-      setRotation(Left_Fin, 0F, -0.1745329F, 0F);
-      Tail = new ModelRenderer(this, 40, 0);
-      Tail.addBox(0F, -5F, 2F, 1, 8, 5);
-      Tail.setRotationPoint(0F, 19F, 0F);
-      Tail.setTextureSize(64, 32);
-      Tail.mirror = true;
-      setRotation(Tail, 0F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    Body.render(f5);
-    Head.render(f5);
-    Rear_Leg_Right.render(f5);
-    Front_Leg_Right.render(f5);
-    Rear_Leg_Left.render(f5);
-    Front_Leg_Left.render(f5);
-    Top_Fin.render(f5);
-    Right_Fin.render(f5);
-    Left_Fin.render(f5);
-    Tail.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public MudkipPokedollModel() {
+        textureWidth = 64;
+        textureHeight = 32;
+
+        Body = new ModelRenderer(this, 0, 0);
+        Body.addBox(-2.5F, -2F, -3.5F, 5, 4, 7);
+        Body.setRotationPoint(0F, 19F, 0F);
+        Body.setTextureSize(64, 32);
+        Body.mirror = true;
+        setRotation(Body, 0F, 0F, 0F);
+        Head = new ModelRenderer(this, 0, 11);
+        Head.addBox(-3F, -5.5F, -7F, 6, 6, 6);
+        Head.setRotationPoint(0F, 19F, 0F);
+        Head.setTextureSize(64, 32);
+        Head.mirror = true;
+        setRotation(Head, 0F, 0F, 0F);
+        Rear_Leg_Right = new ModelRenderer(this, 24, 0);
+        Rear_Leg_Right.addBox(-2.5F, 2F, 1.5F, 2, 3, 2);
+        Rear_Leg_Right.setRotationPoint(0F, 19F, 0F);
+        Rear_Leg_Right.setTextureSize(64, 32);
+        Rear_Leg_Right.mirror = true;
+        setRotation(Rear_Leg_Right, 0F, 0F, 0F);
+        Front_Leg_Right = new ModelRenderer(this, 32, 0);
+        Front_Leg_Right.addBox(-2.5F, 2F, -3.5F, 2, 3, 2);
+        Front_Leg_Right.setRotationPoint(0F, 19F, 0F);
+        Front_Leg_Right.setTextureSize(64, 32);
+        Front_Leg_Right.mirror = true;
+        setRotation(Front_Leg_Right, 0F, 0F, 0F);
+        Rear_Leg_Left = new ModelRenderer(this, 24, 5);
+        Rear_Leg_Left.addBox(0.5F, 2F, 1.5F, 2, 3, 2);
+        Rear_Leg_Left.setRotationPoint(0F, 19F, 0F);
+        Rear_Leg_Left.setTextureSize(64, 32);
+        Rear_Leg_Left.mirror = true;
+        setRotation(Rear_Leg_Left, 0F, 0F, 0F);
+        Front_Leg_Left = new ModelRenderer(this, 32, 5);
+        Front_Leg_Left.addBox(0.5F, 2F, -3.5F, 2, 3, 2);
+        Front_Leg_Left.setRotationPoint(0F, 19F, 0F);
+        Front_Leg_Left.setTextureSize(64, 32);
+        Front_Leg_Left.mirror = true;
+        setRotation(Front_Leg_Left, 0F, 0F, 0F);
+        Top_Fin = new ModelRenderer(this, 24, 10);
+        Top_Fin.addBox(0F, -10.5F, -8F, 1, 7, 6);
+        Top_Fin.setRotationPoint(0F, 19F, 0F);
+        Top_Fin.setTextureSize(64, 32);
+        Top_Fin.mirror = true;
+        setRotation(Top_Fin, -0.2617994F, 0F, 0F);
+        Right_Fin = new ModelRenderer(this, 0, 23);
+        Right_Fin.addBox(-6F, -5F, -5F, 4, 5, 1);
+        Right_Fin.setRotationPoint(0F, 19F, 0F);
+        Right_Fin.setTextureSize(64, 32);
+        Right_Fin.mirror = true;
+        setRotation(Right_Fin, 0F, 0.1745329F, 0F);
+        Left_Fin = new ModelRenderer(this, 10, 23);
+        Left_Fin.addBox(2F, -5F, -5F, 4, 5, 1);
+        Left_Fin.setRotationPoint(0F, 19F, 0F);
+        Left_Fin.setTextureSize(64, 32);
+        Left_Fin.mirror = true;
+        setRotation(Left_Fin, 0F, -0.1745329F, 0F);
+        Tail = new ModelRenderer(this, 40, 0);
+        Tail.addBox(0F, -5F, 2F, 1, 8, 5);
+        Tail.setRotationPoint(0F, 19F, 0F);
+        Tail.setTextureSize(64, 32);
+        Tail.mirror = true;
+        setRotation(Tail, 0F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        Body.render(f5);
+        Head.render(f5);
+        Rear_Leg_Right.render(f5);
+        Front_Leg_Right.render(f5);
+        Rear_Leg_Left.render(f5);
+        Front_Leg_Left.render(f5);
+        Top_Fin.render(f5);
+        Right_Fin.render(f5);
+        Left_Fin.render(f5);
+        Tail.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

@@ -5,19 +5,14 @@
 // - ZeuX
 
 
-
-
-
-
 package com.pixelutilitys.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelGymSign extends ModelBase
-{
-  //fields
+public class ModelGymSign extends ModelBase {
+    //fields
     ModelRenderer WoodSlant2;
     ModelRenderer WoodLeg1;
     ModelRenderer Main_Post;
@@ -31,121 +26,117 @@ public class ModelGymSign extends ModelBase
     ModelRenderer Curve1;
     ModelRenderer WoodLeg2;
     ModelRenderer WoodSlant1;
-  
-  public ModelGymSign()
-  {
-    textureWidth = 64;
-    textureHeight = 32;
-    
-      WoodSlant2 = new ModelRenderer(this, 6, 3);
-      WoodSlant2.addBox(-1F, -2F, -1F, 2, 2, 1);
-      WoodSlant2.setRotationPoint(-4F, 15F, 2F);
-      WoodSlant2.setTextureSize(64, 32);
-      WoodSlant2.mirror = true;
-      setRotation(WoodSlant2, 0.5356818F, 0F, 0F);
-      WoodLeg1 = new ModelRenderer(this, 0, 3);
-      WoodLeg1.addBox(0F, 0F, 0F, 2, 9, 1);
-      WoodLeg1.setRotationPoint(-5F, 15F, 1F);
-      WoodLeg1.setTextureSize(64, 32);
-      WoodLeg1.mirror = true;
-      setRotation(WoodLeg1, 0F, 0F, 0F);
-      Main_Post = new ModelRenderer(this, 12, 2);
-      Main_Post.addBox(0F, 0F, 0F, 10, 9, 1);
-      Main_Post.setRotationPoint(-5F, 13F, 0F);
-      Main_Post.setTextureSize(64, 32);
-      Main_Post.mirror = true;
-      setRotation(Main_Post, 0F, 0F, 0F);
-      Curve4 = new ModelRenderer(this, 0, 0);
-      Curve4.addBox(-5F, -1F, 0F, 5, 2, 1);
-      Curve4.setRotationPoint(0F, 14F, 0F);
-      Curve4.setTextureSize(64, 32);
-      Curve4.mirror = true;
-      setRotation(Curve4, 0F, 0F, 1.570796F);
-      Curve7 = new ModelRenderer(this, 0, 0);
-      Curve7.addBox(-5F, -1F, 0F, 3, 2, 1);
-      Curve7.setRotationPoint(0F, 14F, 0F);
-      Curve7.setTextureSize(64, 32);
-      Curve7.mirror = true;
-      setRotation(Curve7, 0F, 0F, 0.3892394F);
-      Curve6 = new ModelRenderer(this, 0, 0);
-      Curve6.addBox(-5F, -1F, 0F, 4, 2, 1);
-      Curve6.setRotationPoint(0F, 14F, 0F);
-      Curve6.setTextureSize(64, 32);
-      Curve6.mirror = true;
-      setRotation(Curve6, 0F, 0F, 0.7807508F);
-      SubMain = new ModelRenderer(this, 12, 0);
-      SubMain.addBox(-5F, -1F, 0F, 10, 1, 1);
-      SubMain.setRotationPoint(0F, 13.8F, 0F);
-      SubMain.setTextureSize(64, 32);
-      SubMain.mirror = true;
-      setRotation(SubMain, 0F, 0F, 0F);
-      Curve5 = new ModelRenderer(this, 0, 0);
-      Curve5.addBox(-5F, -1F, 0F, 4, 2, 1);
-      Curve5.setRotationPoint(0F, 14F, 0F);
-      Curve5.setTextureSize(64, 32);
-      Curve5.mirror = true;
-      setRotation(Curve5, 0F, 0F, 1.172262F);
-      Curve3 = new ModelRenderer(this, 0, 0);
-      Curve3.addBox(-5F, -1F, 0F, 4, 2, 1);
-      Curve3.setRotationPoint(0F, 14F, 0F);
-      Curve3.setTextureSize(64, 32);
-      Curve3.mirror = true;
-      setRotation(Curve3, 0F, 0F, 1.972738F);
-      Curve2 = new ModelRenderer(this, 0, 0);
-      Curve2.addBox(-5F, -1F, 0F, 4, 2, 1);
-      Curve2.setRotationPoint(0F, 14F, 0F);
-      Curve2.setTextureSize(64, 32);
-      Curve2.mirror = true;
-      setRotation(Curve2, 0F, 0F, 2.36425F);
-      Curve1 = new ModelRenderer(this, 0, 0);
-      Curve1.addBox(-5F, -1F, 0F, 3, 2, 1);
-      Curve1.setRotationPoint(0F, 14F, 0F);
-      Curve1.setTextureSize(64, 32);
-      Curve1.mirror = true;
-      setRotation(Curve1, 0F, 0F, 2.755761F);
-      WoodLeg2 = new ModelRenderer(this, 0, 3);
-      WoodLeg2.addBox(0F, 0F, 0F, 2, 9, 1);
-      WoodLeg2.setRotationPoint(3F, 15F, 1F);
-      WoodLeg2.setTextureSize(64, 32);
-      WoodLeg2.mirror = true;
-      setRotation(WoodLeg2, 0F, 0F, 0F);
-      WoodSlant1 = new ModelRenderer(this, 6, 3);
-      WoodSlant1.addBox(-1F, -2F, -1F, 2, 2, 1);
-      WoodSlant1.setRotationPoint(4F, 15F, 2F);
-      WoodSlant1.setTextureSize(64, 32);
-      WoodSlant1.mirror = true;
-      setRotation(WoodSlant1, 0.5356818F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    WoodSlant2.render(f5);
-    WoodLeg1.render(f5);
-    Main_Post.render(f5);
-    Curve4.render(f5);
-    Curve7.render(f5);
-    Curve6.render(f5);
-    SubMain.render(f5);
-    Curve5.render(f5);
-    Curve3.render(f5);
-    Curve2.render(f5);
-    Curve1.render(f5);
-    WoodLeg2.render(f5);
-    WoodSlant1.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public ModelGymSign() {
+        textureWidth = 64;
+        textureHeight = 32;
+
+        WoodSlant2 = new ModelRenderer(this, 6, 3);
+        WoodSlant2.addBox(-1F, -2F, -1F, 2, 2, 1);
+        WoodSlant2.setRotationPoint(-4F, 15F, 2F);
+        WoodSlant2.setTextureSize(64, 32);
+        WoodSlant2.mirror = true;
+        setRotation(WoodSlant2, 0.5356818F, 0F, 0F);
+        WoodLeg1 = new ModelRenderer(this, 0, 3);
+        WoodLeg1.addBox(0F, 0F, 0F, 2, 9, 1);
+        WoodLeg1.setRotationPoint(-5F, 15F, 1F);
+        WoodLeg1.setTextureSize(64, 32);
+        WoodLeg1.mirror = true;
+        setRotation(WoodLeg1, 0F, 0F, 0F);
+        Main_Post = new ModelRenderer(this, 12, 2);
+        Main_Post.addBox(0F, 0F, 0F, 10, 9, 1);
+        Main_Post.setRotationPoint(-5F, 13F, 0F);
+        Main_Post.setTextureSize(64, 32);
+        Main_Post.mirror = true;
+        setRotation(Main_Post, 0F, 0F, 0F);
+        Curve4 = new ModelRenderer(this, 0, 0);
+        Curve4.addBox(-5F, -1F, 0F, 5, 2, 1);
+        Curve4.setRotationPoint(0F, 14F, 0F);
+        Curve4.setTextureSize(64, 32);
+        Curve4.mirror = true;
+        setRotation(Curve4, 0F, 0F, 1.570796F);
+        Curve7 = new ModelRenderer(this, 0, 0);
+        Curve7.addBox(-5F, -1F, 0F, 3, 2, 1);
+        Curve7.setRotationPoint(0F, 14F, 0F);
+        Curve7.setTextureSize(64, 32);
+        Curve7.mirror = true;
+        setRotation(Curve7, 0F, 0F, 0.3892394F);
+        Curve6 = new ModelRenderer(this, 0, 0);
+        Curve6.addBox(-5F, -1F, 0F, 4, 2, 1);
+        Curve6.setRotationPoint(0F, 14F, 0F);
+        Curve6.setTextureSize(64, 32);
+        Curve6.mirror = true;
+        setRotation(Curve6, 0F, 0F, 0.7807508F);
+        SubMain = new ModelRenderer(this, 12, 0);
+        SubMain.addBox(-5F, -1F, 0F, 10, 1, 1);
+        SubMain.setRotationPoint(0F, 13.8F, 0F);
+        SubMain.setTextureSize(64, 32);
+        SubMain.mirror = true;
+        setRotation(SubMain, 0F, 0F, 0F);
+        Curve5 = new ModelRenderer(this, 0, 0);
+        Curve5.addBox(-5F, -1F, 0F, 4, 2, 1);
+        Curve5.setRotationPoint(0F, 14F, 0F);
+        Curve5.setTextureSize(64, 32);
+        Curve5.mirror = true;
+        setRotation(Curve5, 0F, 0F, 1.172262F);
+        Curve3 = new ModelRenderer(this, 0, 0);
+        Curve3.addBox(-5F, -1F, 0F, 4, 2, 1);
+        Curve3.setRotationPoint(0F, 14F, 0F);
+        Curve3.setTextureSize(64, 32);
+        Curve3.mirror = true;
+        setRotation(Curve3, 0F, 0F, 1.972738F);
+        Curve2 = new ModelRenderer(this, 0, 0);
+        Curve2.addBox(-5F, -1F, 0F, 4, 2, 1);
+        Curve2.setRotationPoint(0F, 14F, 0F);
+        Curve2.setTextureSize(64, 32);
+        Curve2.mirror = true;
+        setRotation(Curve2, 0F, 0F, 2.36425F);
+        Curve1 = new ModelRenderer(this, 0, 0);
+        Curve1.addBox(-5F, -1F, 0F, 3, 2, 1);
+        Curve1.setRotationPoint(0F, 14F, 0F);
+        Curve1.setTextureSize(64, 32);
+        Curve1.mirror = true;
+        setRotation(Curve1, 0F, 0F, 2.755761F);
+        WoodLeg2 = new ModelRenderer(this, 0, 3);
+        WoodLeg2.addBox(0F, 0F, 0F, 2, 9, 1);
+        WoodLeg2.setRotationPoint(3F, 15F, 1F);
+        WoodLeg2.setTextureSize(64, 32);
+        WoodLeg2.mirror = true;
+        setRotation(WoodLeg2, 0F, 0F, 0F);
+        WoodSlant1 = new ModelRenderer(this, 6, 3);
+        WoodSlant1.addBox(-1F, -2F, -1F, 2, 2, 1);
+        WoodSlant1.setRotationPoint(4F, 15F, 2F);
+        WoodSlant1.setTextureSize(64, 32);
+        WoodSlant1.mirror = true;
+        setRotation(WoodSlant1, 0.5356818F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        WoodSlant2.render(f5);
+        WoodLeg1.render(f5);
+        Main_Post.render(f5);
+        Curve4.render(f5);
+        Curve7.render(f5);
+        Curve6.render(f5);
+        SubMain.render(f5);
+        Curve5.render(f5);
+        Curve3.render(f5);
+        Curve2.render(f5);
+        Curve1.render(f5);
+        WoodLeg2.render(f5);
+        WoodSlant1.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

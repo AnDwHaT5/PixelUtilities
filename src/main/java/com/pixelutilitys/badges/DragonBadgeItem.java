@@ -5,12 +5,12 @@ import net.minecraft.item.Item;
 
 public class DragonBadgeItem extends Item {
 
-        public DragonBadgeItem() {
-                super();
-                
-                // Constructor Configuration
-                maxStackSize = 64;
-                
-                setUnlocalizedName("dragonbadge");
-        }
+    public DragonBadgeItem() {
+        super();
+
+        // Constructor Configuration
+        maxStackSize = 64;
+
+        setUnlocalizedName("dragonbadge");
+    }
 }

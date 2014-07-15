@@ -1,25 +1,23 @@
 package com.pixelutilitys.ores;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class AmethystOre extends Block 
-{
+import java.util.Random;
 
-	public AmethystOre (Material material) 
-	{
-		super(material);
-		setHardness(4.0F); // 33% harder than diamond
-		setStepSound(Block.soundTypeStone);
-		setBlockName("AmethystOre");
-		setCreativeTab(CreativeTabs.tabBlock);
+public class AmethystOre extends Block {
 
-		setBlockTextureName("pixelmonblocks" +":"+ "AmethystOre");
-	}
-	/*
+    public AmethystOre(Material material) {
+        super(material);
+        setHardness(4.0F); // 33% harder than diamond
+        setStepSound(Block.soundTypeStone);
+        setBlockName("AmethystOre");
+        setCreativeTab(CreativeTabs.tabBlock);
+
+        setBlockTextureName("pixelmonblocks" + ":" + "AmethystOre");
+    }
+    /*
 	@Deprecated
 	public int idDropped(int par1, Random par2Random, int par3) {
 		return PixelUtilitysItems.AmethystItemID;
@@ -32,10 +30,10 @@ public class AmethystOre extends Block
 		return PixelUtilitysBlocks.AmethystBlockID;
 	}*/
 
-	@Override
-	public int quantityDropped(Random random) {
-		return 1;
-	}
+    @Override
+    public int quantityDropped(Random random) {
+        return 1;
+    }
 
 
 }

@@ -5,83 +5,74 @@
 // - ZeuX
 
 
-
-
-
-
 package com.pixelutilitys.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class TreeModel extends ModelBase
-{
-  //fields
+public class TreeModel extends ModelBase {
+    //fields
     ModelRenderer TreeBottom;
     ModelRenderer Leaf1;
     ModelRenderer Leaf2;
     ModelRenderer Leaf3;
     ModelRenderer Leaf4;
-  
-  public TreeModel()
-  {
-    textureWidth = 128;
-    textureHeight = 64;
-    
-      TreeBottom = new ModelRenderer(this, 30, 0);
-      TreeBottom.addBox(0F, 0F, 0F, 5, 5, 5);
-      TreeBottom.setRotationPoint(-2F, 19F, -2F);
-      TreeBottom.setTextureSize(128, 64);
-      TreeBottom.mirror = true;
-      setRotation(TreeBottom, 0F, 0F, 0F);
-      Leaf1 = new ModelRenderer(this, 0, 43);
-      Leaf1.addBox(0F, 0F, 0F, 12, 5, 12);
-      Leaf1.setRotationPoint(-5F, 14F, -5.5F);
-      Leaf1.setTextureSize(128, 64);
-      Leaf1.mirror = true;
-      setRotation(Leaf1, 0F, 0F, 0F);
-      Leaf2 = new ModelRenderer(this, 0, 27);
-      Leaf2.addBox(0F, 0F, 0F, 10, 5, 10);
-      Leaf2.setRotationPoint(-4F, 9F, -4.5F);
-      Leaf2.setTextureSize(128, 64);
-      Leaf2.mirror = true;
-      setRotation(Leaf2, 0F, 0F, 0F);
-      Leaf3 = new ModelRenderer(this, 0, 13);
-      Leaf3.addBox(0F, 0F, 0F, 8, 5, 8);
-      Leaf3.setRotationPoint(-3F, 4F, -3.5F);
-      Leaf3.setTextureSize(128, 64);
-      Leaf3.mirror = true;
-      setRotation(Leaf3, 0F, 0F, 0F);
-      Leaf4 = new ModelRenderer(this, 0, 0);
-      Leaf4.addBox(0F, 0F, 0F, 4, 6, 4);
-      Leaf4.setRotationPoint(-1F, -2F, -1.5F);
-      Leaf4.setTextureSize(128, 64);
-      Leaf4.mirror = true;
-      setRotation(Leaf4, 0F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    TreeBottom.render(f5);
-    Leaf1.render(f5);
-    Leaf2.render(f5);
-    Leaf3.render(f5);
-    Leaf4.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public TreeModel() {
+        textureWidth = 128;
+        textureHeight = 64;
+
+        TreeBottom = new ModelRenderer(this, 30, 0);
+        TreeBottom.addBox(0F, 0F, 0F, 5, 5, 5);
+        TreeBottom.setRotationPoint(-2F, 19F, -2F);
+        TreeBottom.setTextureSize(128, 64);
+        TreeBottom.mirror = true;
+        setRotation(TreeBottom, 0F, 0F, 0F);
+        Leaf1 = new ModelRenderer(this, 0, 43);
+        Leaf1.addBox(0F, 0F, 0F, 12, 5, 12);
+        Leaf1.setRotationPoint(-5F, 14F, -5.5F);
+        Leaf1.setTextureSize(128, 64);
+        Leaf1.mirror = true;
+        setRotation(Leaf1, 0F, 0F, 0F);
+        Leaf2 = new ModelRenderer(this, 0, 27);
+        Leaf2.addBox(0F, 0F, 0F, 10, 5, 10);
+        Leaf2.setRotationPoint(-4F, 9F, -4.5F);
+        Leaf2.setTextureSize(128, 64);
+        Leaf2.mirror = true;
+        setRotation(Leaf2, 0F, 0F, 0F);
+        Leaf3 = new ModelRenderer(this, 0, 13);
+        Leaf3.addBox(0F, 0F, 0F, 8, 5, 8);
+        Leaf3.setRotationPoint(-3F, 4F, -3.5F);
+        Leaf3.setTextureSize(128, 64);
+        Leaf3.mirror = true;
+        setRotation(Leaf3, 0F, 0F, 0F);
+        Leaf4 = new ModelRenderer(this, 0, 0);
+        Leaf4.addBox(0F, 0F, 0F, 4, 6, 4);
+        Leaf4.setRotationPoint(-1F, -2F, -1.5F);
+        Leaf4.setTextureSize(128, 64);
+        Leaf4.mirror = true;
+        setRotation(Leaf4, 0F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        TreeBottom.render(f5);
+        Leaf1.render(f5);
+        Leaf2.render(f5);
+        Leaf3.render(f5);
+        Leaf4.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

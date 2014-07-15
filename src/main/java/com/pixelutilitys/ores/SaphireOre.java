@@ -1,24 +1,22 @@
 package com.pixelutilitys.ores;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class SaphireOre extends Block 
-{
+import java.util.Random;
 
-        public SaphireOre (Material material) 
-        {
-                super(material);
-                setHardness(4.0F); // 33% harder than diamond
-                setStepSound(Block.soundTypeStone);
-                setBlockName("SaphireOre");
-                setCreativeTab(CreativeTabs.tabBlock);
-                
-                setBlockTextureName("pixelmonblocks" +":"+ "SaphireOre");
-        }
+public class SaphireOre extends Block {
+
+    public SaphireOre(Material material) {
+        super(material);
+        setHardness(4.0F); // 33% harder than diamond
+        setStepSound(Block.soundTypeStone);
+        setBlockName("SaphireOre");
+        setCreativeTab(CreativeTabs.tabBlock);
+
+        setBlockTextureName("pixelmonblocks" + ":" + "SaphireOre");
+    }
         /*
         @Deprecated
     	public int idDropped(int par1, Random par2Random, int par3) {
@@ -33,10 +31,10 @@ public class SaphireOre extends Block
     	}*/
 
 
-    	@Override
-    	public int quantityDropped(Random random) {
-    		return 1;
-    	}
-              
-    
+    @Override
+    public int quantityDropped(Random random) {
+        return 1;
+    }
+
+
 }

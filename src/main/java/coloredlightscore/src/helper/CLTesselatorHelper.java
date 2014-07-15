@@ -2,17 +2,16 @@ package coloredlightscore.src.helper;
 
 public class CLTesselatorHelper {
 
-	// This class pretty much does nothing
-	// It was used to find the ASM instructions for the replacement setBrightness on the Tessellator object
-	// Origional approach was to use reflection, which was abandonded in the name of performance
-		
-	public CLTesselatorHelper() {
-		
-	}
-	
-	// Mock-up to get ASM for replacement method
-    public void setBrightness(int par1)
-    {
+    // This class pretty much does nothing
+    // It was used to find the ASM instructions for the replacement setBrightness on the Tessellator object
+    // Origional approach was to use reflection, which was abandonded in the name of performance
+
+    public CLTesselatorHelper() {
+
+    }
+
+    // Mock-up to get ASM for replacement method
+    public void setBrightness(int par1) {
         
         /* Resultant ASM:
          * 
@@ -28,7 +27,7 @@ public class CLTesselatorHelper {
          * 
          */
     }	
-	/*
+    /*
 	 * 
 	 * REFLECTION APPROACH BELOW
 

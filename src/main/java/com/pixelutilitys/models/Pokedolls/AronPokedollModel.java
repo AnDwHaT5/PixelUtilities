@@ -10,9 +10,8 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class AronPokedollModel extends ModelBase
-{
-  //fields
+public class AronPokedollModel extends ModelBase {
+    //fields
     ModelRenderer Body;
     ModelRenderer Head_Middle;
     ModelRenderer Head_Bottom;
@@ -24,107 +23,103 @@ public class AronPokedollModel extends ModelBase
     ModelRenderer Rear_Leg_Left;
     ModelRenderer Body_Back;
     ModelRenderer Neck;
-  
-  public AronPokedollModel()
-  {
-    textureWidth = 64;
-    textureHeight = 32;
-    
-      Body = new ModelRenderer(this, 0, 10);
-      Body.addBox(-2F, -2F, -2.5F, 4, 4, 5);
-      Body.setRotationPoint(0F, 20.5F, 0F);
-      Body.setTextureSize(64, 32);
-      Body.mirror = true;
-      setRotation(Body, 0F, 0F, 0F);
-      Head_Middle = new ModelRenderer(this, 0, 0);
-      Head_Middle.addBox(-2.5F, -7.5F, -3F, 5, 5, 5);
-      Head_Middle.setRotationPoint(0F, 20.5F, 0F);
-      Head_Middle.setTextureSize(64, 32);
-      Head_Middle.mirror = true;
-      setRotation(Head_Middle, 1.047198F, 0F, 0F);
-      Head_Bottom = new ModelRenderer(this, 0, 25);
-      Head_Bottom.addBox(-2F, -7F, -4.5F, 4, 4, 2);
-      Head_Bottom.setRotationPoint(0F, 20.5F, 0F);
-      Head_Bottom.setTextureSize(64, 32);
-      Head_Bottom.mirror = true;
-      setRotation(Head_Bottom, 1.047198F, 0F, 0F);
-      Head_Top = new ModelRenderer(this, 0, 19);
-      Head_Top.addBox(-2F, -7F, 1.5F, 4, 4, 2);
-      Head_Top.setRotationPoint(0F, 20.5F, 0F);
-      Head_Top.setTextureSize(64, 32);
-      Head_Top.mirror = true;
-      setRotation(Head_Top, 1.047198F, 0F, 0F);
-      Body_Spike = new ModelRenderer(this, 20, 0);
-      Body_Spike.addBox(-1F, -4.5F, -1F, 2, 3, 2);
-      Body_Spike.setRotationPoint(0F, 20.5F, 0F);
-      Body_Spike.setTextureSize(64, 32);
-      Body_Spike.mirror = true;
-      setRotation(Body_Spike, -0.2617994F, 0F, 0F);
-      Front_Leg_Left = new ModelRenderer(this, 20, 5);
-      Front_Leg_Left.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
-      Front_Leg_Left.setRotationPoint(1F, 21.5F, -1.5F);
-      Front_Leg_Left.setTextureSize(64, 32);
-      Front_Leg_Left.mirror = true;
-      setRotation(Front_Leg_Left, 0F, 0.7853982F, -0.7853982F);
-      Front_Leg_Right = new ModelRenderer(this, 24, 5);
-      Front_Leg_Right.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
-      Front_Leg_Right.setRotationPoint(-1F, 21.5F, -1.5F);
-      Front_Leg_Right.setTextureSize(64, 32);
-      Front_Leg_Right.mirror = true;
-      setRotation(Front_Leg_Right, 0F, -0.7853982F, 0.7853982F);
-      Rear_Leg_Right = new ModelRenderer(this, 24, 9);
-      Rear_Leg_Right.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
-      Rear_Leg_Right.setRotationPoint(-1F, 21.5F, 1.5F);
-      Rear_Leg_Right.setTextureSize(64, 32);
-      Rear_Leg_Right.mirror = true;
-      setRotation(Rear_Leg_Right, 0F, 0.7853982F, 0.7853982F);
-      Rear_Leg_Left = new ModelRenderer(this, 20, 9);
-      Rear_Leg_Left.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
-      Rear_Leg_Left.setRotationPoint(1F, 21.5F, 1.5F);
-      Rear_Leg_Left.setTextureSize(64, 32);
-      Rear_Leg_Left.mirror = true;
-      setRotation(Rear_Leg_Left, 0F, -0.7853982F, -0.7853982F);
-      Body_Back = new ModelRenderer(this, 20, 13);
-      Body_Back.addBox(-1.5F, -1.5F, 2.5F, 3, 3, 1);
-      Body_Back.setRotationPoint(0F, 20.5F, 0F);
-      Body_Back.setTextureSize(64, 32);
-      Body_Back.mirror = true;
-      setRotation(Body_Back, 0F, 0F, 0F);
-      Neck = new ModelRenderer(this, 20, 17);
-      Neck.addBox(-1.5F, -1.5F, -3.5F, 3, 2, 1);
-      Neck.setRotationPoint(0F, 20.5F, 0F);
-      Neck.setTextureSize(64, 32);
-      Neck.mirror = true;
-      setRotation(Neck, 0F, 0F, 0F);
-  }
-  
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
-  {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    Body.render(f5);
-    Head_Middle.render(f5);
-    Head_Bottom.render(f5);
-    Head_Top.render(f5);
-    Body_Spike.render(f5);
-    Front_Leg_Left.render(f5);
-    Front_Leg_Right.render(f5);
-    Rear_Leg_Right.render(f5);
-    Rear_Leg_Left.render(f5);
-    Body_Back.render(f5);
-    Neck.render(f5);
-  }
-  
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
-  }
-  
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
-  {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-  }
+
+    public AronPokedollModel() {
+        textureWidth = 64;
+        textureHeight = 32;
+
+        Body = new ModelRenderer(this, 0, 10);
+        Body.addBox(-2F, -2F, -2.5F, 4, 4, 5);
+        Body.setRotationPoint(0F, 20.5F, 0F);
+        Body.setTextureSize(64, 32);
+        Body.mirror = true;
+        setRotation(Body, 0F, 0F, 0F);
+        Head_Middle = new ModelRenderer(this, 0, 0);
+        Head_Middle.addBox(-2.5F, -7.5F, -3F, 5, 5, 5);
+        Head_Middle.setRotationPoint(0F, 20.5F, 0F);
+        Head_Middle.setTextureSize(64, 32);
+        Head_Middle.mirror = true;
+        setRotation(Head_Middle, 1.047198F, 0F, 0F);
+        Head_Bottom = new ModelRenderer(this, 0, 25);
+        Head_Bottom.addBox(-2F, -7F, -4.5F, 4, 4, 2);
+        Head_Bottom.setRotationPoint(0F, 20.5F, 0F);
+        Head_Bottom.setTextureSize(64, 32);
+        Head_Bottom.mirror = true;
+        setRotation(Head_Bottom, 1.047198F, 0F, 0F);
+        Head_Top = new ModelRenderer(this, 0, 19);
+        Head_Top.addBox(-2F, -7F, 1.5F, 4, 4, 2);
+        Head_Top.setRotationPoint(0F, 20.5F, 0F);
+        Head_Top.setTextureSize(64, 32);
+        Head_Top.mirror = true;
+        setRotation(Head_Top, 1.047198F, 0F, 0F);
+        Body_Spike = new ModelRenderer(this, 20, 0);
+        Body_Spike.addBox(-1F, -4.5F, -1F, 2, 3, 2);
+        Body_Spike.setRotationPoint(0F, 20.5F, 0F);
+        Body_Spike.setTextureSize(64, 32);
+        Body_Spike.mirror = true;
+        setRotation(Body_Spike, -0.2617994F, 0F, 0F);
+        Front_Leg_Left = new ModelRenderer(this, 20, 5);
+        Front_Leg_Left.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
+        Front_Leg_Left.setRotationPoint(1F, 21.5F, -1.5F);
+        Front_Leg_Left.setTextureSize(64, 32);
+        Front_Leg_Left.mirror = true;
+        setRotation(Front_Leg_Left, 0F, 0.7853982F, -0.7853982F);
+        Front_Leg_Right = new ModelRenderer(this, 24, 5);
+        Front_Leg_Right.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
+        Front_Leg_Right.setRotationPoint(-1F, 21.5F, -1.5F);
+        Front_Leg_Right.setTextureSize(64, 32);
+        Front_Leg_Right.mirror = true;
+        setRotation(Front_Leg_Right, 0F, -0.7853982F, 0.7853982F);
+        Rear_Leg_Right = new ModelRenderer(this, 24, 9);
+        Rear_Leg_Right.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
+        Rear_Leg_Right.setRotationPoint(-1F, 21.5F, 1.5F);
+        Rear_Leg_Right.setTextureSize(64, 32);
+        Rear_Leg_Right.mirror = true;
+        setRotation(Rear_Leg_Right, 0F, 0.7853982F, 0.7853982F);
+        Rear_Leg_Left = new ModelRenderer(this, 20, 9);
+        Rear_Leg_Left.addBox(-0.5F, 0F, -0.5F, 1, 3, 1);
+        Rear_Leg_Left.setRotationPoint(1F, 21.5F, 1.5F);
+        Rear_Leg_Left.setTextureSize(64, 32);
+        Rear_Leg_Left.mirror = true;
+        setRotation(Rear_Leg_Left, 0F, -0.7853982F, -0.7853982F);
+        Body_Back = new ModelRenderer(this, 20, 13);
+        Body_Back.addBox(-1.5F, -1.5F, 2.5F, 3, 3, 1);
+        Body_Back.setRotationPoint(0F, 20.5F, 0F);
+        Body_Back.setTextureSize(64, 32);
+        Body_Back.mirror = true;
+        setRotation(Body_Back, 0F, 0F, 0F);
+        Neck = new ModelRenderer(this, 20, 17);
+        Neck.addBox(-1.5F, -1.5F, -3.5F, 3, 2, 1);
+        Neck.setRotationPoint(0F, 20.5F, 0F);
+        Neck.setTextureSize(64, 32);
+        Neck.mirror = true;
+        setRotation(Neck, 0F, 0F, 0F);
+    }
+
+    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        super.render(entity, f, f1, f2, f3, f4, f5);
+        setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        Body.render(f5);
+        Head_Middle.render(f5);
+        Head_Bottom.render(f5);
+        Head_Top.render(f5);
+        Body_Spike.render(f5);
+        Front_Leg_Left.render(f5);
+        Front_Leg_Right.render(f5);
+        Rear_Leg_Right.render(f5);
+        Rear_Leg_Left.render(f5);
+        Body_Back.render(f5);
+        Neck.render(f5);
+    }
+
+    private void setRotation(ModelRenderer model, float x, float y, float z) {
+        model.rotateAngleX = x;
+        model.rotateAngleY = y;
+        model.rotateAngleZ = z;
+    }
+
+    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    }
 
 }

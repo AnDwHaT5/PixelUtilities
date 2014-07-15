@@ -19,7 +19,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "3.1"
-group= "pixelutils"
+group = "pixelutils"
 archivesBaseName = "PixelUtils"
 
 minecraft {
@@ -41,7 +41,7 @@ tasks.build.dependsOn('sourceJar', 'deobfJar')
 
 //noinspection GroovyAssignabilityCheck
 processResources {
-    from (sourceSets.main.resources.srcDirs)
+    from(sourceSets.main.resources.srcDirs)
 }
 
 //noinspection GroovyAssignabilityCheck
@@ -52,18 +52,18 @@ configurations {
 //noinspection GroovyAssignabilityCheck
 dependencies {
     compile files('libs/compile/Pixelmon-1.7.2-3.1-universal-deob.jar')
-	compile files('libs/runtime/vlcj-3.0.1.jar')
-	runtimeOnly files('libs/runtime/jna-3.5.2.jar')
-	runtimeOnly files('libs/runtime/platform-3.5.2.jar')
-	runtimeOnly files('libs/runtime/vlcj-3.0.1.jar')
+    compile files('libs/runtime/vlcj-3.0.1.jar')
+    runtimeOnly files('libs/runtime/jna-3.5.2.jar')
+    runtimeOnly files('libs/runtime/platform-3.5.2.jar')
+    runtimeOnly files('libs/runtime/vlcj-3.0.1.jar')
 }
 
 //noinspection GroovyAssignabilityCheck
 jar {
-  from configurations.runtimeOnly.collect { it.isDirectory() ? it : zipTree(it) }
+    from configurations.runtimeOnly.collect { it.isDirectory() ? it : zipTree(it) }
 
-  manifest {
-    attributes('FMLCorePluginContainsFMLMod': 'true')
-    attributes('FMLCorePlugin': 'coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin')
-  }
+    manifest {
+        attributes('FMLCorePluginContainsFMLMod': 'true')
+        attributes('FMLCorePlugin': 'coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin')
+    }
 }
