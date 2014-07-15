@@ -129,7 +129,8 @@ public class PixelUtilitysBlocks {
         CrystalBlock = new CrystalBlock(Material.rock).setHardness(8.5f).setStepSound(Block.soundTypeMetal).setBlockName("CrystalBlock").setBlockTextureName("pixelutilitys:CrystalBlock").setCreativeTab(CreativeTabs.tabBlock);
         SiliconOre = new SiliconOre(Material.rock).setHardness(1.2f).setStepSound(Block.soundTypeMetal).setBlockName("SiliconOre").setBlockTextureName("pixelutilitys:SiliconOre").setCreativeTab(CreativeTabs.tabBlock);
         ClothedTableBlock = new ClothedTableBlock(Material.wood).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("ClothedTable").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
-        PokeballBlock = new PokeballBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Pokeball").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
+        if (Basemod.pixelmonPresent)
+            PokeballBlock = new PokeballBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Pokeball").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
         RedCusionChairBlock = new RedCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("RedCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
         TrashcanBlock = new TrashcanBlock(Material.iron).setHardness(0.5f).setStepSound(Block.soundTypeMetal).setBlockName("Trashcan").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
         YellowCusionChairBlock = new YellowCusionChairBlock(Material.cloth).setHardness(0.5f).setStepSound(Block.soundTypeWood).setBlockName("YellowCusionChair").setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
@@ -195,7 +196,8 @@ public class PixelUtilitysBlocks {
         GameRegistry.registerBlock(BolderBlock, "Bolder");
         GameRegistry.registerBlock(BoxBlock, "Box");
         GameRegistry.registerBlock(ClothedTableBlock, "ClothedTable");
-        GameRegistry.registerBlock(PokeballBlock, "Pokeball");
+        if (Basemod.pixelmonPresent)
+            GameRegistry.registerBlock(PokeballBlock, "Pokeball");
         GameRegistry.registerBlock(RedCusionChairBlock, "RedCusionChair");
         GameRegistry.registerBlock(TrashcanBlock, "Trashcan");
         GameRegistry.registerBlock(YellowCusionChairBlock, "YellowCusionChair");
