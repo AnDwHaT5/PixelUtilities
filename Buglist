@@ -2,13 +2,12 @@ PixelUtilities 3.0 Dev for 1.7.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 General issues
 ~~~~~~~~~~~~~
-All techne models need meta data rotation
+Rotation of rugs doesn't match hitbox yet
+Andwhat5's is not a duck yet.
 
 ~~~~~~~~
 Radio issues
 ~~~~~~~~
-Volume generation needs to be redone (seems to drop off rarther quickly after 30blocks?)
-need to make sure a stream being stopped before it is playing is terminated properly (currently bugs)
 
 
 Seems to be all for now if you find a bug put it here!
