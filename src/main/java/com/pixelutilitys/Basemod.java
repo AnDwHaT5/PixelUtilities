@@ -32,7 +32,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.discovery.NativeDiscovery;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+import uk.co.caprica.vlcj.version.LibVlcVersion;
+import uk.co.caprica.vlcj.version.Version;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -125,21 +128,14 @@ public class Basemod {
 
     private void initVLC() {
 
-        if (is64bit) {
-            NativeLibrary.addSearchPath(
-                    RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files/VideoLAN/VLC"
-            );
-        } else {
-            NativeLibrary.addSearchPath(
-                    RuntimeUtil.getLibVlcLibraryName(), "C:/Program Files (x86)/VideoLAN/VLC"
-            );
-        }
+        new NativeDiscovery().discover();
 
         try {
-            Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+            Version vlcVersion = LibVlcVersion.getVersion();
+            System.out.println("VLC VERSION "+vlcVersion.toString());
             vlcLoaded = true;
         } catch (UnsatisfiedLinkError error) {
-            System.out.println("You need to install VLC for this mod");
+            System.out.println("You need to install VLC for radio functions.");
         }
 
     }

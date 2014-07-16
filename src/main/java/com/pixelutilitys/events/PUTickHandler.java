@@ -55,7 +55,7 @@ public class PUTickHandler {
             IChatComponent text = new ChatComponentText("You need to download VLC here to hear the radio ").setChatStyle(style);
             event.player.addChatComponentMessage(text);
 
-            if (Basemod.is64bit) {
+            if (Basemod.is64bit) {//TODO detect platform (mac/linux/windogs)
                 text = new ChatComponentText("http://download.videolan.org/pub/videolan/vlc/last/win64/vlc-2.1.3-win64.exe").setChatStyle(style);
             } else {
                 text = new ChatComponentText("http://download.videolan.org/pub/videolan/vlc/last/win32/vlc-2.1.3-win32.exe").setChatStyle(style);
