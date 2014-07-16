@@ -132,7 +132,7 @@ public class Basemod {
 
         try {
             Version vlcVersion = LibVlcVersion.getVersion();
-            System.out.println("VLC VERSION "+vlcVersion.toString());
+            System.out.println("VLC VERSION " + vlcVersion.toString());
             vlcLoaded = true;
         } catch (UnsatisfiedLinkError error) {
             System.out.println("You need to install VLC for radio functions.");
@@ -164,7 +164,8 @@ public class Basemod {
         GameRegistry.registerWorldGenerator(new SiliconGenerator(), 0);
         GameRegistry.registerWorldGenerator(new CrystalGenerator(), 0);
 
-        PixelUtilitysRecipes.addRecipes();
+        PixelUtilitysRecipes recipes = new PixelUtilitysRecipes();
+        recipes.addRecipes();
 
         PixelUtilitysBlocks.RubyOre.setHarvestLevel("pickaxe", 2);
         PixelUtilitysBlocks.SaphireOre.setHarvestLevel("pickaxe", 2);
