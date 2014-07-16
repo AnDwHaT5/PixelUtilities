@@ -3,7 +3,7 @@ package com.pixelutilitys.config;
 import com.pixelutilitys.Basemod;
 import com.pixelutilitys.blocks.*;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
-import com.pixelutilitys.ores.*;
+import com.pixelutilitys.blocks.ores.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

@@ -4,7 +4,7 @@ package com.pixelutilitys;
 //import com.net.trigore.radioblock.TileEntityRadio;
 
 import com.pixelutilitys.entitys.SeatEntity;
-import com.pixelutilitys.renderers.*;
+import com.pixelutilitys.models.renderers.*;
 import com.pixelutilitys.tileentitys.*;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;

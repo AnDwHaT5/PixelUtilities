@@ -1,7 +1,7 @@
 package com.pixelutilitys.config;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.armor.*;
+import com.pixelutilitys.items.armor.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;

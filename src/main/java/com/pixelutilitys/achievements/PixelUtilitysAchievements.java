@@ -1,6 +1,6 @@
 package com.pixelutilitys.achievements;
 
-import com.pixelutilitys.armor.*;
+import com.pixelutilitys.items.armor.*;
 import com.pixelutilitys.config.PixelUtilitysArmor;
 import com.pixelutilitys.config.PixelUtilitysItems;
 import cpw.mods.fml.common.Mod.EventHandler;

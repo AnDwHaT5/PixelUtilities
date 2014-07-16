@@ -1,8 +1,8 @@
 package com.pixelutilitys.config;
 
-import com.pixelutilitys.badges.*;
+import com.pixelutilitys.items.badges.*;
 import com.pixelutilitys.creativetabs.PixelUtilitysCreativeTabs;
-import com.pixelutilitys.economy.*;
+import com.pixelutilitys.items.economy.*;
 import com.pixelutilitys.items.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;

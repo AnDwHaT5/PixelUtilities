@@ -1,7 +1,7 @@
 package com.pixelutilitys.config;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.tools.*;
+import com.pixelutilitys.items.tools.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
@@ -75,9 +75,9 @@ public class PixelUtilitysTools {
 
         try {
             if (Basemod.pixelmonPresent)
-                PixelHammerToolConstructor = Class.forName("com.pixelutilitys.tools.PixelHammerTool").getConstructor(Item.ToolMaterial.class, String.class, String.class);
+                PixelHammerToolConstructor = Class.forName("com.pixelutilitys.items.tools.PixelHammerTool").getConstructor(Item.ToolMaterial.class, String.class, String.class);
             else
-                PixelHammerToolConstructor = Class.forName("com.pixelutilitys.tools.BaseHammerTool").getConstructor(Item.ToolMaterial.class, String.class, String.class);
+                PixelHammerToolConstructor = Class.forName("com.pixelutilitys.items.tools.BaseHammerTool").getConstructor(Item.ToolMaterial.class, String.class, String.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
