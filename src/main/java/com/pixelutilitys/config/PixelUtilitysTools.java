@@ -13,65 +13,82 @@ import java.util.List;
 public class PixelUtilitysTools {
 
     //Ruby Tools
-    public static Item rubyPickaxe;
-    public static Item rubyHammer;
-    public static Item rubyAxe;
-    public static Item rubyShovel;
-    public static Item rubyHoe;
-    public static Item rubySword;
+    public  Item rubyPickaxe;
+    public  Item rubyHammer;
+    public  Item rubyAxe;
+    public  Item rubyShovel;
+    public  Item rubyHoe;
+    public  Item rubySword;
 
     //Saphire Tools
-    public static Item saphirePickaxe;
-    public static Item saphireHammer;// new com.PixelUtilitys.tools.SaphireHammerTool(6052, Basemod.SAPHIRE, "saphireHammer", "Saphire Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireHammer");
-    public static Item saphireAxe;// new com.PixelUtilitys.tools.SaphireAxeTool(6053, Basemod.SAPHIRE, "pixelutilitys:SaphireAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireAxe");
-    public static Item saphireShovel;// new com.PixelUtilitys.tools.SaphireShovelTool(6054, Basemod.SAPHIRE, "pixelutilitys:SaphireShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireShovel");
-    public static Item saphireHoe;// new com.PixelUtilitys.tools.SaphireHoeTool(6055, Basemod.SAPHIRE, "PixelUtilitys:SaphireHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireHoe");
-    public static Item saphireSword;// new com.PixelUtilitys.tools.SaphireSwordTool(6056, Basemod.SAPHIRE, "PixelUtilitys:SaphireSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireSword");
+    public  Item saphirePickaxe;
+    public  Item saphireHammer;// new com.PixelUtilitys.tools.SaphireHammerTool(6052, Basemod.SAPHIRE, "saphireHammer", "Saphire Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireHammer");
+    public  Item saphireAxe;// new com.PixelUtilitys.tools.SaphireAxeTool(6053, Basemod.SAPHIRE, "pixelutilitys:SaphireAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireAxe");
+    public  Item saphireShovel;// new com.PixelUtilitys.tools.SaphireShovelTool(6054, Basemod.SAPHIRE, "pixelutilitys:SaphireShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireShovel");
+    public  Item saphireHoe;// new com.PixelUtilitys.tools.SaphireHoeTool(6055, Basemod.SAPHIRE, "PixelUtilitys:SaphireHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireHoe");
+    public  Item saphireSword;// new com.PixelUtilitys.tools.SaphireSwordTool(6056, Basemod.SAPHIRE, "PixelUtilitys:SaphireSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("saphireSword");
 
     //Amethyst Tools
-    public static Item amethystPickaxe;// new com.PixelUtilitys.tools.AmethystPickaxeTool(6057, 6.5F, Basemod.AMETHYST, "PixelUtilitys:AmethystPickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystPickaxe");
-    public static Item amethystHammer;// new com.PixelUtilitys.tools.AmethystHammerTool(6058, Basemod.AMETHYST, "AmethystHammer", "Amethyst Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystHammer").setTextureName("PixelUtilitys:AmethystHammer");
-    public static Item amethystShovel;// new com.PixelUtilitys.tools.AmethystShovelTool(6059, Basemod.AMETHYST, "PixelUtilitys:AmethystShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystShovel");
-    public static Item amethystAxe;// new com.PixelUtilitys.tools.AmethystAxeTool(6060, Basemod.AMETHYST, "PixelUtilitys:AmethystAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystAxe");
-    public static Item amethystHoe;// new com.PixelUtilitys.tools.AmethystHoeTool(6061, Basemod.AMETHYST, "PixelUtilitys:AmethystHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystHoe");
-    public static Item amethystSword;// new com.PixelUtilitys.tools.AmethystSwordTool(6062, Basemod.AMETHYST, "PixelUtilitys:AmethystSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystSword");
+    public  Item amethystPickaxe;// new com.PixelUtilitys.tools.AmethystPickaxeTool(6057, 6.5F, Basemod.AMETHYST, "PixelUtilitys:AmethystPickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystPickaxe");
+    public  Item amethystHammer;// new com.PixelUtilitys.tools.AmethystHammerTool(6058, Basemod.AMETHYST, "AmethystHammer", "Amethyst Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystHammer").setTextureName("PixelUtilitys:AmethystHammer");
+    public  Item amethystShovel;// new com.PixelUtilitys.tools.AmethystShovelTool(6059, Basemod.AMETHYST, "PixelUtilitys:AmethystShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystShovel");
+    public  Item amethystAxe;// new com.PixelUtilitys.tools.AmethystAxeTool(6060, Basemod.AMETHYST, "PixelUtilitys:AmethystAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystAxe");
+    public  Item amethystHoe;// new com.PixelUtilitys.tools.AmethystHoeTool(6061, Basemod.AMETHYST, "PixelUtilitys:AmethystHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystHoe");
+    public  Item amethystSword;// new com.PixelUtilitys.tools.AmethystSwordTool(6062, Basemod.AMETHYST, "PixelUtilitys:AmethystSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("amethystSword");
 
     //EvoTools
     //Firestone tools
-    public static Item FirestonePickaxe;// new com.PixelUtilitys.tools.FirestonePickaxe(6083, 6.5F, FIRESTONE, "pixelutilitys:FirestonePickaxe").setTextureName("PixelUtilitys:FirestonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestonePickaxe");
-    public static Item FirestoneHammer;// new com.PixelUtilitys.tools.FirestoneHammer(6084, FIRESTONE, "FirestoneHammer", "Firestone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:FirestoneHammer").setUnlocalizedName("FirestoneHammer");
-    public static Item FirestoneAxe;// new com.PixelUtilitys.tools.FirestoneAxe(6085, FIRESTONE, "pixelutilitys:FirestoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneAxe").setTextureName("PixelUtilitys:FirestoneAxe");
-    public static Item FirestoneShovel;// new com.PixelUtilitys.tools.FirestoneShovel(6086, FIRESTONE, "pixelutilitys:FirestoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneShovel").setTextureName("PixelUtilitys:FirestoneShovel");
-    public static Item FirestoneHoe;// new com.PixelUtilitys.tools.FirestoneHoe(6087, FIRESTONE, "pixelutilitys:FirestoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneHoe").setTextureName("pixelutilitys:FirestoneHoe");
-    public static Item FirestoneSword;// new com.PixelUtilitys.tools.FirestoneSword(6088, FIRESTONE, "pixelutilities:FirestoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneSword").setTextureName("PixelUtilitys:FirestoneSword");
+    public  Item FirestonePickaxe;// new com.PixelUtilitys.tools.FirestonePickaxe(6083, 6.5F, FIRESTONE, "pixelutilitys:FirestonePickaxe").setTextureName("PixelUtilitys:FirestonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestonePickaxe");
+    public  Item FirestoneHammer;// new com.PixelUtilitys.tools.FirestoneHammer(6084, FIRESTONE, "FirestoneHammer", "Firestone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:FirestoneHammer").setUnlocalizedName("FirestoneHammer");
+    public  Item FirestoneAxe;// new com.PixelUtilitys.tools.FirestoneAxe(6085, FIRESTONE, "pixelutilitys:FirestoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneAxe").setTextureName("PixelUtilitys:FirestoneAxe");
+    public  Item FirestoneShovel;// new com.PixelUtilitys.tools.FirestoneShovel(6086, FIRESTONE, "pixelutilitys:FirestoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneShovel").setTextureName("PixelUtilitys:FirestoneShovel");
+    public  Item FirestoneHoe;// new com.PixelUtilitys.tools.FirestoneHoe(6087, FIRESTONE, "pixelutilitys:FirestoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneHoe").setTextureName("pixelutilitys:FirestoneHoe");
+    public  Item FirestoneSword;// new com.PixelUtilitys.tools.FirestoneSword(6088, FIRESTONE, "pixelutilities:FirestoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("FirestoneSword").setTextureName("PixelUtilitys:FirestoneSword");
 
     //Waterstone tools
-    public static Item WaterstonePickaxe;// new com.PixelUtilitys.tools.WaterstonePickaxe(6089, 6.5F, Basemod.WATERSTONE, "pixelutilitys:WaterstonePickaxe").setTextureName("PixelUtilitys:WaterstonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstonePickaxe");
-    public static Item WaterstoneHammer;// new com.PixelUtilitys.tools.WaterstoneHammer(6090, Basemod.WATERSTONE, "WaterstoneHammer", "Waterstone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:WaterstoneHammer").setUnlocalizedName("WaterstoneHammer");
-    public static Item WaterstoneAxe;// new com.PixelUtilitys.tools.WaterstoneAxe(6091, Basemod.WATERSTONE, "pixelutilitys:WaterstoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneAxe").setTextureName("PixelUtilitys:WaterstoneAxe");
-    public static Item WaterstoneShovel;// new com.PixelUtilitys.tools.WaterstoneShovel(6092, Basemod.WATERSTONE, "pixelutilitys:WaterstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneShovel").setTextureName("PixelUtilitys:WaterstoneShovel");
-    public static Item WaterstoneHoe;// new com.PixelUtilitys.tools.WaterstoneHoe(6093, Basemod.WATERSTONE, "pixelutilitys:WaterstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneHoe").setTextureName("pixelutilitys:WaterstoneHoe");
-    public static Item WaterstoneSword;// new com.PixelUtilitys.tools.WaterstoneSword(6094, Basemod.WATERSTONE, "pixelutilitys:WaterstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneSword").setTextureName("PixelUtilitys:WaterstoneSword");
+    public  Item WaterstonePickaxe;// new com.PixelUtilitys.tools.WaterstonePickaxe(6089, 6.5F, Basemod.WATERSTONE, "pixelutilitys:WaterstonePickaxe").setTextureName("PixelUtilitys:WaterstonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstonePickaxe");
+    public  Item WaterstoneHammer;// new com.PixelUtilitys.tools.WaterstoneHammer(6090, Basemod.WATERSTONE, "WaterstoneHammer", "Waterstone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:WaterstoneHammer").setUnlocalizedName("WaterstoneHammer");
+    public  Item WaterstoneAxe;// new com.PixelUtilitys.tools.WaterstoneAxe(6091, Basemod.WATERSTONE, "pixelutilitys:WaterstoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneAxe").setTextureName("PixelUtilitys:WaterstoneAxe");
+    public  Item WaterstoneShovel;// new com.PixelUtilitys.tools.WaterstoneShovel(6092, Basemod.WATERSTONE, "pixelutilitys:WaterstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneShovel").setTextureName("PixelUtilitys:WaterstoneShovel");
+    public  Item WaterstoneHoe;// new com.PixelUtilitys.tools.WaterstoneHoe(6093, Basemod.WATERSTONE, "pixelutilitys:WaterstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneHoe").setTextureName("pixelutilitys:WaterstoneHoe");
+    public  Item WaterstoneSword;// new com.PixelUtilitys.tools.WaterstoneSword(6094, Basemod.WATERSTONE, "pixelutilitys:WaterstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("WaterstoneSword").setTextureName("PixelUtilitys:WaterstoneSword");
 
     //Leafstone tools
-    public static Item LeafstonePickaxe;// new com.PixelUtilitys.tools.LeafstonePickaxe(6095, 6.5F, Basemod.LEAFSTONE, "pixelutilitys:LeafstonePickaxe").setTextureName("PixelUtilitys:LeafstonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstonePickaxe");
-    public static Item LeafstoneHammer;// new com.PixelUtilitys.tools.LeafstoneHammer(6096, Basemod.LEAFSTONE, "rubyHammer", "Leafstone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:LeafstoneHammer").setUnlocalizedName("LeafstoneHammer");
-    public static Item LeafstoneAxe;// new com.PixelUtilitys.tools.LeafstoneAxe(6097, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneAxe").setTextureName("PixelUtilitys:LeafstoneAxe");
-    public static Item LeafstoneShovel;// new com.PixelUtilitys.tools.LeafstoneShovel(6098, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneShovel").setTextureName("PixelUtilitys:LeafstoneShovel");
-    public static Item LeafstoneHoe;// new com.PixelUtilitys.tools.LeafstoneHoe(6099, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneHoe").setTextureName("pixelutilitys:LeafstoneHoe");
-    public static Item LeafstoneSword;// new com.PixelUtilitys.tools.LeafstoneSword(6100, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneSword").setTextureName("PixelUtilitys:LeafstoneSword");
+    public  Item LeafstonePickaxe;// new com.PixelUtilitys.tools.LeafstonePickaxe(6095, 6.5F, Basemod.LEAFSTONE, "pixelutilitys:LeafstonePickaxe").setTextureName("PixelUtilitys:LeafstonePickaxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstonePickaxe");
+    public  Item LeafstoneHammer;// new com.PixelUtilitys.tools.LeafstoneHammer(6096, Basemod.LEAFSTONE, "rubyHammer", "Leafstone Hammer").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setTextureName("PixelUtilitys:LeafstoneHammer").setUnlocalizedName("LeafstoneHammer");
+    public  Item LeafstoneAxe;// new com.PixelUtilitys.tools.LeafstoneAxe(6097, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneAxe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneAxe").setTextureName("PixelUtilitys:LeafstoneAxe");
+    public  Item LeafstoneShovel;// new com.PixelUtilitys.tools.LeafstoneShovel(6098, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneShovel").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneShovel").setTextureName("PixelUtilitys:LeafstoneShovel");
+    public  Item LeafstoneHoe;// new com.PixelUtilitys.tools.LeafstoneHoe(6099, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneHoe").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneHoe").setTextureName("pixelutilitys:LeafstoneHoe");
+    public  Item LeafstoneSword;// new com.PixelUtilitys.tools.LeafstoneSword(6100, Basemod.LEAFSTONE, "pixelutilitys:LeafstoneSword").setCreativeTab(PixelUtilitysCreativeTabs.tabPixelUtilitysTools).setUnlocalizedName("LeafstoneSword").setTextureName("PixelUtilitys:LeafstoneSword");
 
     //Ruby Tools
-    public static Item CrystalPickaxe;
-    public static Item CrystalHammer;
-    public static Item CrystalAxe;
-    public static Item CrystalShovel;
-    public static Item CrystalHoe;
-    public static Item CrystalSword;
-    public static List<Item> toolList = new ArrayList<Item>();
-    public static Constructor PixelHammerToolConstructor = null;
+    public  Item CrystalPickaxe;
+    public  Item CrystalHammer;
+    public  Item CrystalAxe;
+    public  Item CrystalShovel;
+    public  Item CrystalHoe;
+    public  Item CrystalSword;
+    private  List<Item> toolList = new ArrayList<Item>();
+    //Reflection to allow non pixelmon use
+    public  Constructor PixelHammerToolConstructor = null;
 
-    public static void load(Configuration cfg) {
+    public static PixelUtilitysTools instance;
+
+    static {
+        instance = new PixelUtilitysTools();
+    }
+
+    public static PixelUtilitysTools getInstance()
+    {
+        return instance;
+    }
+
+    private PixelUtilitysTools()
+    {
+
+    }
+
+    public void load(Configuration configuration){
 
         try {
             if (Basemod.pixelmonPresent)
@@ -141,7 +158,7 @@ public class PixelUtilitysTools {
 
     }
 
-    public static Item registerHammer(Item.ToolMaterial toolMaterial, String itemString, String itemName) {//hacky ass method because the jvm won't play nice
+    private  Item registerHammer(Item.ToolMaterial toolMaterial, String itemString, String itemName) {//hacky ass method because the jvm won't play nice
         try {
             Item hammer = (Item) PixelHammerToolConstructor.newInstance(toolMaterial, itemString, itemName);
             return hammer;
@@ -152,7 +169,7 @@ public class PixelUtilitysTools {
         return null;
     }
 
-    public static void addNames() {
+    public  void addNames() {
 
         GameRegistry.registerItem(rubyPickaxe, "Ruby Pickaxe");
         GameRegistry.registerItem(rubyAxe, "Ruby Axe");
@@ -204,5 +221,13 @@ public class PixelUtilitysTools {
         GameRegistry.registerItem(CrystalShovel, "Crystal Shovel");
         GameRegistry.registerItem(CrystalHammer, "Crystal Hammer");
 
+    }
+
+    public List<Item> getToolList() {
+        return toolList;
+    }
+
+    public void setToolList(List<Item> toolList) {
+        this.toolList = toolList;
     }
 }

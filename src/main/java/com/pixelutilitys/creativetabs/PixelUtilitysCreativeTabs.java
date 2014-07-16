@@ -45,14 +45,14 @@ public class PixelUtilitysCreativeTabs {
         public void displayAllReleventItems(List itemList)//Allows us to not deal with vanillas stupid sorting
         {
             itemList.clear();
-            for (Item item : PixelUtilitysTools.toolList)
+            for (Item item : PixelUtilitysTools.getInstance().getToolList())
                 itemList.add(new ItemStack(item, 1, 0));
 
         }
 
         @Override
         public Item getTabIconItem() {
-            return PixelUtilitysTools.rubyAxe;
+            return PixelUtilitysTools.getInstance().rubyAxe;
         }
     };
 

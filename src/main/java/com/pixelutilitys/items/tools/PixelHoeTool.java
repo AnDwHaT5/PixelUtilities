@@ -29,8 +29,8 @@ public class PixelHoeTool extends ItemHoe {
     @Override
     public Item setCreativeTab(CreativeTabs tabs) {
         super.setCreativeTab(tabs);
-        if (!PixelUtilitysTools.toolList.contains(this))
-            PixelUtilitysTools.toolList.add(this);
+        if (!PixelUtilitysTools.getInstance().getToolList().contains(this))
+            PixelUtilitysTools.getInstance().getToolList().add(this);
         return null;
     }
 }
