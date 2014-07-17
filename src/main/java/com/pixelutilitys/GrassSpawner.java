@@ -14,16 +14,25 @@ import com.pixelutilitys.blocks.PixelmonGrassBlock;
 import com.pixelutilitys.blocks.PokeWaterFlowing;
 import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
+import cpw.mods.fml.common.FMLLog;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.config.Configuration;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GrassSpawner {
 
     private static GrassSpawner instance;
+    private Configuration spawnerConfig = null;
+    String ssrates = "Special Spawn Rates";
+    String pokeLists = "Encounter Lists";
+    String[] blankArray = {"notConfigured"};
 
     static {
         if (instance == null) {
@@ -34,23 +43,84 @@ public class GrassSpawner {
 
     private GrassSpawner() {
 
-    }
+        spawnerConfig = new Configuration(new File("config/"+Basemod.MODID+"-spawner.cfg"));
+        spawnerConfig.load();
 
+        BiomeGenBase[] biomes = BiomeGenBase.getBiomeGenArray();
+        for(BiomeGenBase biome : biomes)
+        {
+            if(biome == null)
+                break;
+
+            spawnerConfig.get(ssrates, biome.biomeName, 10).getInt();
+
+            switch(biome.biomeName)
+            {
+                case "Plains":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListPlains).getStringList();
+                    break;
+
+                case "Jungle":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListJungle).getStringList();
+                    break;
+
+                case "Forest":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListForest).getStringList();
+                    break;
+
+                case "Extreme Hills":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListExtremeHills).getStringList();
+                    break;
+
+                case "Taiga":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListTaiga).getStringList();
+                    break;
+
+                case "Ice Plains":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListIcePlains).getStringList();
+                    break;
+
+                case "Beach":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListBeach).getStringList();
+                    break;
+
+                case "Desert":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListDesert).getStringList();
+                    break;
+
+                case "Ice Mountains":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListIceMountains).getStringList();
+                    break;
+
+                case "Ocean":
+                    spawnerConfig.get(pokeLists, biome.biomeName, defaultEncounterListOcean).getStringList();
+                    break;
+
+                default:
+                    spawnerConfig.get(pokeLists, biome.biomeName, blankArray).getStringList();
+                    break;
+            }
+        }
+
+        spawnerConfig.save();
+
+    }
 
     public static GrassSpawner getInstance() {
         return instance;
     }
 
-    public EnumPokemon[] encounterListP = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Pidgey"), EnumPokemon.get("Rattata"), EnumPokemon.get("Ponyta")};
-    public EnumPokemon[] encounterListJ = {EnumPokemon.get("Oddish"), EnumPokemon.get("Paras"), EnumPokemon.get("Bellsprout"), EnumPokemon.get("Scyther")};
-    public EnumPokemon[] encounterListF = {EnumPokemon.get("Pikachu"), EnumPokemon.get("Rattata"), EnumPokemon.get("Caterpie"), EnumPokemon.get("Weedle")};
-    public EnumPokemon[] encounterListEH = {EnumPokemon.get("Pidgey"), EnumPokemon.get("Pidgeotto"), EnumPokemon.get("Nidorino"), EnumPokemon.get("Geodude"), EnumPokemon.get("Machop")};
-    public EnumPokemon[] encounterListT = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public EnumPokemon[] encounterListIP = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public EnumPokemon[] encounterListB = {EnumPokemon.get("Slowpoke"), EnumPokemon.get("Staryu"), EnumPokemon.get("Shellder"), EnumPokemon.get("Psyduck")};
-    public EnumPokemon[] encounterListD = {EnumPokemon.get("Trapinch"), EnumPokemon.get("Sandshrew"), EnumPokemon.get("Sandile"), EnumPokemon.get("Geodude")};
-    public EnumPokemon[] encounterListIM = {EnumPokemon.get("Swinub"), EnumPokemon.get("Slowpoke"), EnumPokemon.get("Magnemite"), EnumPokemon.get("Jynx")};
-    public EnumPokemon[] encounterListW = {EnumPokemon.get("Magikarp"), EnumPokemon.get("Staryu"), EnumPokemon.get("Goldeen"), EnumPokemon.get("Shellder")};
+    public String[] defaultEncounterListPlains = {"Pikachu", "Pidgey", "Rattata", "Ponyta"};
+    public String[] defaultEncounterListJungle = {"Oddish", "Paras", "Bellsprout", "Scyther"};
+    public String[] defaultEncounterListForest = {"Pikachu", "Rattata", "Caterpie", "Weedle"};
+    public String[] defaultEncounterListExtremeHills = {"Pidgey", "Pidgeotto", "Nidorino", "Geodude", "Machop"};
+    public String[] defaultEncounterListTaiga = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    public String[] defaultEncounterListIcePlains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    public String[] defaultEncounterListBeach = {"Slowpoke", "Staryu", "Shellder", "Psyduck"};
+    public String[] defaultEncounterListDesert = {"Trapinch", "Sandshrew", "Sandile", "Geodude"};
+    public String[] defaultEncounterListIceMountains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    public String[] defaultEncounterListOcean = {"Magikarp", "Staryu", "Goldeen", "Shellder"};
+
     private double xCoOrd;
     private double lastXCoOrd = 0;
     private double zCoOrd;
@@ -100,41 +170,28 @@ public class GrassSpawner {
     }
 
     private void processWaterBattle(World world, int x, int y, int z, EntityPlayerMP player) {
-
-        spawnBattle(world, x, y, z, player, pixelConfig.oceanSpecialRate, encounterListW);
+//TODO are we even implementing this
+        //spawnBattle(world, x, y, z, player, pixelConfig.oceanSpecialRate, encounterListW);
     }
 
     private void processGrassBattle(World world, int x, int y, int z, EntityPlayerMP player) {
         BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
+        int specialRate = spawnerConfig.get(ssrates, biome.biomeName, 10).getInt();
+        String[] encounters = spawnerConfig.get(pokeLists, biome.biomeName, blankArray).getStringList();
 
+        spawnBattle(world, x, y, z, player, specialRate, encounters);
 
-        if (biome.biomeName.equalsIgnoreCase("taiga")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.taigaSpecialRate, encounterListT);
-        } else if (biome.biomeName.equalsIgnoreCase("jungle")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.jungleSpecialRate, encounterListJ);
-        } else if (biome.biomeName.equalsIgnoreCase("forest")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.forestSpecialRate, encounterListF);
-        } else if (biome.biomeName.equalsIgnoreCase("plains")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.plainsSpecialRate, encounterListP);
-        } else if (biome.biomeName.equalsIgnoreCase("extreme hills")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.extremeHillsSpecialRate, encounterListEH);
-        } else if (biome.biomeName.equalsIgnoreCase("Ice Plains")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.icePlainsSpecialRate, encounterListIP);
-        } else if (biome.biomeName.equalsIgnoreCase("Ice Mountains")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.iceMountainsSpecialRate, encounterListIM);
-        } else if (biome.biomeName.equalsIgnoreCase("beach")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.beachSpecialRate, encounterListB);
-        } else if (biome.biomeName.equalsIgnoreCase("desert")) {
-            spawnBattle(world, x, y, z, player, pixelConfig.desertSpecialRate, encounterListD);
-        }
-    }
+  }
 
-    private void spawnBattle(World world, int x, int y, int z, EntityPlayerMP player, int spawnRate, EnumPokemon[] encounterList) {
+    private void spawnBattle(World world, int x, int y, int z, EntityPlayerMP player, int spawnRate, String[] encounterList) {
+        if(encounterList[0].equals("notConfigured"))
+            return;
+
         int ranPoke = (int) (Math.random() * 10);
-        int specRate = (int) (Math.random() * spawnRate);
+        int specRate = (int) (Math.random() * spawnRate);//TODO check this out..
         if (encounterList[ranPoke] != null) {
             try {
-                EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterList[ranPoke].name, world);
+                EntityPixelmon pokemon = (EntityPixelmon) PixelmonEntityList.createEntityByName(encounterList[ranPoke], world);
                 spawnAndInitiate(world, x, y, z, player, pokemon);
             } catch (PlayerNotLoadedException e) {
                 System.out.println("Error loading Player. " + e.toString());
@@ -175,16 +232,8 @@ public class GrassSpawner {
     }
 
     public void setEncounterList(EnumPokemon[] forest, EnumPokemon[] extremeHillsEncounterList, EnumPokemon[] plainsEncounterList, EnumPokemon[] taigaEncounterList, EnumPokemon[] jungleEncounterList, EnumPokemon[] icePlainsEncounterList, EnumPokemon[] iceMountainsEncounterList, EnumPokemon[] beachEncounterList, EnumPokemon[] desertEncounterList, EnumPokemon[] oceanEncounterList) {
-        encounterListF = forest;
-        encounterListB = beachEncounterList;
-        encounterListEH = extremeHillsEncounterList;
-        encounterListIM = iceMountainsEncounterList;
-        encounterListIP = icePlainsEncounterList;
-        encounterListJ = jungleEncounterList;
-        encounterListP = plainsEncounterList;
-        encounterListT = taigaEncounterList;
-        encounterListD = desertEncounterList;
-        encounterListW = oceanEncounterList;
+
+        FMLLog.severe("NOT IMPLEMENTED, GrassSpawner.setEncounterList");
     }
 
 

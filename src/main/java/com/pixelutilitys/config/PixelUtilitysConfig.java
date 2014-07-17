@@ -21,40 +21,6 @@ public class PixelUtilitysConfig {
     public boolean waterBattles = false;
     public int coinDropRate;
 
-    private String[] forestWildEncounters = new String[10];
-    public EnumPokemon[] forestEncounterList;
-    private String[] extremeHillsWildEncounters = new String[10];
-    public EnumPokemon[] extremeHillsEncounterList;
-    private String[] plainsWildEncounters = new String[10];
-    public EnumPokemon[] plainsEncounterList;
-    private String[] taigaWildEncounters = new String[10];
-    public EnumPokemon[] taigaEncounterList;
-    private String[] jungleWildEncounters = new String[10];
-    public EnumPokemon[] jungleEncounterList;
-    private String[] icePlainsWildEncounters = new String[10];
-    public EnumPokemon[] icePlainsEncounterList;
-    private String[] iceMountainsWildEncounters = new String[10];
-    public EnumPokemon[] iceMountainsEncounterList;
-    private String[] beachWildEncounters = new String[10];
-    public EnumPokemon[] beachEncounterList;
-    private String[] desertWildEncounters = new String[10];
-    public EnumPokemon[] desertEncounterList;
-
-    private String[] oceanWildEncounters = new String[10];
-    public EnumPokemon[] oceanEncounterList;
-
-    public int forestSpecialRate;
-    public int extremeHillsSpecialRate;
-    public int plainsSpecialRate;
-    public int jungleSpecialRate;
-    public int taigaSpecialRate;
-    public int beachSpecialRate;
-    public int icePlainsSpecialRate;
-    public int iceMountainsSpecialRate;
-    public int desertSpecialRate;
-
-    public int oceanSpecialRate;
-
     public String BattleMusicURL;
     public boolean battleMusicEnabled;
 
@@ -85,7 +51,6 @@ public class PixelUtilitysConfig {
         PixelUtilitysItems.load(this.configuration);
         PixelUtilitysBlocks.load(this.configuration);
         PixelUtilitysArmor.load(this.configuration);
-        //PixelUtilitysPokeKit.load(configuration);
         PixelUtilitysBlocks.addNames();
         PixelUtilitysItems.addNames();
         PixelUtilitysArmor.addNames();
@@ -98,16 +63,7 @@ public class PixelUtilitysConfig {
         coinDropRate = this.configuration.get("general", "Pixelmon coin drop rate", 4).getInt();
         waterSpawnRate = this.configuration.get("general", "Pixelmon in water spawn rate", 400).getInt();
 
-        //encounter rates for extra pokes
-        forestSpecialRate = this.configuration.get("Biome Encounters", "Forest Special Rate", 10).getInt();
-        extremeHillsSpecialRate = this.configuration.get("Biome Encounters", "Extreme Hills Special Rate", 10).getInt();
-        taigaSpecialRate = this.configuration.get("Biome Encounters", "Taiga Special Rate", 10).getInt();
-        plainsSpecialRate = this.configuration.get("Biome Encounters", "Plains Special Rate", 10).getInt();
-        jungleSpecialRate = this.configuration.get("Biome Encounters", "Jungle Special Rate", 10).getInt();
-        iceMountainsSpecialRate = this.configuration.get("Biome Encounters", "Ice Mountains Special Rate", 10).getInt();
-        icePlainsSpecialRate = this.configuration.get("Biome Encounters", "Ice Plains Special Rate", 10).getInt();
-        beachSpecialRate = this.configuration.get("Biome Encounters", "Beach Special Rate", 10).getInt();
-        desertSpecialRate = this.configuration.get("Biome Encounters", "Desert Special Rate", 10).getInt();
+        //music
         BattleMusicURL = this.configuration.get("General", "BattleMusic Music Song URL (If youtube make sure http not https)", "http://www.youtube.com/watch?v=WnkhVPmapc8").getString();
         battleMusicEnabled = this.configuration.get("General", "Battle Music Enabled", true).getBoolean(true);
         this.configuration.save();
