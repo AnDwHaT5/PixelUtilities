@@ -15,7 +15,6 @@ import com.pixelutilitys.blocks.PokeWaterFlowing;
 import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
@@ -23,7 +22,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class GrassSpawner {
