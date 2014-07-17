@@ -72,6 +72,22 @@ public class PixelUtilitysTools {
     //Reflection to allow non pixelmon use
     public  Constructor PixelHammerToolConstructor = null;
 
+    public static PixelUtilitysTools instance;
+
+    static {
+        instance = new PixelUtilitysTools();
+    }
+
+    public static PixelUtilitysTools getInstance()
+    {
+        return instance;
+    }
+
+    private PixelUtilitysTools()
+    {
+
+    }
+
     public void load(Configuration configuration){
 
         try {
