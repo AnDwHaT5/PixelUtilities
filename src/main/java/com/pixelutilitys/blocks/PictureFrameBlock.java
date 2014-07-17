@@ -106,6 +106,7 @@ public class PictureFrameBlock extends BlockContainer {
     /**
      * set a blocks direction
      */
+    //TODO is this used?
     private void setDefaultDirection(World par1World, int par2, int par3, int par4) {
         if (!par1World.isRemote) {
             Block l = par1World.getBlock(par2, par3, par4 - 1);

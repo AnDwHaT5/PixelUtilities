@@ -108,8 +108,14 @@ public class PixelUtilitysRecipes {
         //Radio
         GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RadioBlock), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));
 
-
         //Lights
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.blueLightBlock, 1), new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 11), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.redLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 14), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.purpleLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 10), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.yellowLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 4), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.orangeLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 1), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.whiteLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 0), 'y', new ItemStack(Blocks.redstone_torch, 1)});
+        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.greenLightBlock, 1),  new Object[]{"xxx","xyx","xxx", 'x', new ItemStack(Blocks.stained_glass_pane, 1, 5), 'y', new ItemStack(Blocks.redstone_torch, 1)});
 
         //GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.blueLightBlock), new Object[] {"X X", "X X", Character.valueOf('X'), BlockStainedGlass});
     }

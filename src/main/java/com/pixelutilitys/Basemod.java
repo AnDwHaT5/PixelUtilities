@@ -99,7 +99,7 @@ public class Basemod {
             if (Class.forName("com.pixelmonmod.pixelmon.Pixelmon") != null)
                 pixelmonPresent = true;
         } catch (ClassNotFoundException e) {
-            FMLLog.info("Pixelmon mod not found, pixelmon functions disabled.");
+            FMLLog.warning("Pixelmon mod not found, pixelmon functions disabled.");
         }
 
         AddMeta(event);
