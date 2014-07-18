@@ -32,11 +32,11 @@ public class PokeRanCommand extends CommandBase {
 
         // TODO Auto-generated method stub
         EntityPlayer player = (EntityPlayer) sender;
-        ArrayList<String> pokemon = new ArrayList<String>();
+        ArrayList<String> pokemon = new ArrayList<>();
 
         for (EnumPokemon p : EnumPokemon.values())
             pokemon.add(p.name);
-        getListOfStringsMatchingLastWord(pokemon.toArray(new String[]{}));
+        getListOfStringsMatchingLastWord(pokemon.toArray(new String[pokemon.size()]));
 
         int number = (int) (Math.random() * pokemon.size());
         EntityPixelmon p1 = (EntityPixelmon) PixelmonEntityList.createEntityByName(pokemon.get(number), player.worldObj);

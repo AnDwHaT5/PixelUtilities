@@ -94,8 +94,8 @@ public final class PgbCpu {
 			}
 			
 
-			int memread = (int)(mem.read(PC.data++) & 0xFF);
-			cv = 4;
+			int memread = mem.read(PC.data++) & 0xFF;
+//			cv = 4;
 			
 			//System.out.println("memread: 0x" + Integer.toHexString(memread));
 			switch (memread) {
@@ -2280,53 +2280,48 @@ public final class PgbCpu {
 		}
 	}
 	
-	private final void interrupt(int i) {
+	private void interrupt(int i) {
 		if((i & PgbMemory.INT_VBLANK) == PgbMemory.INT_VBLANK) {
 			// vBlank
 			mem.IF &= ~PgbMemory.INT_VBLANK;
 			di();
 			rst(0x0040);
-			return;
 		}
-		if((i & PgbMemory.INT_LCD) == PgbMemory.INT_LCD) {
+		else if((i & PgbMemory.INT_LCD) == PgbMemory.INT_LCD) {
 			// LCD
 			mem.IF &= ~PgbMemory.INT_LCD;
 			di();
 			rst(0x0048);
-			return;
 		}
-		if((i & PgbMemory.INT_TIMER) == PgbMemory.INT_TIMER) {
+		else if((i & PgbMemory.INT_TIMER) == PgbMemory.INT_TIMER) {
 			// timer overflow
 			mem.IF &= ~PgbMemory.INT_TIMER;
 			di();
 			rst(0x0050);
-			return;
 		}
-		if((i & PgbMemory.INT_SERIAL) == PgbMemory.INT_SERIAL) {
+		else if((i & PgbMemory.INT_SERIAL) == PgbMemory.INT_SERIAL) {
 			// serial
 			mem.IF &= ~PgbMemory.INT_SERIAL;
 			di();
 			rst(0x0058);
-			return;
 		}
-		if((i & PgbMemory.INT_JOYPAD) == PgbMemory.INT_JOYPAD) {
+		else if((i & PgbMemory.INT_JOYPAD) == PgbMemory.INT_JOYPAD) {
 			// joypad
 			mem.IF &= ~PgbMemory.INT_JOYPAD;
 			di();
 			rst(0x0060);
-			return;
 		}
 	}
 
 	/**
 	 * interrupts
 	 */
-	private final void di() {
+	private void di() {
 		//System.out.println("Interrupts DISabled.");
 		ime = false;
 	}
 	
-	private final void ei() {
+	private void ei() {
 		//System.out.println("Interrupts ENabled.");
 		ime = true;
 	}
@@ -2339,7 +2334,7 @@ public final class PgbCpu {
 	 * add
 	 * @param val
 	 */
-	private final void add(int val) {
+	private void add(int val) {
 		int res = AF.getH() + val;
 		setC(res != (res &= 0xFF));
 		setZ(res);
@@ -2351,7 +2346,7 @@ public final class PgbCpu {
 	 * add with carrier
 	 * @param val
 	 */
-	private final void adc(int val) {
+	private void adc(int val) {
 		int res = AF.getH() + val + (getC() ? 1 : 0);
 		setC(res != (res &= 0xFF));
 		setZ(res);
@@ -2363,7 +2358,7 @@ public final class PgbCpu {
 	 * substract
 	 * @param val
 	 */
-	private final void sub(int val) {
+	private void sub(int val) {
 		int res = AF.getH() - val;
 		setC(res != (res &= 0xFF));
 		setZ(res);
@@ -2375,7 +2370,7 @@ public final class PgbCpu {
 	 * substract with carrier
 	 * @param val
 	 */
-	private final void sbc(int val) {
+	private void sbc(int val) {
 		int res = AF.getH() - val - (getC() ? 1 : 0);
 		setC(res != (res &= 0xFF));
 		setZ(res);
@@ -2387,7 +2382,7 @@ public final class PgbCpu {
 	 * logical and
 	 * @param val
 	 */
-	private final void and(int val) {
+	private void and(int val) {
 		int res = AF.getH() & val;
 		setC(false);
 		setZ(res);
@@ -2399,7 +2394,7 @@ public final class PgbCpu {
 	 * or
 	 * @param val
 	 */
-	private final void or(int val) {
+	private void or(int val) {
 		int res = AF.getH() | val;
 		setC(false);
 		setZ(res);
@@ -2411,7 +2406,7 @@ public final class PgbCpu {
 	 * exclusive or
 	 * @param val
 	 */
-	private final void xor(int val) {
+	private void xor(int val) {
 		int res = AF.getH() ^ val;
 		setC(false);
 		setZ(res);
@@ -2423,7 +2418,7 @@ public final class PgbCpu {
 	 * compare
 	 * @param val
 	 */
-	private final void cp(int val) {
+	private void cp(int val) {
 		setC(AF.getH() < val);
 		setZ(AF.getH() == val);
 		setN(true);
@@ -2437,7 +2432,7 @@ public final class PgbCpu {
 	 * increase higher
 	 * @param reg
 	 */
-	private final void incH(PgbRegister reg) {
+	private void incH(PgbRegister reg) {
 		int res = (reg.getH() + 1);
 		res &= 0xFF;
 		setZ(res);
@@ -2449,7 +2444,7 @@ public final class PgbCpu {
 	 * increase lower
 	 * @param reg
 	 */
-	private final void incL(PgbRegister reg) {
+	private void incL(PgbRegister reg) {
 		int res = (reg.getL() + 1);
 		res &= 0xFF;
 		setZ(res);
@@ -2461,7 +2456,7 @@ public final class PgbCpu {
 	 * increase memory location (?)
 	 * @param reg
 	 */
-	private final void incI(PgbRegister reg) {
+	private void incI(PgbRegister reg) {
 		int res = reg.getI(mem) + 1;
 		res &= 0xFF;
 		setZ(res);
@@ -2473,7 +2468,7 @@ public final class PgbCpu {
 	 * decrease higher
 	 * @param reg
 	 */
-	private final void decH(PgbRegister reg) {
+	private void decH(PgbRegister reg) {
 		int res = reg.getH() - 1;
 		res &= 0xFF;
 		setZ(res);
@@ -2485,7 +2480,7 @@ public final class PgbCpu {
 	 * decrease lower
 	 * @param reg
 	 */
-	private final void decL(PgbRegister reg) {
+	private void decL(PgbRegister reg) {
 		int res = reg.getL() - 1;
 		res &= 0xFF;
 		setZ(res);
@@ -2497,7 +2492,7 @@ public final class PgbCpu {
 	 * decrease memory location(?)
 	 * @param reg
 	 */
-	private final void decI(PgbRegister reg) {
+	private void decI(PgbRegister reg) {
 		int res = reg.getI(mem) - 1;
 		res &= 0xFF;
 		setZ(res);
@@ -2513,7 +2508,7 @@ public final class PgbCpu {
 	 * increase register
 	 * @param reg
 	 */
-	private final void incR(PgbRegister reg) {
+	private void incR(PgbRegister reg) {
 		reg.setR(reg.getR() + 1 & 0xFFFF);
 	}
 	
@@ -2521,7 +2516,7 @@ public final class PgbCpu {
 	 * decrease register
 	 * @param reg
 	 */
-	private final void decR(PgbRegister reg) {
+	private void decR(PgbRegister reg) {
 		reg.setR(reg.getR() - 1 & 0xFFFF);
 	}
 	
@@ -2530,7 +2525,7 @@ public final class PgbCpu {
 	 * @param reg0
 	 * @param reg1
 	 */
-	private final void addR(PgbRegister reg0, PgbRegister reg1) {
+	private void addR(PgbRegister reg0, PgbRegister reg1) {
 		int res = reg0.getR() + reg1.getR();
 		setC(res != (res &= 0xFFFF));
 		reg0.setR(res);
@@ -2539,11 +2534,11 @@ public final class PgbCpu {
 	/**
 	 * stack
 	 */
-	private final void pop(PgbRegister reg) {
+	private void pop(PgbRegister reg) {
 		reg.setL(mem.read(SP.data++));
 		reg.setH(mem.read(SP.data++));
 	}
-	private final void push(PgbRegister reg) {
+	private void push(PgbRegister reg) {
 		// arggh. some roms push with SP == 0x0000,
 		// totally ruining the elegance of this expression
 		mem.write(--SP.data & 0xFFFF, reg.getH());
@@ -2554,61 +2549,61 @@ public final class PgbCpu {
 	/**
 	 * jumping around...
 	 */
-	private final void jp(int address) {
+	private void jp(int address) {
 		PC.setR(address);
 	}
-	private final void jr(int offset) {
+	private void jr(int offset) {
 		PC.setR(PC.getR() + (byte)offset);
 	}
-	private final void call(int address) {
+	private void call(int address) {
 		push(PC);
 		PC.setR(address);
 	}
-	private final void rst(int address) {
+	private void rst(int address) {
 		push(PC);
 		PC.setR(address);
 	}
-	private final void ret() {
+	private void ret() {
 		pop(PC);
 	}
 	
 	/**
 	 * bitwise operators
 	 */
-	private final void bit(int bit, int val) {
-		int res = val & (int)(1 << bit);
+	private void bit(int bit, int val) {
+		int res = val & 1 << bit;
 		setZ(res);
 		setN(false);
 	}
-	private final void resH(int bit, PgbRegister reg) {
-		int res = reg.getH() & ~(int)(1 << bit);
+	private void resH(int bit, PgbRegister reg) {
+		int res = reg.getH() & ~(1 << bit);
 		reg.setH(res);
 	}
-	private final void resL(int bit, PgbRegister reg) {
-		int res = reg.getL() & ~(int)(1 << bit);
+	private void resL(int bit, PgbRegister reg) {
+		int res = reg.getL() & ~(1 << bit);
 		reg.setL(res);
 	}
-	private final void resI(int bit, int address) {
-		int res = unsign(mem.read(address)) & ~(int)(1 << bit);
+	private void resI(int bit, int address) {
+		int res = unsign(mem.read(address)) & ~(1 << bit);
 		mem.write(address, res);
 	}
-	private final void setH(int bit, PgbRegister reg) {
-		int res = reg.getH() | (int)(1 << bit);
+	private void setH(int bit, PgbRegister reg) {
+		int res = reg.getH() | 1 << bit;
 		reg.setH(res);
 	}
-	private final void setL(int bit, PgbRegister reg) {
-		int res = reg.getL() | (int)(1 << bit);
+	private void setL(int bit, PgbRegister reg) {
+		int res = reg.getL() | 1 << bit;
 		reg.setL(res);
 	}
-	private final void setI(int bit, int address) {
-		int res = unsign(mem.read(address)) | (int)(1 << bit);
+	private void setI(int bit, int address) {
+		int res = unsign(mem.read(address)) | 1 << bit;
 		mem.write(address, res);
 	}
 	
 	/**
 	 * rotates and shifts
 	 */
-	private final void rrcH(PgbRegister reg) {
+	private void rrcH(PgbRegister reg) {
 		int res = reg.getH();
 		setC((res & 0x01) == 1);
 		res = (res >> 1) | ((res & 0x01) << 7);
@@ -2616,7 +2611,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setH(res);
 	}
-	private final void rrcL(PgbRegister reg) {
+	private void rrcL(PgbRegister reg) {
 		int res = reg.getL();
 		setC((res & 0x01) == 1);
 		res = (res >> 1) | ((res & 0x01) << 7);
@@ -2624,7 +2619,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setL(res);
 	}
-	private final void rrcI(int address) {
+	private void rrcI(int address) {
 		int res = unsign(mem.read(address));
 		setC((res & 0x01) == 1);
 		res = (res >> 1) | ((res & 0x01) << 7);
@@ -2632,7 +2627,7 @@ public final class PgbCpu {
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void rrH(PgbRegister reg) {
+	private void rrH(PgbRegister reg) {
 		int res = reg.getH();
 		res = (res >> 1) | (getC() ? 0x80 : 0);
 		setC((reg.getH() & 0x01) == 1);
@@ -2640,7 +2635,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setH(res);
 	}
-	private final void rrL(PgbRegister reg) {
+	private void rrL(PgbRegister reg) {
 		int res = reg.getL();
 		res = (res >> 1) | (getC() ? 0x80 : 0);
 		setC((reg.getL() & 0x01) == 1);
@@ -2648,7 +2643,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setL(res);
 	}
-	private final void rrI(int address) {
+	private void rrI(int address) {
 		int res = unsign(mem.read(address));
 		res = (res >> 1) | (getC() ? 0x80 : 0);
 		setC((unsign(mem.read(address)) & 0x01) == 1);
@@ -2656,7 +2651,7 @@ public final class PgbCpu {
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void rlcH(PgbRegister reg) {
+	private void rlcH(PgbRegister reg) {
 		int res = reg.getH();
 		res = (res << 1) | (res >> 7);
 		setC(res != (res &= 0xFF));
@@ -2664,7 +2659,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setH(res);
 	}
-	private final void rlcL(PgbRegister reg) {
+	private void rlcL(PgbRegister reg) {
 		int res = reg.getL();
 		res = (res << 1) | (res >> 7);
 		setC(res != (res &= 0xFF));
@@ -2672,7 +2667,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setL(res);
 	}
-	private final void rlcI(int address) {
+	private void rlcI(int address) {
 		int res = unsign(mem.read(address));
 		res = (res << 1) | (res >> 7);
 		setC(res != (res &= 0xFF));
@@ -2680,28 +2675,28 @@ public final class PgbCpu {
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void rlH(PgbRegister reg) {
+	private void rlH(PgbRegister reg) {
 		int res = (reg.getH() << 1) | (getC() ? 1 : 0);
 		setC(res != (res &= 0xFF));
 		setZ(res);
 		setN(false);
 		reg.setH(res);
 	}
-	private final void rlL(PgbRegister reg) {
+	private void rlL(PgbRegister reg) {
 		int res = (reg.getL() << 1) | (getC() ? 1 : 0);
 		setC(res != (res &= 0xFF));
 		setZ(res);
 		setN(false);
 		reg.setL(res);
 	}
-	private final void rlI(int address) {
+	private void rlI(int address) {
 		int res = (unsign(mem.read(address)) << 1) | (getC() ? 1 : 0);
 		setC(res != (res &= 0xFF));
 		setZ(res);
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void sraH(PgbRegister reg) {
+	private void sraH(PgbRegister reg) {
 		int res = reg.getH();
 		setC((res & 1) == 1);
 		res = (res >> 1) | (res & 0x80);
@@ -2709,7 +2704,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setH(res);
 	}
-	private final void sraL(PgbRegister reg) {
+	private void sraL(PgbRegister reg) {
 		int res = reg.getL();
 		setC((res & 1) == 1);
 		res = (res >> 1) | (res & 0x80);
@@ -2717,7 +2712,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setL(res);
 	}
-	private final void sraI(int address) {
+	private void sraI(int address) {
 		int res = unsign(mem.read(address));
 		setC((res & 1) == 1);
 		res = (res >> 1) | (res & 0x80);
@@ -2725,21 +2720,21 @@ public final class PgbCpu {
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void slaH(PgbRegister reg) {
+	private void slaH(PgbRegister reg) {
 		int res = reg.getH() << 1;
 		setC(res != (res &= 0xFF));
 		setZ(res);
 		setN(false);
 		reg.setH(res);
 	}
-	private final void slaL(PgbRegister reg) {
+	private void slaL(PgbRegister reg) {
 		int res = reg.getL() << 1;
 		setC(res != (res &= 0xFF));
 		setZ(res);
 		setN(false);
 		reg.setL(res);
 	}
-	private final void slaI(int address) {
+	private void slaI(int address) {
 		int res = unsign(mem.read(address));
 		res *= 2;
 		setC(res != (res &= 0xFF));
@@ -2747,7 +2742,7 @@ public final class PgbCpu {
 		setN(false);
 		mem.write(address, res);
 	}
-	private final void srlH(PgbRegister reg) {
+	private void srlH(PgbRegister reg) {
 		int res = reg.getH();
 		setC((res & 1) == 1);
 		res >>= 1;
@@ -2755,7 +2750,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setH(res);
 	}
-	private final void srlL(PgbRegister reg) {
+	private void srlL(PgbRegister reg) {
 		int res = reg.getL();
 		setC((res & 1) == 1);
 		res >>= 1;
@@ -2763,7 +2758,7 @@ public final class PgbCpu {
 		setN(false);
 		reg.setL(res);
 	}
-	private final void srlI(int address) {
+	private void srlI(int address) {
 		int res = unsign(mem.read(address));
 		setC((res & 1) == 1);
 		res >>= 1;
@@ -2775,12 +2770,12 @@ public final class PgbCpu {
 	/**
 	 * misc operations
 	 */
-	private final void cpl() {
+	private void cpl() {
 		int res = ~AF.getH() & 0xFF;
 		setN(true);
 		AF.setH(res);
 	}
-	private final void daa() {
+	private void daa() {
 		int res = AF.getH();
 		if(getN()) {
 			if(res / 16 > 9) {
@@ -2801,21 +2796,21 @@ public final class PgbCpu {
 		setZ(res);
 		AF.setH(res);
 	}
-	private final void swapH(PgbRegister reg) {
+	private void swapH(PgbRegister reg) {
 		int res = ((reg.getH() << 4) & 0xF0) | (reg.getH() >> 4);
 		setC(false);
 		setZ(res);
 		setN(false);
 		reg.setH(res);
 	}
-	private final void swapL(PgbRegister reg) {
+	private void swapL(PgbRegister reg) {
 		int res = ((reg.getL() << 4) & 0xF0) | (reg.getL() >> 4);
 		setC(false);
 		setZ(res);
 		setN(false);
 		reg.setL(res);
 	}
-	private final void swapI(int address) {
+	private void swapI(int address) {
 		int res = ((unsign(mem.read(address)) << 4) & 0xF0) | (unsign(mem.read(address)) >> 4);
 		setC(false);
 		setZ(res);
@@ -2826,57 +2821,57 @@ public final class PgbCpu {
 	/**
 	 * flaggies?
 	 */
-	private final void setZ(boolean zval) {
+	private void setZ(boolean zval) {
 		AF.lo &= ~Z_FLAG;
 		if(zval) {
 			AF.lo |= Z_FLAG;
 		}
 	}
-	private final void setZ(int zval) {
+	private void setZ(int zval) {
 		AF.lo &= ~Z_FLAG;
 		if(zval == 0) {
 			AF.lo |= Z_FLAG;
 		}
 	}
-	private final void setN(boolean nval) {
+	private void setN(boolean nval) {
 		AF.lo &= ~N_FLAG;
 		if(nval) {
 			AF.lo |= N_FLAG;
 		}
 	}
-	private final void setH(boolean hval) {
+	private void setH(boolean hval) {
 		AF.lo &= ~H_FLAG;
 		if(hval) {
 			AF.lo |= H_FLAG;
 		}
 	}
-	private final void setC(boolean cval) {
+	private void setC(boolean cval) {
 		AF.lo &= ~C_FLAG;
 		if(cval) {
 			AF.lo |= C_FLAG;
 		}
 	}
-	private final boolean getZ() {
+	private boolean getZ() {
 		return (AF.getL() & Z_FLAG) == Z_FLAG;
 	}
-	private final boolean getN() {
+	private boolean getN() {
 		return (AF.getL() & N_FLAG) == N_FLAG;
 	}
-	private final boolean getH() {
+	private boolean getH() {
 		return (AF.getL() & H_FLAG) == H_FLAG;
 	}
-	private final boolean getC() {
+	private boolean getC() {
 		return (AF.getL() & C_FLAG) == C_FLAG;
 	}
 	
 	/**
 	 * reads
 	 */
-	private final int readWord() {
+	private int readWord() {
 		return unsign(mem.read(PC.data++)) | unsign(mem.read(PC.data++)) << 8;
 	}
 	
-	private final int readByte() {
+	private int readByte() {
 		return unsign(mem.read(PC.data++));
 	}
 	
@@ -2896,7 +2891,7 @@ public final class PgbCpu {
 	/**
 	 * unsign a byte
 	 */
-	private final int unsign(byte b) {
-		return (int)(b & 0xFF);
+	private int unsign(byte b) {
+		return b & 0xFF;
 	}
 }

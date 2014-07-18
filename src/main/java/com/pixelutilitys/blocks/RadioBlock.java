@@ -155,9 +155,9 @@ public class RadioBlock extends Block implements ITileEntityProvider {
                 double d0 = (double) ((float) x + par5Random.nextFloat());
                 double d1 = (double) ((float) y + par5Random.nextFloat());
                 double d2 = (double) ((float) z + par5Random.nextFloat());
-                double d3 = 0.0D;
-                double d4 = 0.0D;
-                double d5 = 0.0D;
+                double d3;
+                double d4;
+                double d5;
                 int i1 = par5Random.nextInt(2) * 2 - 1;
                 d3 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;
                 d4 = ((double) par5Random.nextFloat() - 0.5D) * 0.5D;

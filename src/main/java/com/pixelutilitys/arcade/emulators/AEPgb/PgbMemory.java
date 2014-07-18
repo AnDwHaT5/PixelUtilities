@@ -317,7 +317,7 @@ public final class PgbMemory {
 			return (byte) tma;
 			// Timer Control
 		case 0xFF07 :
-			return (byte) tac;
+			return tac;
 			// Interrupt Flag (R/W)
 		case 0xFF0F :
 			return IF;
@@ -1076,33 +1076,29 @@ public final class PgbMemory {
 		if (sgbPacketCounter == 0 && sgbBitCounter == 8) {
 			sgbCheckCommand();
 		}
-		if (sgbBitCounter == 128) {
+		else if (sgbBitCounter == 128) {
 			if (++sgbPacketCounter == sgbPackets) {
 				sgbCommandExec();
 				sgbPacketCounter = 0;
 			}
 			sgbBitCounter = 0;
 			sgbListening = false;
-			return;
 		}
-		if (b == 0x00) {
+        else if (b == 0x00) {
 			// wake up!
 			sgbListening = true;
-			return;
 		}
-		if (sgbListening && b == 0x10) {
+        else if (sgbListening && b == 0x10) {
 			// one?
 			sgbBuffer[sgbPacketCounter * 16
 				+ sgbBitCounter / 8] |= (byte) ( 1 << (sgbBitCounter & 7) );
 			sgbBitCounter++;
-			return;
 		}
-		if (sgbListening && b == 0x20) {
+        else if (sgbListening && b == 0x20) {
 			// zero?
 			sgbBuffer[sgbPacketCounter * 16
 				+ sgbBitCounter / 8] &= ~(byte) ( 1 << (sgbBitCounter & 7) );
 			sgbBitCounter++;
-			return;
 		}
 	}
 
@@ -1225,8 +1221,8 @@ public final class PgbMemory {
 				for (i = 0; i < 90; i++) {
 					//video.sgbSetPaletteOverlayByte(i, sgbBuffer[i + 6]);
 					video.sgbSetPaletteOverlay(
-						i * 4 + 0,
-						(sgbBuffer[i + 6]) & 0x03 >> 0);
+						i * 4    ,
+						(sgbBuffer[i + 6]) & 0x03);
 					video.sgbSetPaletteOverlay(
 						i * 4 + 1,
 						(sgbBuffer[i + 6]) & 0x0C >> 2);

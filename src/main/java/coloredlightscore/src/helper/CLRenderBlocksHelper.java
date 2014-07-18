@@ -32,10 +32,10 @@ public class CLRenderBlocksHelper {
     public static boolean renderStandardBlockWithAmbientOcclusion(RenderBlocks renderBlocks, Block par1Block, int par2, int par3, int par4, float par5, float par6, float par7) {
         renderBlocks.enableAO = true;
         boolean var8 = false;
-        float var9 = 0.0F;
-        float var10 = 0.0F;
-        float var11 = 0.0F;
-        float var12 = 0.0F;
+        float var9;
+        float var10;
+        float var11;
+        float var12;
         boolean var13 = true;
         int var14 = CLBlockHelper.getMixedBrightnessForBlockWithColor(renderBlocks.blockAccess, par2, par3, par4);
         Tessellator var15 = Tessellator.instance;
@@ -1117,7 +1117,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;
@@ -1142,7 +1142,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;
@@ -1167,7 +1167,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;
@@ -1200,7 +1200,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;
@@ -1233,7 +1233,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;
@@ -1266,7 +1266,7 @@ public class CLRenderBlocksHelper {
             float rc = 1;
             float gc = 1;
             float bc = 1;
-            float lc = 1;
+            float lc;
 
             if ((i & 1048320) > 0) {
                 lc = 1f - (i & 240) / 240f;

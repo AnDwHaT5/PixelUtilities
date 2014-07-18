@@ -25,10 +25,7 @@ public class TransformChunkCache extends HelperMethodTransformer {
     @Override
     protected boolean transform(ClassNode clazz, MethodNode method) {
 
-        if (NameMapper.getInstance().isMethod(method, super.className, "getLightBrightnessForSkyBlocks (IIII)I")) {
-            return redefineMethod(clazz, method, "getLightBrightnessForSkyBlocks");
-        } else
-            return false;
+        return NameMapper.getInstance().isMethod(method, super.className, "getLightBrightnessForSkyBlocks (IIII)I") && redefineMethod(clazz, method, "getLightBrightnessForSkyBlocks");
 
     }
 

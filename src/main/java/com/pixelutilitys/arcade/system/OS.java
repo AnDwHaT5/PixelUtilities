@@ -17,7 +17,6 @@ import java.util.Map;
 
 import com.pixelutilitys.arcade.interfaces.IArcadeGame;
 import com.pixelutilitys.arcade.interfaces.IArcadeMachine;
-import net.minecraft.client.Minecraft;
 
 import org.lwjgl.input.Keyboard;
 
@@ -37,11 +36,11 @@ public class OS implements IArcadeGame {
 	public BufferedImage gameIcon;
 	public String currentPlayer = null;
 	public boolean imageDirty = false;
-	public HashMap<Integer, Boolean> pressedKeys = new HashMap<Integer, Boolean>();
+	public HashMap<Integer, Boolean> pressedKeys = new HashMap<>();
 	private IProgram currentProgram;
 	private int currentSelection = 0;
-	public List<IProgram> programs = new ArrayList<IProgram>();
-	public Map<String, List<Integer>> keys = new HashMap<String, List<Integer>>();
+	public List<IProgram> programs = new ArrayList<>();
+	public Map<String, List<Integer>> keys = new HashMap<>();
 
 	@Override
 	public void initialize() {
@@ -105,12 +104,11 @@ public class OS implements IArcadeGame {
 			g.drawString(getTitle(), 10, 20);
 			int markerOffset = 0;
 			if (currentSelection > 11) {
-				int offset = 11 - currentSelection;
-				markerOffset = offset;
+				markerOffset = 11 - currentSelection;
 			}
 			g.drawString(">", 10, 36 + ((currentSelection + markerOffset) * 16));
 
-			ArrayList<String> output = new ArrayList<String>();
+			ArrayList<String> output = new ArrayList<>();
 			for (IProgram p : programs) {
 				output.add(p.getTitle());
 			}
@@ -188,29 +186,30 @@ public class OS implements IArcadeGame {
 
 	@Override
 	public void doGameTick(List<KEY> input) {
-			List<List<Integer>> keysets = new ArrayList<List<Integer>>(keys.values());
-			for (int i = 0; i < keysets.size(); i++) {
-				List<Integer> keyset = keysets.get(i);
-				for (int j = 0; j < keyset.size(); j++) {
-					int key = keyset.get(j);
-					if (Keyboard.isKeyDown(key)) {
-						if (pressedKeys.containsKey(key)) {
-							if (pressedKeys.get(key)) {
-								continue;
-							}
-						}
-						onKeyDown(key);
-						pressedKeys.put(key, true);
-					}
-				}
-			}
-			Integer[] downkeys = pressedKeys.keySet().toArray(new Integer[0]);
-			for (int i = 0; i < downkeys.length; i++) {
-				if (!Keyboard.isKeyDown(downkeys[i])) {
-					pressedKeys.put(downkeys[i], false);
-					onKeyUp(downkeys[i]);
-				}
-			}
+			List<List<Integer>> keysets = new ArrayList<>(keys.values());
+        for (List<Integer> keyset : keysets) {
+            for (Integer aKeyset : keyset) {
+                int key = aKeyset;
+                if (Keyboard.isKeyDown(key)) {
+                    if (pressedKeys.containsKey(key)) {
+                        if (pressedKeys.get(key)) {
+                            continue;
+                        }
+                    }
+                    onKeyDown(key);
+                    pressedKeys.put(key, true);
+                }
+            }
+        }
+        java.util.Set<Integer> var = pressedKeys.keySet();
+        Integer[] downkeys = var.toArray(new Integer[var.size()]);
+
+        for (Integer downkey : downkeys) {
+            if (!Keyboard.isKeyDown(downkey)) {
+                pressedKeys.put(downkey, false);
+                onKeyUp(downkey);
+            }
+        }
 
 	}
 
@@ -238,19 +237,11 @@ public class OS implements IArcadeGame {
 			logger.log("Registered key! " + toProgram.getTitle() + " " + key);
 		}
 		else {
-			ArrayList<Integer> keyz = new ArrayList<Integer>();
+			ArrayList<Integer> keyz = new ArrayList<>();
 			keyz.add(key);
 			keys.put(toProgram.getTitle(), keyz);
 			logger.log("Registered key, created new keyset! " + toProgram.getTitle() + " " + key);
 		}
 	}
 
-	public void unregisterKey(IProgram toProgram, int key) {
-		if (keys.containsKey(toProgram.getTitle())) {
-			if (keys.get(toProgram).contains(key)) {
-				keys.get(toProgram).remove(key);
-				logger.log("Unregistered key! " + toProgram.getTitle() + " " + key);
-			}
-		}
-	}
 }

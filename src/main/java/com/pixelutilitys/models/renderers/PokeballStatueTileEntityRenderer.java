@@ -1,6 +1,5 @@
 package com.pixelutilitys.models.renderers;
 
-import com.pixelutilitys.BlockRotation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -25,7 +24,6 @@ public class PokeballStatueTileEntityRenderer extends TileEntitySpecialRenderer 
         int meta = Minecraft.getMinecraft().theWorld.getBlockMetadata(tile.xCoord, tile.yCoord, tile.zCoord);
 //		if (meta > 4)
 //			return;
-        BlockRotation rot = BlockRotation.getRotationFromMetadata(meta);
 
         int i = tile.getBlockMetadata(); // this is for rotation
         int j = 0;

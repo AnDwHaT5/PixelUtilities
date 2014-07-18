@@ -1,6 +1,5 @@
 package com.pixelutilitys.config;
 
-import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 

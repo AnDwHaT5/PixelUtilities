@@ -10,8 +10,6 @@ import com.pixelutilitys.events.PUTickHandler;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.tileentitys.*;
 import com.pixelutilitys.worldgen.*;
-import com.sun.jna.Native;
-import com.sun.jna.NativeLibrary;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -31,14 +29,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.discovery.NativeDiscovery;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 import uk.co.caprica.vlcj.version.LibVlcVersion;
 import uk.co.caprica.vlcj.version.Version;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION, dependencies = "after:pixelmon")
@@ -74,8 +69,8 @@ public class Basemod {
     public static boolean is64bit = Integer.parseInt(System.getProperty("sun.arch.data.model")) == 64;
     public static boolean DEBUGMODE = false;
     public static FMLEventChannel channel;
-    public static List<VLCPlayer> playerList = new ArrayList<VLCPlayer>();
-    public static List<VLCPlayer> battleMusicList = new ArrayList<VLCPlayer>();
+    public static List<VLCPlayer> playerList = new ArrayList<>();
+    public static List<VLCPlayer> battleMusicList = new ArrayList<>();
     public static VLCPlayer localMusicPlayer = null;
 
     //In development biome //pokebiome
@@ -192,12 +187,9 @@ public class Basemod {
             //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
         }
 
-        if (this.DEBUGMODE) {
+        if (DEBUGMODE) {
             //Here be dragons.
-            @SuppressWarnings("unchecked") Iterator<Block> blockIterator = GameData.getBlockRegistry().iterator();
-            while (blockIterator.hasNext()) {
-                Block block = blockIterator.next();
-
+            for (Block block : GameData.getBlockRegistry()) {
                 if (GameRegistry.findUniqueIdentifierFor(block).modId.equals("minecraft"))
                     continue;
 
@@ -217,10 +209,7 @@ public class Basemod {
 
             }
 
-            Iterator<Item> items = GameData.getItemRegistry().iterator();
-
-            while (items.hasNext()) {
-                Item item = items.next();
+            for (Item item : GameData.getItemRegistry()) {
                 ItemStack itemStack = new ItemStack(item, 0, 1);
 
                 String itemName = item.getItemStackDisplayName(itemStack);

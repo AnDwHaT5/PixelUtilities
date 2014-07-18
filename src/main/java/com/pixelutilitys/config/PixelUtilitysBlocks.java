@@ -84,7 +84,7 @@ public class PixelUtilitysBlocks {
     public static Block whiteLightBlock;
     public static Block greenLightBlock;
 
-    public static List<Block> LightBlockList = new ArrayList<Block>();
+    public static List<Block> LightBlockList = new ArrayList<>();
 
 
     public static void load(Configuration cfg) {

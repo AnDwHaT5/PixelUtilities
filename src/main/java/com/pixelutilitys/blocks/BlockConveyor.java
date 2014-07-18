@@ -324,7 +324,7 @@ public class BlockConveyor extends BlockContainer {
 
     @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> ret = new ArrayList<>();
         if (world.getBlock(x, y, z).equals(this)) {
             ret.add(new ItemStack(this, 1, getDamageValue(world, x, y, z)));
             if (((TileEntityConveyor) world.getTileEntity(x, y, z)).isFast())

@@ -43,7 +43,7 @@ public class ChunkColorDataPacket implements IMessage, IMessageHandler<ChunkColo
     }
 
     public ChunkColorDataPacket(Method methodGetValueArray) {
-        this.methodGetValueArray = methodGetValueArray;
+        ChunkColorDataPacket.methodGetValueArray = methodGetValueArray;
     }
 
     @Override
@@ -57,15 +57,14 @@ public class ChunkColorDataPacket implements IMessage, IMessageHandler<ChunkColo
 
     @SideOnly(Side.CLIENT)
     private void processColorDataPacket(ChunkColorDataPacket packet) {
-        ChunkColorDataPacket ccdPacket = (ChunkColorDataPacket) packet;
 
-        Chunk targetChunk = Minecraft.getMinecraft().theWorld.getChunkFromChunkCoords(ccdPacket.chunkXPosition, ccdPacket.chunkZPosition);
+        Chunk targetChunk = Minecraft.getMinecraft().theWorld.getChunkFromChunkCoords(packet.chunkXPosition, packet.chunkZPosition);
 
         if (targetChunk != null) {
-            ChunkStorageRGB.loadColorData(targetChunk, ccdPacket.arraySize, ccdPacket.yLocation, ccdPacket.RedColorArray, ccdPacket.GreenColorArray, ccdPacket.BlueColorArray);
+            ChunkStorageRGB.loadColorData(targetChunk, packet.arraySize, packet.yLocation, packet.RedColorArray, packet.GreenColorArray, packet.BlueColorArray);
             //FMLLog.info("ProcessColorDataPacket() loaded RGB for (%s,%s)", ccdPacket.chunkXPosition, ccdPacket.chunkZPosition);
         } else
-            FMLLog.warning("ProcessColorDataPacket()  Chunk located at (%s, %s) could not be found in the local world!", ccdPacket.chunkXPosition, ccdPacket.chunkZPosition);
+            FMLLog.warning("ProcessColorDataPacket()  Chunk located at (%s, %s) could not be found in the local world!", packet.chunkXPosition, packet.chunkZPosition);
     }
 
 
@@ -74,7 +73,7 @@ public class ChunkColorDataPacket implements IMessage, IMessageHandler<ChunkColo
         try {
             byte[] rawColorData = new byte[2048 * 16 * 3];
             byte[] compressedColorData = new byte[32000];
-            byte[] nibbleData = new byte[2048];
+            byte[] nibbleData;
             int compressedSize;
             int arraysPresent;
             int p = 0;
@@ -164,9 +163,9 @@ public class ChunkColorDataPacket implements IMessage, IMessageHandler<ChunkColo
                 if (RedColorArray[i] != null || GreenColorArray[i] != null || BlueColorArray[i] != null) {
                     arraysPresent |= (1 << i);
                     if (FMLCommonHandler.instance().getModName().contains("cauldron")) {
-                        byte[] localRed = (byte[]) this.methodGetValueArray.invoke(RedColorArray[i]);
-                        byte[] localGreen = (byte[]) this.methodGetValueArray.invoke(GreenColorArray[i]);
-                        byte[] localBlue = (byte[]) this.methodGetValueArray.invoke(BlueColorArray[i]);
+                        byte[] localRed = (byte[]) methodGetValueArray.invoke(RedColorArray[i]);
+                        byte[] localGreen = (byte[]) methodGetValueArray.invoke(GreenColorArray[i]);
+                        byte[] localBlue = (byte[]) methodGetValueArray.invoke(BlueColorArray[i]);
                         System.arraycopy(localRed, 0, rawColorData, p, localRed.length);
                         p += localRed.length;
                         System.arraycopy(localGreen, 0, rawColorData, p, localGreen.length);

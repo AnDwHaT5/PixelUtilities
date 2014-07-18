@@ -28,7 +28,7 @@ public class PokecheckmeCommand extends CommandBase {
     public void processCommand(ICommandSender sender, String[] astring) {
         // TODO Auto-generated method stub
         EntityPlayer player = (EntityPlayer) sender;
-        player.openGui(Pixelmon.instance, EnumGui.PC.getIndex().intValue(), null, 0, 0, 0);
+        player.openGui(Pixelmon.instance, EnumGui.PC.getIndex(), null, 0, 0, 0);
         ChatComponentTranslation success = new ChatComponentTranslation("You have successfuly opened your pc files!");
         sender.addChatMessage(success);
     }

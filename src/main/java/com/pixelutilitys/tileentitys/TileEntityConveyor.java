@@ -277,10 +277,6 @@ public class TileEntityConveyor extends TileEntity implements ISidedInventory {
         setConveyorActive(true);
     }
 
-    public boolean getConveyorActive() {
-        return _conveyorActive;
-    }
-
     public void setConveyorActive(boolean conveyorActive) {
         boolean wasActive = _conveyorActive;
         _conveyorActive = conveyorActive;

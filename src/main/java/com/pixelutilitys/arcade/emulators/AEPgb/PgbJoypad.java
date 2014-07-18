@@ -121,74 +121,59 @@ public class PgbJoypad implements KeyListener {
 	 * KeyListener
 	 */
 	public void keyPressed(KeyEvent ev) {
+
 		if(ev.getKeyCode() == PgbSettings.key_right) {
 			c_right = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_left) {
+		else if(ev.getKeyCode() == PgbSettings.key_left) {
 			c_left = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_up) {
+        else if(ev.getKeyCode() == PgbSettings.key_up) {
 			c_up = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_down) {
+        else if(ev.getKeyCode() == PgbSettings.key_down) {
 			c_down = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_a) {
+        else if(ev.getKeyCode() == PgbSettings.key_a) {
 			b_a = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_b) {
+        else if(ev.getKeyCode() == PgbSettings.key_b) {
 			b_b = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_select) {
+        else if(ev.getKeyCode() == PgbSettings.key_select) {
 			b_select = true;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_start) {
+        else  if(ev.getKeyCode() == PgbSettings.key_start) {
 			b_start = true;
-			return;
 		}
 	}
 	public void keyReleased(KeyEvent ev) {
 		if(ev.getKeyCode() == PgbSettings.key_right) {
 			c_right = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_left) {
+        else if(ev.getKeyCode() == PgbSettings.key_left) {
 			c_left = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_up) {
+        else if(ev.getKeyCode() == PgbSettings.key_up) {
 			c_up = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_down) {
+        else if(ev.getKeyCode() == PgbSettings.key_down) {
 			c_down = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_a) {
+        else if(ev.getKeyCode() == PgbSettings.key_a) {
 			b_a = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_b) {
+        else if(ev.getKeyCode() == PgbSettings.key_b) {
 			b_b = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_select) {
+        else if(ev.getKeyCode() == PgbSettings.key_select) {
 			b_select = false;
-			return;
 		}
-		if(ev.getKeyCode() == PgbSettings.key_start) {
+        else if(ev.getKeyCode() == PgbSettings.key_start) {
 			b_start = false;
-			return;
 		}
 	}
 	public void keyTyped(KeyEvent ev) {
-		;
+
 	}
 }

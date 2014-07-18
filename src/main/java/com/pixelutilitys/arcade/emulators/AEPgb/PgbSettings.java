@@ -286,14 +286,12 @@ scan:
 class PgbKeyDialog extends Dialog implements ActionListener, KeyListener{
 	public int key_up, key_down, key_left,
 	key_right, key_a, key_b, key_select, key_start, key_screen;
-		
-	private Label upL, downL, leftL, rightL,
-		aL, bL, selectL, startL, screenL;
-	private TextField upF, downF, leftF, rightF,
+
+    private TextField upF, downF, leftF, rightF,
 		aF, bF, selectF, startF, screenF;
-	private Button okayB, cancelB;
-		
-	public PgbKeyDialog(Frame frame) {
+	private Button okayB;
+
+    public PgbKeyDialog(Frame frame) {
 		super(frame, "Key Assignment", true); // modal
 			
 		LayoutManager layout;
@@ -307,16 +305,16 @@ class PgbKeyDialog extends Dialog implements ActionListener, KeyListener{
 		key_select	= PgbSettings.key_select;
 		key_start	= PgbSettings.key_start;
 		key_screen  = PgbSettings.key_screen;
-			
-		upL		= new Label("Up", Label.RIGHT);
-		downL	= new Label("Down", Label.RIGHT);
-		leftL	= new Label("Left", Label.RIGHT);
-		rightL	= new Label("Right", Label.RIGHT);
-		aL		= new Label("A", Label.RIGHT);
-		bL		= new Label("B", Label.RIGHT);
-		selectL	= new Label("Select", Label.RIGHT);
-		startL	= new Label("Start", Label.RIGHT);
-		screenL = new Label("Screenshot", Label.RIGHT);
+
+        Label upL = new Label("Up", Label.RIGHT);
+        Label downL = new Label("Down", Label.RIGHT);
+        Label leftL = new Label("Left", Label.RIGHT);
+        Label rightL = new Label("Right", Label.RIGHT);
+        Label aL = new Label("A", Label.RIGHT);
+        Label bL = new Label("B", Label.RIGHT);
+        Label selectL = new Label("Select", Label.RIGHT);
+        Label startL = new Label("Start", Label.RIGHT);
+        Label screenL = new Label("Screenshot", Label.RIGHT);
 
 		upF		= new TextField(KeyEvent.getKeyText(key_up), 5);
 		upF.addKeyListener(this);
@@ -349,7 +347,7 @@ class PgbKeyDialog extends Dialog implements ActionListener, KeyListener{
 		okayB	= new Button("Okay");
 		okayB.setActionCommand("okay");
 		okayB.addActionListener(this);
-		cancelB	= new Button("Cancel");
+        Button cancelB = new Button("Cancel");
 		cancelB.setActionCommand("cancel");
 		cancelB.addActionListener(this);
 			

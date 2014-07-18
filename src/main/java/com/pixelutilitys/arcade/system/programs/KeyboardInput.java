@@ -9,7 +9,7 @@ public class KeyboardInput {
 
 	public static char getChar(int key) {
 		boolean shift = Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT);
-		char out = ' ';
+		char out;
 		switch (key) {
 			//numbers
 			case Keyboard.KEY_1:
@@ -246,9 +246,9 @@ public class KeyboardInput {
 		}
 
 		char [] chars = text.toCharArray();
-		Vector<String> lines = new Vector<String>();
-		StringBuffer line = new StringBuffer();
-		StringBuffer word = new StringBuffer();
+		Vector<String> lines = new Vector<>();
+		StringBuilder line = new StringBuilder();
+		StringBuilder word = new StringBuilder();
 
 		for (char c : chars) {
 			word.append(c);

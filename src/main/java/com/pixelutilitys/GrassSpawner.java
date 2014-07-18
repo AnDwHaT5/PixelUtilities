@@ -15,7 +15,6 @@ import com.pixelutilitys.blocks.PokeWaterFlowing;
 import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
@@ -23,7 +22,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class GrassSpawner {
@@ -125,12 +123,10 @@ public class GrassSpawner {
     private double lastXCoOrd = 0;
     private double zCoOrd;
     private double lastZCoOrd = 0;
-    private PixelUtilitysConfig pixelConfig;
     BattleControllerBase bc;
 
     public void spawnInGrass(World world, int x, int y, int z, Entity entity) {
-        pixelConfig = pixelConfig.getInstance();
-        if (!pixelConfig.grassBattles)
+        if (!PixelUtilitysConfig.getInstance().grassBattles)
             return;
 
 
@@ -152,14 +148,14 @@ public class GrassSpawner {
             if (xCoOrd == lastXCoOrd && zCoOrd == lastZCoOrd)
                 return;
 
-            if (isGrassBattle <= pixelConfig.grassSpawnRate) {
+            if (isGrassBattle <= PixelUtilitysConfig.getInstance().grassSpawnRate) {
                 if (PixelmonGrassBlock.isActive) {
                     processGrassBattle(world, x, y, z, player);
                 }
             }
             lastXCoOrd = xCoOrd;
             lastZCoOrd = zCoOrd;
-            if (isWaterBattle <= pixelConfig.waterSpawnRate) {
+            if (isWaterBattle <= PixelUtilitysConfig.getInstance().waterSpawnRate) {
                 if (PokeWaterFlowing.isActive || PokeWaterStill.isActive) {
                     processWaterBattle(world, x, y, z, player);
                 }

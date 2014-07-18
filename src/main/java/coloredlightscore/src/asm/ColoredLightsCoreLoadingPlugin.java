@@ -41,7 +41,7 @@ public class ColoredLightsCoreLoadingPlugin implements IFMLLoadingPlugin {
 
     @Override
     public void injectData(Map<String, Object> data) {
-        MCP_ENVIRONMENT = !((Boolean) data.get("runtimeDeobfuscationEnabled")).booleanValue();
+        MCP_ENVIRONMENT = !(Boolean) data.get("runtimeDeobfuscationEnabled");
         CLASSLOADER = (LaunchClassLoader) data.get("classLoader");
     }
 

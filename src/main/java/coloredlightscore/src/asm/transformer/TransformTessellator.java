@@ -44,7 +44,7 @@ public class TransformTessellator extends SingleMethodTransformer {
         AbstractInsnNode putBrightness = ASMUtils.findLastOpcode(method, Opcodes.PUTFIELD);
         InsnList andOperation = new InsnList();
 
-        andOperation.add(new LdcInsnNode((int) 15728880));
+        andOperation.add(new LdcInsnNode(15728880));
         andOperation.add(new InsnNode(Opcodes.IAND));
 
         method.instructions.insertBefore(putBrightness, andOperation);

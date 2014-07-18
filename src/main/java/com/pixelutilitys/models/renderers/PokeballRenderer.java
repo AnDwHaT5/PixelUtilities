@@ -3,9 +3,7 @@ package com.pixelutilitys.models.renderers;
 import com.pixelmonmod.pixelmon.client.models.pokeballs.ModelPokeball;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -65,7 +63,7 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
                 GL11.glRotatef(270f, 0f, 1f, 0f);
                 break;
         }
-        this.model.render((Entity) null, (float) (1.0 / 200.0));
+        this.model.render(null, (float) (1.0 / 200.0));
         //Tell it to stop rendering for both the PushMatrix's
         GL11.glPopMatrix();
         GL11.glPopMatrix();
@@ -73,7 +71,6 @@ public class PokeballRenderer extends TileEntitySpecialRenderer {
 
     //Set the lighting stuff, so it changes it's brightness properly.       
     private void adjustLightFixture(World world, int i, int j, int k, Block block) {
-        Tessellator tess = Tessellator.instance;
         //float brightness = block.getBlockBrightness(world, i, j, k);
         int skyLight = world.getLightBrightnessForSkyBlocks(i, j, k, 0);
         int modulousModifier = skyLight % 65536;

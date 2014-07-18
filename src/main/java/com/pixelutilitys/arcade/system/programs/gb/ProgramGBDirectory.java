@@ -20,7 +20,7 @@ public class ProgramGBDirectory implements IProgram {
 
 	public BufferedImage gameIcon;
 	public boolean imageDirty = false;
-	public List<Rom> roms = new ArrayList<Rom>();
+	public List<Rom> roms = new ArrayList<>();
 	private int current = 0;
 	private final OS os;
 
@@ -65,8 +65,7 @@ public class ProgramGBDirectory implements IProgram {
 			g.drawString("CHOOSE A ROM", 10, 20);
 			int markerOffset = 0;
 			if (current > 11) {
-				int offset = 11 - current;
-				markerOffset = offset;
+				markerOffset = 11 - current;
 			}
 			g.drawString(">", 10, 36 + ((current + markerOffset) * 16));
 

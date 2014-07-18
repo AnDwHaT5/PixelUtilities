@@ -49,13 +49,7 @@ public class VLCPlayer implements Runnable {
     }
 
     public boolean isPlaying() {
-        if (!Basemod.vlcLoaded)
-            return false;
-
-        if (!killed && mediaPlayerComponent != null)
-            return mediaPlayerComponent.getMediaPlayer().isPlaying();
-        else
-            return false;
+        return Basemod.vlcLoaded && !killed && mediaPlayerComponent != null && mediaPlayerComponent.getMediaPlayer().isPlaying();
     }
 
     public void stop() {

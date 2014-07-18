@@ -3,9 +3,7 @@ package com.pixelutilitys.models.renderers;
 import com.pixelutilitys.models.BoxModel;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -46,7 +44,7 @@ public class BoxRenderer extends TileEntitySpecialRenderer {
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         //A reference to your Model file. Again, very important.
-        this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0700F);
+        this.model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0700F);
         //Tell it to stop rendering for both the PushMatrix's
         GL11.glPopMatrix();
         GL11.glPopMatrix();
@@ -54,7 +52,6 @@ public class BoxRenderer extends TileEntitySpecialRenderer {
 
     //Set the lighting stuff, so it changes it's brightness properly.       
     private void adjustLightFixture(World world, int i, int j, int k, Block block) {
-        Tessellator tess = Tessellator.instance;
         //    float brightness = block.getBlockBrightness(world, i, j, k);
         int skyLight = world.getLightBrightnessForSkyBlocks(i, j, k, 0);
         int modulousModifier = skyLight % 65536;

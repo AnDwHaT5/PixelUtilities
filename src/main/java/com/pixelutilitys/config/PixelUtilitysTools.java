@@ -68,7 +68,7 @@ public class PixelUtilitysTools {
     public  Item CrystalShovel;
     public  Item CrystalHoe;
     public  Item CrystalSword;
-    private  List<Item> toolList = new ArrayList<Item>();
+    private  List<Item> toolList = new ArrayList<>();
     //Reflection to allow non pixelmon use
     public  Constructor PixelHammerToolConstructor = null;
 
@@ -160,8 +160,7 @@ public class PixelUtilitysTools {
 
     private  Item registerHammer(Item.ToolMaterial toolMaterial, String itemString, String itemName) {//hacky ass method because the jvm won't play nice
         try {
-            Item hammer = (Item) PixelHammerToolConstructor.newInstance(toolMaterial, itemString, itemName);
-            return hammer;
+            return (Item) PixelHammerToolConstructor.newInstance(toolMaterial, itemString, itemName);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -53,7 +53,7 @@ public class PgbDirectVideoOutput extends PgbVideoOutput {
 	}
 	
 	public void reset() {
-		;
+
 	}
 	
 	public void hblank(int line) {
@@ -79,10 +79,10 @@ public class PgbDirectVideoOutput extends PgbVideoOutput {
 			g.drawImage(screenMImg, 48 * PgbSettings.lcdsize, 40 * PgbSettings.lcdsize, 160 * PgbSettings.lcdsize, 144 * PgbSettings.lcdsize, this);
 			//g.drawImage(borderMImg, 0, 0, 256 * PgbSettings.lcdsize, 224 * PgbSettings.lcdsize, this);
 			// don't trust the border transparency
-			g.drawImage(borderMImg, 0 * PgbSettings.lcdsize, 0 * PgbSettings.lcdsize, 256 * PgbSettings.lcdsize, 40 * PgbSettings.lcdsize, 0, 0, 256, 40, this);
-			g.drawImage(borderMImg, 0 * PgbSettings.lcdsize, 40 * PgbSettings.lcdsize, 48 * PgbSettings.lcdsize, 184 * PgbSettings.lcdsize, 0, 40, 48, 184, this);
+			g.drawImage(borderMImg, 0, 0, 256 * PgbSettings.lcdsize, 40 * PgbSettings.lcdsize, 0, 0, 256, 40, this);
+			g.drawImage(borderMImg, 0, 40 * PgbSettings.lcdsize, 48 * PgbSettings.lcdsize, 184 * PgbSettings.lcdsize, 0, 40, 48, 184, this);
 			g.drawImage(borderMImg, 208 * PgbSettings.lcdsize, 40 * PgbSettings.lcdsize, 256 * PgbSettings.lcdsize, 184 * PgbSettings.lcdsize, 208, 40, 256, 184, this);
-			g.drawImage(borderMImg, 0 * PgbSettings.lcdsize, 184 * PgbSettings.lcdsize, 256 * PgbSettings.lcdsize, 224 * PgbSettings.lcdsize, 0, 184, 256, 224, this);
+			g.drawImage(borderMImg, 0, 184 * PgbSettings.lcdsize, 256 * PgbSettings.lcdsize, 224 * PgbSettings.lcdsize, 0, 184, 256, 224, this);
 		} else {
 			g.drawImage(screenMImg, 0, 0, 160 * PgbSettings.lcdsize, 144 * PgbSettings.lcdsize, this);
 		}
@@ -104,6 +104,6 @@ public class PgbDirectVideoOutput extends PgbVideoOutput {
 		biContext.drawImage(screenMImg, 0, 0, null);
 		try {
 		ImageIO.write(bi, "png",  new File("AEPgb-" + nowLong+".png"));
-		} catch(IOException ex) {}
+		} catch(IOException ex) {ex.printStackTrace();}
 	}
 }

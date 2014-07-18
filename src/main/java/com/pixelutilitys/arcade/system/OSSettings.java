@@ -1,6 +1,5 @@
 package com.pixelutilitys.arcade.system;
 
-import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,7 +30,7 @@ public class OSSettings {
 		OSSettings settings = null;
 		try{
 			if(!config.exists()){
-				config.createNewFile();
+                config.createNewFile();
 			}
 			FileReader fr = new FileReader(config);
 			settings = new Gson().fromJson(fr, OSSettings.class);

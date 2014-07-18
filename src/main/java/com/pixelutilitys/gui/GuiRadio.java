@@ -17,17 +17,11 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class GuiRadio extends GuiScreen {
-    private int posX;
-    private int posY;
-    private int posZ;
     public String status;
     public static TileEntityRadio radio;
     private GuiTextField streamTextBox;
 
     public GuiRadio(TileEntityRadio r) {
-        posX = r.xCoord;
-        posY = r.yCoord;
-        posZ = r.zCoord;
         radio = r;
     }
 
@@ -62,7 +56,7 @@ public class GuiRadio extends GuiScreen {
             this.drawCenteredString(this.fontRendererObj, "Not Playing", this.width / 2, 60, 16777215);
         }
 
-        if (this.radio.isLooping()) {
+        if (radio.isLooping()) {
             this.drawCenteredString(this.fontRendererObj, "Looping", this.width / 2, 70, 16777215);
         } else {
             this.drawCenteredString(this.fontRendererObj, "Not Looping", this.width / 2, 70, 16777215);
@@ -76,7 +70,7 @@ public class GuiRadio extends GuiScreen {
 
         streamTextBox.updateCursorCounter();
         if (radio.isInvalid()) {//close GUI if radio is dead
-            this.mc.displayGuiScreen((GuiScreen) null);
+            this.mc.displayGuiScreen(null);
             this.mc.setIngameFocus();
         }
 

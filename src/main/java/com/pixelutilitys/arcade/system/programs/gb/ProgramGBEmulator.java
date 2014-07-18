@@ -25,7 +25,7 @@ public class ProgramGBEmulator implements IProgram {
 	public String gameboyRom;
 	public AEPgb gameboy;
 	public boolean gameboyStarted = false;
-	public HashMap<Integer, Boolean> pressedKeys = new HashMap<Integer, Boolean>();
+	public HashMap<Integer, Boolean> pressedKeys = new HashMap<>();
 	public int loadDelay = 0;//20
 	public String romTitle;
 	public OS os;

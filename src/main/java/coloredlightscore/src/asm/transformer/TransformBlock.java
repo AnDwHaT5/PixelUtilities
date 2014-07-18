@@ -32,11 +32,6 @@ public class TransformBlock extends HelperMethodTransformer {
     @Override
     protected boolean transform(ClassNode classNode, MethodNode methodNode) {
 
-        if (NameMapper.getInstance().isMethod(methodNode, super.className, "setLightLevel (F)Lnet/minecraft/block/Block;"))
-        //if ((methodNode.name + " " + methodNode.desc).equals("setLightLevel (F)Lnet/minecraft/block/Block;"))
-        {
-            return addReturnMethod(classNode, methodNode, "setLightLevel");
-        } else
-            return false;
+        return NameMapper.getInstance().isMethod(methodNode, super.className, "setLightLevel (F)Lnet/minecraft/block/Block;") && addReturnMethod(classNode, methodNode, "setLightLevel");
     }
 }

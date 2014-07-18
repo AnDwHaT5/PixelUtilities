@@ -233,15 +233,16 @@ public final class PgbCart implements FilenameFilter {
 	 * is this cart Super Gameboy compatible?
 	 */
 	public boolean getSgb() {
-		return loaded() ? romdata[0x0146] == 3 : false;
+        return loaded() && romdata[0x0146] == 3;
 	}
 
 	/**
 	 * is this cart Gameboy Color compatible?
 	 */
 	public boolean getGbc() {
-		return loaded() ? ((romdata[0x0143] & 0xFF) == 0x80 || (romdata[0x0143] & 0xFF) == 0xC0) : false;
+        return loaded() && ((romdata[0x0143] & 0xFF) == 0x80 || (romdata[0x0143] & 0xFF) == 0xC0);
 	}
+
 	public int getType() {
 		int type = romdata[0x0147] & 0xFF;
 		if(type >= 0x01 && type <= 0x03) {
@@ -283,11 +284,8 @@ public final class PgbCart implements FilenameFilter {
 	 * loads a gb file, given a path and a filename
 	 */
 	public boolean load(String path, String filename) {
-		if(load(filename)) {
-			return true;
-		}
-		return false;
-	}
+        return load(filename);
+    }
 	
 	/**
 	 * loads a file in .gb or .zip format, then tries to
@@ -356,7 +354,6 @@ public final class PgbCart implements FilenameFilter {
 	 */
 	public boolean loadZip(String filename) {
 		File			romfile;
-		ZipFile			zipfile;
 		ZipEntry		ze;
 		ZipInputStream	zis;
 		

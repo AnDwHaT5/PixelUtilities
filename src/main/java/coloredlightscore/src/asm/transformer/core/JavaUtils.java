@@ -67,7 +67,7 @@ public final class JavaUtils {
     }
 
     public static <T> Iterable<T> concatNullable(Iterable<T> a, Iterable<T> b) {
-        return a == null ? (b == null ? Collections.<T>emptyList() : b) : (b == null ? a : Iterables.<T>concat(a, b));
+        return a == null ? (b == null ? Collections.<T>emptyList() : b) : (b == null ? a : Iterables.concat(a, b));
     }
 
     public static <T> void foreach(Iterable<T> it, Consumer<T> c) {
@@ -155,6 +155,7 @@ public final class JavaUtils {
             field.setAccessible(true);
             unsafe = field.get(null);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

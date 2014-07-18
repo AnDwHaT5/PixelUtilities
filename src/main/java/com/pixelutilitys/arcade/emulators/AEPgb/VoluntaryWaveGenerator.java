@@ -68,7 +68,7 @@ class VoluntaryWaveGenerator {
 		//  cyclePos = 0;
 		float frequency = (int) ((float) 65536 / (float) (2048 - gbFrequency));
 		//  System.out.println("gbFrequency: " + gbFrequency + "");
-		cycleLength = (int) ((float) (256f * sampleRate) / (float) frequency);
+		cycleLength = (int) (256f * sampleRate / frequency);
 		if (cycleLength == 0)
 			cycleLength = 1;
 		//  System.out.println("Cycle length : " + cycleLength + " samples");

@@ -17,7 +17,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -86,9 +85,9 @@ public class AEPgb extends Applet
 		System.out.println(
 			"AEPgb Version " + PgbSettings.version + " (c) 2004 retroK, XTale, baka0815");
 
-//		AEPgb pgb = new AEPgb();
-//		pgb.parseCommandLine(args);
-//		pgb.go();
+		AEPgb pgb = new AEPgb();
+		pgb.parseCommandLine(args);
+		pgb.go();
 	}
 	
 	public void start() {
@@ -249,7 +248,7 @@ public class AEPgb extends Applet
 	// by retroK
 	void setSound(boolean usesound) {
 		PgbSettings.usesound = usesound;
-		menubar.sound.setState(usesound == true);
+		menubar.sound.setState(usesound);
 		mem.soundChip.channel1Enable = menubar.sound.getState();
 		menubar.soundChannel1Enable.setState(menubar.sound.getState());
 		mem.soundChip.channel2Enable = menubar.sound.getState();
@@ -395,12 +394,12 @@ public class AEPgb extends Applet
 
 	void setColorMute(boolean muted) {
 		PgbSettings.colormute = muted;
-		menubar.color_mute.setState(muted == true);
+		menubar.color_mute.setState(muted);
 	}
 
 	void setSgbBorder(boolean border) {
 		PgbSettings.sgbborder = border;
-		menubar.sgb_border.setState(border == true);
+		menubar.sgb_border.setState(border);
 	}
 
 	void setFrameskip(int skip) {
@@ -457,7 +456,7 @@ public class AEPgb extends Applet
 		if (fd.getFile() == null) {
 			return;
 		}
-		curfile = fd.getFile();
+		curfile = fd.getDirectory()+fd.getFile();
 		curpath = fd.getDirectory();
 
 		//fd.dispose();
@@ -532,43 +531,45 @@ public class AEPgb extends Applet
 	 * ActionListener
 	 */
 	public synchronized void actionPerformed(ActionEvent ev) {
-		if (ev.getActionCommand().equals("file_about")) {
-			 		String message = "Pgb (c) 2000-2001 Ben Mazur\nAEPgb Version "+PgbSettings.version+" (c) 2004 retroK, XTale, baka0815\nhttp://aepgb.aep-emu.de/";
-			 		JOptionPane.showMessageDialog(frame, message, "About AEPgb", JOptionPane.INFORMATION_MESSAGE);
-					return;
-				}
-		if (ev.getActionCommand().equals("file_load")) {
-			loadCart();
-			return;
-		}
-		if (ev.getActionCommand().equals("file_exit")) {
-			shutdown();
-			return;
-		}
-		if (ev.getActionCommand().equals("cpu_reset")) {
-			reset();
-			return;
-		}
-		if (ev.getActionCommand().equals("cpu_paused")) {
-			if (PgbSettings.paused) {
-				unpause();
-			} else {
-				pause();
-			}
-			return;
-		}
-		if (ev.getActionCommand().equals("serial_connect")) {
-			net.popNetDialog(frame);
-			return;
-		}
-		if (ev.getActionCommand().equals("options_setkeys")) {
-			PgbSettings.popKeysDialog(frame);
-			return;
-		}
-		if (ev.getActionCommand().equals("options_setsavepath")) {
-			PgbSettings.popSavePathDialog(frame);
-			return;
-		}
+        switch (ev.getActionCommand())
+        {
+             case "file_about":
+                 String message = "Pgb (c) 2000-2001 Ben Mazur\nAEPgb Version "+PgbSettings.version+" (c) 2004 retroK, XTale, baka0815\nhttp://aepgb.aep-emu.de/";
+                 JOptionPane.showMessageDialog(frame, message, "About AEPgb", JOptionPane.INFORMATION_MESSAGE);
+                break;
+
+            case "file_load":
+                loadCart();
+                break;
+
+            case "file_exit":
+                shutdown();
+                break;
+
+            case "cpu_reset":
+                reset();
+                break;
+
+            case "cpu_paused":
+                if (PgbSettings.paused) {
+                    unpause();
+                } else {
+                    pause();
+                }
+                break;
+
+            case "serial_connect":
+                net.popNetDialog(frame);
+                break;
+
+            case "options_setkeys":
+                PgbSettings.popKeysDialog(frame);
+                break;
+
+            case "options_sersavepath":
+                PgbSettings.popSavePathDialog(frame);
+                break;
+        }
 	}
 
 	/**

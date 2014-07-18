@@ -434,7 +434,7 @@ public abstract class PgbVideo {
 		int x, y;
 		byte in, on, out;
 		boolean useIn, useOn, useOut;
-		in		= (byte)((palettes & 0x03) >> 0);
+		in		= (byte)((palettes & 0x03)     );
 		on		= (byte)((palettes & 0x0C) >> 2);
 		out		= (byte)((palettes & 0x30) >> 4);
 		useIn	= (control & 0x01) == 0x01;
@@ -514,7 +514,7 @@ public abstract class PgbVideo {
 		int x, y;
 		byte on, before, after;
 		boolean mode;
-		on = (byte)((control & 0x03) >> 0);
+		on = (byte)((control & 0x03)     );
 		before = (byte)((control & 0x0C) >> 2);
 		after = (byte)((control & 0x30) >> 4);
 		mode = (control & 0x40) == 0x40;

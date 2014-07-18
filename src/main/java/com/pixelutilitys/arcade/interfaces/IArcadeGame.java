@@ -60,7 +60,6 @@ public interface IArcadeGame {
      *
      * Make sure to render the game just in this method, as it might get called independently from doGameTick();
      *
-     * @return
      */
     public BufferedImage renderGraphics();
 

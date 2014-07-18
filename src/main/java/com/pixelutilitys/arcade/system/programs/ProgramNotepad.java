@@ -139,7 +139,7 @@ public class ProgramNotepad implements IProgram {
 					len = 0;
 				}
 			}catch(Exception e){
-
+                e.printStackTrace();
 			}
 			g.drawString(ticks % 20 > 10 ? "" : "|", 5+(len*(11f)), 16+(16.5f*(ylen)));
 		}

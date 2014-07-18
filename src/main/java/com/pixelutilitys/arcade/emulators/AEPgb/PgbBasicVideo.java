@@ -154,7 +154,7 @@ public class PgbBasicVideo extends PgbVideo {
 	}
 	
 	void doSgbBorder() {
-		int x, y, l;
+		int x, y;
 		boolean vflip, hflip;
 		byte flags, pal;
 		for(y = 0; y < 28; y++) {
@@ -163,7 +163,7 @@ public class PgbBasicVideo extends PgbVideo {
 				vflip = (flags & 0x80) == 0x80;
 				hflip = (flags & 0x40) == 0x40;
 				pal = (byte)((flags & 0x1C) << 2);
-				System.arraycopy(getSgbBorderArray(x, y, 0, vflip, hflip, pal), 0, borderPixels, x * 8 + (y * 8 + 0) * 256 , 8);
+				System.arraycopy(getSgbBorderArray(x, y, 0, vflip, hflip, pal), 0, borderPixels, x * 8 + (y * 8    ) * 256 , 8);
 				System.arraycopy(getSgbBorderArray(x, y, 1, vflip, hflip, pal), 0, borderPixels, x * 8 + (y * 8 + 1) * 256 , 8);
 				System.arraycopy(getSgbBorderArray(x, y, 2, vflip, hflip, pal), 0, borderPixels, x * 8 + (y * 8 + 2) * 256 , 8);
 				System.arraycopy(getSgbBorderArray(x, y, 3, vflip, hflip, pal), 0, borderPixels, x * 8 + (y * 8 + 3) * 256 , 8);
@@ -182,7 +182,7 @@ public class PgbBasicVideo extends PgbVideo {
 			tl = 7 - tl;
 		}
 		ts = (sgbPicture[tx * 2 + ty * 64] & 0xFF) * 32 + tl * 2;
-		td0 = sgbCharset[ts + 0];
+		td0 = sgbCharset[ts    ];
 		td1 = sgbCharset[ts + 1];
 		td2 = sgbCharset[ts + 16];
 		td3 = sgbCharset[ts + 17];
@@ -191,19 +191,19 @@ public class PgbBasicVideo extends PgbVideo {
 			ta[6] = (byte)(pal | (td2 >> 4 & 4) | (td3 >> 3 & 8) | (td0 >> 6 & 1) | (td1 >> 5 & 2));
 			ta[5] = (byte)(pal | (td2 >> 3 & 4) | (td3 >> 2 & 8) | (td0 >> 5 & 1) | (td1 >> 4 & 2));
 			ta[4] = (byte)(pal | (td2 >> 2 & 4) | (td3 >> 1 & 8) | (td0 >> 4 & 1) | (td1 >> 3 & 2));
-			ta[3] = (byte)(pal | (td2 >> 1 & 4) | (td3 >> 0 & 8) | (td0 >> 3 & 1) | (td1 >> 2 & 2));
-			ta[2] = (byte)(pal | (td2 >> 0 & 4) | (td3 << 1 & 8) | (td0 >> 2 & 1) | (td1 >> 1 & 2));
-			ta[1] = (byte)(pal | (td2 << 1 & 4) | (td3 << 2 & 8) | (td0 >> 1 & 1) | (td1 >> 0 & 2));
-			ta[0] = (byte)(pal | (td2 << 2 & 4) | (td3 << 3 & 8) | (td0 >> 0 & 1) | (td1 << 1 & 2));
+			ta[3] = (byte)(pal | (td2 >> 1 & 4) | (td3      & 8) | (td0 >> 3 & 1) | (td1 >> 2 & 2));
+			ta[2] = (byte)(pal | (td2      & 4) | (td3 << 1 & 8) | (td0 >> 2 & 1) | (td1 >> 1 & 2));
+			ta[1] = (byte)(pal | (td2 << 1 & 4) | (td3 << 2 & 8) | (td0 >> 1 & 1) | (td1      & 2));
+			ta[0] = (byte)(pal | (td2 << 2 & 4) | (td3 << 3 & 8) | (td0      & 1) | (td1 << 1 & 2));
 		} else {
 			ta[0] = (byte)(pal | (td2 >> 5 & 4) | (td3 >> 4 & 8) | (td0 >> 7 & 1) | (td1 >> 6 & 2));
 			ta[1] = (byte)(pal | (td2 >> 4 & 4) | (td3 >> 3 & 8) | (td0 >> 6 & 1) | (td1 >> 5 & 2));
 			ta[2] = (byte)(pal | (td2 >> 3 & 4) | (td3 >> 2 & 8) | (td0 >> 5 & 1) | (td1 >> 4 & 2));
 			ta[3] = (byte)(pal | (td2 >> 2 & 4) | (td3 >> 1 & 8) | (td0 >> 4 & 1) | (td1 >> 3 & 2));
-			ta[4] = (byte)(pal | (td2 >> 1 & 4) | (td3 >> 0 & 8) | (td0 >> 3 & 1) | (td1 >> 2 & 2));
-			ta[5] = (byte)(pal | (td2 >> 0 & 4) | (td3 << 1 & 8) | (td0 >> 2 & 1) | (td1 >> 1 & 2));
-			ta[6] = (byte)(pal | (td2 << 1 & 4) | (td3 << 2 & 8) | (td0 >> 1 & 1) | (td1 >> 0 & 2));
-			ta[7] = (byte)(pal | (td2 << 2 & 4) | (td3 << 3 & 8) | (td0 >> 0 & 1) | (td1 << 1 & 2));
+			ta[4] = (byte)(pal | (td2 >> 1 & 4) | (td3      & 8) | (td0 >> 3 & 1) | (td1 >> 2 & 2));
+			ta[5] = (byte)(pal | (td2      & 4) | (td3 << 1 & 8) | (td0 >> 2 & 1) | (td1 >> 1 & 2));
+			ta[6] = (byte)(pal | (td2 << 1 & 4) | (td3 << 2 & 8) | (td0 >> 1 & 1) | (td1      & 2));
+			ta[7] = (byte)(pal | (td2 << 2 & 4) | (td3 << 3 & 8) | (td0      & 1) | (td1 << 1 & 2));
 		}
 		return ta;
 	}
@@ -257,10 +257,8 @@ public class PgbBasicVideo extends PgbVideo {
 		if(PgbSettings.system == PgbSettings.SYS_GBC) {
 			int attribute = getAttr(tx, ty, map_mode);
 			copyTileLineArray(((attribute & 0x08) >> 3) * 0x2000 + tilenum * 16 + ((attribute & 0x40) == 0x40 ? (7 - tileline) : tileline) * 2, (attribute & 0x20) == 0x20, (byte)((attribute & 0x07) << 3), dest, dest_pos);
-			return;
 		} else {
 			copyTileLineArray((tilenum * 16) + (tileline * 2), dest, dest_pos);
-			return;
 		}
 	}
 
@@ -274,8 +272,8 @@ public class PgbBasicVideo extends PgbVideo {
 		dest[dest_pos++] = (byte)((td0 >> 4 & 1) | (td1 >> 3 & 2));
 		dest[dest_pos++] = (byte)((td0 >> 3 & 1) | (td1 >> 2 & 2));
 		dest[dest_pos++] = (byte)((td0 >> 2 & 1) | (td1 >> 1 & 2));
-		dest[dest_pos++] = (byte)((td0 >> 1 & 1) | (td1 >> 0 & 2));
-		dest[dest_pos++] = (byte)((td0 >> 0 & 1) | (td1 << 1 & 2));
+		dest[dest_pos++] = (byte)((td0 >> 1 & 1) | (td1      & 2));
+		dest[dest_pos] = (byte)((td0      & 1) | (td1 << 1 & 2));
 	}
 	void copyTileLineArray(int vram_pos, boolean hflip, byte orwith, byte[] dest, int dest_pos) {
 		byte td0 = vram[vram_pos];
@@ -288,8 +286,8 @@ public class PgbBasicVideo extends PgbVideo {
 			dest[dest_pos--] = (byte)(orwith | (td0 >> 4 & 1) | (td1 >> 3 & 2));
 			dest[dest_pos--] = (byte)(orwith | (td0 >> 3 & 1) | (td1 >> 2 & 2));
 			dest[dest_pos--] = (byte)(orwith | (td0 >> 2 & 1) | (td1 >> 1 & 2));
-			dest[dest_pos--] = (byte)(orwith | (td0 >> 1 & 1) | (td1 >> 0 & 2));
-			dest[dest_pos--] = (byte)(orwith | (td0 >> 0 & 1) | (td1 << 1 & 2));
+			dest[dest_pos--] = (byte)(orwith | (td0 >> 1 & 1) | (td1      & 2));
+			dest[dest_pos] = (byte)(orwith | (td0      & 1) | (td1 << 1 & 2));
 		} else {
 			dest[dest_pos++] = (byte)(orwith | (td0 >> 7 & 1) | (td1 >> 6 & 2));
 			dest[dest_pos++] = (byte)(orwith | (td0 >> 6 & 1) | (td1 >> 5 & 2));
@@ -297,8 +295,8 @@ public class PgbBasicVideo extends PgbVideo {
 			dest[dest_pos++] = (byte)(orwith | (td0 >> 4 & 1) | (td1 >> 3 & 2));
 			dest[dest_pos++] = (byte)(orwith | (td0 >> 3 & 1) | (td1 >> 2 & 2));
 			dest[dest_pos++] = (byte)(orwith | (td0 >> 2 & 1) | (td1 >> 1 & 2));
-			dest[dest_pos++] = (byte)(orwith | (td0 >> 1 & 1) | (td1 >> 0 & 2));
-			dest[dest_pos++] = (byte)(orwith | (td0 >> 0 & 1) | (td1 << 1 & 2));
+			dest[dest_pos++] = (byte)(orwith | (td0 >> 1 & 1) | (td1      & 2));
+			dest[dest_pos] = (byte)(orwith | (td0      & 1) | (td1 << 1 & 2));
 		}
 	}
 
@@ -309,8 +307,8 @@ public class PgbBasicVideo extends PgbVideo {
 		for(i = 0; i < 5; i++) {
 			b = sgbPaletteOverlay[(line / 8) * 5 + i];
 			ls = line * 160 + i * 32;
-			tileLineOr(screenMemory, ls + 0, (byte)((b & 0xC0) >> 2));
-			tileLineOr(screenMemory, ls + 8, (byte)((b & 0x30) >> 0));
+			tileLineOr(screenMemory, ls    , (byte)((b & 0xC0) >> 2));
+			tileLineOr(screenMemory, ls + 8, (byte)((b & 0x30)     ));
 			tileLineOr(screenMemory, ls + 16, (byte)((b & 0x0C) << 2));
 			tileLineOr(screenMemory, ls + 24, (byte)((b & 0x03) << 4));
 		}
@@ -323,7 +321,7 @@ public class PgbBasicVideo extends PgbVideo {
 		src[position++] |= orwith;
 		src[position++] |= orwith;
 		src[position++] |= orwith;
-		src[position++] |= orwith;
+		src[position] |= orwith;
 	}
 	
 	public void setBgPal(int pval) {
@@ -341,7 +339,7 @@ public class PgbBasicVideo extends PgbVideo {
 		// mono gameboy
 		if(PgbSettings.system == PgbSettings.SYS_GB || PgbSettings.system == PgbSettings.SYS_GBP) {
 			for(i = 0; i < 4; i++) {
-				setScreenPalette(0x00 | i, PgbSettings.bgcolors[pval >> (i * 2) & 3]);
+				setScreenPalette(i, PgbSettings.bgcolors[pval >> (i * 2) & 3]);
 			}
 		}
 	}
@@ -415,7 +413,7 @@ public class PgbBasicVideo extends PgbVideo {
 		screenPalette[cindex] = acolor;
 		screenRPal[cindex] = (byte)(acolor >> 16);
 		screenGPal[cindex] = (byte)(acolor >> 8);
-		screenBPal[cindex] = (byte)(acolor >> 0);
+		screenBPal[cindex] = (byte)(acolor);
 	}
 	
 	/**
@@ -434,7 +432,7 @@ public class PgbBasicVideo extends PgbVideo {
 		if(PgbSettings.colormute) {
 			red = color >> 16 & 0xFF;
 			green = color >> 8 & 0xFF;
-			blue = color >> 0 & 0xFF;
+			blue = color & 0xFF;
 			red = (int)((red - 128) * .75 + 144);
 			green = (int)((green - 128) * .75 + 144);
 			blue = (int)((blue - 128) * .75 + 144);

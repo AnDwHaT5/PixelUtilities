@@ -14,9 +14,6 @@ import org.lwjgl.opengl.GL11;
 public class GuiHandHeldRadio extends GuiScreen {
     ResourceLocation background = new ResourceLocation("pixelutilitys:textures/guis/pokegear/Background2.png");
 
-    private double posX;
-    private double posY;
-    private double posZ;
     public String status;
     public static EntityPlayer player;
     private GuiTextField streamTextBox;
@@ -24,9 +21,7 @@ public class GuiHandHeldRadio extends GuiScreen {
     VLCPlayer radio;
 
     public GuiHandHeldRadio(EntityPlayer r) {
-        posX = r.posX;
-        posY = r.posY;
-        posZ = r.posZ;
+
         player = r;
     }
 

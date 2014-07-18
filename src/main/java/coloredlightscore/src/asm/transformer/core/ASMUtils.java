@@ -74,23 +74,23 @@ public final class ASMUtils {
      * @author heaton84
      */
 
-    public static final String deobfuscate(String className, FieldNode field) {
+    public static String deobfuscate(String className, FieldNode field) {
         return deobfuscateField(className, field.name, field.desc);
     }
 
-    public static final String deobfuscateField(String className, String fieldName, String desc) {
+    public static String deobfuscateField(String className, String fieldName, String desc) {
         return FMLDeobfuscatingRemapper.INSTANCE.mapFieldName(className, fieldName, desc);
     }
 
-    public static final String deobfuscate(String className, MethodNode method) {
+    public static String deobfuscate(String className, MethodNode method) {
         return deobfuscateMethod(className, method.name, method.desc);
     }
 
-    public static final String deobfuscateMethod(String className, String methodName, String desc) {
+    public static String deobfuscateMethod(String className, String methodName, String desc) {
         return FMLDeobfuscatingRemapper.INSTANCE.mapMethodName(className, methodName, desc);
     }
 
-    public static final String getFieldDescriptor(ClassNode clazz, String fieldName) {
+    public static String getFieldDescriptor(ClassNode clazz, String fieldName) {
         for (FieldNode field : clazz.fields) {
             if (field.name.equals(fieldName)) {
                 return field.desc;
@@ -99,17 +99,17 @@ public final class ASMUtils {
         return null;
     }
 
-    public static final boolean useMcpNames() {
+    public static boolean useMcpNames() {
         return ColoredLightsCoreLoadingPlugin.MCP_ENVIRONMENT;
     }
 
-    public static final AbstractInsnNode findLastReturn(MethodNode method) {
+    public static AbstractInsnNode findLastReturn(MethodNode method) {
         int searchFor = Type.getReturnType(method.desc).getOpcode(Opcodes.IRETURN);
 
         return ASMUtils.findLastOpcode(method, searchFor);
     }
 
-    public static final AbstractInsnNode findLastOpcode(MethodNode method, int opcode) {
+    public static AbstractInsnNode findLastOpcode(MethodNode method, int opcode) {
         AbstractInsnNode found = null;
         for (int i = 0; i < method.instructions.size(); i++) {
             AbstractInsnNode insn = method.instructions.get(i);
@@ -127,9 +127,9 @@ public final class ASMUtils {
      * @param ldcArgument String literal to be found
      * @return LdcInsnNode instance when found, null if not found
      */
-    public static final LdcInsnNode findLastLDC(MethodNode method, String ldcArgument) {
+    public static LdcInsnNode findLastLDC(MethodNode method, String ldcArgument) {
         LdcInsnNode found = null;
-        LdcInsnNode candidate = null;
+        LdcInsnNode candidate;
 
         for (int i = 0; i < method.instructions.size(); i++) {
             AbstractInsnNode insn = method.instructions.get(i);
@@ -143,9 +143,9 @@ public final class ASMUtils {
         return found;
     }
 
-    public static final MethodInsnNode findLastInvoke(MethodNode method, int opcode, String className, String methodNameAndDescriptor, boolean dumpCandidates) {
+    public static MethodInsnNode findLastInvoke(MethodNode method, int opcode, String className, String methodNameAndDescriptor, boolean dumpCandidates) {
         MethodInsnNode found = null;
-        MethodInsnNode candidate = null;
+        MethodInsnNode candidate;
 
         String obfClass = NameMapper.getInstance().getClassName(className);
         String obfName = NameMapper.getInstance().getMethodName(className, methodNameAndDescriptor);
@@ -168,30 +168,30 @@ public final class ASMUtils {
 
     }
 
-    public static final String makeNameInternal(String name) {
+    public static String makeNameInternal(String name) {
         return name.replace('.', '/');
     }
 
-    public static final String undoInternalName(String name) {
+    public static String undoInternalName(String name) {
         return name.replace('/', '.');
     }
 
-    public static final MethodInsnNode generateMethodCall(Method method) {
+    public static MethodInsnNode generateMethodCall(Method method) {
         int opcode = Modifier.isStatic(method.getModifiers()) ? Opcodes.INVOKESTATIC : Opcodes.INVOKEVIRTUAL;
         return new MethodInsnNode(opcode, Type.getInternalName(method.getDeclaringClass()), method.getName(), Type.getMethodDescriptor(method));
     }
 
-    public static final MethodNode generateSetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor) {
+    public static MethodNode generateSetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor) {
         return generateSetterMethod(targetClass, setterMethodName, fieldName, fieldTypeDescriptor, Opcodes.ACC_PUBLIC);
     }
 
-    public static final MethodNode generateSetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor, int methodAccess) {
+    public static MethodNode generateSetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor, int methodAccess) {
         Type fieldType = Type.getType(fieldTypeDescriptor);
 
         MethodNode setter = new MethodNode();
         setter.name = setterMethodName;
         setter.desc = String.format("(%s)V", fieldTypeDescriptor);
-        setter.exceptions = new ArrayList<String>();
+        setter.exceptions = new ArrayList<>();
         setter.access = methodAccess;
 
         setter.instructions.add(new VarInsnNode(Opcodes.ALOAD, 0)); // store [this]
@@ -202,17 +202,17 @@ public final class ASMUtils {
         return setter;
     }
 
-    public static final MethodNode generateGetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor) {
+    public static MethodNode generateGetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor) {
         return generateGetterMethod(targetClass, setterMethodName, fieldName, fieldTypeDescriptor, Opcodes.ACC_PUBLIC);
     }
 
-    public static final MethodNode generateGetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor, int methodAccess) {
+    public static MethodNode generateGetterMethod(String targetClass, String setterMethodName, String fieldName, String fieldTypeDescriptor, int methodAccess) {
         Type fieldType = Type.getType(fieldTypeDescriptor);
 
         MethodNode getter = new MethodNode();
         getter.name = setterMethodName;
         getter.desc = String.format("()%s", fieldTypeDescriptor);
-        getter.exceptions = new ArrayList<String>();
+        getter.exceptions = new ArrayList<>();
         getter.access = methodAccess;
 
         getter.instructions.add(new VarInsnNode(Opcodes.ALOAD, 0)); // store [this]
@@ -230,9 +230,9 @@ public final class ASMUtils {
     }
 
     private static IClassNameTransformer nameTransformer;
-    private static boolean nameTransChecked = false;
 
     public static IClassNameTransformer getClassNameTransformer() {
+        boolean nameTransChecked = false;
         if (!nameTransChecked) {
             Iterable<IClassNameTransformer> nameTransformers = Iterables.filter(ColoredLightsCoreLoadingPlugin.CLASSLOADER.getTransformers(), IClassNameTransformer.class);
             nameTransformer = Iterables.getOnlyElement(nameTransformers, null);
@@ -314,7 +314,7 @@ public final class ASMUtils {
             try {
                 bytes = CLASSLOADER.getClassBytes(className);
             } catch (NullPointerException npe) {
-
+                npe.printStackTrace();
             }
 
             if (bytes != null) {
@@ -414,13 +414,7 @@ public final class ASMUtils {
     }
 
     public static boolean isAssignableFrom(ClassInfo parent, ClassInfo child) {
-        if (parent.internalName().equals(child.internalName()) || parent.internalName().equals(child.superName()) || child.interfaces().contains(parent.internalName())) {
-            return true;
-        } else if (child.superName() != null && !child.superName().equals("java/lang/Object")) {
-            return isAssignableFrom(parent, getClassInfo(child.superName()));
-        } else {
-            return false;
-        }
+        return parent.internalName().equals(child.internalName()) || parent.internalName().equals(child.superName()) || child.interfaces().contains(parent.internalName()) || child.superName() != null && !child.superName().equals("java/lang/Object") && isAssignableFrom(parent, getClassInfo(child.superName()));
     }
 
     /**

@@ -32,10 +32,10 @@ public class AddToGrassCommand extends CommandBase {
 
     public List addTabCompletionOptions(ICommandSender sender, String[] args) {
         if (args.length == 1) {
-            ArrayList<String> pokemon = new ArrayList<String>();
+            ArrayList<String> pokemon = new ArrayList<>();
             for (EnumPokemon p : EnumPokemon.values())
                 pokemon.add(p.name);
-            return getListOfStringsMatchingLastWord(args, pokemon.toArray(new String[]{}));
+            return getListOfStringsMatchingLastWord(args, pokemon.toArray(new String[pokemon.size()]));
         }
         if (args.length == 2) {
 

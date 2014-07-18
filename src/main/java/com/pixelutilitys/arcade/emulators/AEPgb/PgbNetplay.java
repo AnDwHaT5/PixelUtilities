@@ -473,7 +473,6 @@ class PgbNetDialog extends Dialog implements ActionListener{
 		} catch(Exception e) {
 			status.setText("Listening... timed out");
 			socket = null;
-			return;
 		}
 	}
 	
@@ -481,7 +480,6 @@ class PgbNetDialog extends Dialog implements ActionListener{
 		PgbConnectDialog cd = new PgbConnectDialog(frame);
 		String addressString;
 		InetAddress inetAddress;
-		ServerSocket	ss;
 		
 		cd.setLocation(this.getLocation().x + 30, this.getLocation().y + 30);
 		cd.setVisible(true);

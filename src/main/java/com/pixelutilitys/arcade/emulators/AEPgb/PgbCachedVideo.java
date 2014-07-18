@@ -41,23 +41,20 @@ public class PgbCachedVideo extends PgbBasicVideo {
 			checkTile(address);
 		}
 		// tile map at 9800
-		if(address >= 0x9800 && address < 0x9C00) {
+		else if(address >= 0x9800 && address < 0x9C00) {
 			updateMap(0, (address - 0x9800) & 0x1F, (address - 0x9800) >> 5, vram[address - 0x8000] + 256);
 			updateMap(1, (address - 0x9800) & 0x1F, (address - 0x9800) >> 5, vram[address - 0x8000] & 0xFF);
-			return;
 		}
 		// tile map at 9C00
-		if(address >= 0x9C00 && address < 0xA000) {
+		else if(address >= 0x9C00 && address < 0xA000) {
 			updateMap(2, (address - 0x9C00) & 0x1F, (address - 0x9C00) >> 5, vram[address - 0x8000] + 256);
 			updateMap(3, (address - 0x9C00) & 0x1F, (address - 0x9C00) >> 5, vram[address - 0x8000] & 0xFF);
-			return;
-		}
+	    }
 		// OAM
-		if(address >= 0xFE00 && address < 0xFEA0) {
+		else if(address >= 0xFE00 && address < 0xFEA0) {
 			if((address & 0x02) == 0x02) {
 				updateObj((address - 0xFE00) >> 2);
 			}
-			return;
 		}
 	}
 	
@@ -65,7 +62,7 @@ public class PgbCachedVideo extends PgbBasicVideo {
 	 * override to draw from the cache
 	 */
 	void doBgLine(int line) {
-		int bgline, middle, i;
+		int bgline, middle;
 		byte[] srcmap;
 		
 		bgline = (line + scy) & 0xFF;
@@ -152,7 +149,7 @@ public class PgbCachedVideo extends PgbBasicVideo {
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][3]);
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][2]);
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][1]);
-					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][0]);
+					map[which][my][mx] = (byte)(pal | tiles[bank][tilenum][ty][0]);
 				} else {
 					// !hflip
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][0]);
@@ -162,7 +159,7 @@ public class PgbCachedVideo extends PgbBasicVideo {
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][4]);
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][5]);
 					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][6]);
-					map[which][my][mx++] = (byte)(pal | tiles[bank][tilenum][ty][7]);
+					map[which][my][mx] = (byte)(pal | tiles[bank][tilenum][ty][7]);
 				}
 			}
 		} else {
@@ -176,7 +173,7 @@ public class PgbCachedVideo extends PgbBasicVideo {
 			System.arraycopy(tiles[0][tilenum][4], 0, map[which][my++],mx, 8);
 			System.arraycopy(tiles[0][tilenum][5], 0, map[which][my++],mx, 8);
 			System.arraycopy(tiles[0][tilenum][6], 0, map[which][my++],mx, 8);
-			System.arraycopy(tiles[0][tilenum][7], 0, map[which][my++],mx, 8);
+			System.arraycopy(tiles[0][tilenum][7], 0, map[which][my],mx, 8);
 		}
 	}
 	
@@ -247,7 +244,7 @@ public class PgbCachedVideo extends PgbBasicVideo {
 	 */
 	void doTile(int tilenum, int bank) {
 		int ts = tilenum * 16 + 0x2000 * bank;
-		copyTileLineArray(ts + 0, tiles[bank][tilenum][0], 0);
+		copyTileLineArray(ts    , tiles[bank][tilenum][0], 0);
 		copyTileLineArray(ts + 2, tiles[bank][tilenum][1], 0);
 		copyTileLineArray(ts + 4, tiles[bank][tilenum][2], 0);
 		copyTileLineArray(ts + 6, tiles[bank][tilenum][3], 0);

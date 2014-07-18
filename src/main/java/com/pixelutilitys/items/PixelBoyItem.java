@@ -1,6 +1,5 @@
 package com.pixelutilitys.items;
 
-import com.pixelutilitys.Basemod;
 import com.pixelutilitys.gui.PixelBoyGui;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

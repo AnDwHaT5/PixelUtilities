@@ -20,7 +20,7 @@ public class NameMapper {
     }
 
     public NameMapper() {
-        m_NameList = new HashMap<String, SeargeData>();
+        m_NameList = new HashMap<>();
 
         // ***********************************************
         // CLASSES (CL) AND METHODS (MD) SHOULD COME FROM MCP-NOTCH.SRG
@@ -222,7 +222,7 @@ public class NameMapper {
      */
     public String getJVMTypeObfuscated(String descriptor) {
         int i = 0, j;
-        String className = "";
+        String className;
         String result = "";
 
         while (i < descriptor.length()) {
@@ -303,46 +303,51 @@ public class NameMapper {
         public SeargeData(String src) {
             String[] srcToken = src.split("\\s+");
 
-            if (srcToken[0].equals("PK:")) {
-                // Ignore package types for now
-            } else if (srcToken[0].equals("CL:")) {
-                // Class descriptor
-                //objectType = "CL";
+            switch (srcToken[0]) {
+                case "PK:":
+                    // Ignore package types for now
+                    break;
+                case "CL:":
+                    // Class descriptor
+                    //objectType = "CL";
 
-                if (srcToken.length == 3) {
-                    objectName = srcToken[1];
-                    objectNameObfuscated = srcToken[2];
+                    if (srcToken.length == 3) {
+                        objectName = srcToken[1];
+                        objectNameObfuscated = srcToken[2];
 
-                    uniqueName = objectName;
-                } else {
-                    // TODO
-                }
-            } else if (srcToken[0].equals("MD:")) {
-                // Method descriptor
-                //objectType = "MD";
+                        uniqueName = objectName;
+                    } else {
+                        // TODO
+                    }
+                    break;
+                case "MD:":
+                    // Method descriptor
+                    //objectType = "MD";
 
-                if (srcToken.length == 5) {
-                    objectName = srcToken[1];
-                    objectNameObfuscated = srcToken[3];
+                    if (srcToken.length == 5) {
+                        objectName = srcToken[1];
+                        objectNameObfuscated = srcToken[3];
 
-                    objectSignature = srcToken[2];
-                    objectSignatureObfuscated = srcToken[4];
+                        objectSignature = srcToken[2];
+                        objectSignatureObfuscated = srcToken[4];
 
-                    uniqueName = objectName + " " + objectSignature;
-                } else {
-                    // TODO
-                }
-            } else if (srcToken[0].equals("FD:")) {
-                // Field descriptor
+                        uniqueName = objectName + " " + objectSignature;
+                    } else {
+                        // TODO
+                    }
+                    break;
+                case "FD:":
+                    // Field descriptor
 
-                if (srcToken.length == 3) {
-                    objectName = srcToken[1];
-                    objectNameObfuscated = srcToken[2];
+                    if (srcToken.length == 3) {
+                        objectName = srcToken[1];
+                        objectNameObfuscated = srcToken[2];
 
-                    uniqueName = objectName;
-                } else {
-                    // TODO
-                }
+                        uniqueName = objectName;
+                    } else {
+                        // TODO
+                    }
+                    break;
             }
         }
     }

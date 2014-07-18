@@ -3,8 +3,6 @@ package com.pixelutilitys.arcade.system;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import cpw.mods.fml.common.FMLLog;
-
 public class OSLogger {
 
 private Logger log;

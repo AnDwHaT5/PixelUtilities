@@ -2,28 +2,18 @@ package com.pixelutilitys.gui;
 
 import com.pixelutilitys.arcade.interfaces.IArcadeGame;
 import com.pixelutilitys.arcade.system.OS;
-import com.sun.prism.util.tess.Tess;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.DynamicTexture;
-import net.minecraft.client.renderer.texture.TextureUtil;
+
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL12.*;
 import static org.lwjgl.opengl.EXTFramebufferObject.*;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.net.URL;
-import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.pixelutilitys.arcade.interfaces.IArcadeGame.KEY;
 import net.minecraft.client.settings.GameSettings;
-import org.lwjgl.opengl.GL13;
 
 public class PixelBoyGui extends GuiScreen {
 
@@ -32,23 +22,16 @@ public class PixelBoyGui extends GuiScreen {
 
     }
 
-    private BufferedImage screen;
     private int offsetX;
     private int offsetY;
     private IArcadeGame game;
-    private final List<KEY> keysPressedDown = new ArrayList<KEY>(12);
+    private final List<KEY> keysPressedDown = new ArrayList<>(12);
 
     @Override
     public void initGui()
     {
-
         offsetX = (width - 256) / 2;
-        offsetY = 0;
-
-        System.out.println(offsetX);
-
-
-        screen = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        offsetY = (height - 256) / 2;
     }
 
     @Override

@@ -11,9 +11,9 @@ public class BlockHandler {
     public static void configureBlocks(Configuration config) {
     }
 
-    public static void registerBlocks(GameRegistry registry) {
-        registry.registerBlock(NewGrassBlock, "PokeGrass");
-        registry.registerBlock(PokeDirtBlock, "PokeDirt");
+    public static void registerBlocks(GameRegistry registry) {//TODO -  is this used?
+        GameRegistry.registerBlock(NewGrassBlock, "PokeGrass");
+        GameRegistry.registerBlock(PokeDirtBlock, "PokeDirt");
     }
 
 }

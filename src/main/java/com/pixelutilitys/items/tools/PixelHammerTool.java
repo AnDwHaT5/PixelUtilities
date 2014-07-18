@@ -41,15 +41,15 @@ public class PixelHammerTool extends ItemHammer {
     @Override
     public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
         if (par2Block == PixelmonBlocks.anvil) {
-            if (toolMaterial == toolMaterial.WOOD)
+            if (toolMaterial == ToolMaterial.WOOD)
                 return 1;
-            else if (toolMaterial == toolMaterial.STONE)
+            else if (toolMaterial == ToolMaterial.STONE)
                 return 2;
-            else if (toolMaterial == toolMaterial.IRON)
+            else if (toolMaterial == ToolMaterial.IRON)
                 return 3;
-            else if (toolMaterial == toolMaterial.GOLD)
+            else if (toolMaterial == ToolMaterial.GOLD)
                 return 4;
-            else if (toolMaterial == toolMaterial.EMERALD)
+            else if (toolMaterial == ToolMaterial.EMERALD)
                 return 5;
             else if (toolMaterial == Basemod.RUBY)
                 return 4;
