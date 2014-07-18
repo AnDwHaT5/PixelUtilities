@@ -53,6 +53,8 @@ configurations {
 dependencies {
     compile files('libs/compile/Pixelmon-1.7.2-3.1-universal-deob.jar')
     compile files('libs/runtime/vlcj-3.0.1.jar')
+    compile files('libs/compile/javaboy-0.92.jar')
+    runtimeOnly files('libs/compile/javaboy-0.92.jar')
     runtimeOnly files('libs/runtime/jna-3.5.2.jar')
     runtimeOnly files('libs/runtime/platform-3.5.2.jar')
     runtimeOnly files('libs/runtime/vlcj-3.0.1.jar')
