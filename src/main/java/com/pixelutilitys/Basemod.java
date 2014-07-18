@@ -34,6 +34,7 @@ import uk.co.caprica.vlcj.version.LibVlcVersion;
 import uk.co.caprica.vlcj.version.Version;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION, dependencies = "after:pixelmon")
@@ -189,7 +190,7 @@ public class Basemod {
 
         if (DEBUGMODE) {
             //Here be dragons.
-            for (Block block : GameData.getBlockRegistry()) {
+            for (Block block : (Iterable<Block>) GameData.getBlockRegistry()) {
                 if (GameRegistry.findUniqueIdentifierFor(block).modId.equals("minecraft"))
                     continue;
 
@@ -209,7 +210,7 @@ public class Basemod {
 
             }
 
-            for (Item item : GameData.getItemRegistry()) {
+            for (Item item : (Iterable<Item>) GameData.getItemRegistry()) {
                 ItemStack itemStack = new ItemStack(item, 0, 1);
 
                 String itemName = item.getItemStackDisplayName(itemStack);

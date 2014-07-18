@@ -102,8 +102,6 @@ public class BlockConveyor extends BlockContainer {
             if (tile instanceof TileEntityConveyor) {
                 TileEntityConveyor tec = (TileEntityConveyor) tile;
                 meta = tec.isFast() ? 2 : 1;
-                if (!tec.getConveyorActive())
-                    meta = 0;
             }
         }
         return getIcon(side, meta);
@@ -228,7 +226,7 @@ public class BlockConveyor extends BlockContainer {
             return;
 
         TileEntity conveyor = world.getTileEntity(x, y, z);
-        if (!(conveyor instanceof TileEntityConveyor && ((TileEntityConveyor) conveyor).getConveyorActive()))
+        if (!(conveyor instanceof TileEntityConveyor))
             return;
 
         if (entity instanceof EntityLivingBase)
