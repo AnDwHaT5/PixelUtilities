@@ -8,7 +8,7 @@ import net.minecraft.launchwrapper.LaunchClassLoader;
 
 import java.util.Map;
 
-@MCVersion("1.7.2")
+//@MCVersion("1.7.2")
 //@SortingIndex(value=999)
 public class ColoredLightsCoreLoadingPlugin implements IFMLLoadingPlugin {
     public static LaunchClassLoader CLASSLOADER;

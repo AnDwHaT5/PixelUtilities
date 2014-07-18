@@ -18,13 +18,13 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "3.1"
+version = "3.5"
 group = "pixelutils"
 archivesBaseName = "PixelUtils"
 
 minecraft {
-    version = "1.7.2-10.12.2.1147"
-    assetDir = "eclipse/assets"
+    version = "1.7.10-10.13.0.1187"
+    runDir = "eclipse"
 }
 
 task deobfJar(type: Jar) {

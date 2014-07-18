@@ -23,7 +23,7 @@ public class PixelmonInfoGui extends Gui {
         if (event.type != ElementType.ALL)
             return;
         Minecraft mc = Minecraft.getMinecraft();
-        ScaledResolution var5 = new ScaledResolution(Minecraft.getMinecraft().gameSettings, Minecraft.getMinecraft().displayWidth,
+        ScaledResolution var5 = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth,
                 Minecraft.getMinecraft().displayHeight);
         int var6 = var5.getScaledWidth();
         int var7 = var5.getScaledHeight();
