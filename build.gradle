@@ -22,6 +22,9 @@ version = "3.5"
 group = "pixelutils"
 archivesBaseName = "PixelUtils"
 
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 minecraft {
     version = "1.7.10-10.13.0.1187"
     runDir = "eclipse"
