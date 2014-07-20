@@ -140,7 +140,7 @@ public class RecipeHelper {
 
     public static void makeItemsFromBlock(Item result, Block craftingMaterial)
     {
-        GameRegistry.addRecipe(
+        GameRegistry.addShapelessRecipe(
                 new ItemStack(result, 9),
                 new ItemStack(craftingMaterial, 1)
         );

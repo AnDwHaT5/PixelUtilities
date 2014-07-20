@@ -34,7 +34,6 @@ import uk.co.caprica.vlcj.version.LibVlcVersion;
 import uk.co.caprica.vlcj.version.Version;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Mod(modid = Basemod.MODID, name = Basemod.NAME, version = Basemod.VERSION, dependencies = "after:pixelmon")

@@ -3,7 +3,6 @@ package coloredlightscore.src.asm;
 
 import coloredlightscore.src.asm.transformer.*;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import net.minecraft.launchwrapper.LaunchClassLoader;
 
 import java.util.Map;
