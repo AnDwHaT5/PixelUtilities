@@ -90,6 +90,8 @@ public class PixelBoyGui extends GuiScreen {
 
         drawTexturedModalRect(offsetX, offsetY, 0, 0, texture.width, texture.height);
 
+        texture.deleteGlTexture();
+        texture = null;
     }
 
     @Override

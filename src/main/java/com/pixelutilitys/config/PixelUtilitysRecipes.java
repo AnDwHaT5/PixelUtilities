@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import static com.pixelutilitys.items.recipes.RecipeHelper.*;
 
 public class PixelUtilitysRecipes {
 
@@ -21,89 +22,89 @@ public class PixelUtilitysRecipes {
         //We need to add a stupid af smelting method here for a easter egg. What? Not sure.
 
         //Block
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RubyBlock, 1), "XXX", "XXX", "XXX", 'X', PixelUtilitysItems.RubyItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.SaphireBlock, 1), "XXX", "XXX", "XXX", 'X', PixelUtilitysItems.SaphireItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.AmethystBlock, 1), "XXX", "XXX", "XXX", 'X', PixelUtilitysItems.AmethystItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.CrystalBlock, 1), "XXX", "XXX", "XXX", 'X', PixelUtilitysItems.CrystalItem);
+        makeItemToBlockRecipe(PixelUtilitysBlocks.RubyBlock, PixelUtilitysItems.RubyItem);
+        makeItemToBlockRecipe(PixelUtilitysBlocks.SaphireBlock, PixelUtilitysItems.SaphireItem);
+        makeItemToBlockRecipe(PixelUtilitysBlocks.AmethystBlock, PixelUtilitysItems.AmethystItem);
+        makeItemToBlockRecipe(PixelUtilitysBlocks.CrystalBlock, PixelUtilitysItems.CrystalItem);
 
 
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.RubyItem, 9), "   ", " X ", "   ", 'X', PixelUtilitysBlocks.RubyBlock);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.SaphireItem, 9), "   ", " X ", "   ", 'X', PixelUtilitysBlocks.SaphireBlock);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.AmethystItem, 9), "   ", " X ", "   ", 'X', PixelUtilitysBlocks.AmethystBlock);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysItems.CrystalItem, 9), "   ", " X ", "   ", 'X', PixelUtilitysBlocks.CrystalBlock);
+        makeItemsFromBlock(PixelUtilitysItems.RubyItem, PixelUtilitysBlocks.RubyBlock);
+        makeItemsFromBlock(PixelUtilitysItems.SaphireItem, PixelUtilitysBlocks.SaphireBlock);
+        makeItemsFromBlock(PixelUtilitysItems.AmethystItem, PixelUtilitysBlocks.AmethystBlock);
+        makeItemsFromBlock(PixelUtilitysItems.CrystalItem, PixelUtilitysBlocks.CrystalBlock);
 
 
         //Ruby Tools
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubyPickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubyHammer, 1), "XXX", "XYX", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubyAxe, 1), "XX ", "XY ", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubyShovel, 1), " X ", " Y ", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubyHoe, 1), "XX ", " Y ", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().rubySword, 1), " X ", " X ", " Y ", 'X', PixelUtilitysItems.RubyItem, 'Y', Items.stick);
+        makePickaxeRecipe(PixelUtilitysTools.getInstance().rubyPickaxe, PixelUtilitysItems.RubyItem);
+        makeHammerRecipe(PixelUtilitysTools.getInstance().rubyHammer, PixelUtilitysItems.RubyItem);
+        makeAxeRecipe(PixelUtilitysTools.getInstance().rubyAxe, PixelUtilitysItems.RubyItem);
+        makeShovelRecipe(PixelUtilitysTools.getInstance().rubyShovel, PixelUtilitysItems.RubyItem);
+        makeHoeRecipe(PixelUtilitysTools.getInstance().rubyHoe, PixelUtilitysItems.RubyItem);
+        makeSwordRecipe(PixelUtilitysTools.getInstance().rubySword, PixelUtilitysItems.RubyItem);
 
         //Saphire Tools
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphirePickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphireHammer, 1), "XXX", "XYX", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphireAxe, 1), "XX ", "XY ", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphireShovel, 1), " X ", " Y ", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphireHoe, 1), "XX ", " Y ", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().saphireSword, 1), " X ", " X ", " Y ", 'X', PixelUtilitysItems.SaphireItem, 'Y', Items.stick);
+        makePickaxeRecipe(PixelUtilitysTools.getInstance().saphirePickaxe, PixelUtilitysItems.SaphireItem);
+        makeHammerRecipe(PixelUtilitysTools.getInstance().saphireHammer, PixelUtilitysItems.SaphireItem);
+        makeAxeRecipe(PixelUtilitysTools.getInstance().saphireAxe, PixelUtilitysItems.SaphireItem);
+        makeShovelRecipe(PixelUtilitysTools.getInstance().saphireShovel, PixelUtilitysItems.SaphireItem);
+        makeHoeRecipe(PixelUtilitysTools.getInstance().saphireHoe, PixelUtilitysItems.SaphireItem);
+        makeSwordRecipe(PixelUtilitysTools.getInstance().saphireSword, PixelUtilitysItems.SaphireItem);
 
         //Amethyst Tools
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystPickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystHammer, 1), "XXX", "XYX", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystAxe, 1), "XX ", "XY ", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystShovel, 1), " X ", " Y ", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystHoe, 1), "XX ", " Y ", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().amethystSword, 1), " X ", " X ", " Y ", 'X', PixelUtilitysItems.AmethystItem, 'Y', Items.stick);
+        makePickaxeRecipe(PixelUtilitysTools.getInstance().amethystPickaxe, PixelUtilitysItems.AmethystItem);
+        makeHammerRecipe(PixelUtilitysTools.getInstance().amethystHammer, PixelUtilitysItems.AmethystItem);
+        makeAxeRecipe(PixelUtilitysTools.getInstance().amethystAxe, PixelUtilitysItems.AmethystItem);
+        makeShovelRecipe(PixelUtilitysTools.getInstance().amethystShovel, PixelUtilitysItems.AmethystItem);
+        makeHoeRecipe(PixelUtilitysTools.getInstance().amethystHoe, PixelUtilitysItems.AmethystItem);
+        makeSwordRecipe(PixelUtilitysTools.getInstance().amethystSword, PixelUtilitysItems.AmethystItem);
 
         //Evo Tools
         if (Basemod.pixelmonPresent) {
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestonePickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestoneHammer, 1), "XXX", "XYX", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestoneAxe, 1), "XX ", "XY ", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestoneShovel, 1), " X ", " Y ", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestoneHoe, 1), "XX ", " Y ", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().FirestoneSword, 1), " X ", " X ", " Y ", 'X', PixelmonItems.fireStone, 'Y', Items.stick);
+            makePickaxeRecipe(PixelUtilitysTools.getInstance().FirestonePickaxe, PixelmonItems.fireStone);
+            makeHammerRecipe(PixelUtilitysTools.getInstance().FirestoneHammer, PixelmonItems.fireStone);
+            makeAxeRecipe(PixelUtilitysTools.getInstance().FirestoneAxe, PixelmonItems.fireStone);
+            makeShovelRecipe(PixelUtilitysTools.getInstance().FirestoneShovel, PixelmonItems.fireStone);
+            makeHoeRecipe(PixelUtilitysTools.getInstance().FirestoneHoe, PixelmonItems.fireStone);
+            makeSwordRecipe(PixelUtilitysTools.getInstance().FirestoneSword, PixelmonItems.fireStone);
 
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstonePickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstoneHammer, 1), "XXX", "XYX", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstoneAxe, 1), "XX ", "XY ", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstoneShovel, 1), " X ", " Y ", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstoneHoe, 1), "XX ", " Y ", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().WaterstoneSword, 1), " X ", " X ", " Y ", 'X', PixelmonItems.waterStone, 'Y', Items.stick);
+            makePickaxeRecipe(PixelUtilitysTools.getInstance().WaterstonePickaxe, PixelmonItems.waterStone);
+            makeHammerRecipe(PixelUtilitysTools.getInstance().WaterstoneHammer, PixelmonItems.waterStone);
+            makeAxeRecipe(PixelUtilitysTools.getInstance().WaterstoneAxe, PixelmonItems.waterStone);
+            makeShovelRecipe(PixelUtilitysTools.getInstance().WaterstoneShovel, PixelmonItems.waterStone);
+            makeHoeRecipe(PixelUtilitysTools.getInstance().WaterstoneHoe, PixelmonItems.waterStone);
+            makeSwordRecipe(PixelUtilitysTools.getInstance().WaterstoneSword, PixelmonItems.waterStone);
 
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstonePickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstoneHammer, 1), "XXX", "XYX", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstoneAxe, 1), "XX ", "XY ", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstoneShovel, 1), " X ", " Y ", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstoneHoe, 1), "XX ", " Y ", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
-            GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().LeafstoneSword, 1), " X ", " X ", " Y ", 'X', PixelmonItems.leafStone, 'Y', Items.stick);
+            makePickaxeRecipe(PixelUtilitysTools.getInstance().LeafstonePickaxe, PixelmonItems.leafStone);
+            makeHammerRecipe(PixelUtilitysTools.getInstance().LeafstoneHammer, PixelmonItems.leafStone);
+            makeAxeRecipe(PixelUtilitysTools.getInstance().LeafstoneAxe, PixelmonItems.leafStone);
+            makeShovelRecipe(PixelUtilitysTools.getInstance().LeafstoneShovel, PixelmonItems.leafStone);
+            makeHoeRecipe(PixelUtilitysTools.getInstance().LeafstoneHoe, PixelmonItems.leafStone);
+            makeSwordRecipe(PixelUtilitysTools.getInstance().LeafstoneSword, PixelmonItems.leafStone);
         }//TODO alternative recipies!
 
         //Crystal Tools
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalPickaxe, 1), "XXX", " Y ", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalHammer, 1), "XXX", "XYX", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalAxe, 1), "XX ", "XY ", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalShovel, 1), " X ", " Y ", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalHoe, 1), "XX ", " Y ", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysTools.getInstance().CrystalSword, 1), " X ", " X ", " Y ", 'X', PixelUtilitysItems.CrystalItem, 'Y', Items.stick);
+        makePickaxeRecipe(PixelUtilitysTools.getInstance().CrystalPickaxe, PixelUtilitysItems.CrystalItem);
+        makeHammerRecipe(PixelUtilitysTools.getInstance().CrystalHammer, PixelUtilitysItems.CrystalItem);
+        makeAxeRecipe(PixelUtilitysTools.getInstance().CrystalAxe, PixelUtilitysItems.CrystalItem);
+        makeShovelRecipe(PixelUtilitysTools.getInstance().CrystalShovel, PixelUtilitysItems.CrystalItem);
+        makeHoeRecipe(PixelUtilitysTools.getInstance().CrystalHoe, PixelUtilitysItems.CrystalItem);
+        makeSwordRecipe(PixelUtilitysTools.getInstance().CrystalSword, PixelUtilitysItems.CrystalItem);
 
         //Armor
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyHelm, 1), "XXX", "X X", "   ", 'X', PixelUtilitysItems.RubyItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyPlate, 1), "X X", "XXX", "XXX", 'X', PixelUtilitysItems.RubyItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyLegs, 1), "XXX", "X X", "X X", 'X', PixelUtilitysItems.RubyItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.rubyBoots, 1), "X X", "X X", 'X', PixelUtilitysItems.RubyItem);
+        makeHelmRecipe(PixelUtilitysArmor.rubyHelm, PixelUtilitysItems.RubyItem);
+        makePlateRecipe(PixelUtilitysArmor.rubyPlate,PixelUtilitysItems.RubyItem);
+        makeLegsRecipe(PixelUtilitysArmor.rubyLegs, PixelUtilitysItems.RubyItem);
+        makeBootsRecipe(PixelUtilitysArmor.rubyBoots, PixelUtilitysItems.RubyItem);
 
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireHelm, 1), "XXX", "X X", "   ", 'X', PixelUtilitysItems.SaphireItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphirePlate, 1), "X X", "XXX", "XXX", 'X', PixelUtilitysItems.SaphireItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireLegs, 1), "XXX", "X X", "X X", 'X', PixelUtilitysItems.SaphireItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.saphireBoots, 1), "X X", "X X", 'X', PixelUtilitysItems.SaphireItem);
+        makeHelmRecipe(PixelUtilitysArmor.saphireHelm, PixelUtilitysItems.SaphireItem);
+        makePlateRecipe(PixelUtilitysArmor.saphirePlate,PixelUtilitysItems.SaphireItem);
+        makeLegsRecipe(PixelUtilitysArmor.saphireLegs, PixelUtilitysItems.SaphireItem);
+        makeBootsRecipe(PixelUtilitysArmor.saphireBoots, PixelUtilitysItems.SaphireItem);
 
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticHelm, 1), "XXX", "X X", "   ", 'X', PixelUtilitysItems.SiliconItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticPlate, 1), "X X", "XXX", "XXX", 'X', PixelUtilitysItems.SiliconItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticLegs, 1), "XXX", "X X", "X X", 'X', PixelUtilitysItems.SiliconItem);
-        GameRegistry.addRecipe(new ItemStack(PixelUtilitysArmor.galacticBoots, 1), "X X", "X X", 'X', PixelUtilitysItems.SiliconItem);
+        makeHelmRecipe(PixelUtilitysArmor.galacticHelm, PixelUtilitysItems.SiliconItem);
+        makePlateRecipe(PixelUtilitysArmor.galacticPlate,PixelUtilitysItems.SiliconItem);
+        makeLegsRecipe(PixelUtilitysArmor.galacticLegs, PixelUtilitysItems.SiliconItem);
+        makeBootsRecipe(PixelUtilitysArmor.galacticBoots, PixelUtilitysItems.SiliconItem);
 
         //Radio
         GameRegistry.addRecipe(new ItemStack(PixelUtilitysBlocks.RadioBlock), "  y", "xyx", "xzx", 'x', new ItemStack(Blocks.planks), 'y', new ItemStack(Items.iron_ingot), 'z', new ItemStack(Items.diamond));

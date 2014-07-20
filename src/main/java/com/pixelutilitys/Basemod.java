@@ -215,7 +215,7 @@ public class Basemod {
 
                 String itemName = item.getItemStackDisplayName(itemStack);
 
-                if (!itemName.getClass().getName().contains("pixelutilitys"))
+                if (!itemName.getClass().getName().contains(MODID))
                     return;
 
                 if (itemName.contains("item.")) {
@@ -283,6 +283,7 @@ public class Basemod {
         m.updateUrl = "http://www.pixelmonmod.com";
         m.description = "A mod that adds Pokemon blocks and items into Pixelmon";
         m.authorList.add("AnDwHaT5");
+        m.authorList.add("Clienthax");
         m.credits = "The PixelUtilities Team";
     }
 }
