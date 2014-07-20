@@ -4,6 +4,7 @@ General issues
 ~~~~~~~~~~~~~
 Rotation of rugs doesn't match hitbox yet
 Andwhat5's is not a duck yet.
+Severe memory leak when opening emulator gui.
 
 ~~~~~~~~
 Radio issues
