@@ -64,7 +64,6 @@ public class PixelUtilitysCreativeTabs {
         {
             for (Block block : PixelUtilitysBlocks.LightBlockList)
                 itemList.add(new ItemStack(block, 1, 0));
-
         }
 
         @Override

@@ -26,6 +26,7 @@ public class PixelBoyGui extends GuiScreen {
     private int offsetY;
     private IArcadeGame game;
     private final List<KEY> keysPressedDown = new ArrayList<>(12);
+    DynamicTexture texture;
 
     @Override
     public void initGui()
@@ -74,24 +75,21 @@ public class PixelBoyGui extends GuiScreen {
         if(game.renderGraphics() == null)
             return;
 
-        DynamicTexture texture = new DynamicTexture(game.renderGraphics());
+        texture = new DynamicTexture(game.renderGraphics());
         glBindTexture(GL_TEXTURE_2D, texture.getGlTextureId());
 
         glGenerateMipmapEXT(GL_TEXTURE_2D);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
         float scaler = 1.00f;
         glScalef(scaler,scaler,scaler);
-
-
         drawTexturedModalRect(offsetX, offsetY, 0, 0, texture.width, texture.height);
 
         texture.deleteGlTexture();
         texture = null;
+
+
     }
 
     @Override
