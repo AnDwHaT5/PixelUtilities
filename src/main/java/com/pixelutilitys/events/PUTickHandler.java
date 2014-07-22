@@ -29,6 +29,7 @@ public class PUTickHandler {
 
     @SubscribeEvent
     public void playerTickStart(TickEvent.PlayerTickEvent event) {
+        /*
         if (!Basemod.pixelmonPresent || !PixelUtilitysConfig.getInstance().battleMusicEnabled)
             return;
 
@@ -42,7 +43,8 @@ public class PUTickHandler {
         } else if (!inBattle && player.getEntityData().getInteger("Battle") == 1) {
             playerRadio.stop();
             player.getEntityData().setInteger("Battle", 0);
-        }
+        }*/
+        //TOO DAMN BUGGY
     }
 
 

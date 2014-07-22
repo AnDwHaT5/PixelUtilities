@@ -3,6 +3,8 @@ package com.pixelutilitys;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 import java.util.Random;
@@ -14,7 +16,7 @@ public class CustomDrops {
     public static int doDrop;
     private PixelUtilitysConfig pixelConfig = PixelUtilitysConfig.getInstance();
 
-    @Deprecated
+    @SubscribeEvent
     public void pixelmonDrop(LivingDropsEvent e) {
         if (!pixelConfig.coinDrops) {
             return;
