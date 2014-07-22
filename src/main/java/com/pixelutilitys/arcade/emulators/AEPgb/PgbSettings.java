@@ -9,7 +9,6 @@ package com.pixelutilitys.arcade.emulators.AEPgb;
 
 import java.awt.Button;
 import java.awt.Dialog;
-import java.awt.FileDialog;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -95,8 +94,6 @@ public class PgbSettings {
 	public static int				netlistentimeout = 10000;
 	public static int				netport = 2907;
 	
-	public static File				savepath = new File("sav");
-	
 	public static Point				winloc = new Point();
 	
 	public static void popKeysDialog(Frame frame) {
@@ -104,15 +101,6 @@ public class PgbSettings {
 		
 		kd = new PgbKeyDialog(frame);
 		kd.setVisible(true);
-	}
-	
-	public static void popSavePathDialog(Frame frame) {
-		FileDialog fd;
-		
-		fd = new FileDialog(frame, "Please choose a save directory.", FileDialog.SAVE);
-		fd.setVisible(true);
-		
-		savepath = new File(fd.getDirectory());
 	}
 	
 	public static void load() {
@@ -189,10 +177,6 @@ scan:
 						st.nextToken();
 						key_start = (int)st.nval;
 					}
-					if(key.equals("savepath")) {
-						st.nextToken();
-						savepath = new File(st.sval);
-					}
 					if(key.equals("lastnetaddress")) {
 						st.nextToken();
 						lastnetaddress = st.sval;
@@ -262,7 +246,6 @@ scan:
 			cw.write("lcdsize " + lcdsize + "\r\n");
 			cw.write("colormute " + colormute + "\r\n");
 			cw.write("sgbborder " + sgbborder + "\r\n");
-			cw.write("savepath " + '"' + savepath.getPath() + '"' + "\r\n");
 			cw.write("lastnetaddress " + '"' + lastnetaddress + '"' + "\r\n");
 			cw.write("netlistentimeout " + netlistentimeout + "\r\n");
 			cw.write("netport " + netport + "\r\n");

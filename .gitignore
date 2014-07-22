@@ -8,3 +8,5 @@ eclipse
 .classpath
 .project
 .settings
+Pgb.cfg
+src/main/java/com/pixelmonmod/*

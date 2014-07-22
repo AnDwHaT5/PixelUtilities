@@ -150,7 +150,7 @@ public class AEPgb extends Applet
 		cpuThread = null;
 		PgbSettings.save(frame);
 
-		cart.saveBattery(PgbSettings.savepath, curfile);
+		cart.saveBattery(curfile);
 
 //		System.exit(0);
 	}
@@ -446,7 +446,7 @@ public class AEPgb extends Applet
 	synchronized void loadCart() {
 		FileDialog fd;
 
-		cart.saveBattery(PgbSettings.savepath, curfile);
+		cart.saveBattery(curfile);
 
 		fd = new FileDialog(frame, curpath, FileDialog.LOAD);
 		fd.setTitle("Load ROM...");
@@ -566,9 +566,6 @@ public class AEPgb extends Applet
                 PgbSettings.popKeysDialog(frame);
                 break;
 
-            case "options_sersavepath":
-                PgbSettings.popSavePathDialog(frame);
-                break;
         }
 	}
 

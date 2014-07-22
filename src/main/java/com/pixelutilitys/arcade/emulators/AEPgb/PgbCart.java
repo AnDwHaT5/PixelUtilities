@@ -296,13 +296,13 @@ public final class PgbCart implements FilenameFilter {
 		}
 		if(accept(null, filename)) {
 			loadGB(filename);
-			loadBattery(PgbSettings.savepath, filename.substring(0, filename.lastIndexOf('.')) + ".sav");
+			loadBattery(filename.substring(0, filename.lastIndexOf('.')) + ".sav");
 			System.out.println("");
 			return true;
 		}
 		if(filename.endsWith(".zip")) {
 			if(loadZip(filename)) {
-				loadBattery(PgbSettings.savepath, filename.substring(0, filename.lastIndexOf('.')) + ".sav");
+				loadBattery(filename.substring(0, filename.lastIndexOf('.')) + ".sav");
 				System.out.println("");
 				return true;
 			}
@@ -402,14 +402,14 @@ public final class PgbCart implements FilenameFilter {
 	 * if there are any RAM banks, this allocates memory
 	 * for them and tries to load saved RAM from disk
 	 */
-	public void loadBattery(File path, String filename) {
+	public void loadBattery(String filename) {
 		InputStream is;
 		File ramfile;
 		String ramdesc;
 		// create & load ram
 		if(getRamBanks() > 0) {
 			ramdata = new byte[0x2000 * getRamBanks()];
-			ramfile = new File(path, filename);
+			ramfile = new File(filename);
 			ramdesc = "Looking for battery save... ";
 
 			try {
@@ -451,17 +451,16 @@ public final class PgbCart implements FilenameFilter {
 	 * saves it to the disk, in the save directory specified
 	 * in the settings
 	 */
-	public void saveBattery(File path, String romfilename) {
+	public void saveBattery(String romfilename) {
 		if(!loaded() || getRamBanks() == 0) {
 			return;
 		}
 		OutputStream os;
 		File ramfile;
 		
-		ramfile = new File(path, romfilename.substring(0, romfilename.lastIndexOf('.')) + ".sav");
+		ramfile = new File(romfilename.substring(0, romfilename.lastIndexOf('.')) + ".sav");
 		
 		try {
-			path.mkdirs();
 			
 			os = new FileOutputStream(ramfile);
 			os.write(ramdata);
