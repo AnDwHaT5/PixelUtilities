@@ -1,9 +1,5 @@
 package com.pixelutilitys.items.recipes;
 
-import com.pixelutilitys.config.PixelUtilitysArmor;
-import com.pixelutilitys.config.PixelUtilitysBlocks;
-import com.pixelutilitys.config.PixelUtilitysItems;
-import com.pixelutilitys.config.PixelUtilitysTools;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;

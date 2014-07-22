@@ -46,7 +46,7 @@ public class PixelUtilitysCreativeTabs {
         {
             itemList.clear();
             for (Item item : PixelUtilitysTools.getInstance().getToolList())
-                itemList.add(new ItemStack(item, 1, 0));
+                ((List<ItemStack>)itemList).add(new ItemStack(item, 1, 0));
 
         }
 
@@ -63,7 +63,7 @@ public class PixelUtilitysCreativeTabs {
         public void displayAllReleventItems(List itemList)//Allows us to not deal with vanillas stupid sorting
         {
             for (Block block : PixelUtilitysBlocks.LightBlockList)
-                itemList.add(new ItemStack(block, 1, 0));
+                ((List<ItemStack>)itemList).add(new ItemStack(block, 1, 0));
         }
 
         @Override
