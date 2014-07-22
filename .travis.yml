@@ -1,0 +1,9 @@
+language: go
+
+go: 1.2
+
+install:
+  - sudo apt-get install -qq gradle
+
+script:
+  - ./build.sh
