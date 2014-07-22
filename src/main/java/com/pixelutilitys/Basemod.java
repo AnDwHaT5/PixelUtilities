@@ -1,6 +1,7 @@
 package com.pixelutilitys;
 
 import com.pixelutilitys.achievements.PixelUtilitysAchievements;
+import com.pixelutilitys.commands.AddToGrassCommand;
 import com.pixelutilitys.commands.PokecheckmeCommand;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
@@ -181,6 +182,7 @@ public class Basemod {
     public void onServerStart(FMLServerStartingEvent event) {
         if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
             ((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
+            ((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new AddToGrassCommand());
         }
 
         if (DEBUGMODE) {

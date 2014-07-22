@@ -15,13 +15,19 @@ import com.pixelutilitys.blocks.PokeWaterFlowing;
 import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import cpw.mods.fml.common.FMLLog;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GrassSpawner {
@@ -108,19 +114,19 @@ public class GrassSpawner {
         return instance;
     }
 
-    public String[] defaultEncounterListPlains = {"Pikachu", "Pidgey", "Rattata", "Ponyta"};
-    public String[] defaultEncounterListJungle = {"Oddish", "Paras", "Bellsprout", "Scyther"};
-    public String[] defaultEncounterListForest = {"Pikachu", "Rattata", "Caterpie", "Weedle"};
-    public String[] defaultEncounterListExtremeHills = {"Pidgey", "Pidgeotto", "Nidorino", "Geodude", "Machop"};
-    public String[] defaultEncounterListTaiga = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
-    public String[] defaultEncounterListIcePlains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
-    public String[] defaultEncounterListBeach = {"Slowpoke", "Staryu", "Shellder", "Psyduck"};
-    public String[] defaultEncounterListDesert = {"Trapinch", "Sandshrew", "Sandile", "Geodude"};
-    public String[] defaultEncounterListIceMountains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
-    public String[] defaultEncounterListOcean = {"Magikarp", "Staryu", "Goldeen", "Shellder"};
+    private String[] defaultEncounterListPlains = {"Pikachu", "Pidgey", "Rattata", "Ponyta"};
+    private String[] defaultEncounterListJungle = {"Oddish", "Paras", "Bellsprout", "Scyther"};
+    private String[] defaultEncounterListForest = {"Pikachu", "Rattata", "Caterpie", "Weedle"};
+    private String[] defaultEncounterListExtremeHills = {"Pidgey", "Pidgeotto", "Nidorino", "Geodude", "Machop"};
+    private String[] defaultEncounterListTaiga = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    private String[] defaultEncounterListIcePlains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    private String[] defaultEncounterListBeach = {"Slowpoke", "Staryu", "Shellder", "Psyduck"};
+    private String[] defaultEncounterListDesert = {"Trapinch", "Sandshrew", "Sandile", "Geodude"};
+    private String[] defaultEncounterListIceMountains = {"Swinub", "Slowpoke", "Magnemite", "Jynx"};
+    private String[] defaultEncounterListOcean = {"Magikarp", "Staryu", "Goldeen", "Shellder"};
 
     private double xCoOrd;
-    private double lastXCoOrd = 0;
+    private double lastXCoOrd = 0;//moe if i catch you naming like this again i will hurt you.
     private double zCoOrd;
     private double lastZCoOrd = 0;
     BattleControllerBase bc;
@@ -153,21 +159,9 @@ public class GrassSpawner {
                     processGrassBattle(world, x, y, z, player);
                 }
             }
-            lastXCoOrd = xCoOrd;
-            lastZCoOrd = zCoOrd;
-            if (isWaterBattle <= PixelUtilitysConfig.getInstance().waterSpawnRate) {
-                if (PokeWaterFlowing.isActive || PokeWaterStill.isActive) {
-                    processWaterBattle(world, x, y, z, player);
-                }
-            }
         }
         lastXCoOrd = xCoOrd;
         lastZCoOrd = zCoOrd;
-    }
-
-    private void processWaterBattle(World world, int x, int y, int z, EntityPlayerMP player) {
-//TODO are we even implementing this
-        //spawnBattle(world, x, y, z, player, pixelConfig.oceanSpecialRate, encounterListW);
     }
 
     private void processGrassBattle(World world, int x, int y, int z, EntityPlayerMP player) {
@@ -227,9 +221,25 @@ public class GrassSpawner {
         bc = new BattleController2Participant(new PlayerParticipant(player, player1firstPokemon), wildPixelmon);
     }
 
-    public void setEncounterList(EnumPokemon[] forest, EnumPokemon[] extremeHillsEncounterList, EnumPokemon[] plainsEncounterList, EnumPokemon[] taigaEncounterList, EnumPokemon[] jungleEncounterList, EnumPokemon[] icePlainsEncounterList, EnumPokemon[] iceMountainsEncounterList, EnumPokemon[] beachEncounterList, EnumPokemon[] desertEncounterList, EnumPokemon[] oceanEncounterList) {
+    public void addBiomeEncounter(ICommandSender sender, String pokemonName, String biomeName) {
+        List<String> biomeEncounters = Arrays.asList(spawnerConfig.get(pokeLists, biomeName, blankArray).getStringList());
 
-        FMLLog.severe("NOT IMPLEMENTED, GrassSpawner.setEncounterList");
+        if(biomeEncounters.contains(blankArray[0]))//not configured
+        {
+            biomeEncounters = new ArrayList<>();
+        }
+        if(EnumPokemon.get(pokemonName) != null)//check pokemon exists
+        {
+            biomeEncounters.add(pokemonName);
+            spawnerConfig.get(pokeLists, biomeName, blankArray).set(biomeEncounters.toArray(new String[biomeEncounters.size()]));
+            spawnerConfig.save();
+            sender.addChatMessage(new ChatComponentText("Successfully added "+pokemonName+" to "+biomeName+" spawn list"));
+        }
+        else
+        {
+            sender.addChatMessage(new ChatComponentText(pokemonName+" is not a valid pokemon name"));
+        }
+
     }
 
 
