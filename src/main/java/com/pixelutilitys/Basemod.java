@@ -181,10 +181,6 @@ public class Basemod {
     public void onServerStart(FMLServerStartingEvent event) {
         if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
             ((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokecheckmeCommand());
-            //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeKitCommand());
-            //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new UtilitiesStaffCommand());
-            //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new PokeCheckCommand());
-            //((ServerCommandManager) MinecraftServer.getServer().getCommandManager()).registerCommand(new FrontierBattleCommand());
         }
 
         if (DEBUGMODE) {
