@@ -21,8 +21,8 @@ import java.util.Random;
 public class AronPokedollBlock extends BlockContainer {
 
 
-    public AronPokedollBlock(Material iron) {
-        super(Material.iron);
+    public AronPokedollBlock(Material material) {
+        super(material);
         this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.4F, 0.0F, 1.0F); //0.4 0.0 1.0 
         setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
     }
@@ -69,7 +69,7 @@ public class AronPokedollBlock extends BlockContainer {
      * Updates the blocks bounds based on its current state. Args: world, x, y,
      * z
      *
-     * @param world
+     * @param World
      */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 0.7f, 0.7f, 0.7f);
