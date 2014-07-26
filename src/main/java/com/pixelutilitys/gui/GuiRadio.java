@@ -1,7 +1,7 @@
 package com.pixelutilitys.gui;
 
-import com.pixelutilitys.PacketHandler;
-import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
+import com.pixelutilitys.networking.PacketHandler;
+import com.pixelutilitys.networking.networkMessages.MessageTileEntityRadio;
 import com.pixelutilitys.tileentitys.TileEntityRadio;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

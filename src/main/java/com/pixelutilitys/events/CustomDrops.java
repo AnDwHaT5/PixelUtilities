@@ -1,4 +1,4 @@
-package com.pixelutilitys;
+package com.pixelutilitys.events;
 
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;

@@ -1,9 +1,9 @@
 package com.pixelutilitys.tileentitys;
 
 import com.pixelutilitys.Basemod;
-import com.pixelutilitys.PacketHandler;
+import com.pixelutilitys.networking.PacketHandler;
 import com.pixelutilitys.config.PixelUtilitysBlocks;
-import com.pixelutilitys.networkMessages.MessageTileEntityRadio;
+import com.pixelutilitys.networking.networkMessages.MessageTileEntityRadio;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;

@@ -11,8 +11,6 @@ import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 
 public class PixelUtilitysAchievements {
-    // Call Once
-    private static boolean called = false;
 
     private final static String INDEX = "wtf";
     private int magArmor = 0;
@@ -27,13 +25,7 @@ public class PixelUtilitysAchievements {
     public static AchievementPage PixelUtilitysPage = new AchievementPage("PixelUtilitys", teammagma, teamaqua, teammagma1, teamaqua1, getSilicon);
 
     public static void setupAchievements() {
-        if (called) {
-            return;
-        }
-
         AchievementPage.registerAchievementPage(PixelUtilitysPage);
-
-        called = true;
     }
 
     @EventHandler

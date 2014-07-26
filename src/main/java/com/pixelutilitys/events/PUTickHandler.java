@@ -1,23 +1,17 @@
 package com.pixelutilitys.events;
 
-import com.pixelmonmod.pixelmon.client.ClientProxy;
 import com.pixelutilitys.Basemod;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.radioplayer.VLCPlayer;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
-import net.minecraftforge.client.event.RenderPlayerEvent;
 
 @SideOnly(Side.CLIENT)
 public class PUTickHandler {
@@ -66,25 +60,4 @@ public class PUTickHandler {
         }
     }
 
-    EntityChicken chicken = null;
-
-    @SubscribeEvent
-    public void makeAndwhatsDuck(RenderPlayerEvent.Pre event) {
-        if (event.entityPlayer.getUniqueID().toString().equalsIgnoreCase("e978a5b23ea74f10acde1c220967c338")) {
-
-            event.setCanceled(true);
-
-            EntityPlayer player = event.entityPlayer;
-
-            if (chicken == null) {
-                chicken = new EntityChicken(event.entityPlayer.getEntityWorld());
-                player.getEntityWorld().spawnEntityInWorld(chicken);
-            }
-
-            chicken.setPosition(player.posX, player.posY, player.posZ);
-            chicken.setRotationYawHead(player.getRotationYawHead());
-            RenderManager.instance.renderEntityWithPosYaw(chicken, player.posX, player.posY, player.posZ, 1f, 0f);
-
-        }
-    }
 }

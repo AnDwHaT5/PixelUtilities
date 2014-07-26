@@ -7,7 +7,10 @@ import com.pixelutilitys.config.PixelUtilitysBlocks;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysRecipes;
 import com.pixelutilitys.entitys.SeatEntity;
+import com.pixelutilitys.events.CustomDrops;
 import com.pixelutilitys.events.PUTickHandler;
+import com.pixelutilitys.networking.PacketHandler;
+import com.pixelutilitys.proxies.CommonProxy;
 import com.pixelutilitys.radioplayer.VLCPlayer;
 import com.pixelutilitys.tileentitys.*;
 import com.pixelutilitys.worldgen.*;
@@ -78,12 +81,10 @@ public class Basemod {
     //Biomes
     public static BiomeGenBase PokeBiome;
 
-    private static boolean preInit = false, init = false, postInit = false;
-
     @Instance(Basemod.MODID)
     public static Basemod instance;
-    @SidedProxy(clientSide = "com.pixelutilitys.ClientProxy",
-            serverSide = "com.pixelutilitys.CommonProxy")
+    @SidedProxy(clientSide = "com.pixelutilitys.proxies.ClientProxy",
+            serverSide = "com.pixelutilitys.proxies.CommonProxy")
     public static CommonProxy proxy;
 
     PixelUtilitysConfig config;
@@ -104,7 +105,6 @@ public class Basemod {
         PixelUtilitysAchievements.setupAchievements();
 
         EntityRegistry.registerModEntity(SeatEntity.class, "Seat", 0, this, 3, 1, false);
-        preInit = true;
     }
 
     @EventHandler
@@ -119,7 +119,6 @@ public class Basemod {
         }
 
         PacketHandler.init();
-        init = true;
     }
 
     private void initVLC() {
@@ -172,12 +171,6 @@ public class Basemod {
         MinecraftForge.EVENT_BUS.register(new CustomDrops());
     }
 
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-
-        postInit = true;
-    }
-
     @Mod.EventHandler
     public void onServerStart(FMLServerStartingEvent event) {
         if (MinecraftServer.getServer().getCommandManager() instanceof ServerCommandManager) {
@@ -195,13 +188,11 @@ public class Basemod {
 
                 if (localName.contains("tile")) {
                     System.out.println("Block " + block.getClass().getName() + " Doesn't seem to have a name set!");
-                    //JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a name set!");
                     System.out.println();
                 }
 
                 if (block.getCreativeTabToDisplayOn() == null) {
                     System.out.println("Block " + block.getClass().getName() + " Doesn't seem to have a creative tab set!");
-                    //JOptionPane.showMessageDialog(null, "Block "+block.getClass().getName()+" Doesn't seem to have a creative tab set!");
                     System.out.println();
                 }
 
@@ -243,27 +234,6 @@ public class Basemod {
         }
 
         PUTickHandler.playerRadio.stop();
-    }
-
-    /**
-     * whether or not PixelUtilitys has finished the {@link #preInit(FMLPreInitializationEvent) preInit} phase.
-     */
-    public static boolean preInitialized() {
-        return preInit;
-    }
-
-    /**
-     * whether or not PixelUtilitys has finished the {@link #load(FMLInitializationEvent) load} phase.
-     */
-    public static boolean initialized() {
-        return init;
-    }
-
-    /**
-     * whether or not PixelUtilitys has finished the {@link (FMLPostInitializationEvent) modsLoaded} phase.
-     */
-    public static boolean postInitialized() {
-        return postInit;
     }
 
     /**

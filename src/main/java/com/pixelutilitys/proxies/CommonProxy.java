@@ -1,4 +1,4 @@
-package com.pixelutilitys;
+package com.pixelutilitys.proxies;
 
 public class CommonProxy {
 

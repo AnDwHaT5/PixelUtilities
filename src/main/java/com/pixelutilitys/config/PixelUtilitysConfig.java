@@ -16,8 +16,6 @@ public class PixelUtilitysConfig {
     public boolean grassBattles = false;
     public boolean onlyGrassSpawns = false;
     public int grassSpawnRate;
-    public int waterSpawnRate;
-    public boolean waterBattles = false;
     public int coinDropRate;
 
     public String BattleMusicURL;
@@ -60,7 +58,6 @@ public class PixelUtilitysConfig {
         onlyGrassSpawns = this.configuration.get("general", "Only spawn Pixelmon in grass", false).getBoolean(false);
         grassSpawnRate = this.configuration.get("general", "Pixelmon in grass spawn rate", 200).getInt();
         coinDropRate = this.configuration.get("general", "Pixelmon coin drop rate", 4).getInt();
-        waterSpawnRate = this.configuration.get("general", "Pixelmon in water spawn rate", 400).getInt();
 
         //music
         BattleMusicURL = this.configuration.get("General", "BattleMusic Music Song URL (If youtube make sure http not https)", "http://www.youtube.com/watch?v=WnkhVPmapc8").getString();

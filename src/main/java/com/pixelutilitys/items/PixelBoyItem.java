@@ -1,6 +1,6 @@
 package com.pixelutilitys.items;
 
-import com.pixelutilitys.gui.PixelBoyGui;
+import com.pixelutilitys.gui.GuiPixelBoy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
@@ -22,7 +22,7 @@ public class PixelBoyItem extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        Minecraft.getMinecraft().displayGuiScreen(new PixelBoyGui());
+        Minecraft.getMinecraft().displayGuiScreen(new GuiPixelBoy());
 
         return itemStack;
     }

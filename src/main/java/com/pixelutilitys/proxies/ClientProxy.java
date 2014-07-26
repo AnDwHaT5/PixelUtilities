@@ -1,8 +1,9 @@
-package com.pixelutilitys;
+package com.pixelutilitys.proxies;
 
 //import com.net.trigore.radioblock.RenderRadioBlock;
 //import com.net.trigore.radioblock.TileEntityRadio;
 
+import com.pixelutilitys.Basemod;
 import com.pixelutilitys.entitys.SeatEntity;
 import com.pixelutilitys.models.renderers.*;
 import com.pixelutilitys.tileentitys.*;

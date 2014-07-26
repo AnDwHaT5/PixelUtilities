@@ -15,9 +15,9 @@ import java.util.List;
 import com.pixelutilitys.arcade.interfaces.IArcadeGame.KEY;
 import net.minecraft.client.settings.GameSettings;
 
-public class PixelBoyGui extends GuiScreen {
+public class GuiPixelBoy extends GuiScreen {
 
-    public PixelBoyGui()
+    public GuiPixelBoy()
     {
 
     }

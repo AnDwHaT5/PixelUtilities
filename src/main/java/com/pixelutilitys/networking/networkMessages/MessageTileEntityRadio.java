@@ -1,6 +1,6 @@
-package com.pixelutilitys.networkMessages;
+package com.pixelutilitys.networking.networkMessages;
 
-import com.pixelutilitys.PacketHandler;
+import com.pixelutilitys.networking.PacketHandler;
 import com.pixelutilitys.tileentitys.TileEntityRadio;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -16,7 +16,7 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 
     public int x, y, z;
     public boolean playing = false;
-    public String url = "http://haxyshideout.co.uk/songs/desu.mp3";
+    public String url = "http://www.youtube.com/watch?v=4M6qAMMqFhI&hd=1";
 
     public MessageTileEntityRadio() {
     }
@@ -45,7 +45,6 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
         int streamLength = buf.readInt();
         if (streamLength > 0)
             this.url = new String(buf.readBytes(streamLength).array());
-        //System.out.println("read "+this.x+" "+this.y+" "+this.z+" "+streamLength);
     }
 
     @Override
