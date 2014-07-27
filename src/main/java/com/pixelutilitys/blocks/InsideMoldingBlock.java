@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class InsideMoldingBlock extends Block {
 
-    public InsideMoldingBlock(Material material) {
-        super(material);
+    public InsideMoldingBlock() {
+        super(Material.wood);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeWood);
         setBlockName("Inside Wall Molding");

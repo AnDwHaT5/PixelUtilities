@@ -12,7 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 
-public class MessageTileEntityRadio implements IMessage, IMessageHandler<MessageTileEntityRadio, IMessage> {
+public class MessageTileEntityRadio implements IMessage {
 
     public int x, y, z;
     public boolean playing = false;
@@ -61,47 +61,44 @@ public class MessageTileEntityRadio implements IMessage, IMessageHandler<Message
 
     }
 
-    @Override
-    public IMessage onMessage(MessageTileEntityRadio message, MessageContext context) {
-        if (context.side == Side.SERVER) {
-            PacketHandler.INSTANCE.sendToAll(message);
+    public static class Handler implements IMessageHandler<MessageTileEntityRadio, IMessage> {
+        @Override
+        public IMessage onMessage (MessageTileEntityRadio message, MessageContext context){
+            if (context.side == Side.SERVER) {
+                PacketHandler.INSTANCE.sendToAll(message);
+            }
+
+            TileEntity te = null;
+            if (context.side == Side.SERVER) {
+                EntityPlayerMP p = context.getServerHandler().playerEntity;
+                te = MinecraftServer.getServer().worldServerForDimension(p.dimension).getTileEntity(message.x, message.y, message.z);
+            }
+            if (context.side == Side.CLIENT) {
+                te = Minecraft.getMinecraft().theWorld.getTileEntity(message.x, message.y, message.z);
+            }
+
+
+            if (te == null) {
+                System.out.println("te is null D:");
+                System.out.println("te should be at " + message.x + " " + message.y + " " + message.z);
+            }
+
+
+            if (te instanceof TileEntityRadio) {
+                TileEntityRadio r = (TileEntityRadio) te;
+                r.streamURL = message.url;
+
+                if (context.side == Side.CLIENT)
+                    if (message.playing && !r.isPlaying()) {
+                        r.startStream();
+                    } else {
+                        r.stopStream();
+                    }
+            }
+            return null;
+
+
         }
-
-        TileEntity te = null;
-        if (context.side == Side.SERVER) {
-            EntityPlayerMP p = context.getServerHandler().playerEntity;
-            te = MinecraftServer.getServer().worldServerForDimension(p.dimension).getTileEntity(message.x, message.y, message.z);
-        }
-        if (context.side == Side.CLIENT) {
-            te = Minecraft.getMinecraft().theWorld.getTileEntity(message.x, message.y, message.z);
-        }
-
-
-        if (te == null) {
-            System.out.println("te is null D:");
-            System.out.println("te should be at " + message.x + " " + message.y + " " + message.z);
-        }
-
-
-        if (te instanceof TileEntityRadio) {
-            TileEntityRadio r = (TileEntityRadio) te;
-            r.streamURL = message.url;
-
-            if (context.side == Side.CLIENT)
-                if (message.playing && !r.isPlaying()) {
-                    r.startStream();
-                } else {
-                    r.stopStream();
-                }
-        }
-        return null;
-
-
-    }
-
-    @Override
-    public String toString() {
-        return String.format("MessageTileEntityRadio - x:%s, y:%s, z:%s, playing:%s, url:%s", this.x, this.y, this.z, this.playing, this.url);
     }
 
 

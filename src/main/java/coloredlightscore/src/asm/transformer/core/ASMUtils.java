@@ -23,56 +23,11 @@ import static coloredlightscore.src.asm.ColoredLightsCoreDummyContainer.CLLog;
 import static coloredlightscore.src.asm.ColoredLightsCoreLoadingPlugin.CLASSLOADER;
 import static org.objectweb.asm.Opcodes.ACC_INTERFACE;
 
+@SuppressWarnings("SameParameterValue")
 public final class ASMUtils {
 
     private ASMUtils() {
     }
-
-    /**
-     * Given a deobfuscated class name, returns the appropriate obfuscated/deobfuscated name ready to use
-     * in transformer code.
-     *
-     * @param deobfuscatedClassName      Eg: "net.minecraft.block.Block"
-     * @param deobfuscatedTypeDescriptor Eg: "net.minecraft.world.chunk.NibbleArray"
-     * @param descriptor                 The descriptor to decode
-     * @return The proper descriptor
-     * /
-     * public static final String getJVMTypeObfuscated(String descriptor)
-     * {
-     * int i = 0, j;
-     * String className = "";
-     * String result = "";
-     * <p/>
-     * while (i < descriptor.length())
-     * {
-     * if (descriptor.substring(i, i + 1).equals("L"))
-     * {
-     * // Extract class name
-     * j = i;
-     * <p/>
-     * while (!descriptor.substring(j, j + 1).equals(";"))
-     * j++;
-     * <p/>
-     * className = descriptor.substring(i + 1, j);
-     * <p/>
-     * //FMLLog.info("getMethodDescriptorObfuscated - Found class %s", className);
-     * <p/>
-     * result = result + "L" + ASMUtils.getClassName(className) + ";";
-     * <p/>
-     * // Skip to end of class name
-     * i = j;
-     * }
-     * else
-     * result = result + descriptor.substring(i, i + 1);
-     * <p/>
-     * i++;
-     * }
-     * <p/>
-     * return result;
-     * }
-     * @author heaton84
-     * @author heaton84
-     */
 
     public static String deobfuscate(String className, FieldNode field) {
         return deobfuscateField(className, field.name, field.desc);

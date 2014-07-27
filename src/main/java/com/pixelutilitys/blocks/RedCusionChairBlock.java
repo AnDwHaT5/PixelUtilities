@@ -22,8 +22,8 @@ import java.util.Random;
 public class RedCusionChairBlock extends BlockContainer {
 
 
-    public RedCusionChairBlock(Material iron) {
-        super(Material.iron);
+    public RedCusionChairBlock() {
+        super(Material.cloth);
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
         setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
     }
@@ -66,12 +66,6 @@ public class RedCusionChairBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("pixelutilitys:RedCusionChair");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
     }

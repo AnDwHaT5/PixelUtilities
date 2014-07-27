@@ -8,7 +8,7 @@ public interface IArcadeMachine {
     /**
      * Plays the sound contained in the file
      *
-     * @param soundFile
+     * @param soundFile soundfile to play
      */
     public void playSound(File soundFile);
 
@@ -26,7 +26,7 @@ public interface IArcadeMachine {
      * int[0] = width<b>
      * int[1] = height<b>
      *
-     * @return
+     * @return [0] = width, [1] = height
      */
     public int[] getSuggestedScreenSize();
 
@@ -34,7 +34,7 @@ public interface IArcadeMachine {
      * Gets the background color of the arcades screen, which will be used to fill areas of the screen, that are not
      * used by the game.
      *
-     * @return
+     * @return Color of background
      */
     public Color getScreenBackgroundColor();
 }

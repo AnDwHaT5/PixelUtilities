@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class AmethystOre extends Block {
 
-    public AmethystOre(Material material) {
-        super(material);
+    public AmethystOre() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("AmethystOre");

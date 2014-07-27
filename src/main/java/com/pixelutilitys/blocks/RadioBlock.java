@@ -25,8 +25,8 @@ public class RadioBlock extends Block implements ITileEntityProvider {
 
     public TileEntityRadio radio;
 
-    public RadioBlock(Material par2Material) {
-        super(par2Material);
+    public RadioBlock() {
+        super(Material.wood);
         setHardness(2.0F);
         setResistance(10.0F);
         setStepSound(Block.soundTypeStone);

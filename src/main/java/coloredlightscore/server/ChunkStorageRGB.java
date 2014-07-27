@@ -262,7 +262,7 @@ public class ChunkStorageRGB {
     /**
      * Extracts all the red color arrays from a chunk's extended block storage
      *
-     * @param chunk
+     * @param chunk chunk containing data
      * @return An array of NibbleArrays containing red color data for the chunk
      */
     public static NibbleArray[] getRedColorArrays(Chunk chunk) {
@@ -302,7 +302,7 @@ public class ChunkStorageRGB {
     /**
      * Extracts all the green color arrays from a chunk's extended block storage
      *
-     * @param chunk
+     * @param chunk chunk containing data
      * @return An array of NibbleArrays containing green color data for the chunk
      */
 
@@ -343,7 +343,7 @@ public class ChunkStorageRGB {
     /**
      * Extracts all the blue color arrays from a chunk's extended block storage
      *
-     * @param chunk
+     * @param chunk chunk containing data
      * @return An array of NibbleArrays containing blue color data for the chunk
      */
 

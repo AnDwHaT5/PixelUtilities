@@ -5,8 +5,8 @@ import net.minecraft.block.material.Material;
 
 public class RubyBlock extends Block {
 
-    public RubyBlock(Material material) {
-        super(material);
+    public RubyBlock() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("RubyBlock");

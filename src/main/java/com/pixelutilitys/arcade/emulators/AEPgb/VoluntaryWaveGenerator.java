@@ -23,6 +23,7 @@ Place - Suite 330, Boston, MA 02111-1307, USA.
 
 */
 
+@SuppressWarnings("SameParameterValue")
 class VoluntaryWaveGenerator {
 	public static final int CHAN_LEFT = 1;
 	public static final int CHAN_RIGHT = 2;

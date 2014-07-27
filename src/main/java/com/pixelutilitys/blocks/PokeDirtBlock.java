@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class PokeDirtBlock extends Block {
 
-    public PokeDirtBlock(Material material) {
-        super(material);
+    public PokeDirtBlock() {
+        super(Material.grass);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeGravel);
         setBlockName("PokeDirt");

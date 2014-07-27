@@ -42,10 +42,8 @@ public class PlayerManagerHelper {
             // TODO: This kills the server
             //chunk = Minecraft.getMinecraft().theWorld.getChunkFromChunkCoords(chunkX, chunkZ);
 
-            if (chunk == null) {
                 FMLLog.warning("Could not load chunk (%s, %s) for RGB color data!", chunkX, chunkZ);
                 return;
-            }
         }
 
         coloredlightscore.network.PacketHandler.sendChunkColorData(chunk, player);

@@ -18,8 +18,8 @@ import java.util.Random;
 public class ClothedTableBlock extends BlockContainer {
 
 
-    public ClothedTableBlock(Material iron) {
-        super(Material.iron);
+    public ClothedTableBlock() {
+        super(Material.wood);
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 1.2F, 3.0F, 1.2F);  //.6 .6
     }
 
@@ -61,12 +61,6 @@ public class ClothedTableBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("pixelutilitys:ClothedTable");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
     }

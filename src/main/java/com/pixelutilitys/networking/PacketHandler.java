@@ -11,7 +11,7 @@ public class PacketHandler {
     public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Basemod.MODID);
 
     public static void init() {
-        INSTANCE.registerMessage(MessageTileEntityRadio.class, MessageTileEntityRadio.class, 0, Side.CLIENT);
-        INSTANCE.registerMessage(MessageTileEntityRadio.class, MessageTileEntityRadio.class, 0, Side.SERVER);
+        INSTANCE.registerMessage(MessageTileEntityRadio.Handler.class, MessageTileEntityRadio.class, 0, Side.CLIENT);
+        INSTANCE.registerMessage(MessageTileEntityRadio.Handler.class, MessageTileEntityRadio.class, 0, Side.SERVER);
     }
 }

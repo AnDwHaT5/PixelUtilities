@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class BridgeBlockBlock extends Block {
 
-    public BridgeBlockBlock(Material material) {
-        super(material);
+    public BridgeBlockBlock() {
+        super(Material.wood);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeWood);
         setBlockName("BridgeBlock");

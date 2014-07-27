@@ -43,7 +43,6 @@ public class PixelUtilitysConfig {
     }
 
     private void loadConfig() {
-
         PixelUtilitysTools.getInstance().load(this.configuration); //Get instance sets it up.
         PixelUtilitysItems.load(this.configuration);
         PixelUtilitysBlocks.load(this.configuration);
@@ -52,6 +51,7 @@ public class PixelUtilitysConfig {
         PixelUtilitysItems.addNames();
         PixelUtilitysArmor.addNames();
         PixelUtilitysTools.getInstance().addNames();
+        PixelUtilitysLiquids.registerLiquids();
 
         coinDrops = this.configuration.get("general", "Make Pixelmon drop PokeCoins", false).getBoolean(false);
         grassBattles = this.configuration.get("general", "Allow pixelmon spawning blocks to spawn pixelmon", true).getBoolean(true);

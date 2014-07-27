@@ -11,10 +11,7 @@ import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 import com.pixelmonmod.pixelmon.storage.PixelmonStorage;
 import com.pixelmonmod.pixelmon.storage.PlayerNotLoadedException;
 import com.pixelutilitys.blocks.PixelmonGrassBlock;
-import com.pixelutilitys.blocks.PokeWaterFlowing;
-import com.pixelutilitys.blocks.PokeWaterStill;
 import com.pixelutilitys.config.PixelUtilitysConfig;
-import cpw.mods.fml.common.FMLLog;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -22,7 +19,6 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -146,7 +142,6 @@ public class GrassSpawner {
             }
             Random random = new Random(System.currentTimeMillis());
             int isGrassBattle = random.nextInt(100);
-            int isWaterBattle = random.nextInt(100);
 
             xCoOrd = x;
             zCoOrd = z;

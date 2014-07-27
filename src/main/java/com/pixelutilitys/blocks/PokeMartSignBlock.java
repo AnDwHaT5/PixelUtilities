@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class PokeMartSignBlock extends Block {
 
-    public PokeMartSignBlock(Material material) {
-        super(material);
+    public PokeMartSignBlock() {
+        super(Material.wood);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("PokeMartSign");

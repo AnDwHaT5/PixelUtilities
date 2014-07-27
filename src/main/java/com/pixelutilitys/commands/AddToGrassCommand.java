@@ -4,7 +4,6 @@ import com.pixelmonmod.pixelmon.enums.EnumPokemon;
 import com.pixelutilitys.GrassSpawner;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.biome.BiomeGenBase;
 

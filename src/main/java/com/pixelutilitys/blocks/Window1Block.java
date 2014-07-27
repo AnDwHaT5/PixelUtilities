@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class Window1Block extends Block {
 
-    public Window1Block(Material material) {
-        super(material);
+    public Window1Block() {
+        super(Material.glass);
         setHardness(2.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeGlass);
         setBlockName("Window1");

@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class ShinglesBlock extends Block {
 
-    public ShinglesBlock(Material material) {
-        super(material);
+    public ShinglesBlock() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeWood);
         setBlockName("Shingles");

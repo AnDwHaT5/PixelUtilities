@@ -61,12 +61,6 @@ public class PictureFrameBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("PictureFrame");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
     }

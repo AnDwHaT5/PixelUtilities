@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class RubyOre extends Block {
 
-    public RubyOre(Material material) {
-        super(material);
+    public RubyOre() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("RubyOre");

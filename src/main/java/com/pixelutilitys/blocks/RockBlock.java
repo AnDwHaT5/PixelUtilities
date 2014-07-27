@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class RockBlock extends Block {
 
-    public RockBlock(Material material) {
-        super(material);
+    public RockBlock() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("Rock");

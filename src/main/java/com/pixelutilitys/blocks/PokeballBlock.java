@@ -20,7 +20,7 @@ import java.util.Random;
 public class PokeballBlock extends BlockContainer {
 
 
-    public PokeballBlock(Material iron) {
+    public PokeballBlock() {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 0.3F, 0.3F, 3.0F, 0.3F); //0.4 0.0 1.0 
     }
@@ -62,12 +62,6 @@ public class PokeballBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("pixelutilitys:Pokeball");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
     }

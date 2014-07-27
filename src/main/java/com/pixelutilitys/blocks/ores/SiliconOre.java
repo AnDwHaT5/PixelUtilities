@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class SiliconOre extends Block {
 
-    public SiliconOre(Material material) {
-        super(material);
+    public SiliconOre() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("SiliconOre");

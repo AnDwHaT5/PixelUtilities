@@ -42,8 +42,8 @@ public abstract class HelperMethodTransformer extends MethodTransformer {
      * Method Descriptor Details: For TargetMethod(args...), HelperMethod must be HelperMethod(targetClass, args...), and MUST MATCH IN RETURN TYPE.
      * targetClass is the instance of the targetClass that targetMethod is running under.
      *
-     * @param clazz
-     * @param method       Reference of the method to transform
+     * @param clazz        Reference of the class to transform
+     * @param targetMethod       Reference of the method to transform
      * @param helperMethod The name of the method in the helper class to invoke. See description for Descriptor details.
      * @return
      * @author heaton84

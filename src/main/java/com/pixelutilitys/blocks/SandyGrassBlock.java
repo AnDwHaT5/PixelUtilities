@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class SandyGrassBlock extends Block {
 
-    public SandyGrassBlock(Material material) {
-        super(material);
+    public SandyGrassBlock() {
+        super(Material.grass);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeSand);
         setBlockName("SandyGrass");

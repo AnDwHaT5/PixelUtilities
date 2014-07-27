@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class PokeSandBlock extends Block {
 
-    public PokeSandBlock(Material material) {
-        super(material);
+    public PokeSandBlock() {
+        super(Material.sand);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeSand);
         setBlockName("PokeSand");

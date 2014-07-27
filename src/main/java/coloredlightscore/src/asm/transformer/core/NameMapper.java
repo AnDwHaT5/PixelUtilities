@@ -98,7 +98,7 @@ public class NameMapper {
      * Returns the appropriate obfuscated or unobfuscated class name for a Minecraft class
      *
      * @param className De-obfuscated class name, in either dot or internal format.
-     * @return
+     * @return renamed class
      */
     public String getClassName(String className) {
         String indexer = internalizeName(className);
@@ -188,7 +188,7 @@ public class NameMapper {
      * @param methodNode              Node to test
      * @param ownerName               The de-obfuscated owner class of the method to test for
      * @param methodNameWithSignature The de-obfuscated method WITH signature to test for (eg: "setLightLevel (F)Lnet/minecraft/block/Block;")
-     * @return
+     * @return true if method exists, false if not
      */
     public boolean isMethod(MethodNode methodNode, String ownerName, String methodNameWithSignature) {
         String indexer = internalizeName(ownerName + "/" + methodNameWithSignature);

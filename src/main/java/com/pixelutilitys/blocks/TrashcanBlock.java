@@ -19,7 +19,7 @@ import java.util.Random;
 public class TrashcanBlock extends BlockContainer {
 
 
-    public TrashcanBlock(Material iron) {
+    public TrashcanBlock() {
         super(Material.iron);
         this.setBlockBounds(0.4F, 0.0F, 1.0F, 0.6F, 3.0F, 0.6F);
         setCreativeTab(PixelUtilitysCreativeTabs.tabPokefurniture);
@@ -62,12 +62,6 @@ public class TrashcanBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("pixelutilitys:Trashcan");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 1.0f, 1f);
     }

@@ -13,8 +13,8 @@ public class PixelmonGrassBlock extends Block {
     private GrassSpawner grassSpawner = GrassSpawner.getInstance();
     public static Boolean isActive = false;
 
-    public PixelmonGrassBlock(Material material) {
-        super(material);
+    public PixelmonGrassBlock() {
+        super(Material.grass);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeGrass);
         setBlockName("PixelmonGrass");

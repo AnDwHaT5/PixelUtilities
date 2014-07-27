@@ -5,8 +5,8 @@ import net.minecraft.block.material.Material;
 
 public class SaphireBlock extends Block {
 
-    public SaphireBlock(Material material) {
-        super(material);
+    public SaphireBlock() {
+        super(Material.rock);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeStone);
         setBlockName("SaphireBlock");

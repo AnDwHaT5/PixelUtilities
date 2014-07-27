@@ -22,8 +22,8 @@ import java.util.Random;
 public class PokeballStatueBlock extends MultiBlock {
 
 
-    public PokeballStatueBlock(Material par2Material) {
-        super(par2Material, 1, 3, 1);
+    public PokeballStatueBlock() {
+        super(Material.iron, 1, 3, 1);
     }
 
     @Override

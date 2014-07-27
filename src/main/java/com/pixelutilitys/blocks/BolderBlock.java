@@ -19,8 +19,8 @@ import java.util.Random;
 public class BolderBlock extends BlockContainer {
 
 
-    public BolderBlock(Material iron) {
-        super(Material.iron);
+    public BolderBlock() {
+        super(Material.rock);
         this.setBlockBounds(0.4F, 0.0F, 0.5F, 0.6F, 3.0F, 0.6F);
         setCreativeTab(PixelUtilitysCreativeTabs.tabPixelmonBlocks);
     }
@@ -63,12 +63,6 @@ public class BolderBlock extends BlockContainer {
         blockIcon = par1IconRegister.registerIcon("pixelutilitys:BolderIcon");
     }
 
-    /**
-     * Updates the blocks bounds based on its current state. Args: world, x, y,
-     * z
-     *
-     * @param world
-     */
     public void setBlockBounds(int stage) {
         this.setBlockBounds(0f, 0, 0f, 1f, 0.8f, 1f);
     }

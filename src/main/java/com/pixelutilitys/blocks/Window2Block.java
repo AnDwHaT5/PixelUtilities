@@ -9,8 +9,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import java.util.Random;
 
 public class Window2Block extends Block {
-    public Window2Block(Material material) {
-        super(material);
+    public Window2Block() {
+        super(Material.glass);
         setHardness(2.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeGlass);
         setBlockName("Window2");

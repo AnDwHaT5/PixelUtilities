@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class TreeBottomBlock extends Block {
 
-    public TreeBottomBlock(Material material) {
-        super(material);
+    public TreeBottomBlock() {
+        super(Material.wood);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeWood);
         setBlockName("Tree Bottom");

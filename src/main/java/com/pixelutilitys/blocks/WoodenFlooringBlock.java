@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 
 public class WoodenFlooringBlock extends Block {
 
-    public WoodenFlooringBlock(Material material) {
-        super(material);
+    public WoodenFlooringBlock() {
+        super(Material.wood);
         setHardness(4.0F); // 33% harder than diamond
         setStepSound(Block.soundTypeWood);
         setBlockName("WoodenFlooring");
