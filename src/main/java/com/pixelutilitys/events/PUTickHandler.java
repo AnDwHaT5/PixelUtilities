@@ -1,46 +1,51 @@
 package com.pixelutilitys.events;
 
+import com.pixelmonmod.pixelmon.api.events.EventType;
+import com.pixelmonmod.pixelmon.api.events.IPixelmonEventHandler;
+import com.pixelmonmod.pixelmon.client.ClientProxy;
 import com.pixelutilitys.Basemod;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.radioplayer.VLCPlayer;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 
 @SideOnly(Side.CLIENT)
-public class PUTickHandler {
+@Optional.Interface(iface = "com.pixelmonmod.pixelmon.api.events.IPixelmonEventHandler", modid = "pixelmon")
+public class PUTickHandler implements IPixelmonEventHandler {
     public static VLCPlayer playerRadio = new VLCPlayer(PixelUtilitysConfig.getInstance().BattleMusicURL, 50);
+    public boolean inBattle = false;
 
     //http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
     //https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3
     //https://www.youtube.com/watch?v=JuPx-3_8ssQ&index=4&list=RDLqqjTHqYmiM
-
-    @SubscribeEvent
-    public void playerTickStart(TickEvent.PlayerTickEvent event) {
-        /*
-        if (!Basemod.pixelmonPresent || !PixelUtilitysConfig.getInstance().battleMusicEnabled)
+/*
+    @Override
+    public void eventFired(EventType eventType, EntityPlayer player, Object... objects) {
+        if (!PixelUtilitysConfig.getInstance().battleMusicEnabled)
             return;
 
-        EntityPlayer player = event.player;
-        boolean inBattle = !ClientProxy.battleManager.battleEnded;
+        switch(eventType)
+        {
+            case EventType.PlayerBattleStarted:
+                playerRadio.start();
+                break;
 
-        FMLLog.fine("" + inBattle);
-        if (inBattle && player.getEntityData().getInteger("Battle") != 1) {
-            playerRadio.start();
-            player.getEntityData().setInteger("Battle", 1);
-        } else if (!inBattle && player.getEntityData().getInteger("Battle") == 1) {
-            playerRadio.stop();
-            player.getEntityData().setInteger("Battle", 0);
-        }*/
-        //TOO DAMN BUGGY
-    }
-
+            case EventType.PlayerBattleEnded:
+            case EventType.PlayerBattleEndedAbnormal:
+                playerRadio.stop();
+                break;
+        }
+    }*/
 
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
