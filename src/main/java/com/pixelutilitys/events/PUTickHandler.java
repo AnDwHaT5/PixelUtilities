@@ -1,16 +1,12 @@
 package com.pixelutilitys.events;
 
-import com.pixelmonmod.pixelmon.api.events.EventType;
-import com.pixelmonmod.pixelmon.api.events.IPixelmonEventHandler;
-import com.pixelmonmod.pixelmon.client.ClientProxy;
+import com.pixelmonmod.pixelmon.api.events.*;
 import com.pixelutilitys.Basemod;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.radioplayer.VLCPlayer;
-import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,7 +24,7 @@ public class PUTickHandler implements IPixelmonEventHandler {
     //http://www.youtube.com/watch?v=mTSpMl5jpPw&index=5&list=RDLqqjTHqYmiM
     //https://www.youtube.com/watch?v=eDfbtYOtNAU&list=RDLqqjTHqYmiM&index=3
     //https://www.youtube.com/watch?v=JuPx-3_8ssQ&index=4&list=RDLqqjTHqYmiM
-/*
+
     @Override
     public void eventFired(EventType eventType, EntityPlayer player, Object... objects) {
         if (!PixelUtilitysConfig.getInstance().battleMusicEnabled)
@@ -36,16 +32,16 @@ public class PUTickHandler implements IPixelmonEventHandler {
 
         switch(eventType)
         {
-            case EventType.PlayerBattleStarted:
+/*            case EventType.PlayerBattleStarted: // NOT IMPLEMENTED IN PIXELMON
                 playerRadio.start();
                 break;
-
-            case EventType.PlayerBattleEnded:
-            case EventType.PlayerBattleEndedAbnormal:
+*/
+            case PlayerBattleEnded:
+            case PlayerBattleEndedAbnormal:
                 playerRadio.stop();
                 break;
         }
-    }*/
+    }
 
     @SubscribeEvent
     public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
