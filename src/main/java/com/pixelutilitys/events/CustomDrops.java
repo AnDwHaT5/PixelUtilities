@@ -1,39 +1,39 @@
 package com.pixelutilitys.events;
 
+import com.pixelmonmod.pixelmon.api.events.EventType;
+import com.pixelmonmod.pixelmon.api.events.IPixelmonEventHandler;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
 import com.pixelutilitys.config.PixelUtilitysConfig;
 import com.pixelutilitys.config.PixelUtilitysItems;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 import java.util.Random;
 
-public class CustomDrops {
+@Optional.Interface(iface = "com.pixelmonmod.pixelmon.api.events.IPixelmonEventHandler", modid = "pixelmon")
+public class CustomDrops implements IPixelmonEventHandler {
 
-    public static Random random;
-    public static int dropped;
-    public static int doDrop;
+    public static Random random = new Random();
     private PixelUtilitysConfig pixelConfig = PixelUtilitysConfig.getInstance();
 
-    @SubscribeEvent
-    public void pixelmonDrop(LivingDropsEvent e) {
+    @Optional.Method(modid = "pixelmon")
+    @Override
+    public void eventFired(EventType eventType, EntityPlayer entityPlayer, Object... objects) {
         if (!pixelConfig.coinDrops) {
             return;
         }
 
-        if (e.entityLiving instanceof EntityPixelmon) {
-            EntityPixelmon p = (EntityPixelmon) e.entityLiving;
-            if (p.hasOwner()) {
-                return;
+        if(eventType == EventType.BeatWildPokemon) {
+            int doDrop = (int) (Math.random() * (pixelConfig.coinDropRate * 25));
+            if(doDrop < 25 && doDrop != 10) {
+                int amount = random.nextInt(2) + 1;
+                entityPlayer.inventory.addItemStackToInventory(new ItemStack(PixelUtilitysItems.PokeCoin1Item, amount));
             }
-            random = new Random();
-            doDrop = (int) (Math.random() * (pixelConfig.coinDropRate * 25));
-            if (doDrop < 25 && doDrop != 10) {
-                dropped = random.nextInt(2) + 1;
-                p.dropItem(PixelUtilitysItems.PokeCoin1Item, dropped);
-            }
-            if (doDrop == 10) {
-                e.entityLiving.dropItem(PixelUtilitysItems.PokeCoin10Item, 1);
+            if(doDrop == 10) {
+                entityPlayer.inventory.addItemStackToInventory(new ItemStack(PixelUtilitysItems.PokeCoin10Item, 1));
             }
         }
     }
