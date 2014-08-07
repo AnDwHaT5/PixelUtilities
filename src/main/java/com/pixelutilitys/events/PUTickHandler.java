@@ -32,10 +32,10 @@ public class PUTickHandler implements IPixelmonEventHandler {
 
         switch(eventType)
         {
-/*            case EventType.PlayerBattleStarted: // NOT IMPLEMENTED IN PIXELMON
+            case EventType.PlayerBattleStarted:
                 playerRadio.start();
                 break;
-*/
+
             case PlayerBattleEnded:
             case PlayerBattleEndedAbnormal:
                 playerRadio.stop();
